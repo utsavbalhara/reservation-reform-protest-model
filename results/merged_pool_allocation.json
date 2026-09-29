@@ -1113,40 +1113,148 @@
  },
  "allotment_check": {
   "2021": {
+   "categories": [
+    "GEN",
+    "GEN-EWS",
+    "OBC-NCL",
+    "SC",
+    "ST"
+   ],
    "actual": [
     6576,
     1672,
     4394,
     2433,
     1221
-   ]
+   ],
+   "reserved_first": {
+    "model": [
+     6600.0,
+     1630.0,
+     4400.0,
+     2444.0,
+     1222.0
+    ],
+    "largest_absolute_gap": 42
+   },
+   "open_first": {
+    "model": [
+     4517.0,
+     2365.0,
+     5593.0,
+     2572.0,
+     1249.0
+    ],
+    "largest_absolute_gap": 2059
+   }
   },
   "2022": {
+   "categories": [
+    "GEN",
+    "GEN-EWS",
+    "OBC-NCL",
+    "SC",
+    "ST"
+   ],
    "actual": [
     6477,
     1883,
     4538,
     2494,
     1243
-   ]
+   ],
+   "reserved_first": {
+    "model": [
+     6737.0,
+     1664.0,
+     4491.0,
+     2495.0,
+     1248.0
+    ],
+    "largest_absolute_gap": 260
+   },
+   "open_first": {
+    "model": [
+     4341.0,
+     2502.0,
+     5863.0,
+     2650.0,
+     1280.0
+    ],
+    "largest_absolute_gap": 2136
+   }
   },
   "2023": {
+   "categories": [
+    "GEN",
+    "GEN-EWS",
+    "OBC-NCL",
+    "SC",
+    "ST"
+   ],
    "actual": [
     6617,
     2043,
     4747,
     2616,
     1317
-   ]
+   ],
+   "reserved_first": {
+    "model": [
+     7023.0,
+     1734.0,
+     4682.0,
+     2601.0,
+     1300.0
+    ],
+    "largest_absolute_gap": 406
+   },
+   "open_first": {
+    "model": [
+     4414.0,
+     2623.0,
+     6174.0,
+     2773.0,
+     1356.0
+    ],
+    "largest_absolute_gap": 2203
+   }
   },
   "2025": {
+   "categories": [
+    "GEN",
+    "GEN-EWS",
+    "OBC-NCL",
+    "SC",
+    "ST"
+   ],
    "actual": [
     7118,
     2008,
     4965,
     2730,
     1367
-   ]
+   ],
+   "reserved_first": {
+    "model": [
+     7366.0,
+     1819.0,
+     4911.0,
+     2728.0,
+     1364.0
+    ],
+    "largest_absolute_gap": 248
+   },
+   "open_first": {
+    "model": [
+     4732.0,
+     2666.0,
+     6497.0,
+     2886.0,
+     1407.0
+    ],
+    "largest_absolute_gap": 2386
+   }
   }
  },
  "summary": {
@@ -2617,6 +2725,496 @@
      "median": 0.7754,
      "p05": 0.5819,
      "p95": 0.8712
+    }
+   }
+  },
+  "lever|merged_pool_expanded": {
+   "GEN_above": {
+    "status_quo": {
+     "median": 5435.1967,
+     "p05": 4885.3411,
+     "p95": 6110.5133
+    },
+    "reform": {
+     "median": 5996.6722,
+     "p05": 5237.2849,
+     "p95": 6962.1639
+    },
+    "percent_change": {
+     "median": 10.9088,
+     "p05": 3.9356,
+     "p95": 15.9869
+    },
+    "change_per_1000_candidates": {
+     "median": 20.2623,
+     "p05": 7.2876,
+     "p95": 28.5598
+    },
+    "relative_material_change": {
+     "median": -0.1915,
+     "p05": -0.2922,
+     "p95": -0.0722
+    }
+   },
+   "GEN_below": {
+    "status_quo": {
+     "median": 1560.3455,
+     "p05": 948.0058,
+     "p95": 1991.216
+    },
+    "reform": {
+     "median": 4886.7312,
+     "p05": 3126.8653,
+     "p95": 5919.4803
+    },
+    "percent_change": {
+     "median": 211.0968,
+     "p05": 193.972,
+     "p95": 248.431
+    },
+    "change_per_1000_candidates": {
+     "median": 345.8681,
+     "p05": 305.9652,
+     "p95": 390.0178
+    },
+    "relative_material_change": {
+     "median": -3.4905,
+     "p05": -4.1521,
+     "p95": -2.4793
+    }
+   },
+   "GEN-EWS": {
+    "status_quo": {
+     "median": 1734.0,
+     "p05": 1629.6,
+     "p95": 1818.8
+    },
+    "reform": {
+     "median": 3725.5,
+     "p05": 3301.9683,
+     "p95": 4129.05
+    },
+    "percent_change": {
+     "median": 115.5405,
+     "p05": 97.2702,
+     "p95": 135.2316
+    },
+    "change_per_1000_candidates": {
+     "median": 74.82,
+     "p05": 61.8149,
+     "p95": 94.5578
+    },
+    "relative_material_change": {
+     "median": -0.7437,
+     "p05": -0.8981,
+     "p95": -0.5981
+    }
+   },
+   "OBC-NCL_above": {
+    "status_quo": {
+     "median": 868.4803,
+     "p05": 538.131,
+     "p95": 1493.9299
+    },
+    "reform": {
+     "median": 144.9679,
+     "p05": 55.399,
+     "p95": 418.051
+    },
+    "percent_change": {
+     "median": -83.3952,
+     "p05": -89.7559,
+     "p95": -72.1101
+    },
+    "change_per_1000_candidates": {
+     "median": -70.8392,
+     "p05": -96.8895,
+     "p95": -55.8528
+    },
+    "relative_material_change": {
+     "median": 0.7103,
+     "p05": 0.5883,
+     "p95": 0.8187
+    }
+   },
+   "OBC-NCL_below": {
+    "status_quo": {
+     "median": 3775.6953,
+     "p05": 3125.8043,
+     "p95": 4216.7972
+    },
+    "reform": {
+     "median": 5880.1677,
+     "p05": 5027.4076,
+     "p95": 6684.0564
+    },
+    "percent_change": {
+     "median": 57.3309,
+     "p05": 40.8034,
+     "p95": 75.7461
+    },
+    "change_per_1000_candidates": {
+     "median": 42.2563,
+     "p05": 31.289,
+     "p95": 56.0119
+    },
+    "relative_material_change": {
+     "median": -0.4144,
+     "p05": -0.5659,
+     "p95": -0.3027
+    }
+   },
+   "SC_above": {
+    "status_quo": {
+     "median": 582.5723,
+     "p05": 315.9404,
+     "p95": 1116.3724
+    },
+    "reform": {
+     "median": 27.9342,
+     "p05": 7.4895,
+     "p95": 101.6609
+    },
+    "percent_change": {
+     "median": -95.1596,
+     "p05": -97.6374,
+     "p95": -90.6359
+    },
+    "change_per_1000_candidates": {
+     "median": -99.0795,
+     "p05": -127.098,
+     "p95": -84.9611
+    },
+    "relative_material_change": {
+     "median": 0.9863,
+     "p05": 0.9717,
+     "p95": 0.9934
+    }
+   },
+   "SC_below": {
+    "status_quo": {
+     "median": 1992.386,
+     "p05": 1481.8381,
+     "p95": 2322.1498
+    },
+    "reform": {
+     "median": 738.0152,
+     "p05": 581.6409,
+     "p95": 880.2238
+    },
+    "percent_change": {
+     "median": -63.0113,
+     "p05": -67.2457,
+     "p95": -56.5935
+    },
+    "change_per_1000_candidates": {
+     "median": -56.536,
+     "p05": -66.868,
+     "p95": -48.233
+    },
+    "relative_material_change": {
+     "median": 0.5678,
+     "p05": 0.4337,
+     "p95": 0.6562
+    }
+   },
+   "ST_above": {
+    "status_quo": {
+     "median": 337.231,
+     "p05": 160.6188,
+     "p95": 592.3675
+    },
+    "reform": {
+     "median": 9.6545,
+     "p05": 2.1243,
+     "p95": 32.6541
+    },
+    "percent_change": {
+     "median": -97.1199,
+     "p05": -98.7625,
+     "p95": -94.275
+    },
+    "change_per_1000_candidates": {
+     "median": -108.7606,
+     "p05": -136.3178,
+     "p95": -93.3236
+    },
+    "relative_material_change": {
+     "median": 1.0787,
+     "p05": 0.9893,
+     "p95": 1.1593
+    }
+   },
+   "ST_below": {
+    "status_quo": {
+     "median": 955.1133,
+     "p05": 701.9381,
+     "p95": 1149.5746
+    },
+    "reform": {
+     "median": 188.7449,
+     "p05": 136.3033,
+     "p95": 249.7299
+    },
+    "percent_change": {
+     "median": -79.2444,
+     "p05": -83.8195,
+     "p95": -74.8973
+    },
+    "change_per_1000_candidates": {
+     "median": -76.3363,
+     "p05": -92.3381,
+     "p95": -66.8214
+    },
+    "relative_material_change": {
+     "median": 0.7848,
+     "p05": 0.5801,
+     "p95": 0.9013
+    }
+   }
+  },
+  "lever|caste_income_filter": {
+   "GEN_above": {
+    "status_quo": {
+     "median": 5435.1967,
+     "p05": 4885.3411,
+     "p95": 6110.5133
+    },
+    "reform": {
+     "median": 5361.3321,
+     "p05": 4820.3655,
+     "p95": 6041.5386
+    },
+    "percent_change": {
+     "median": -1.2626,
+     "p05": -2.163,
+     "p95": -0.7267
+    },
+    "change_per_1000_candidates": {
+     "median": -2.348,
+     "p05": -3.9846,
+     "p95": -1.2973
+    },
+    "relative_material_change": {
+     "median": 0.0225,
+     "p05": 0.0119,
+     "p95": 0.0427
+    }
+   },
+   "GEN_below": {
+    "status_quo": {
+     "median": 1560.3455,
+     "p05": 948.0058,
+     "p95": 1991.216
+    },
+    "reform": {
+     "median": 1538.104,
+     "p05": 935.6303,
+     "p95": 1961.4196
+    },
+    "percent_change": {
+     "median": -1.3375,
+     "p05": -2.2709,
+     "p95": -0.7493
+    },
+    "change_per_1000_candidates": {
+     "median": -2.1245,
+     "p05": -3.6668,
+     "p95": -1.23
+    },
+    "relative_material_change": {
+     "median": 0.0209,
+     "p05": 0.0109,
+     "p95": 0.04
+    }
+   },
+   "GEN-EWS": {
+    "status_quo": {
+     "median": 1734.0,
+     "p05": 1629.6,
+     "p95": 1818.8
+    },
+    "reform": {
+     "median": 1734.0,
+     "p05": 1629.6,
+     "p95": 1818.8
+    },
+    "percent_change": {
+     "median": 0.0,
+     "p05": 0.0,
+     "p95": 0.0
+    },
+    "change_per_1000_candidates": {
+     "median": 0.0,
+     "p05": 0.0,
+     "p95": 0.0
+    },
+    "relative_material_change": {
+     "median": 0.0,
+     "p05": -0.0,
+     "p95": 0.0
+    }
+   },
+   "OBC-NCL_above": {
+    "status_quo": {
+     "median": 868.4803,
+     "p05": 538.131,
+     "p95": 1493.9299
+    },
+    "reform": {
+     "median": 868.4803,
+     "p05": 538.131,
+     "p95": 1493.9299
+    },
+    "percent_change": {
+     "median": 0.0,
+     "p05": 0.0,
+     "p95": 0.0
+    },
+    "change_per_1000_candidates": {
+     "median": 0.0,
+     "p05": 0.0,
+     "p95": 0.0
+    },
+    "relative_material_change": {
+     "median": 0.0,
+     "p05": -0.0,
+     "p95": 0.0
+    }
+   },
+   "OBC-NCL_below": {
+    "status_quo": {
+     "median": 3775.6953,
+     "p05": 3125.8043,
+     "p95": 4216.7972
+    },
+    "reform": {
+     "median": 3775.6953,
+     "p05": 3125.8043,
+     "p95": 4216.7972
+    },
+    "percent_change": {
+     "median": 0.0,
+     "p05": 0.0,
+     "p95": 0.0
+    },
+    "change_per_1000_candidates": {
+     "median": 0.0,
+     "p05": 0.0,
+     "p95": 0.0
+    },
+    "relative_material_change": {
+     "median": 0.0,
+     "p05": -0.0,
+     "p95": 0.0
+    }
+   },
+   "SC_above": {
+    "status_quo": {
+     "median": 582.5723,
+     "p05": 315.9404,
+     "p95": 1116.3724
+    },
+    "reform": {
+     "median": 16.361,
+     "p05": 4.4437,
+     "p95": 56.1565
+    },
+    "percent_change": {
+     "median": -97.1875,
+     "p05": -98.5842,
+     "p95": -94.8387
+    },
+    "change_per_1000_candidates": {
+     "median": -101.6415,
+     "p05": -129.2784,
+     "p95": -87.6584
+    },
+    "relative_material_change": {
+     "median": 1.007,
+     "p05": 1.0022,
+     "p95": 1.018
+    }
+   },
+   "SC_below": {
+    "status_quo": {
+     "median": 1992.386,
+     "p05": 1481.8381,
+     "p95": 2322.1498
+    },
+    "reform": {
+     "median": 2662.326,
+     "p05": 2476.5588,
+     "p95": 2789.6591
+    },
+    "percent_change": {
+     "median": 31.5653,
+     "p05": 15.4087,
+     "p95": 79.6104
+    },
+    "change_per_1000_candidates": {
+     "median": 28.7742,
+     "p05": 14.1557,
+     "p95": 71.1664
+    },
+    "relative_material_change": {
+     "median": -0.2796,
+     "p05": -0.7639,
+     "p95": -0.1361
+    }
+   },
+   "ST_above": {
+    "status_quo": {
+     "median": 337.231,
+     "p05": 160.6188,
+     "p95": 592.3675
+    },
+    "reform": {
+     "median": 5.2534,
+     "p05": 1.1794,
+     "p95": 17.725
+    },
+    "percent_change": {
+     "median": -98.4115,
+     "p05": -99.303,
+     "p95": -96.7529
+    },
+    "change_per_1000_candidates": {
+     "median": -110.4974,
+     "p05": -138.0254,
+     "p95": -94.6942
+    },
+    "relative_material_change": {
+     "median": 1.0929,
+     "p05": 1.0118,
+     "p95": 1.1727
+    }
+   },
+   "ST_below": {
+    "status_quo": {
+     "median": 955.1133,
+     "p05": 701.9381,
+     "p95": 1149.5746
+    },
+    "reform": {
+     "median": 1320.6739,
+     "p05": 1229.8389,
+     "p95": 1383.493
+    },
+    "percent_change": {
+     "median": 36.807,
+     "p05": 14.949,
+     "p95": 86.2525
+    },
+    "change_per_1000_candidates": {
+     "median": 35.7105,
+     "p05": 15.0179,
+     "p95": 81.1537
+    },
+    "relative_material_change": {
+     "median": -0.3508,
+     "p05": -0.801,
+     "p95": -0.1512
     }
    }
   }
