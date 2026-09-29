@@ -306,27 +306,91 @@ def break_even(macros, rows):
 
 
 def global_sensitivity(macros, rows):
-    data = load("global_sensitivity_stylized.json")
+    for specification, word in (("stylized", ""), ("grounded", "Grounded")):
+        data = load(f"global_sensitivity_{specification}.json")
+        if data is None:
+            continue
+        results = data["results"]
+        macros.append(macro(f"Morris{word}Trajectories", str(data["trajectories"])))
+        macros.append(macro(f"Morris{word}DesignPoints", str(data["lever_order_across_design_points"]["design_points"])))
+        for key, name in (("L3_below_L5", "LThreeBeatsLFive"), ("L5_below_L1", "LFiveBeatsLOne"), ("L3_below_L1", "LThreeBeatsLOne")):
+            macros.append(macro(f"Morris{word}{name}", percent(data["lever_order_across_design_points"][key], 0)))
+        outputs = ("log_peak", "peak_change_percent:grandfathering", "peak_change_percent:hybrid_caste_subquotas", "peak_change_percent:consensus_commission")
+        for output, label in zip(outputs, ("Peak", "LOne", "LThree", "LFive")):
+            macros.append(macro(f"Morris{word}Top{label}", MORRIS_LABELS[results[output]["ranking"][0]]))
+            macros.append(macro(f"Morris{word}Second{label}", MORRIS_LABELS[results[output]["ranking"][1]]))
+        table = []
+        for name in results["log_peak"]["ranking"]:
+            cells = []
+            for output in outputs:
+                factor = results[output]["factors"][name]
+                cells.append(f"{factor['mu_star']:.2f}" if output == "log_peak" else f"{factor['mu_star']:.0f}")
+            table.append(f"{MORRIS_LABELS[name]} & " + " & ".join(cells) + f" & {results['log_peak']['factors'][name]['sigma']:.2f}\\\\")
+        rows["morris_rows.tex" if specification == "stylized" else "morris_rows_grounded.tex"] = table
+
+
+def grounded_channels(macros, rows):
+    data = load("grounded_channels.json")
     if data is None:
         return
-    results = data["results"]
-    macros.append(macro("MorrisTrajectories", str(data["trajectories"])))
-    macros.append(macro("MorrisDesignPoints", str(data["lever_order_across_design_points"]["design_points"])))
-    for key, name in (("L3_below_L5", "MorrisLThreeBeatsLFive"), ("L5_below_L1", "MorrisLFiveBeatsLOne"), ("L3_below_L1", "MorrisLThreeBeatsLOne")):
-        macros.append(macro(name, percent(data["lever_order_across_design_points"][key], 0)))
-    outputs = ("log_peak", "peak_change_percent:grandfathering", "peak_change_percent:hybrid_caste_subquotas", "peak_change_percent:consensus_commission")
-    for output, word in zip(outputs, ("Peak", "LOne", "LThree", "LFive")):
-        top = results[output]["ranking"][0]
-        macros.append(macro(f"MorrisTop{word}", MORRIS_LABELS[top]))
-    ordering = results["log_peak"]["ranking"]
+    channels = data["channels"]
+    names = {("baseline", "no_material"): "GChanNoMaterial", ("baseline", "no_symbolic"): "GChanNoSymbolic",
+             ("L1", "material_only"): "GChanLOneMaterial", ("L1", "symbolic_only"): "GChanLOneSymbolic",
+             ("L3", "symbolic_only"): "GChanLThreeSymbolic", ("L3", "allocation_only"): "GChanLThreeAllocation",
+             ("L5", "amplifier_only"): "GChanLFiveAmplifier", ("L5", "symbolic_only"): "GChanLFiveSymbolic",
+             ("B1", "coordination_only"): "GChanBOneCoordination", ("B1", "full"): "GChanBOneFull",
+             ("B2", "turnout_cost_only"): "GChanBTwoTurnoutCost", ("B2", "violence_and_martyr_only"): "GChanBTwoViolence",
+             ("B2", "full"): "GChanBTwoFull"}
     table = []
-    for name in ordering:
-        cells = []
-        for output in outputs:
-            factor = results[output]["factors"][name]
-            cells.append(f"{factor['mu_star']:.2f}" if output == "log_peak" else f"{factor['mu_star']:.0f}")
-        table.append(f"{MORRIS_LABELS[name]} & " + " & ".join(cells) + f" & {results['log_peak']['factors'][name]['sigma']:.2f}\\\\")
-    rows["morris_rows.tex"] = table
+    labels = {"no_material": "No material change", "no_symbolic": "No symbolic threat", "material_only": "Material channel only",
+              "symbolic_only": "Symbolic channel only", "allocation_only": "Allocation channel only", "amplifier_only": "Party amplifier only",
+              "coordination_only": "Coordination only (no extra violence)", "turnout_cost_only": "Turnout cost only",
+              "violence_and_martyr_only": "Extra deaths and martyr response only", "full": "Full lever"}
+    for (code, channel), name in names.items():
+        effects = channels[code][channel]
+        macros.append(macro(name, signed(effects["peak"]["change_percent"])))
+        macros.append(macro(name + "Cumulative", signed(effects["cumulative"]["change_percent"])))
+        macros.append(macro(name + "Deaths", signed(effects["deaths"]["change_percent"])))
+    for code, channel_map in channels.items():
+        for channel, effects in channel_map.items():
+            lever = "Abrupt switch" if code == "baseline" else code
+            table.append(f"{lever} & {labels[channel]} & {signed(effects['peak']['change_percent'])} & {interval_text(effects['peak']['change_percent_ci95'])} & "
+                         f"{signed(effects['cumulative']['change_percent'])} & {signed(effects['deaths']['change_percent'])}\\\\")
+    rows["grounded_channel_rows.tex"] = table
+    macros.append(macro("SymbolicShareOfGrievance", percent(data["grievance_composition"]["symbolic_share_of_positive_grievance"], 0)))
+    baseline = data["who_and_where"]["baseline"]
+    for group, share in baseline["protester_day_share_by_group"].items():
+        macros.append(macro(f"GroupShare{group}", percent(share, 0)))
+    states = list(baseline["protester_day_share_by_state"].items())
+    macros.append(macro("TopStates", ", ".join(f"{name} ({share * 100:.0f}\\%)" for name, share in states[:5])))
+    macros.append(macro("TopFiveStateShare", percent(sum(share for _, share in states[:5]), 0)))
+    tiers = baseline["sc_st_share_ever_protesting_by_tier"]
+    split = data["who_and_where"]["sub_classification"]["sc_st_share_ever_protesting_by_tier"]
+    macros += [macro("TierBaselineBetterOff", percent(tiers["better_off_share_protesting"], 1)),
+               macro("TierBaselineDeprived", percent(tiers["most_deprived_share_protesting"], 1)),
+               macro("TierSubclassBetterOff", percent(split["better_off_share_protesting"], 1)),
+               macro("TierSubclassDeprived", percent(split["most_deprived_share_protesting"], 1))]
+
+
+def stylized_facts(macros, rows):
+    data = load("stylized_facts.json")
+    if data is None:
+        return
+    s2 = data["S2_mobilization_concentrates_on_bandh_days"]
+    macros.append(macro("FactPeakOnBandhDay", percent(s2["share_of_runs_peak_on_a_bandh_day"], 0)))
+    if "share_of_runs_without_a_bandh" in s2:
+        macros.append(macro("FactNoBandh", percent(s2["share_of_runs_without_a_bandh"], 0)))
+        macros.append(macro("FactPeakAfterBandh", percent(s2["share_of_runs_peak_after_first_bandh"], 0)))
+    if s2["median_ratio_bandh_day_to_ordinary_day_turnout"] is not None:
+        macros.append(macro("FactBandhToOrdinary", f"{s2['median_ratio_bandh_day_to_ordinary_day_turnout']:.0f}"))
+    s3 = data["S3_party_backing_is_one_amplifier_among_several"]
+    if s3:
+        macros.append(macro("FactBackingPeakRatio", f"{s3['peak_ratio_backing_0_6_to_0_2_at_R_1']:.2f}"))
+        macros.append(macro("FactShockPeakRatio", f"{s3['peak_ratio_R_1_5_to_R_0_5_at_backing_0_6']:.0f}"))
+    s4 = data["S4_groups_split_when_a_reform_creates_winners_inside_them"]
+    if s4:
+        macros.append(macro("FactDeprivedChange", signed(s4["most_deprived_change_percent"])))
+        macros.append(macro("FactBetterOffChange", signed(s4["better_off_change_percent"])))
 
 
 def structural_ensemble(macros, rows):
@@ -401,7 +465,7 @@ def main():
     GENERATED_FOLDER.mkdir(parents=True, exist_ok=True)
     macros, rows = [], {}
     for section in (eligibility, allocation, episodes, calibration, mapping_uncertainty, decomposition, break_even,
-                    global_sensitivity, structural_ensemble, grounded_extras, grounded_assumptions):
+                    global_sensitivity, structural_ensemble, grounded_extras, grounded_assumptions, grounded_channels, stylized_facts):
         section(macros, rows)
     (GENERATED_FOLDER / "grounded_macros.tex").write_text("\n".join(macros) + "\n")
     for name, lines in rows.items():

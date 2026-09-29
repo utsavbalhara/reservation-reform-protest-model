@@ -26,6 +26,8 @@ The derived data in `data/derived/` are committed, so the analyses run without d
 | `python -m data_pipelines.gdelt_download` | Downloads GDELT 1.0 daily files for each episode window (about 2 GB, not committed) | `data/raw/gdelt/` |
 | `python -m data_pipelines.gdelt_episode_events` | Filters protest events by episode and state | `data/derived/gdelt_episode_daily.csv`, `gdelt_episode_locations.csv` |
 | `python -m data_pipelines.episode_targets` | Corrects counts by the audited precision and builds calibration targets | `data/derived/episode_targets.json` |
+| `python -m data_pipelines.acled_episode_events` | Counts ACLED protest and riot events per episode from an ACLED export placed in `data/raw/acled/` (not committed; ACLED's terms forbid redistribution) | `data/derived/acled_episode_summary.json`, `acled_episode_daily.csv` |
+| `python -m experiments.acled_cross_check` | Compares ACLED with GDELT, scores the frozen predictions against ACLED, and tests the 2018 turnout against ACLED's reported crowd sizes | `results/acled_cross_check.json` |
 
 ## Reproduce the results
 
@@ -45,6 +47,9 @@ The derived data in `data/derived/` are committed, so the analyses run without d
 | `python -m experiments.material_symbolic_break_even --specification stylized` | Sweeps the symbolic-to-material weight ratio with recalibration | ~20 min | `results/material_symbolic_break_even_stylized.json` |
 | `python -m experiments.global_sensitivity` | Morris screening of 15 parameters | ~15 min | `results/global_sensitivity_stylized.json` |
 | `python -m experiments.structural_ensemble` | Lever comparison under 11 structural variants, each recalibrated | ~45 min | `results/structural_ensemble.json` |
+| `python -m experiments.grounded_channels` | Grounded model taken apart: lever channels, grievance composition, who protests by group, tier and state | ~5 min | `results/grounded_channels.json` |
+| `python -m experiments.stylized_facts` | Checks the grounded model against the stylized facts S1–S5 (run after the two above) | ~1 min | `results/stylized_facts.json` |
+| `python -m experiments.global_sensitivity --specification grounded` | Morris screening around the central calibrated values | ~10 min | `results/global_sensitivity_grounded.json` |
 | `python -m experiments.record_daily_trajectories --specification grounded` | Day-by-day turnout for every scenario | ~1 min | `results/daily_trajectories_grounded_central.json` |
 | `python -m experiments.sensitivity_analysis` | One-at-a-time sensitivity and agent-count convergence (stylized) | ~30 min | `results/sensitivity_analysis.json` |
 | `python -m experiments.check_robustness` | L3's symbolic assumption and managed-transition leave-one-out (stylized) | ~4 min | `results/robustness_checks.json` |

@@ -27,6 +27,20 @@ The analysis has three parts:
 - **Adding seats on the EWS model** does little (−9%): a merged pool still ranks SC and ST candidates against General candidates. **Compensating the families who lose eligibility** is as weak (−8%).
 - **Internet shutdowns and heavy policing** lower the peak by 26% and 13% while multiplying deaths by 1.4 and 2.6. Whether they also broaden protest depends on how people react to deaths, which no episode identifies.
 
+## What this project comprises
+
+It began as one stylized agent-based model. It is now a linked analysis with four parts, each usable on its own:
+
+| Component | What it does | Where |
+|---|---|---|
+| Eligibility accounting | Who changes status under the real creamy-layer and EWS rules | `experiments/eligibility_accounting.py` |
+| Seat-allocation model | Seats by group under any vertical-reservation design, using India's over-and-above choice rule, fitted to JEE (Advanced) rank lists and validated against published allotments | `merit_allocation/`, `experiments/merged_pool_allocation.py` |
+| Protest model | Agent-based model on 640 districts with endogenous bandh calls, concession and backlash, and deaths; plus the original stylized model as a reference | `protest_simulation/` |
+| Calibration and validation | History matching to GDELT event counts for four episodes; leave-one-episode-out predictions frozen and published before scoring; spatial tests; an ACLED cross-check pipeline | `data_pipelines/`, `experiments/episode_calibration.py` |
+| Uncertainty analysis | Paired bootstrap effects, channel decompositions, priors on intervention effects, the unidentified assumptions, an 11-variant structural ensemble, Morris screening in both specifications | `experiments/` |
+
+What it can and cannot do: it compares policy designs on the same simulated worlds and says which comparisons survive the uncertainty; it does not forecast how many people would protest, where violence would occur, or which states organizers would carry.
+
 ## Results
 
 Grounded model, 50 paired Monte Carlo runs per scenario. Change is the median over runs of the ratio to the baseline in the same world, with a 95% bootstrap interval. The stylized column is the original model, calibrated to an assumed 20 lakh – 1 crore peak.
@@ -48,6 +62,23 @@ Grounded model, 50 paired Monte Carlo runs per scenario. Change is the median ov
 | C2 | Hybrid package (L3+L4+L1+L5+L6+L7) | 1.7 lakh | −99% (−100 to −98) | 0.13 cr | 2 | −99% |
 
 ![Paired effects in both specifications](figures/fig12_paired_effects.png)
+
+## Checks and verdicts
+
+**Stylized facts.** The grounded model reproduces four of the five facts drawn from past episodes:
+- **S1:** symbolic threat alone mobilizes at bandh scale.
+- **S2:** mobilization concentrates on bandh days, which average 9 times ordinary days; the peak falls on a bandh day in 66% of runs.
+- **S3:** party backing is a minor amplifier. Raising it from the 2018 to the 2024 level changes the peak by a factor of 1.04; tripling the shock changes it 18-fold.
+- **S4:** sub-classification splits the coalition. The most-deprived tier's participation falls 88% and the better-off tier's 20%.
+- **S5** only in part: deaths and concessions occur, but the model cannot say which bandhs turn violent.
+
+**Where the grievance comes from.** Symbolic threat is 78% of all grievance that pushes towards protest. Removing it cuts the peak by 99%; removing material change cuts it by 57%.
+
+**Who and where.** SC agents make up 63% of protester-days and ST agents 26%. By state: Uttar Pradesh (15%), Bihar, West Bengal, Madhya Pradesh and Maharashtra. This is a demographic baseline; in 2018, Punjab, where the call began, had far more events than its population share.
+
+**Hypotheses.** Grandfathering, caste quotas with an income filter, sub-classification, a commission and statutory guarantees all reduce protest, the income filter by far the most. Seat expansion and compensation are weak. Shutdowns and policing lower the peak somewhat and raise deaths.
+
+A point-by-point response to the review is in [`docs/response_to_review.md`](docs/response_to_review.md).
 
 ## What changed in this revision
 
@@ -85,6 +116,7 @@ The stylized model is the fourth specification. The paper documents each earlier
 | ![Seat changes](figures/fig10_allocation_seat_changes.png) | ![Episode calibration](figures/fig11_episode_calibration.png) |
 | ![Rank probabilities](figures/fig13_rank_probabilities.png) | ![Morris screening](figures/fig14_morris_screening.png) |
 | ![Grounded daily paths](figures/fig15_grounded_daily_paths.png) | ![Model development](figures/fig08_model_development.png) |
+| ![Grievance composition](figures/fig16_grievance_composition_grounded.png) | ![State distribution](figures/fig17_state_distribution.png) |
 
 Every figure has a vector PDF next to its PNG in `figures/`. The videos in `videos/` are drawn from live runs of the stylized model.
 
@@ -110,12 +142,12 @@ tests/                     regression, property, reimplementation and data tests
 visualization/             figures, videos, LaTeX macros and the results page, all from results/
 results/                   JSON output, including frozen leave-one-out predictions
 paper/, report/            LaTeX sources and PDFs
-docs/                      literature and novelty search log
+docs/                      literature and novelty search log; point-by-point response to the review
 ```
 
 ## Limitations
 
-How strongly a commission, a guarantee or an income filter reduces the sense of threat is a judgement, handled with wide priors. The episodes identify relative, not absolute, protest size, so the reform's headcount is uncertain by more than tenfold. The material grievance weight is not identified. The seat model covers IIT admissions only. The GDELT relevance labels were coded from article URL text by a single coder and have not been double-coded. Jati-level heterogeneity, state politics, courts, elections and media are not modelled. Treat the headcounts as illustrations and the comparisons between designs as the finding.
+How strongly a commission, a guarantee or an income filter reduces the sense of threat is a judgement, handled with wide priors. The episodes identify relative, not absolute, protest size, so the reform's headcount is uncertain by more than tenfold. The material grievance weight is not identified. The seat model covers IIT admissions only. The GDELT relevance labels were coded from article URL text by a single coder and have not been double-coded. ACLED, a hand-coded event dataset, would give an independent check; the pipeline is built (`data_pipelines/acled_episode_events.py`, `experiments/acled_cross_check.py`) and awaits the data. Jati-level heterogeneity, state politics, courts, elections and media are not modelled. Treat the headcounts as illustrations and the comparisons between designs as the finding.
 
 ## Citation
 

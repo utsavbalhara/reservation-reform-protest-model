@@ -197,9 +197,75 @@ def plot_grounded_paths():
     save_figure(figure, "fig15_grounded_daily_paths")
 
 
+SEGMENT_DISPLAY = [("SC_above", "SC, above line"), ("SC_below", "SC, below line"), ("ST_above", "ST, above line"),
+                   ("ST_below", "ST, below line"), ("OBC_above_ncl", "OBC non-creamy, above line"), ("OBC_creamy", "OBC creamy layer"),
+                   ("OBC_below", "OBC, below line"), ("General_above", "General, above line"), ("General_below_ews", "General, EWS-eligible"),
+                   ("General_below_asset_excluded", "General, below line, not EWS")]
+
+
+def plot_grievance_composition():
+    data = load("grounded_channels.json")
+    if data is None:
+        return
+    table = data["grievance_composition"]["by_segment"]
+    figure, axis = plt.subplots(figsize=(7.2, 4.0))
+    rows = [(key, label) for key, label in SEGMENT_DISPLAY if key in table]
+    for row, (key, label) in enumerate(rows):
+        material, symbolic = table[key]["mean_material"], table[key]["mean_symbolic"]
+        # Positive parts stack to the right of zero, negative parts to the left, with a 2px-equivalent gap.
+        right = 0.0
+        for value, colour in ((symbolic, BLUE), (material, ORANGE)):
+            if value > 0:
+                axis.barh(row, value, left=right, color=colour, height=0.62, edgecolor="#fcfcfb", linewidth=1.2)
+                right += value
+        left = 0.0
+        for value, colour in ((symbolic, BLUE), (material, ORANGE)):
+            if value < 0:
+                axis.barh(row, value, left=left, color=colour, height=0.62, edgecolor="#fcfcfb", linewidth=1.2)
+                left += value
+        share = table[key]["share_of_population"] * 100
+        axis.text(max(right, 0) + 0.08, row, f"{share:.0f}% of India", va="center", fontsize=7.5, color=SECONDARY_INK)
+    axis.axvline(0, color=MUTED_INK, linewidth=0.8)
+    axis.set_yticks(range(len(rows)), [label for _, label in rows])
+    axis.invert_yaxis()
+    axis.set_xlim(-2.4, 4.2)
+    axis.set_xlabel("Mean grievance component (positive = pushes towards protest)")
+    axis.set_title("Grievance by segment, grounded model")
+    from matplotlib.patches import Patch
+    axis.legend(handles=[Patch(color=BLUE, label="Symbolic threat × identity"), Patch(color=ORANGE, label="Material change × loss aversion")],
+                loc="lower right")
+    axis.grid(axis="y", visible=False)
+    save_figure(figure, "fig16_grievance_composition_grounded")
+
+
+def plot_state_distribution():
+    data = load("grounded_channels.json")
+    targets_path = REPOSITORY_ROOT / "data" / "derived" / "episode_targets.json"
+    if data is None or not targets_path.exists():
+        return
+    shares = data["who_and_where"]["baseline"]["protester_day_share_by_state"]
+    observed = json.loads(targets_path.read_text())["sc_st_bharat_bandh_2018"]["core_events_by_state"]
+    observed = {state: count for state, count in observed.items() if state in shares}
+    observed_total = sum(observed.values())
+    states = list(shares)[:14]
+    figure, axis = plt.subplots(figsize=(7.2, 4.4))
+    for row, state in enumerate(states):
+        axis.barh(row, shares[state] * 100, color=BLUE, height=0.62, label="Model: reform, share of protester-days" if row == 0 else None)
+        if observed_total:
+            axis.plot(observed.get(state, 0) / observed_total * 100, row, "o", color=INK, markersize=5,
+                      label="Observed: 2 April 2018, share of GDELT events" if row == 0 else None)
+    axis.set_yticks(range(len(states)), states)
+    axis.invert_yaxis()
+    axis.set_xlabel("Share of national total (%)")
+    axis.set_title("Where protest concentrates")
+    axis.legend(loc="center right")
+    axis.grid(axis="y", visible=False)
+    save_figure(figure, "fig17_state_distribution")
+
+
 def main():
     apply_house_style()
-    for plot in (plot_allocation, plot_calibration, plot_paired_effects, plot_rank_probabilities, plot_morris, plot_grounded_paths):
+    for plot in (plot_allocation, plot_calibration, plot_paired_effects, plot_rank_probabilities, plot_morris, plot_grounded_paths, plot_grievance_composition, plot_state_distribution):
         plot()
     print("Rendered grounded figures")
 

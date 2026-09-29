@@ -20,6 +20,7 @@
 \usepackage{caption}
 \usepackage[hidelinks]{hyperref}
 \usepackage{float}
+\setlength{\emergencystretch}{2em}
 \setcounter{tocdepth}{2}
 \setcounter{secnumdepth}{2}
 \usepackage{array}
@@ -214,6 +215,36 @@ What this shows, honestly:
 
 \paragraph{About the headcounts} The grounded model's baseline peak of \PeakGroundedBaseline{} rests on two things the data cannot settle: how strongly the reform would threaten caste recognition compared with the 2018 ruling, and how much material grievance weighs. Across the plausible range the peak runs from \AssumptionPeakLow{} to \AssumptionPeakHigh. Read the headcounts as illustrations and the changes as the result.
 
+\section{Where the anger comes from, and who protests}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.9\linewidth]{../figures/fig16_grievance_composition_grounded.pdf}
+\caption{Average grievance by group in the grounded model, split into symbolic threat and material change.}
+\end{figure}
+
+\begin{itemize}
+\item \textbf{Mostly symbolic, but not only.} Symbolic threat is \SymbolicShareOfGrievance{} of all the grievance that pushes people towards protest. Removing it cuts the peak by \GChanNoSymbolic; removing the material losses cuts it by \GChanNoMaterial. For below-line SC and ST families, the seat losses add between a third and a half to their grievance.
+\item \textbf{Who protests.} SC communities make up \GroupShareSC{} of protester-days and ST communities \GroupShareST.
+\item \textbf{Where.} \TopStates. This is where the SC and ST population lives, not a prediction of where organizers will succeed: in 2018, Punjab, where the bandh call began, reported far more protest than its population share.
+\end{itemize}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.9\linewidth]{../figures/fig17_state_distribution.pdf}
+\caption{Share of protest by state in the grounded model, and the share of reported protest events by state on 2 April 2018.}
+\end{figure}
+
+\subsection{Does the model behave like real protests?}
+Five patterns from past episodes, and whether the model shows them:
+\begin{enumerate}
+\item A threat to recognition alone can bring out a national bandh: \textbf{yes}.
+\item Protest concentrates on bandh days: \textbf{mostly} (bandh days are about \FactBandhToOrdinary{} times ordinary days).
+\item Party backing is not what makes a bandh large: \textbf{yes} (raising party backing from the 2018 to the 2024 level changes the peak by a factor of only \FactBackingPeakRatio).
+\item A group splits when a reform creates winners inside it: \textbf{yes} (sub-classification changes the poorest sub-castes' participation by \FactDeprivedChange).
+\item Some bandhs turn deadly and governments concede: \textbf{partly}. Deaths and concessions happen in the model, but it cannot tell which bandhs will turn violent.
+\end{enumerate}
+
 \section{Scenario by scenario}
 
 Each scenario follows the same layout: what the policy is, the theory behind it, a plain-language summary, how it enters the model, the outcome, and why. Changes compare peak-day turnout with the abrupt switch in the same simulated world.
@@ -351,7 +382,7 @@ L3 with sub-classification (L4), grandfathering (L1), the commission (L5), compe
 \begin{itemize}
 \item \textbf{How strongly each policy works is uncertain.} When every policy's strength is drawn at random from a wide range, keeping caste quotas with an income filter still comes first with probability \MapGroundedStrongestLThree. The commission beats grandfathering with probability \MapGroundedLFiveBeatsLOne{}, so grandfathering is more often the stronger of the two.
 \item \textbf{The model's structure is uncertain.} Across \EnsembleVariants{} alternative structures (different threshold shapes, organizations that call bandhs only when turnout is credible, a government that can concede, mixed neighbourhoods, deaths that deter instead of mobilize), L3 comes first in \EnsembleLThreeStrongest{} and compensation last in \EnsembleLSixWeakest.
-\item \textbf{Every parameter moved at once.} A Morris screen across fifteen parameters finds L3 ahead of the commission in \MorrisLThreeBeatsLFive{} of design points.
+\item \textbf{Every parameter moved at once.} A Morris screen across fifteen parameters finds L3 ahead of the commission in \MorrisLThreeBeatsLFive{} of design points in the stylized model and \MorrisGroundedLThreeBeatsLFive{} in the grounded one.
 \item \textbf{What the data cannot settle.} Across the reform's shock size and party backing, the baseline peak moves from \AssumptionPeakLow{} to \AssumptionPeakHigh{}, but L3 comes first in all \AssumptionCells{} combinations.
 \end{itemize}
 

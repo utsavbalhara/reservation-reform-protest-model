@@ -1,0 +1,1029 @@
+{
+ "specification": "grounded",
+ "method": "Morris elementary effects (trajectory design)",
+ "levels": 4,
+ "step": 0.6666666666666666,
+ "trajectories": 20,
+ "agents": 120000,
+ "factors": {
+  "mean_participation_threshold": [
+   "add",
+   -0.6,
+   0.6
+  ],
+  "participation_threshold_spread": [
+   "mul",
+   0.75,
+   1.25
+  ],
+  "decision_noise": [
+   "mul",
+   0.67,
+   1.5
+  ],
+  "loss_aversion": [
+   "mul",
+   0.7,
+   1.3
+  ],
+  "material_loss_weight": [
+   "mul",
+   0.67,
+   1.5
+  ],
+  "symbolic_threat_weight": [
+   "mul",
+   0.67,
+   1.5
+  ],
+  "most_deprived_tier_share_of_symbolic_threat": [
+   "abs",
+   0.6,
+   1.0
+  ],
+  "opposition_party_amplifier": [
+   "abs",
+   1.0,
+   2.0
+  ],
+  "max_neighbourhood_influence": [
+   "mul",
+   0.75,
+   1.25
+  ],
+  "neighbourhood_turnout_at_saturation": [
+   "mul",
+   0.5,
+   2.0
+  ],
+  "max_national_visibility_influence": [
+   "mul",
+   0.75,
+   1.25
+  ],
+  "fatigue_per_protest_day": [
+   "mul",
+   0.6,
+   1.4
+  ],
+  "mobilization_on_bandh_days": [
+   "mul",
+   0.75,
+   1.25
+  ],
+  "deaths_per_crore_protester_days": [
+   "mul",
+   0.5,
+   2.0
+  ],
+  "symbolic_threat_rise_per_death": [
+   "mul",
+   0.5,
+   2.0
+  ]
+ },
+ "results": {
+  "log_peak": {
+   "ranking": [
+    "symbolic_threat_weight",
+    "mean_participation_threshold",
+    "participation_threshold_spread",
+    "material_loss_weight",
+    "most_deprived_tier_share_of_symbolic_threat",
+    "loss_aversion",
+    "decision_noise",
+    "opposition_party_amplifier",
+    "mobilization_on_bandh_days",
+    "neighbourhood_turnout_at_saturation",
+    "symbolic_threat_rise_per_death",
+    "max_national_visibility_influence",
+    "max_neighbourhood_influence",
+    "deaths_per_crore_protester_days",
+    "fatigue_per_protest_day"
+   ],
+   "factors": {
+    "mean_participation_threshold": {
+     "mu_star": 1.5738,
+     "mu": -1.5738,
+     "sigma": 1.1525,
+     "mu_star_ci95": [
+      1.1278,
+      2.1489
+     ]
+    },
+    "participation_threshold_spread": {
+     "mu_star": 0.9407,
+     "mu": 0.9407,
+     "sigma": 1.1915,
+     "mu_star_ci95": [
+      0.5052,
+      1.5006
+     ]
+    },
+    "decision_noise": {
+     "mu_star": 0.4461,
+     "mu": 0.4461,
+     "sigma": 0.5584,
+     "mu_star_ci95": [
+      0.2244,
+      0.7058
+     ]
+    },
+    "loss_aversion": {
+     "mu_star": 0.5121,
+     "mu": 0.5022,
+     "sigma": 0.5129,
+     "mu_star_ci95": [
+      0.3306,
+      0.7382
+     ]
+    },
+    "material_loss_weight": {
+     "mu_star": 0.7712,
+     "mu": 0.7431,
+     "sigma": 0.7964,
+     "mu_star_ci95": [
+      0.4861,
+      1.1174
+     ]
+    },
+    "symbolic_threat_weight": {
+     "mu_star": 2.9979,
+     "mu": 2.9979,
+     "sigma": 1.5395,
+     "mu_star_ci95": [
+      2.3892,
+      3.6966
+     ]
+    },
+    "most_deprived_tier_share_of_symbolic_threat": {
+     "mu_star": 0.5732,
+     "mu": 0.3744,
+     "sigma": 0.6433,
+     "mu_star_ci95": [
+      0.3947,
+      0.7852
+     ]
+    },
+    "opposition_party_amplifier": {
+     "mu_star": 0.3098,
+     "mu": 0.3098,
+     "sigma": 0.2059,
+     "mu_star_ci95": [
+      0.2249,
+      0.4006
+     ]
+    },
+    "max_neighbourhood_influence": {
+     "mu_star": 0.1368,
+     "mu": 0.1319,
+     "sigma": 0.1255,
+     "mu_star_ci95": [
+      0.0954,
+      0.1968
+     ]
+    },
+    "neighbourhood_turnout_at_saturation": {
+     "mu_star": 0.1915,
+     "mu": -0.1915,
+     "sigma": 0.2182,
+     "mu_star_ci95": [
+      0.1093,
+      0.2997
+     ]
+    },
+    "max_national_visibility_influence": {
+     "mu_star": 0.1434,
+     "mu": 0.1434,
+     "sigma": 0.0732,
+     "mu_star_ci95": [
+      0.1135,
+      0.1749
+     ]
+    },
+    "fatigue_per_protest_day": {
+     "mu_star": 0.0773,
+     "mu": -0.0773,
+     "sigma": 0.1292,
+     "mu_star_ci95": [
+      0.0268,
+      0.1356
+     ]
+    },
+    "mobilization_on_bandh_days": {
+     "mu_star": 0.2082,
+     "mu": 0.2082,
+     "sigma": 0.1813,
+     "mu_star_ci95": [
+      0.1383,
+      0.2891
+     ]
+    },
+    "deaths_per_crore_protester_days": {
+     "mu_star": 0.1283,
+     "mu": 0.0624,
+     "sigma": 0.1935,
+     "mu_star_ci95": [
+      0.0692,
+      0.2035
+     ]
+    },
+    "symbolic_threat_rise_per_death": {
+     "mu_star": 0.1674,
+     "mu": 0.1647,
+     "sigma": 0.175,
+     "mu_star_ci95": [
+      0.0975,
+      0.2428
+     ]
+    }
+   }
+  },
+  "log_cumulative": {
+   "ranking": [
+    "symbolic_threat_weight",
+    "mean_participation_threshold",
+    "participation_threshold_spread",
+    "decision_noise",
+    "material_loss_weight",
+    "most_deprived_tier_share_of_symbolic_threat",
+    "loss_aversion",
+    "opposition_party_amplifier",
+    "deaths_per_crore_protester_days",
+    "neighbourhood_turnout_at_saturation",
+    "max_national_visibility_influence",
+    "symbolic_threat_rise_per_death",
+    "max_neighbourhood_influence",
+    "mobilization_on_bandh_days",
+    "fatigue_per_protest_day"
+   ],
+   "factors": {
+    "mean_participation_threshold": {
+     "mu_star": 1.3224,
+     "mu": -1.3224,
+     "sigma": 0.7347,
+     "mu_star_ci95": [
+      1.0126,
+      1.673
+     ]
+    },
+    "participation_threshold_spread": {
+     "mu_star": 0.8776,
+     "mu": 0.8776,
+     "sigma": 0.9173,
+     "mu_star_ci95": [
+      0.5389,
+      1.3131
+     ]
+    },
+    "decision_noise": {
+     "mu_star": 0.7993,
+     "mu": 0.7993,
+     "sigma": 0.6335,
+     "mu_star_ci95": [
+      0.5465,
+      1.0925
+     ]
+    },
+    "loss_aversion": {
+     "mu_star": 0.3531,
+     "mu": 0.3531,
+     "sigma": 0.261,
+     "mu_star_ci95": [
+      0.2585,
+      0.4816
+     ]
+    },
+    "material_loss_weight": {
+     "mu_star": 0.6763,
+     "mu": 0.5603,
+     "sigma": 0.7029,
+     "mu_star_ci95": [
+      0.4447,
+      0.937
+     ]
+    },
+    "symbolic_threat_weight": {
+     "mu_star": 2.5668,
+     "mu": 2.5668,
+     "sigma": 1.255,
+     "mu_star_ci95": [
+      2.0819,
+      3.145
+     ]
+    },
+    "most_deprived_tier_share_of_symbolic_threat": {
+     "mu_star": 0.4877,
+     "mu": 0.1744,
+     "sigma": 0.8044,
+     "mu_star_ci95": [
+      0.2763,
+      0.8204
+     ]
+    },
+    "opposition_party_amplifier": {
+     "mu_star": 0.2077,
+     "mu": 0.2077,
+     "sigma": 0.1418,
+     "mu_star_ci95": [
+      0.1551,
+      0.2729
+     ]
+    },
+    "max_neighbourhood_influence": {
+     "mu_star": 0.1239,
+     "mu": 0.1239,
+     "sigma": 0.0951,
+     "mu_star_ci95": [
+      0.0878,
+      0.1685
+     ]
+    },
+    "neighbourhood_turnout_at_saturation": {
+     "mu_star": 0.174,
+     "mu": -0.174,
+     "sigma": 0.1509,
+     "mu_star_ci95": [
+      0.1183,
+      0.2454
+     ]
+    },
+    "max_national_visibility_influence": {
+     "mu_star": 0.1534,
+     "mu": 0.1534,
+     "sigma": 0.0791,
+     "mu_star_ci95": [
+      0.1213,
+      0.1874
+     ]
+    },
+    "fatigue_per_protest_day": {
+     "mu_star": 0.0384,
+     "mu": -0.0356,
+     "sigma": 0.0606,
+     "mu_star_ci95": [
+      0.0168,
+      0.0667
+     ]
+    },
+    "mobilization_on_bandh_days": {
+     "mu_star": 0.1154,
+     "mu": 0.1154,
+     "sigma": 0.0855,
+     "mu_star_ci95": [
+      0.0794,
+      0.1514
+     ]
+    },
+    "deaths_per_crore_protester_days": {
+     "mu_star": 0.1777,
+     "mu": -0.0445,
+     "sigma": 0.5173,
+     "mu_star_ci95": [
+      0.0467,
+      0.4055
+     ]
+    },
+    "symbolic_threat_rise_per_death": {
+     "mu_star": 0.1529,
+     "mu": 0.1529,
+     "sigma": 0.1484,
+     "mu_star_ci95": [
+      0.0942,
+      0.2222
+     ]
+    }
+   }
+  },
+  "log1p_deaths": {
+   "ranking": [
+    "symbolic_threat_weight",
+    "mean_participation_threshold",
+    "deaths_per_crore_protester_days",
+    "participation_threshold_spread",
+    "most_deprived_tier_share_of_symbolic_threat",
+    "decision_noise",
+    "material_loss_weight",
+    "loss_aversion",
+    "opposition_party_amplifier",
+    "symbolic_threat_rise_per_death",
+    "neighbourhood_turnout_at_saturation",
+    "max_neighbourhood_influence",
+    "mobilization_on_bandh_days",
+    "fatigue_per_protest_day",
+    "max_national_visibility_influence"
+   ],
+   "factors": {
+    "mean_participation_threshold": {
+     "mu_star": 1.6478,
+     "mu": -1.5651,
+     "sigma": 1.4451,
+     "mu_star_ci95": [
+      1.1097,
+      2.1946
+     ]
+    },
+    "participation_threshold_spread": {
+     "mu_star": 1.2334,
+     "mu": 1.0678,
+     "sigma": 1.3284,
+     "mu_star_ci95": [
+      0.7709,
+      1.7244
+     ]
+    },
+    "decision_noise": {
+     "mu_star": 0.749,
+     "mu": 0.6857,
+     "sigma": 0.5972,
+     "mu_star_ci95": [
+      0.5479,
+      0.981
+     ]
+    },
+    "loss_aversion": {
+     "mu_star": 0.613,
+     "mu": 0.1832,
+     "sigma": 0.798,
+     "mu_star_ci95": [
+      0.4085,
+      0.8364
+     ]
+    },
+    "material_loss_weight": {
+     "mu_star": 0.656,
+     "mu": 0.5691,
+     "sigma": 0.8388,
+     "mu_star_ci95": [
+      0.3685,
+      1.009
+     ]
+    },
+    "symbolic_threat_weight": {
+     "mu_star": 2.8731,
+     "mu": 2.8731,
+     "sigma": 1.4784,
+     "mu_star_ci95": [
+      2.3223,
+      3.5699
+     ]
+    },
+    "most_deprived_tier_share_of_symbolic_threat": {
+     "mu_star": 0.7662,
+     "mu": 0.116,
+     "sigma": 1.4143,
+     "mu_star_ci95": [
+      0.3937,
+      1.3385
+     ]
+    },
+    "opposition_party_amplifier": {
+     "mu_star": 0.3438,
+     "mu": 0.2679,
+     "sigma": 0.4094,
+     "mu_star_ci95": [
+      0.2112,
+      0.5043
+     ]
+    },
+    "max_neighbourhood_influence": {
+     "mu_star": 0.2505,
+     "mu": 0.2427,
+     "sigma": 0.3109,
+     "mu_star_ci95": [
+      0.1353,
+      0.4025
+     ]
+    },
+    "neighbourhood_turnout_at_saturation": {
+     "mu_star": 0.2759,
+     "mu": -0.2474,
+     "sigma": 0.3734,
+     "mu_star_ci95": [
+      0.1449,
+      0.4404
+     ]
+    },
+    "max_national_visibility_influence": {
+     "mu_star": 0.1651,
+     "mu": 0.0867,
+     "sigma": 0.2077,
+     "mu_star_ci95": [
+      0.1071,
+      0.2307
+     ]
+    },
+    "fatigue_per_protest_day": {
+     "mu_star": 0.1654,
+     "mu": -0.0813,
+     "sigma": 0.2759,
+     "mu_star_ci95": [
+      0.0813,
+      0.2803
+     ]
+    },
+    "mobilization_on_bandh_days": {
+     "mu_star": 0.2,
+     "mu": 0.2,
+     "sigma": 0.2611,
+     "mu_star_ci95": [
+      0.1028,
+      0.3229
+     ]
+    },
+    "deaths_per_crore_protester_days": {
+     "mu_star": 1.315,
+     "mu": 1.1816,
+     "sigma": 0.9141,
+     "mu_star_ci95": [
+      1.0145,
+      1.6038
+     ]
+    },
+    "symbolic_threat_rise_per_death": {
+     "mu_star": 0.3161,
+     "mu": 0.2913,
+     "sigma": 0.344,
+     "mu_star_ci95": [
+      0.1891,
+      0.4617
+     ]
+    }
+   }
+  },
+  "peak_change_percent:grandfathering": {
+   "ranking": [
+    "symbolic_threat_weight",
+    "mean_participation_threshold",
+    "participation_threshold_spread",
+    "most_deprived_tier_share_of_symbolic_threat",
+    "material_loss_weight",
+    "loss_aversion",
+    "decision_noise",
+    "opposition_party_amplifier",
+    "symbolic_threat_rise_per_death",
+    "deaths_per_crore_protester_days",
+    "neighbourhood_turnout_at_saturation",
+    "mobilization_on_bandh_days",
+    "fatigue_per_protest_day",
+    "max_national_visibility_influence",
+    "max_neighbourhood_influence"
+   ],
+   "factors": {
+    "mean_participation_threshold": {
+     "mu_star": 30.2861,
+     "mu": -9.6048,
+     "sigma": 44.0227,
+     "mu_star_ci95": [
+      18.5531,
+      46.4041
+     ]
+    },
+    "participation_threshold_spread": {
+     "mu_star": 22.5101,
+     "mu": 16.6023,
+     "sigma": 19.1146,
+     "mu_star_ci95": [
+      18.1589,
+      27.42
+     ]
+    },
+    "decision_noise": {
+     "mu_star": 9.2744,
+     "mu": 3.6143,
+     "sigma": 13.0289,
+     "mu_star_ci95": [
+      5.3323,
+      13.6596
+     ]
+    },
+    "loss_aversion": {
+     "mu_star": 11.9,
+     "mu": -6.8206,
+     "sigma": 12.0558,
+     "mu_star_ci95": [
+      9.1971,
+      14.8453
+     ]
+    },
+    "material_loss_weight": {
+     "mu_star": 14.3055,
+     "mu": -13.6464,
+     "sigma": 10.696,
+     "mu_star_ci95": [
+      10.4595,
+      18.82
+     ]
+    },
+    "symbolic_threat_weight": {
+     "mu_star": 50.8516,
+     "mu": 21.5085,
+     "sigma": 60.6122,
+     "mu_star_ci95": [
+      36.4014,
+      67.62
+     ]
+    },
+    "most_deprived_tier_share_of_symbolic_threat": {
+     "mu_star": 19.0332,
+     "mu": 17.0333,
+     "sigma": 39.3087,
+     "mu_star_ci95": [
+      7.7246,
+      37.6043
+     ]
+    },
+    "opposition_party_amplifier": {
+     "mu_star": 8.6336,
+     "mu": 8.3264,
+     "sigma": 14.8195,
+     "mu_star_ci95": [
+      3.7411,
+      16.0947
+     ]
+    },
+    "max_neighbourhood_influence": {
+     "mu_star": 1.6583,
+     "mu": -0.3302,
+     "sigma": 2.2949,
+     "mu_star_ci95": [
+      1.0685,
+      2.3619
+     ]
+    },
+    "neighbourhood_turnout_at_saturation": {
+     "mu_star": 6.3757,
+     "mu": -1.5625,
+     "sigma": 10.1739,
+     "mu_star_ci95": [
+      3.4876,
+      10.055
+     ]
+    },
+    "max_national_visibility_influence": {
+     "mu_star": 2.1149,
+     "mu": 0.744,
+     "sigma": 2.3956,
+     "mu_star_ci95": [
+      1.5866,
+      2.6326
+     ]
+    },
+    "fatigue_per_protest_day": {
+     "mu_star": 2.9532,
+     "mu": -1.1774,
+     "sigma": 5.4212,
+     "mu_star_ci95": [
+      1.2117,
+      5.1598
+     ]
+    },
+    "mobilization_on_bandh_days": {
+     "mu_star": 4.0328,
+     "mu": 2.5591,
+     "sigma": 6.1503,
+     "mu_star_ci95": [
+      2.2881,
+      6.5822
+     ]
+    },
+    "deaths_per_crore_protester_days": {
+     "mu_star": 6.3846,
+     "mu": 2.7306,
+     "sigma": 10.0938,
+     "mu_star_ci95": [
+      3.4183,
+      10.2426
+     ]
+    },
+    "symbolic_threat_rise_per_death": {
+     "mu_star": 8.3609,
+     "mu": 4.113,
+     "sigma": 10.9655,
+     "mu_star_ci95": [
+      5.3099,
+      12.1538
+     ]
+    }
+   }
+  },
+  "peak_change_percent:hybrid_caste_subquotas": {
+   "ranking": [
+    "participation_threshold_spread",
+    "mean_participation_threshold",
+    "symbolic_threat_weight",
+    "decision_noise",
+    "mobilization_on_bandh_days",
+    "opposition_party_amplifier",
+    "material_loss_weight",
+    "loss_aversion",
+    "most_deprived_tier_share_of_symbolic_threat",
+    "deaths_per_crore_protester_days",
+    "neighbourhood_turnout_at_saturation",
+    "symbolic_threat_rise_per_death",
+    "max_neighbourhood_influence",
+    "max_national_visibility_influence",
+    "fatigue_per_protest_day"
+   ],
+   "factors": {
+    "mean_participation_threshold": {
+     "mu_star": 8.491,
+     "mu": -3.6742,
+     "sigma": 11.6748,
+     "mu_star_ci95": [
+      5.2083,
+      12.4413
+     ]
+    },
+    "participation_threshold_spread": {
+     "mu_star": 15.4106,
+     "mu": 15.4106,
+     "sigma": 9.1752,
+     "mu_star_ci95": [
+      11.4543,
+      19.3161
+     ]
+    },
+    "decision_noise": {
+     "mu_star": 4.622,
+     "mu": 2.4682,
+     "sigma": 6.8117,
+     "mu_star_ci95": [
+      2.4294,
+      7.253
+     ]
+    },
+    "loss_aversion": {
+     "mu_star": 2.1937,
+     "mu": 0.6186,
+     "sigma": 3.6949,
+     "mu_star_ci95": [
+      1.1763,
+      3.5808
+     ]
+    },
+    "material_loss_weight": {
+     "mu_star": 2.3135,
+     "mu": -0.6292,
+     "sigma": 3.8622,
+     "mu_star_ci95": [
+      1.1665,
+      3.8982
+     ]
+    },
+    "symbolic_threat_weight": {
+     "mu_star": 7.6665,
+     "mu": -7.1769,
+     "sigma": 11.395,
+     "mu_star_ci95": [
+      3.7532,
+      12.9801
+     ]
+    },
+    "most_deprived_tier_share_of_symbolic_threat": {
+     "mu_star": 2.176,
+     "mu": -1.8061,
+     "sigma": 3.8952,
+     "mu_star_ci95": [
+      0.7784,
+      3.9065
+     ]
+    },
+    "opposition_party_amplifier": {
+     "mu_star": 3.2193,
+     "mu": 2.7893,
+     "sigma": 5.2018,
+     "mu_star_ci95": [
+      1.4344,
+      5.4934
+     ]
+    },
+    "max_neighbourhood_influence": {
+     "mu_star": 0.6275,
+     "mu": -0.6145,
+     "sigma": 0.6033,
+     "mu_star_ci95": [
+      0.383,
+      0.8814
+     ]
+    },
+    "neighbourhood_turnout_at_saturation": {
+     "mu_star": 1.2082,
+     "mu": 0.421,
+     "sigma": 2.315,
+     "mu_star_ci95": [
+      0.4669,
+      2.1149
+     ]
+    },
+    "max_national_visibility_influence": {
+     "mu_star": 0.5592,
+     "mu": -0.1311,
+     "sigma": 0.83,
+     "mu_star_ci95": [
+      0.3117,
+      0.8547
+     ]
+    },
+    "fatigue_per_protest_day": {
+     "mu_star": 0.237,
+     "mu": 0.0353,
+     "sigma": 0.4027,
+     "mu_star_ci95": [
+      0.1062,
+      0.3811
+     ]
+    },
+    "mobilization_on_bandh_days": {
+     "mu_star": 3.6858,
+     "mu": 3.3528,
+     "sigma": 6.0675,
+     "mu_star_ci95": [
+      1.6956,
+      6.5243
+     ]
+    },
+    "deaths_per_crore_protester_days": {
+     "mu_star": 1.6391,
+     "mu": 0.3468,
+     "sigma": 3.3372,
+     "mu_star_ci95": [
+      0.6638,
+      3.0858
+     ]
+    },
+    "symbolic_threat_rise_per_death": {
+     "mu_star": 1.1427,
+     "mu": 0.7501,
+     "sigma": 1.7193,
+     "mu_star_ci95": [
+      0.5982,
+      1.8367
+     ]
+    }
+   }
+  },
+  "peak_change_percent:consensus_commission": {
+   "ranking": [
+    "symbolic_threat_weight",
+    "mean_participation_threshold",
+    "participation_threshold_spread",
+    "most_deprived_tier_share_of_symbolic_threat",
+    "loss_aversion",
+    "material_loss_weight",
+    "decision_noise",
+    "deaths_per_crore_protester_days",
+    "symbolic_threat_rise_per_death",
+    "neighbourhood_turnout_at_saturation",
+    "opposition_party_amplifier",
+    "fatigue_per_protest_day",
+    "max_national_visibility_influence",
+    "mobilization_on_bandh_days",
+    "max_neighbourhood_influence"
+   ],
+   "factors": {
+    "mean_participation_threshold": {
+     "mu_star": 26.7676,
+     "mu": -9.3651,
+     "sigma": 36.3718,
+     "mu_star_ci95": [
+      17.4265,
+      38.8349
+     ]
+    },
+    "participation_threshold_spread": {
+     "mu_star": 20.9687,
+     "mu": 17.2758,
+     "sigma": 17.352,
+     "mu_star_ci95": [
+      15.8277,
+      26.3678
+     ]
+    },
+    "decision_noise": {
+     "mu_star": 11.1948,
+     "mu": 9.8197,
+     "sigma": 13.7734,
+     "mu_star_ci95": [
+      6.756,
+      17.3849
+     ]
+    },
+    "loss_aversion": {
+     "mu_star": 14.8608,
+     "mu": 12.301,
+     "sigma": 16.8289,
+     "mu_star_ci95": [
+      9.0697,
+      21.5459
+     ]
+    },
+    "material_loss_weight": {
+     "mu_star": 12.5736,
+     "mu": 8.4936,
+     "sigma": 13.0487,
+     "mu_star_ci95": [
+      8.9046,
+      16.7118
+     ]
+    },
+    "symbolic_threat_weight": {
+     "mu_star": 46.1904,
+     "mu": 13.4834,
+     "sigma": 69.0679,
+     "mu_star_ci95": [
+      26.9885,
+      69.9731
+     ]
+    },
+    "most_deprived_tier_share_of_symbolic_threat": {
+     "mu_star": 18.1372,
+     "mu": 11.2818,
+     "sigma": 43.5053,
+     "mu_star_ci95": [
+      6.221,
+      36.628
+     ]
+    },
+    "opposition_party_amplifier": {
+     "mu_star": 5.704,
+     "mu": 0.6009,
+     "sigma": 10.6232,
+     "mu_star_ci95": [
+      2.4042,
+      9.865
+     ]
+    },
+    "max_neighbourhood_influence": {
+     "mu_star": 1.8851,
+     "mu": -0.0655,
+     "sigma": 2.9152,
+     "mu_star_ci95": [
+      1.0774,
+      2.9721
+     ]
+    },
+    "neighbourhood_turnout_at_saturation": {
+     "mu_star": 6.7879,
+     "mu": -2.9764,
+     "sigma": 12.7429,
+     "mu_star_ci95": [
+      3.2696,
+      12.4845
+     ]
+    },
+    "max_national_visibility_influence": {
+     "mu_star": 3.7903,
+     "mu": 3.4958,
+     "sigma": 6.2736,
+     "mu_star_ci95": [
+      1.6845,
+      6.8329
+     ]
+    },
+    "fatigue_per_protest_day": {
+     "mu_star": 4.5706,
+     "mu": -2.3369,
+     "sigma": 7.4512,
+     "mu_star_ci95": [
+      2.1682,
+      7.2692
+     ]
+    },
+    "mobilization_on_bandh_days": {
+     "mu_star": 2.4886,
+     "mu": -2.3498,
+     "sigma": 3.4329,
+     "mu_star_ci95": [
+      1.2491,
+      3.908
+     ]
+    },
+    "deaths_per_crore_protester_days": {
+     "mu_star": 9.5953,
+     "mu": 0.2351,
+     "sigma": 18.6312,
+     "mu_star_ci95": [
+      3.7154,
+      16.9853
+     ]
+    },
+    "symbolic_threat_rise_per_death": {
+     "mu_star": 7.4275,
+     "mu": 4.0425,
+     "sigma": 11.0795,
+     "mu_star_ci95": [
+      4.1979,
+      11.7773
+     ]
+    }
+   }
+  }
+ },
+ "lever_order_across_design_points": {
+  "L3_below_L5": 1.0,
+  "L5_below_L1": 0.60625,
+  "L3_below_L1": 1.0,
+  "design_points": 320
+ }
+}

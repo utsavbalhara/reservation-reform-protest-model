@@ -26,14 +26,16 @@ def _install_population(population):
 
 
 def _run_job(job):
-    parameters, campaign_seed, record_neighbourhood_turnout = job
+    parameters, campaign_seed, record_neighbourhood_turnout, record_agent_protest_days = job
     return simulate_protest_campaign(_WORKER_POPULATION, parameters, np.random.default_rng(campaign_seed),
-                                     record_neighbourhood_turnout=record_neighbourhood_turnout)
+                                     record_neighbourhood_turnout=record_neighbourhood_turnout,
+                                     record_agent_protest_days=record_agent_protest_days)
 
 
 def run_campaigns(population, jobs, workers: int = None):
-    """jobs: iterable of (parameters, campaign_seed) or (parameters, campaign_seed, record_neighbourhood_turnout)."""
-    normalised = [job if len(job) == 3 else (job[0], job[1], False) for job in jobs]
+    """jobs: iterable of (parameters, campaign_seed), optionally followed by record_neighbourhood_turnout and
+    record_agent_protest_days flags."""
+    normalised = [tuple(job) + (False,) * (4 - len(job)) for job in jobs]
     workers = default_worker_count() if workers is None else workers
     if workers <= 1 or len(normalised) <= 1:
         _install_population(population)

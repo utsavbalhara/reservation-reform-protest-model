@@ -66,9 +66,7 @@
 \end{center}
 
 \begin{abstract}
-\noindent A recurring proposal in India is to replace caste-based reservation with a single income test at \rupee8 lakh. We ask how much protest such a reform would provoke and which designs would keep it small. Three pieces of evidence replace assumptions of an earlier version of this analysis. First, under the actual creamy-layer and EWS rules the reform changes eligibility for about \EligibilityLose{} of Indians who lose it and \EligibilityGain{} who gain it. Second, an allocation model built on India's over-and-above choice rule and five years of JEE (Advanced) rank lists shows that a merged income pool would cost below-line SC candidates \AllocChangeSCBelow{} of their IIT seats even though they keep eligibility. Third, an agent-based model on 640 Census districts is history-matched to machine-coded protest event counts from four episodes, including a null episode and a counter-mobilization.
-
-The event data identify relative shock sizes far better than turnout: the 90\% interval for the implied 2018 Bharat Bandh turnout is \CalibTurnoutTwentyEighteenInterval{} lakh, and frozen out-of-sample predictions of deaths and of protest across states are weak. The level of protest the reform would provoke is therefore not identified, and moves by more than an order of magnitude across the assumptions the data leave open. The ranking of interventions is more stable. Keeping caste quotas with an income filter inside them changes peak turnout by \PeakChangeGroundedHybridCasteSubquotas{}. It is the strongest single lever in all \EnsembleVariants{} structural variants and in every combination of the unidentified assumptions, in \MorrisLThreeBeatsLOne{} of Morris design points, and with probability \MapGroundedStrongestLThree{} under priors on how strongly each intervention acts. Compensating direct losers (\PeakChangeGroundedCompensation) and expanding seats on the EWS model (\PeakChangeGroundedSeatExpansion) are the weakest levers; expansion does little because a merged pool still ranks SC and ST candidates against General candidates. Whether a consensus commission or grandfathering is the stronger end-state-preserving lever is not settled. Suppression raises deaths; whether it also broadens protest depends on an unidentified response to deaths.
+\noindent A recurring proposal in India is to replace caste-based reservation with a single income test at \rupee8 lakh. We ask how much street protest such a reform would provoke and which designs would keep it small, and we build the evidence base to answer as far as data allow. Three linked models do the work. An eligibility accounting under the actual creamy-layer and EWS rules finds that \EligibilityLose{} of Indians would lose eligibility and \EligibilityGain{} would gain it. An allocation model built on India's over-and-above choice rule and five years of JEE (Advanced) rank lists finds that a merged income pool would cost below-line SC candidates \AllocChangeSCBelow{} of their IIT seats although they keep eligibility. An agent-based model of 640 Census districts, history-matched to protest event counts from four episodes, turns these losses and the symbolic threat to caste recognition into protest. The event data pin down the relative size of past shocks far better than turnout, and frozen out-of-sample predictions of deaths and geography are weak, so the reform's protest level is not identified: it spans more than an order of magnitude across the assumptions the data leave open. The comparison of designs is much more stable. Keeping caste quotas with an income filter inside them changes peak turnout by \PeakChangeGroundedHybridCasteSubquotas{} and is the strongest lever in every structural variant and assumption we test, and with probability \MapGroundedStrongestLThree{} under priors on intervention effects. Compensating direct losers and expanding seats on the EWS model are the weakest. Whether a consensus commission or grandfathering is the better end-state-preserving lever is not settled, and suppression costs lives whether or not it backfires.
 \end{abstract}
 
 \noindent{\small\textbf{Keywords:} reservation policy; affirmative action; protest; agent-based modelling; history matching; event data; matching markets; India}
@@ -85,15 +83,55 @@ This paper does not take a position on whether that reform is desirable. It asks
 
 These questions are hard to answer from data alone. The reform has never been attempted, protest turnout in India is poorly measured, and the mechanisms involved interact non-linearly: loss aversion, group identity, contagion between neighbours, organization and repression. An agent-based model makes the assumed mechanisms explicit and lets alternative designs be compared under identical conditions \citep{epstein2002,granovetter1978}. It also makes it easy to mistake assumptions for findings. Much of this paper is therefore about separating the two: which inputs can be grounded in data, which conclusions follow from the dynamics rather than from how an intervention was coded, and which survive changes to the model's structure.
 
+\paragraph{Scope} The project began as a stylized agent-based model of protest, calibrated to a single assumed turnout figure. Answering Q1 and Q2 credibly required more than that model could supply: who actually loses under the reform's legal rules, how a merged pool would reallocate seats, and what past episodes say about the size of shocks. The analysis therefore now links four components (Figure~\ref{fig:overview}): an eligibility accounting under the legal rules; a seat-allocation model built on India's choice rules and published rank lists; a protest model on a district-level population whose parameters are history-matched to event data from four episodes; and a layer of uncertainty analysis that separates what the data identify from what is assumed. The stylized model is kept as a reference specification, so every result can be compared between an assumption-driven and a data-driven version of the same mechanisms.
+
+\begin{figure}[t]
+\centering
+\begin{tikzpicture}[
+  box/.style={draw=#1,fill=#1!7,rounded corners=2pt,align=left,font=\sffamily\scriptsize,text width=37mm,inner sep=3pt,minimum height=11mm},
+  box/.default=muted,
+  head/.style={font=\sffamily\small\bfseries\color{ink}},
+  lab/.style={font=\sffamily\tiny,text=ink!70},
+  arrow/.style={-{Stealth[length=1.8mm]},draw=ink!55,thick}]
+\node[head] at (0,1.0) {Data};
+\node[head] at (5.3,1.0) {Models};
+\node[head] at (10.6,1.0) {Analyses};
+\node[box] (rules) at (0,0) {Legal rules: creamy-layer and EWS office memoranda};
+\node[box] (jee) at (0,-1.75) {JEE (Advanced) rank lists and allotments, 2021--2025};
+\node[box] (census) at (0,-3.5) {Census 2011 districts; NFHS-5 caste shares};
+\node[box] (gdelt) at (0,-5.25) {GDELT protest events, relevance audit, reported deaths: four episodes, two anchors};
+\node[box=accent,minimum height=28.5mm] (alloc) at (5.3,-0.875) {Eligibility accounting under the legal rules (\S\ref{sec:background})\\[3pt] Allocation model: latent merit and over-and-above choice rules, validated against allotments (\S\ref{sec:allocation})};
+\node[box=accent] (abm) at (5.3,-3.6) {Protest model on 640 districts; stylized specification kept as reference (\S\ref{sec:model})};
+\node[box=accent] (hm) at (5.3,-5.25) {History matching: \CalibKept{} retained parameter sets (\S\ref{sec:episodes})};
+\node[box=ink] (scen) at (10.6,0) {Thirteen scenarios on paired worlds; channel decomposition (\S\ref{sec:results})};
+\node[box=ink] (prior) at (10.6,-1.75) {Priors on intervention effects: rank probabilities (\S\ref{sec:mapping})};
+\node[box=ink] (robust) at (10.6,-3.5) {Unidentified assumptions, structural ensemble, Morris screening (\S\ref{sec:robustness})};
+\node[box=ink] (oos) at (10.6,-5.25) {Frozen leave-one-episode-out and spatial tests (\S\ref{sec:calibration-results})};
+\draw[arrow] (rules) -- (rules -| alloc.west);
+\draw[arrow] (jee) -- (jee -| alloc.west);
+\draw[arrow] (census) -- (abm);
+\draw[arrow] (gdelt) -- (hm);
+\draw[arrow] (alloc) -- node[lab,right]{segments and material change} (abm);
+\draw[arrow] (hm) -- node[lab,right]{parameters} (abm);
+\draw[arrow] (abm.east) -- (scen.west);
+\draw[arrow] (abm.east) -- (prior.west);
+\draw[arrow] (abm.east) -- (robust.west);
+\draw[arrow] (hm.east) -- (oos.west);
+\end{tikzpicture}
+\caption{How the analysis fits together. Each model takes its inputs from data where data exist; the analyses on the right separate what the data identify from what is assumed.}
+\label{fig:overview}
+\end{figure}
+
 \paragraph{Contributions} To our knowledge, and after the searches documented in Appendix~\ref{app:search}, this is the first agent-based model of reservation politics and the first study to compare reservation reform designs by the protest they would provoke. Its mechanisms are not new; the claim is narrow. The paper contributes:
 \begin{enumerate}
-\item \textbf{An allocation accounting of the reform.} Eligibility is not the same as seats. Using the over-and-above choice rule that India uses to implement vertical reservation \citep{sonmez2022,aygun2023characterization}, a latent merit model fitted to five years of JEE (Advanced) rank lists, and the actual eligibility rules for the OBC creamy layer and the EWS quota, we estimate how an income-only pool would redistribute IIT seats. The reform is not a change for ``2.8\% of the population'': \EligibilityLose{} of Indians lose eligibility, \EligibilityGain{} gain it, and below-line SC and ST candidates, who keep eligibility, lose most of their seats to below-line General candidates.
-\item \textbf{A model calibrated to event data from several episodes.} A district-level synthetic population (640 Census districts) is history-matched \citep{vernon2010,andrianakis2015} to machine-coded protest event counts (GDELT) for four reservation-related episodes, with a hand-audited relevance sample, reported deaths, and two observation-model anchors. Leave-one-episode-out predictions are frozen and hashed before being scored.
-\item \textbf{A comparison of interventions that states what is input and what is emergent.} Each lever's effect size gets a prior; we report the probability that each lever is strongest, decompose levers into channels, sweep the unidentified ratio of symbolic to material grievance, and rerun the comparison across a structural ensemble and a Morris screening.
+\item \textbf{An allocation accounting of the reform.} Eligibility is not the same as seats. Using the over-and-above choice rule that India uses to implement vertical reservation \citep{sonmez2022,aygun2023characterization}, a latent merit model fitted to five years of JEE (Advanced) rank lists and validated against published allotments, and the actual eligibility rules for the OBC creamy layer and the EWS quota, we estimate how an income-only pool would redistribute IIT seats. The reform is not confined to SC and ST families above the line: \EligibilityLose{} of Indians lose eligibility, \EligibilityGain{} gain it, and below-line SC and ST candidates, who keep eligibility, lose most of their seats to below-line General candidates.
+\item \textbf{A protest model confronted with event data from several episodes.} A district-level synthetic population (640 Census districts) is history-matched \citep{vernon2010,andrianakis2015} to machine-coded protest event counts (GDELT) for four reservation-related episodes, including a null episode and an upper-caste counter-mobilization, with an audited relevance sample, reported deaths, and two observation-model anchors. Leave-one-episode-out predictions were published, with their hashes, before they were scored.
+\item \textbf{A comparison of interventions that separates inputs from findings.} Thirteen scenarios run on paired worlds with bootstrap intervals. Each lever is decomposed into its channels; each lever's effect size gets a prior, from which we report the probability that each lever is strongest; and the comparison is rerun across the assumptions the data leave open, an eleven-variant structural ensemble and a Morris screening.
 \item \textbf{A transparent development record}, including two specifications that were badly wrong and how a historical validation test caught them.
+\item \textbf{An open, reproducible platform.} Code, derived data and results are public; every number in the paper is generated from result files; a test suite includes an independent reimplementation. The allocation model, the scenario catalogue and the calibration machinery can be reused for other reservation designs.
 \end{enumerate}
 
-Section~\ref{sec:background} sets out the legal architecture, the eligibility accounting and the mobilization record. Section~\ref{sec:related} reviews related work and Section~\ref{sec:theory} the theory. Section~\ref{sec:allocation} presents the allocation model, Section~\ref{sec:model} the protest model, and Section~\ref{sec:episodes} the episode data and calibration. Section~\ref{sec:development} records the model's development. Sections~\ref{sec:design}--\ref{sec:robustness} present the experiments, results and robustness analyses, and Sections~\ref{sec:discussion}--\ref{sec:reproducibility} discuss implications, limitations, ethics and reproducibility.
+Section~\ref{sec:background} sets out the legal architecture, the eligibility accounting and the mobilization record. Section~\ref{sec:related} reviews related work and Section~\ref{sec:theory} the theory. Section~\ref{sec:allocation} presents the allocation model, Section~\ref{sec:model} the protest model, and Section~\ref{sec:episodes} the episode data and calibration. Section~\ref{sec:development} records the model's development. Sections~\ref{sec:design}--\ref{sec:robustness} present the experiments, results and robustness analyses. Section~\ref{sec:discussion} discusses what the evidence changed and what it means, Section~\ref{sec:limitations} sets out the limitations, and Section~\ref{sec:conclusion} concludes.
 
 \section{Background}
 \label{sec:background}
@@ -111,7 +149,7 @@ The two income tests are not the same test, and neither is a simple cut at \rupe
 SC and ST quotas remain without any income test. In \emph{State of Punjab v.\ Davinder Singh} (2024), a seven-judge bench permitted sub-classification within SC and ST quotas, and several judges suggested that a creamy-layer principle should also apply to them. The Union government stated it would not apply a creamy layer to SCs and STs. Census 2027 will enumerate caste for the first time since 1931 \citep{pib2025}.
 
 \subsection{What an income-only test changes: eligibility}
-We take the reform to be one test on gross family income from all sources at \rupee8 lakh, with no category and no asset test. Table~\ref{tab:eligibility} sets out who changes status. Two shares are not observed: the share of above-line OBC families who are non-creamy today (prior 0.3--0.7, central 0.5), and the share of below-line General families who fail the EWS asset tests (prior 0.05--0.25, central 0.15). With the central values, \EligibilityLose{} of the population loses eligibility (range over the priors \EligibilityLoseRange) and \EligibilityGain{} gains it (\EligibilityGainRange). An earlier version of this analysis, which treated both income tests as the same gross-income cut, reported \EligibilityOriginal{}; that figure counted only SC and ST families above the line.
+We take the reform to be one test on gross family income from all sources at \rupee8 lakh, with no category and no asset test. Table~\ref{tab:eligibility} sets out who changes status. Two shares are not observed: the share of above-line OBC families who are non-creamy today (prior 0.3--0.7, central 0.5), and the share of below-line General families who fail the EWS asset tests (prior 0.05--0.25, central 0.15). With the central values, \EligibilityLose{} of the population loses eligibility (range over the priors \EligibilityLoseRange) and \EligibilityGain{} gains it (\EligibilityGainRange). Counting only SC and ST families above the line, which is what treating every income test as the same gross-income cut implies, gives \EligibilityOriginal{}. The difference is the non-creamy OBC families above the line, who are eligible today and would not be.
 
 \begin{table}[H]
 \centering\small
@@ -149,7 +187,7 @@ From these episodes we draw stylized facts that the model should reproduce or re
 \item Groups split when a reform creates winners inside them (2024).
 \item Deaths occur at some large mobilizations and not others, and states often concede afterwards (2018).
 \end{enumerate}
-S3 revises an earlier version of this paper, which took opposition-party backing to accompany every large mobilization. The 2018 record does not support that, and the calibration below treats party backing as an episode-specific input.
+S3 matters for the design of the model. It would be natural to treat opposition-party backing as the engine of large mobilizations; the 2018 record does not support that, and the calibration below treats party backing as an episode-specific input.
 
 \section{Related work}
 \label{sec:related}
@@ -229,7 +267,14 @@ The same model evaluates the two levers that are themselves allocation rules. Ex
 \section{The protest model}
 \label{sec:model}
 
-The model is described here in the order of the ODD protocol's overview and details \citep{grimm2020}. It has two specifications. The \emph{stylized} specification is the original model, retained as a reference and for comparison with earlier results. The \emph{grounded} specification replaces its assumed inputs wherever data allow; Table~\ref{tab:specifications} lists the differences.
+The model is summarized in the ODD format \citep{grimm2020} in Appendix~\ref{app:odd}; this section gives the details. Figure~\ref{fig:mechanism} shows what drives one agent's decision each day. The model has two specifications. The \emph{stylized} specification is the original model, retained as a reference and for comparison with earlier results. The \emph{grounded} specification replaces its assumed inputs wherever data allow; Table~\ref{tab:specifications} lists the differences.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.92\linewidth]{../figures/fig00_mechanism.pdf}
+\caption{What drives one agent's decision each day. Dashed arrows are feedback loops: today's turnout shapes tomorrow's decisions through contagion, fatigue and the martyr effect.}
+\label{fig:mechanism}
+\end{figure}
 
 \subsection{Population}
 The grounded population has $N=120{,}000$ agents, each representing about 12{,}200 people of a population of 146 crore. Agents are allocated to the 640 Census 2011 districts in proportion to population. Within each district the SC and ST shares are the district's own (Census 2011); the rest are split between OBC and General with the state's ratio of OBC to OBC-plus-other household heads in NFHS-5. National shares are then SC 16.7\%, ST 8.6\%, OBC 45.7\% and General 29.0\%. SC and ST agents are assigned with equal probability to a better-off tier or a most-deprived tier. The probability of being above the \rupee8 lakh line is 30\% for General and 17\% for OBC; for SC it is 19\% in the better-off tier and 5\% in the most-deprived tier, and for ST 16\% and 4\%. These shares order groups consistently with survey evidence on the caste gradient of income and wealth \citep{bharti2018,price2023}. Above-line OBC agents are creamy layer with probability 0.5, and below-line General agents fail the EWS asset tests with probability 0.15.
@@ -281,6 +326,50 @@ Bandh calls & Fixed days & Called when expected turnout is credible\\
 Concession & None & Pressure-dependent hazard; General backlash\\
 Deaths & Poisson; all trigger martyr effect & Negative binomial, split by attribution; bandh-day rate estimated\\
 Random streams & One stream & Separate streams for decisions, deaths and events\\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+Table~\ref{tab:parameters} lists every parameter, its value in each specification and where the value comes from.
+
+\begin{table}[p]
+\centering\footnotesize
+\caption{Parameters. Basis: \emph{L} literature; \emph{D} data (with the source); \emph{H} history-matched to the episodes (median and 90\% interval of the retained sets); \emph{T} tuned to the stylized turnout target; \emph{A} assumed; \emph{P} prior range. Parameters marked with an asterisk are varied in the uncertainty analyses of Sections~\ref{sec:mapping}--\ref{sec:robustness}.}
+\label{tab:parameters}
+\setlength{\tabcolsep}{4pt}
+\begin{tabularx}{\linewidth}{@{}lLlLc@{}}
+\toprule
+Symbol & Role & Stylized & Grounded & Basis\\
+\midrule
+$\lambda$ & Loss aversion & 2.25 & 2.25 & L \\
+$w_m$* & Weight of material change & 0.45 & 0.45 (not identified; swept) & T / A\\
+$w_s$ & Weight of symbolic threat & 3.3 & 3.3 (scale absorbed by the shock size) & T\\
+$s_g$ & Symbolic threat, SC/ST/OBC/General & 1/0.9/0.45/$-$0.4 & same $\times$ 2018 magnitude \CalibMagnitudeTwentyEighteen{} (\CalibMagnitudeTwentyEighteenInterval) & A / H\\
+$R$* & Reform shock relative to 2018 & -- & 1 & A\\
+& Deprived tier's share of threat & 0.8 & 0.8 & A\\
+$m_k$ & Material change by segment & 1/0.35/0.25/$-$0.15 & Table~\ref{tab:allocation} & A / D (JEE)\\
+$o_g$ & Organizational capacity & 0.6/0.4/0.4/0.1 & same & A\\
+$a$* & Party amplifier & 1.5 & 1.5 (backing 0.6) & A\\
+$\beta_n$, $n^*$ & Neighbourhood influence, saturation & 0.9, 0.10 & same & A\\
+$\beta_v$, $v^*$ & National influence, saturation & 0.6, 0.02 & same & A\\
+$\bar\theta$ & Mean threshold & \ParamMeanThreshold & \CalibTheta{} (\CalibThetaInterval) & T / H\\
+$\sigma_\theta$ & Threshold spread & 1.4 & \CalibSpread{} (\CalibSpreadInterval) & T / H\\
+$\tau$ & Decision noise & 0.3 & 0.3 & A\\
+$f$ & Fatigue per protest day & 0.10 & 0.10 & A\\
+$h$ & Share of single-group neighbourhoods & 1 & \CalibMixing{} (\CalibMixingInterval) & A / H\\
+$b_t$ & Mobilization on bandh / other days & 1.0 / 0.15 & same & A\\
+& Bandh calls & days 3, 13, 26 & expected turnout $\geq$ 10 lakh; gap 10--13 days; $\leq$4 & A\\
+$\kappa$ & Deaths per crore protester-days & 4 (all days) & \CalibBandhDeathRate{} on bandh days (\CalibBandhDeathRateInterval); a tenth otherwise & A / H\\
+& Death dispersion & Poisson & negative binomial, H & H\\
+& Police-attributed share of deaths & -- & 0.5 & A\\
+$\delta$, cap & Martyr effect per death, cap & 0.012, 0.35 & same & A\\
+$\rho$* & Response of turnout to deaths & 1 & 1 & A (prior $-$0.5 to 2 for suppression)\\
+& Concession hazard & -- & logistic in pressure, $\leq$15\%/day & A\\
+& Backlash after concession & -- & General threat 0.3 & A\\
+& Above-line OBC share non-creamy & -- & 0.5 & P (0.3--0.7)\\
+& Below-line General share failing EWS asset tests & -- & 0.15 & P (0.05--0.25)\\
+& Group shares & Census 2011, NFHS-4 & Census 2011, NFHS-5 by district & D\\
+& Above-line shares by group and tier & 30/17/19--5/16--4\% & same & L \citep{bharti2018,price2023}\\
 \bottomrule
 \end{tabularx}
 \end{table}
@@ -466,6 +555,44 @@ The grounded level should not be read as a forecast. It is \CalibMagnitudeTwenty
 \label{fig:grounded-paths}
 \end{figure}
 
+\paragraph{Where the grievance comes from} Symbolic threat is \SymbolicShareOfGrievance{} of all grievance that pushes agents towards protest (Figure~\ref{fig:grievance}). Material change is still large for the segments the allocation model identifies as losers: for below-line SC and ST agents it adds between a third and a half to their symbolic grievance. Removing all material change cuts the peak by \GChanNoMaterial; removing all symbolic threat cuts it by \GChanNoSymbolic. Symbolic threat is the larger driver, but the material loss is not marginal.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.85\linewidth]{../figures/fig16_grievance_composition_grounded.pdf}
+\caption{Mean grievance by eligibility segment in the grounded specification (central parameter values), split into symbolic threat and material change. Labels give each segment's share of the population.}
+\label{fig:grievance}
+\end{figure}
+
+\paragraph{Who protests and where} SC agents account for \GroupShareSC{} of protester-days, ST agents for \GroupShareST, OBC agents for \GroupShareOBC{} and General agents, who counter-mobilize after a concession, for \GroupShareGeneral. Among SC and ST agents, \TierBaselineBetterOff{} of the better-off tier and \TierBaselineDeprived{} of the most-deprived tier protest at least once. Protest concentrates in the populous states with large SC populations: \TopStates{}, together \TopFiveStateShare{} of protester-days (Figure~\ref{fig:states}). The distribution follows demography. It does not reproduce where the 2018 bandh was reported: Punjab, where the 2018 call began, had a far larger share of events than the model gives it, and West Bengal and Tamil Nadu far smaller ones. Local organization, which the model does not represent, shapes where a bandh takes hold; this is consistent with the weak spatial tests of Section~\ref{sec:calibration-results}.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.85\linewidth]{../figures/fig17_state_distribution.pdf}
+\caption{Share of protester-days by state under the abrupt switch (grounded specification, median over runs), and the share of GDELT protest events by state on 2 April 2018.}
+\label{fig:states}
+\end{figure}
+
+\subsection{Does the model reproduce the stylized facts?}
+Table~\ref{tab:facts} checks the grounded specification against the five stylized facts of Section~\ref{sec:episodes-background}. It reproduces S1, S3 and S4, and S2 largely. It reproduces S5 only in part: deaths occur and states concede, but the model cannot say which mobilizations turn violent.
+
+\begin{table}[H]
+\centering\small
+\caption{Stylized facts and the grounded specification.}
+\label{tab:facts}
+\begin{tabularx}{\linewidth}{@{}lLL@{}}
+\toprule
+Fact & Evidence from the model & Verdict\\
+\midrule
+S1 & Symbolic threat alone gives a peak of \PeakGroundedSymbolicOnlyValidation; the retained sets reproduce the 2018 event count from a symbolic shock with no material change. & Reproduced\\
+S2 & The peak falls on a bandh day in \FactPeakOnBandhDay{} of runs; turnout on bandh days is about \FactBandhToOrdinary{} times that on ordinary days. In \FactNoBandh{} of runs no bandh is held, almost always because the government concedes first, and in \FactPeakAfterBandh{} turnout keeps building for a few days after the first bandh. & Largely reproduced\\
+S3 & Raising party backing from the 2018 level (0.2) to the 2024 level (0.6) changes the peak by a factor of \FactBackingPeakRatio; tripling the shock (from $R=0.5$ to $1.5$) by a factor of \FactShockPeakRatio. & Reproduced: backing is a minor amplifier\\
+S4 & Sub-classification changes the share of the most-deprived tier that protests by \FactDeprivedChange{} (\TierBaselineDeprived{} to \TierSubclassDeprived) and of the better-off tier by \FactBetterOffChange. & Reproduced\\
+S5 & Large simulated campaigns produce deaths (median \DeathsGroundedBaseline{} under the abrupt switch) and the government concedes in \GroundedConcededShare{} of runs; but held-out predictions give deaths to peaceful bandhs (Table~\ref{tab:loeo}). & Partly: violence is not predicted\\
+\bottomrule
+\end{tabularx}
+\end{table}
+
 \subsection{Interventions}
 Table~\ref{tab:grounded} reports every scenario in the grounded specification, and Figure~\ref{fig:paired} compares its paired effects with the stylized specification's.
 
@@ -504,13 +631,27 @@ Internet shutdowns (B1) change the grounded peak by \PeakChangeGroundedInternetS
 
 \subsection{What is input and what is emergent}
 \label{sec:inputs}
-Every lever changes more than one parameter. Re-running levers with one channel at a time (stylized specification, same paired worlds) separates them.
+Every lever changes more than one input. Re-running each lever with one channel at a time, on the same paired worlds, separates them (Table~\ref{tab:channels}).
 \begin{itemize}
-\item \textbf{L5.} Lowering the party amplifier alone changes the peak by \DecompLFiveAmplifier; lowering symbolic threat alone by \DecompLFiveSymbolic. The commission's effect comes mostly from its assumed 20\% cut in symbolic threat, not from withdrawing party machinery. Given S3 (2018 was large without party backing), that is the more defensible channel, but it is also the less certain one.
-\item \textbf{L3.} Its symbolic channel alone gives \DecompLThreeSymbolic{} and its material channel alone \DecompLThreeMaterial.
-\item \textbf{L1.} Its material channel gives \DecompLOneMaterial{} and its 5\% symbolic cut \DecompLOneSymbolic.
-\item \textbf{B2.} The turnout cost alone changes the peak by \DecompBTwoTurnoutCost; the extra violence and martyr response alone raise it by \DecompBTwoViolence. The full scenario multiplies deaths by \DecompBTwoFullDeathRatio{}, of which the assumed multiplier of 3 is input; the emergent part, a factor of \DecompBTwoFullEmergentDeathFactor{}, comes from the change in protester-days (\DecompBTwoFullDays).
+\item \textbf{L3} works through both of its channels. Its symbolic channel alone changes the peak by \GChanLThreeSymbolic{} and its allocation channel alone, which turns below-line seat losses into gains, by \GChanLThreeAllocation.
+\item \textbf{L5}'s effect comes mostly from its assumed 20\% cut in symbolic threat (\GChanLFiveSymbolic); withdrawing party machinery alone gives \GChanLFiveAmplifier. Given S3, that is the more defensible channel, but it is also the less certain one.
+\item \textbf{L1} works almost entirely through material loss (\GChanLOneMaterial; its 5\% symbolic cut gives \GChanLOneSymbolic).
+\item \textbf{B2.} The turnout cost alone changes the peak by \GChanBTwoTurnoutCost; the extra deaths and martyr response alone change it by \GChanBTwoViolence{} and deaths by \GChanBTwoViolenceDeaths. The rise in deaths under heavy policing is almost all input: the scenario assumes three times as many police-attributed deaths. \textbf{B1} without its assumed extra violence changes the peak by \GChanBOneCoordination{} and deaths by \GChanBOneCoordinationDeaths; with it, deaths change by \GChanBOneFullDeaths.
 \end{itemize}
+The stylized specification gives the same qualitative decomposition (Appendix~\ref{app:stylized-decomposition}).
+
+\begin{table}[H]
+\centering\small
+\caption{Channel decomposition, grounded specification, \RunCountGrounded{} paired runs. Changes are median paired changes against the abrupt switch.}
+\label{tab:channels}
+\begin{tabularx}{\linewidth}{@{}lLrrrr@{}}
+\toprule
+Lever & Channel & Peak & 95\% CI & Ever & Deaths\\
+\midrule
+\tablerows{generated/grounded_channel_rows.tex}
+\bottomrule
+\end{tabularx}
+\end{table}
 
 \subsection{Uncertainty over how interventions act}
 \label{sec:mapping}
@@ -557,6 +698,30 @@ $w_m$ multiplier & Baseline peak & L1 & L2 & L3 & L5 & L6 & L7 & First\\
 \end{tabular}
 \end{table}
 
+\subsection{Verdicts on the hypotheses}
+Table~\ref{tab:hypotheses} summarizes the evidence on H1--H9 from the grounded specification, the priors over effect sizes and the robustness analyses.
+
+\begin{table}[H]
+\centering\small
+\caption{Hypotheses and verdicts. Change: median paired change in peak turnout, grounded specification. Rank: probability of being the strongest single lever, and of being in the bottom two, under the priors over effect sizes.}
+\label{tab:hypotheses}
+\begin{tabularx}{\linewidth}{@{}lLrrL@{}}
+\toprule
+ & Hypothesis & Change & Rank (first / bottom two) & Verdict\\
+\midrule
+H1 & Grandfathering reduces protest & \PeakChangeGroundedGrandfathering & \MapGroundedStrongestLOne{} / \MapGroundedBottomTwoLOne & Supported; acts through material loss\\
+H2 & Expanding seats reduces protest & \PeakChangeGroundedSeatExpansion & \MapGroundedStrongestLTwo{} / \MapGroundedBottomTwoLTwo & Weak: a merged pool still takes most below-line SC/ST seats\\
+H3 & Caste quotas with an income filter reduce protest & \PeakChangeGroundedHybridCasteSubquotas & \MapGroundedStrongestLThree{} / \MapGroundedBottomTwoLThree & Strongly supported, through both symbolic and allocation channels\\
+H4 & Sub-classification splits the coalition & \PeakChangeGroundedSubClassification & \MapGroundedStrongestLFour{} / \MapGroundedBottomTwoLFour & Supported: the most-deprived tier largely drops out\\
+H5 & A consensus commission reduces protest & \PeakChangeGroundedConsensusCommission & \MapGroundedStrongestLFive{} / \MapGroundedBottomTwoLFive & Supported, mostly through its assumed symbolic effect; order against H1 unsettled\\
+H6 & Compensating direct losers reduces protest & \PeakChangeGroundedCompensation & \MapGroundedStrongestLSix{} / \MapGroundedBottomTwoLSix & Weak\\
+H7 & Statutory guarantees reduce protest & \PeakChangeGroundedCredibleGuarantees & \MapGroundedStrongestLSeven{} / \MapGroundedBottomTwoLSeven & Supported\\
+H8 & Internet shutdowns reduce protest & \PeakChangeGroundedInternetShutdown & -- & Lower peak, more deaths (×\DeathRatioGroundedInternetShutdown); not a mitigation\\
+H9 & Heavy policing reduces protest & \PeakChangeGroundedHeavyPolicing & -- & Small, uncertain reduction; deaths ×\DeathRatioGroundedHeavyPolicing; backfire depends on the response to deaths\\
+\bottomrule
+\end{tabularx}
+\end{table}
+
 \section{Robustness}
 \label{sec:robustness}
 
@@ -594,7 +759,7 @@ Variant & $\bar\theta$ & L1 & L3 & L5 & L6 & B2 cum. & First / last\\
 \end{table}
 
 \subsection{Global sensitivity}
-Morris screening over fifteen behavioural parameters (\MorrisTrajectories{} trajectories, \MorrisDesignPoints{} design points, stylized specification) finds that the symbolic weight dominates the baseline peak and every lever's effect, followed by the mean threshold and the threshold spread (Table~\ref{tab:morris}, Figure~\ref{fig:morris}). Across all design points, L3 cuts the peak more than L5 in \MorrisLThreeBeatsLFive{} and L5 more than L1 in \MorrisLFiveBeatsLOne{}.
+Morris screening over fifteen behavioural parameters (\MorrisTrajectories{} trajectories, \MorrisDesignPoints{} design points, stylized specification) finds that the symbolic weight dominates the baseline peak and every lever's effect, followed by the mean threshold and the threshold spread (Table~\ref{tab:morris}, Figure~\ref{fig:morris}). Across all design points, L3 cuts the peak more than L5 in \MorrisLThreeBeatsLFive{} and L5 more than L1 in \MorrisLFiveBeatsLOne{}. The same screening around the grounded specification's central calibrated values (Appendix~\ref{app:morris-grounded}) ranks \MorrisGroundedTopPeak{} first for the baseline peak and \MorrisGroundedTopLThree{} first for L3's effect; L3 beats L5 in \MorrisGroundedLThreeBeatsLFive{} of its design points and L5 beats L1 in \MorrisGroundedLFiveBeatsLOne.
 
 \begin{table}[H]
 \centering\small
@@ -648,7 +813,7 @@ Agents & People per agent & Baseline peak (lakh) & 10th--90th & L3 peak (lakh)\\
 \section{Discussion}
 \label{sec:discussion}
 
-\paragraph{What the revision changed} Three findings of the original analysis did not survive grounding. First, the reform is not a small eligibility change: under the actual creamy-layer and EWS rules, about \EligibilityLose{} of Indians lose eligibility, and in IIT admissions below-line SC and ST candidates, who keep eligibility, lose most of their seats to below-line General candidates. Second, seat expansion on the EWS model does little, because a merged pool still ranks SC and ST candidates against General candidates; the original analysis assumed the opposite. Third, that heavy policing raises total participation depends on an assumed response of turnout to deaths, and does not hold in the grounded specification, where campaigns end in concession quickly. Each of these changes came from replacing an assumption with data or with an explicit prior.
+\paragraph{What the evidence changed} Comparing the grounded specification with the stylized one shows which conclusions depended on assumptions. Three did. First, the reform is not a small eligibility change confined to SC and ST families above the line: under the actual creamy-layer and EWS rules, about \EligibilityLose{} of Indians lose eligibility, and in IIT admissions below-line SC and ST candidates, who keep eligibility, lose most of their seats to below-line General candidates. Second, seat expansion on the EWS model does little, because a merged pool still ranks SC and ST candidates against General candidates; the stylized specification had assumed that expansion removes the below-line loss. Third, that heavy policing raises total participation depends on an assumed response of turnout to deaths, and does not hold in the grounded specification, where campaigns end in concession quickly. Material grievance also matters more than the stylized specification assumed, because the seat losses of below-line SC and ST candidates are large.
 
 \paragraph{What survived} The ordering at the top and bottom of the lever ranking survived every analysis in this paper: keeping caste as the qualifier with an income filter inside it (L3) cuts protest most, and compensating the direct losers (L6) is among the least effective, joined in the grounded specification by seat expansion (L2). L3 is first in both specifications, across the priors over effect sizes, across the structural variants, across the Morris design, and across the grounded specification's unidentified shock size, party backing and material weight. Compensation is last or second to last in almost all of them; the exception is a material weight at least four times its reference value, which implies turnouts far beyond any recorded protest. The reason is structural. Most of the mobilizable grievance is symbolic and spread across the SC and ST population, and in the grounded specification the material loss is also concentrated on below-line SC and ST candidates; L3 removes much of both, while compensation reaches a small minority and touches neither.
 
@@ -664,7 +829,11 @@ Agents & People per agent & Baseline peak (lakh) & 10th--90th & L3 peak (lakh)\\
 \item Suppression trades a lower peak for more deaths. Whether it also broadens protest depends on how deaths are received, which the model cannot tell.
 \end{enumerate}
 
+\paragraph{Where protest would happen} The model places the reform's protest where SC and ST populations are largest, but the 2018 record shows that local organization can move a bandh's centre of gravity: Punjab, where the 2018 call began, reported far more events than its population share. The model's state distribution is a demographic baseline, not a prediction of where organizers will succeed.
+
 \paragraph{Feasibility} The levers that work best are also the hardest to obtain or the furthest from the reform as proposed. Cross-party consensus on reservation is rare; L3 keeps caste as a criterion. The model treats political feasibility as exogenous.
+
+\paragraph{What the platform can be used for} The same machinery answers questions beyond this paper's. The allocation model evaluates any pool design under the over-and-above rule, for example different pool sizes, caste sub-quotas within an income pool, or a creamy layer for SC and ST; the scenario catalogue takes new interventions as short functions; and the calibration machinery can absorb new episodes or new event data as they become available.
 
 \section{Limitations and threats to validity}
 \label{sec:limitations}
@@ -678,6 +847,14 @@ Agents & People per agent & Baseline peak (lakh) & 10th--90th & L3 peak (lakh)\\
 \item \textbf{Omitted structure.} Jati-level heterogeneity beyond two SC/ST tiers, state-level variation in income and organization, media dynamics, courts and electoral feedback are not modelled. State government alignment was coded (\path{data/derived/state_government_alignment.csv}) but is not used by the model.
 \item \textbf{Generic dynamics.} Threshold cascades can produce heavy-tailed outcomes whatever their micro-foundations \citep{thron2015}. The episode tests, the structural ensemble and the separation of inputs from emergent effects are partial answers; they do not establish that the mechanisms are the right ones.
 \end{itemize}
+
+\section{Conclusion}
+\label{sec:conclusion}
+Replacing caste-based reservation with a single income test at \rupee8 lakh is a larger change than it appears. Under the actual rules, \EligibilityLose{} of Indians would lose eligibility and \EligibilityGain{} would gain it, and in a merged pool it moves most seats held by below-line SC and ST candidates to below-line General candidates, although those candidates keep their eligibility.
+
+How much protest that would provoke is not something the available data can pin down. Event counts from past episodes identify the relative size of past shocks, not their headcounts, and out-of-sample predictions of deaths and geography are weak. What the model can do is compare designs on the same simulated worlds, and that comparison is robust in its main lines. Keeping caste as the qualifier with an income filter inside it cuts protest most, in every analysis in this paper, because it removes both the symbolic threat and, as the allocation model shows, the seat losses of the below-line majority. Compensating the direct losers and expanding seats on the EWS model do little. If the income-only end state is the goal, phasing and a process that changes what the reform means matter most, though the model cannot say which of the two matters more. Suppression costs lives in every specification, and its effect on the size of protest depends on how people respond to deaths, which no past episode identifies.
+
+\paragraph{Future work} Four extensions would strengthen the evidence most. An independent event dataset (ACLED) would test the GDELT counts, the spatial predictions and, through its reported crowd sizes, the implied turnout of past bandhs; the pipeline for it is in place. A second, independent coding of the relevance audit would tighten the precision correction. Seat changes for government jobs and state institutions would test whether the IIT results generalize. And survey experiments on how an income filter, a commission or statutory guarantees change perceived threat would replace the priors over intervention effects with estimates.
 
 \section{Ethics statement}
 \label{sec:ethics}
@@ -699,15 +876,21 @@ python -m experiments.score_frozen_predictions
 python -m experiments.compare_interventions --specification grounded
 python -m experiments.compare_interventions --regime central
 python -m experiments.compare_interventions --regime high-mobilization
+python -m experiments.record_daily_trajectories --specification grounded
+python -m experiments.grounded_channels
+python -m experiments.grounded_assumptions
 python -m experiments.intervention_mapping_uncertainty --specification grounded
 python -m experiments.intervention_mapping_uncertainty --specification stylized
 python -m experiments.material_symbolic_break_even --specification stylized
 python -m experiments.decompose_levers
-python -m experiments.global_sensitivity
+python -m experiments.global_sensitivity --specification grounded
+python -m experiments.global_sensitivity --specification stylized
 python -m experiments.structural_ensemble
+python -m experiments.stylized_facts
 python -m experiments.sensitivity_analysis
 python -m experiments.check_robustness
 python -m experiments.replay_model_development
+python -m visualization.render_grounded_figures
 python -m visualization.write_latex_result_macros
 python -m visualization.write_paper_macros
 python -m visualization.write_grounded_macros
@@ -846,6 +1029,41 @@ Lever & Change & 95\% CI & 1 & 2 & 3 & 4 & 5 & 6 & 7\\
 \tablerows{../report/generated/scenario_table_high-mobilization.tex}
 \bottomrule
 \end{tabularx}
+\end{table}
+
+\section{Model summary in the ODD format}
+\label{app:odd}
+\begin{tabularx}{\linewidth}{@{}lL@{}}
+\toprule
+Element & Content\\
+\midrule
+Purpose & Compare designs of an income-only reservation reform by the street protest they would provoke; separate what data identify from what is assumed.\\
+Entities & Agents (120{,}000, each about 12{,}200 people) with social group, SC/ST tier, income position, eligibility segment, identity strength and threshold; neighbourhoods of about 100 agents; districts and states (grounded); organizations and government as rules, not agents.\\
+Scales & One step is a day; campaigns last 40 days; space is the 640 Census 2011 districts (grounded) or national (stylized).\\
+Process overview & Each day: grievance, social pull and organizational push determine each agent's protest probability; decisions; fatigue; turnout updates; bandh calls and concession (grounded); deaths and the martyr effect (Section~\ref{sec:model}).\\
+Design concepts & Emergence: turnout, bandh timing, concession, deaths. Adaptation: none (thresholds rise with fatigue). Interaction: neighbourhood and national social influence. Stochasticity: decisions, deaths, organization, world draws; paired seeds across scenarios. Observation: peak-day turnout, unique participants, protester-days, deaths, state and group shares, event counts through the observation model.\\
+Initialization & Population from Census and NFHS shares with seed 7; parameters from the specification and, per run, a world draw (grounded: one retained calibration set).\\
+Input data & Rank lists and allotments (allocation model), Census 2011 and NFHS-5 (population), GDELT event counts and reported deaths (calibration); none enter during a run.\\
+Submodels & Grievance (Eq.~1), social pull (Eq.~2), decision (Eq.~3), bandh calls, concession and backlash, deaths; parameters in Table~\ref{tab:parameters}.\\
+\bottomrule
+\end{tabularx}
+
+\section{Stylized specification: channel decomposition}
+\label{app:stylized-decomposition}
+The same decomposition in the stylized specification, \RunCountCentral{} paired runs: L5's party-amplifier channel alone changes the peak by \DecompLFiveAmplifier{} and its symbolic channel alone by \DecompLFiveSymbolic; L3's symbolic channel gives \DecompLThreeSymbolic{} and its material channel \DecompLThreeMaterial; L1's material channel gives \DecompLOneMaterial{} and its symbolic channel \DecompLOneSymbolic. Heavy policing's turnout cost alone gives \DecompBTwoTurnoutCost{} and its extra violence and martyr response alone \DecompBTwoViolence; the full scenario multiplies deaths by \DecompBTwoFullDeathRatio, of which the assumed multiplier of 3 is input and a factor of \DecompBTwoFullEmergentDeathFactor{} comes from the change in protester-days (\DecompBTwoFullDays).
+
+\section{Grounded specification: Morris screening}
+\label{app:morris-grounded}
+\begin{table}[H]
+\centering\small
+\caption{Morris screening in the grounded specification (\MorrisGroundedTrajectories{} trajectories around the central calibrated values): $\mu^*$ on the baseline log peak and on the paired peak change of L1, L3 and L5, and $\sigma$ for the log peak.}
+\begin{tabular}{@{}lrrrrr@{}}
+\toprule
+Parameter & Log peak & L1 & L3 & L5 & $\sigma$ (log peak)\\
+\midrule
+\tablerows{generated/morris_rows_grounded.tex}
+\bottomrule
+\end{tabular}
 \end{table}
 
 \section{Code map}

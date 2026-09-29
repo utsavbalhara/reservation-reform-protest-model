@@ -161,6 +161,18 @@ pre{font:400 .8rem/1.55 var(--mono);background:var(--surface);border:1px solid v
   </div>
 </section>
 
+<section aria-labelledby="scope-title">
+  <h2 id="scope-title">What this project comprises</h2>
+  <p>It began as one stylized agent-based model. It is now four linked parts, each usable on its own:</p>
+  <ol>
+    <li><strong>Eligibility accounting</strong> under the real creamy-layer and EWS rules.</li>
+    <li><strong>A seat-allocation model</strong> built on India's over-and-above choice rule, fitted to JEE (Advanced) rank lists and checked against published allotments. It can evaluate any vertical-reservation design.</li>
+    <li><strong>A protest model on 640 districts</strong>, with bandhs called when turnout is credible, concession and backlash, and deaths; the original stylized model is kept alongside for comparison.</li>
+    <li><strong>Calibration and uncertainty analysis</strong>: history matching to news-event counts for four episodes, predictions frozen and published before scoring, priors on every policy effect, an 11-variant structural ensemble and global sensitivity screening.</li>
+  </ol>
+  <p class="note">It compares policy designs on the same simulated worlds and says which comparisons survive the uncertainty. It does not forecast how many people would protest, where violence would occur, or which states organizers would carry.</p>
+</section>
+
 <section aria-labelledby="question-title">
   <h2 id="question-title">The question</h2>
   <p>India reserves seats in public education and government jobs for Scheduled Castes (15%), Scheduled Tribes (7.5%), Other Backward Classes (27%) and, since 2019, Economically Weaker Sections of the general category (10%). OBC families above ₹8 lakh are already excluded, and EWS already applies only below ₹8 lakh. SC and ST quotas have no income test.</p>
@@ -261,6 +273,8 @@ pre{font:400 .8rem/1.55 var(--mono);background:var(--surface);border:1px solid v
     <figure><img src="__ASSET_PREFIX__figures/fig02_daily_turnout_paths.png" alt="Daily turnout over 40 days for baseline, heavy policing, consensus commission and caste sub-quotas, log scale." loading="lazy"><figcaption>Daily turnout for four contrasting scenarios. Heavy policing flattens bandh-day spikes but keeps more people on the street between them.</figcaption></figure>
     <figure><img src="__ASSET_PREFIX__figures/fig04_grievance_composition.png" alt="Stacked bars of average grievance by group, income position and tier, split into symbolic threat and material loss." loading="lazy"><figcaption>Where grievance comes from. Symbolic threat is the larger part for every group except SC and ST families above the line, who are under 3% of India.</figcaption></figure>
     <figure><img src="__ASSET_PREFIX__figures/fig03_turnout_by_group.png" alt="Daily baseline turnout by social group; SC turnout dominates." loading="lazy"><figcaption>Who protests under the abrupt switch. SC turnout dominates; General-category turnout is zero because the reform favours them.</figcaption></figure>
+    <figure><img src="__ASSET_PREFIX__figures/fig16_grievance_composition_grounded.png" alt="Stacked bars of mean grievance by eligibility segment, split into symbolic threat and material change; symbolic threat dominates for SC, ST and OBC segments." loading="lazy"><figcaption>Where grievance comes from in the grounded model. Symbolic threat is the larger part everywhere, but seat losses add a third to a half for below-line SC and ST families.</figcaption></figure>
+    <figure><img src="__ASSET_PREFIX__figures/fig17_state_distribution.png" alt="Bars of each state's share of protester-days under the reform, with dots for each state's share of reported events on 2 April 2018." loading="lazy"><figcaption>Where protest would concentrate: a demographic baseline. In 2018 Punjab, where the call began, had far more events than the model gives it.</figcaption></figure>
     <figure><img src="__ASSET_PREFIX__figures/fig06_suppression_backfire.png" alt="Bar chart indexing peak turnout, total participants and deaths to the baseline for internet shutdowns and heavy policing." loading="lazy"><figcaption>Suppression indexed to the baseline (= 100).</figcaption></figure>
   </div>
 </section>
