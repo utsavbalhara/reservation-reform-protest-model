@@ -23,6 +23,14 @@ from protest_simulation.synthetic_population import build_synthetic_india
 RESULTS_FOLDER = Path(__file__).resolve().parent.parent / "results"
 COMPARED = ("symbolic_only_validation",) + SINGLE_LEVERS + ("heavy_policing",)
 
+# With the legal eligibility rules, two segments change status that the stylized material function cannot see: OBC
+# families above the line but non-creamy today lose eligibility (the loss of an above-line SC/ST family, 1.0), and
+# below-line General families that fail the EWS asset tests gain it (the same size of change, as a gain). Every other
+# segment keeps its stylized value.
+STYLIZED_LEGAL_TABLE = {"SC_above": 1.0, "SC_below": 0.35, "ST_above": 1.0, "ST_below": 0.35, "OBC_creamy": 0.0,
+                        "OBC_above_ncl": 1.0, "OBC_below": 0.25, "General_above": 0.0, "General_below_ews": -0.15,
+                        "General_below_asset_excluded": -1.0}
+
 # name -> (parameter changes, population options, description)
 VARIANTS = {
     "reference": ({}, {}, "Reference structure"),
@@ -36,11 +44,11 @@ VARIANTS = {
                                    "Negative-binomial deaths, split into police-attributed and other"),
     "deaths_deter": ({"death_response": -0.5}, {}, "Deaths deter rather than mobilize"),
     "mixed_neighbourhoods": ({}, {"same_group_neighbourhood_share": 0.7}, "30% of neighbourhoods mixed across groups"),
-    "legal_eligibility": ({}, {"obc_creamy_share_of_above_line": 0.5, "ews_asset_exclusion_share": 0.15},
+    "legal_eligibility": ({"material_change_by_segment": STYLIZED_LEGAL_TABLE}, {"obc_creamy_share_of_above_line": 0.5, "ews_asset_exclusion_share": 0.15},
                           "Half of above-line OBC non-creamy today; 15% of below-line General fail EWS asset tests"),
     "all_combined": ({"random_streams": "split", "threshold_distribution": "activist_mixture", "bandh_schedule": "endogenous",
                       "concession_rule": True, "counter_mobilization_symbolic_threat": 0.3,
-                      "death_model": "negative_binomial_split", "death_dispersion": 1.0},
+                      "death_model": "negative_binomial_split", "death_dispersion": 1.0, "material_change_by_segment": STYLIZED_LEGAL_TABLE},
                      {"same_group_neighbourhood_share": 0.7, "obc_creamy_share_of_above_line": 0.5, "ews_asset_exclusion_share": 0.15},
                      "All alternatives above except deterrence"),
 }
@@ -87,13 +95,17 @@ def main():
         print(f"{name:>28}: theta {threshold:.3f} | order {' > '.join(order)} | "
               + ", ".join(f"{s} {effects[s]['peak']['change_percent']:+.0f}%" for s in COMPARED), flush=True)
 
+    RESULTS_FOLDER.mkdir(exist_ok=True)
+    path = RESULTS_FOLDER / "structural_ensemble.json"
+    if set(arguments.variants) != set(VARIANTS) and path.exists():
+        # A partial rerun replaces only the variants it ran and keeps the others, in catalogue order.
+        previous = json.loads(path.read_text())["variants"]
+        results = {name: results.get(name, previous.get(name)) for name in VARIANTS if name in results or name in previous}
     top = {name: value["single_lever_order_by_peak_change"][0] for name, value in results.items()}
     bottom = {name: value["single_lever_order_by_peak_change"][-1] for name, value in results.items()}
     output = {"runs_per_scenario": arguments.runs, "agents": arguments.agents, "variants": results,
               "strongest_lever_by_variant": top, "weakest_lever_by_variant": bottom,
               "share_of_variants_where_strongest": {lever: round(list(top.values()).count(lever) / len(top), 3) for lever in SINGLE_LEVERS}}
-    RESULTS_FOLDER.mkdir(exist_ok=True)
-    path = RESULTS_FOLDER / "structural_ensemble.json"
     path.write_text(json.dumps(output, indent=1))
     print(json.dumps({k: output[k] for k in ("strongest_lever_by_variant", "weakest_lever_by_variant")}, indent=1))
     print(f"Saved {path}")
