@@ -2794,43 +2794,56 @@
   },
   "legal_eligibility": {
    "description": "Half of above-line OBC non-creamy today; 15% of below-line General fail EWS asset tests",
-   "parameter_changes": {},
+   "parameter_changes": {
+    "material_change_by_segment": {
+     "SC_above": 1.0,
+     "SC_below": 0.35,
+     "ST_above": 1.0,
+     "ST_below": 0.35,
+     "OBC_creamy": 0.0,
+     "OBC_above_ncl": 1.0,
+     "OBC_below": 0.25,
+     "General_above": 0.0,
+     "General_below_ews": -0.15,
+     "General_below_asset_excluded": -1.0
+    }
+   },
    "population_options": {
     "obc_creamy_share_of_above_line": 0.5,
     "ews_asset_exclusion_share": 0.15
    },
-   "recalibrated_mean_threshold": 6.6016,
-   "calibrated_median_peak_lakh": 42.9,
-   "baseline_median_peak_lakh": 48.7,
-   "baseline_median_deaths": 22.5,
+   "recalibrated_mean_threshold": 6.6094,
+   "calibrated_median_peak_lakh": 44.1,
+   "baseline_median_peak_lakh": 50.9,
+   "baseline_median_deaths": 22.0,
    "paired_effects": {
     "symbolic_only_validation": {
      "peak": {
-      "median_paired_ratio": 0.2835,
-      "change_percent": -71.6,
+      "median_paired_ratio": 0.2671,
+      "change_percent": -73.3,
       "change_percent_ci95": [
-       -74.6,
-       -69.3
+       -75.0,
+       -69.8
       ],
       "share_of_runs_higher_than_baseline": 0.0,
       "paired_runs": 100
      },
      "cumulative": {
-      "median_paired_ratio": 0.3572,
-      "change_percent": -64.3,
+      "median_paired_ratio": 0.3415,
+      "change_percent": -65.9,
       "change_percent_ci95": [
-       -66.8,
-       -62.6
+       -68.8,
+       -64.4
       ],
       "share_of_runs_higher_than_baseline": 0.0,
       "paired_runs": 100
      },
      "deaths": {
-      "median_paired_ratio": 0.2692,
-      "change_percent": -73.1,
+      "median_paired_ratio": 0.2697,
+      "change_percent": -73.0,
       "change_percent_ci95": [
-       -77.3,
-       -66.7
+       -77.8,
+       -64.7
       ],
       "share_of_runs_higher_than_baseline": 0.0,
       "paired_runs": 99
@@ -2838,31 +2851,31 @@
     },
     "grandfathering": {
      "peak": {
-      "median_paired_ratio": 0.3094,
+      "median_paired_ratio": 0.3087,
       "change_percent": -69.1,
       "change_percent_ci95": [
-       -71.4,
-       -66.0
+       -72.1,
+       -67.1
       ],
       "share_of_runs_higher_than_baseline": 0.0,
       "paired_runs": 100
      },
      "cumulative": {
-      "median_paired_ratio": 0.383,
-      "change_percent": -61.7,
+      "median_paired_ratio": 0.378,
+      "change_percent": -62.2,
       "change_percent_ci95": [
-       -63.8,
-       -59.3
+       -64.7,
+       -60.8
       ],
       "share_of_runs_higher_than_baseline": 0.0,
       "paired_runs": 100
      },
      "deaths": {
-      "median_paired_ratio": 0.3276,
-      "change_percent": -67.2,
+      "median_paired_ratio": 0.325,
+      "change_percent": -67.5,
       "change_percent_ci95": [
-       -73.9,
-       -61.5
+       -73.1,
+       -62.5
       ],
       "share_of_runs_higher_than_baseline": 0.0,
       "paired_runs": 99
@@ -2870,21 +2883,21 @@
     },
     "seat_expansion": {
      "peak": {
-      "median_paired_ratio": 0.5119,
-      "change_percent": -48.8,
+      "median_paired_ratio": 0.5353,
+      "change_percent": -46.5,
       "change_percent_ci95": [
-       -50.5,
-       -43.6
+       -50.4,
+       -40.5
       ],
       "share_of_runs_higher_than_baseline": 0.0,
       "paired_runs": 100
      },
      "cumulative": {
-      "median_paired_ratio": 0.5619,
-      "change_percent": -43.8,
+      "median_paired_ratio": 0.58,
+      "change_percent": -42.0,
       "change_percent_ci95": [
-       -45.0,
-       -40.8
+       -44.7,
+       -39.0
       ],
       "share_of_runs_higher_than_baseline": 0.0,
       "paired_runs": 100
@@ -2893,8 +2906,8 @@
       "median_paired_ratio": 0.5778,
       "change_percent": -42.2,
       "change_percent_ci95": [
-       -48.5,
-       -40.0
+       -50.0,
+       -36.0
       ],
       "share_of_runs_higher_than_baseline": 0.0,
       "paired_runs": 99
@@ -2902,31 +2915,31 @@
     },
     "hybrid_caste_subquotas": {
      "peak": {
-      "median_paired_ratio": 0.0541,
-      "change_percent": -94.6,
+      "median_paired_ratio": 0.0639,
+      "change_percent": -93.6,
       "change_percent_ci95": [
-       -95.4,
-       -93.5
+       -95.0,
+       -92.8
       ],
       "share_of_runs_higher_than_baseline": 0.0,
       "paired_runs": 100
      },
      "cumulative": {
-      "median_paired_ratio": 0.0759,
-      "change_percent": -92.4,
+      "median_paired_ratio": 0.0861,
+      "change_percent": -91.4,
       "change_percent_ci95": [
-       -93.1,
-       -91.5
+       -92.1,
+       -90.3
       ],
       "share_of_runs_higher_than_baseline": 0.0,
       "paired_runs": 100
      },
      "deaths": {
-      "median_paired_ratio": 0.023,
-      "change_percent": -97.7,
+      "median_paired_ratio": 0.0337,
+      "change_percent": -96.6,
       "change_percent_ci95": [
-       -100.0,
-       -96.3
+       -97.8,
+       -95.2
       ],
       "share_of_runs_higher_than_baseline": 0.0,
       "paired_runs": 99
@@ -2934,31 +2947,31 @@
     },
     "sub_classification": {
      "peak": {
-      "median_paired_ratio": 0.6193,
-      "change_percent": -38.1,
+      "median_paired_ratio": 0.631,
+      "change_percent": -36.9,
       "change_percent_ci95": [
-       -41.6,
-       -34.2
+       -39.5,
+       -33.7
       ],
       "share_of_runs_higher_than_baseline": 0.0,
       "paired_runs": 100
      },
      "cumulative": {
-      "median_paired_ratio": 0.6383,
-      "change_percent": -36.2,
+      "median_paired_ratio": 0.6591,
+      "change_percent": -34.1,
       "change_percent_ci95": [
-       -38.5,
-       -34.4
+       -36.4,
+       -32.4
       ],
       "share_of_runs_higher_than_baseline": 0.0,
       "paired_runs": 100
      },
      "deaths": {
-      "median_paired_ratio": 0.6667,
-      "change_percent": -33.3,
+      "median_paired_ratio": 0.686,
+      "change_percent": -31.4,
       "change_percent_ci95": [
-       -39.4,
-       -25.9
+       -37.9,
+       -25.0
       ],
       "share_of_runs_higher_than_baseline": 0.0,
       "paired_runs": 99
@@ -2966,30 +2979,30 @@
     },
     "consensus_commission": {
      "peak": {
-      "median_paired_ratio": 0.1894,
-      "change_percent": -81.1,
+      "median_paired_ratio": 0.1911,
+      "change_percent": -80.9,
       "change_percent_ci95": [
-       -82.9,
-       -77.3
+       -82.4,
+       -76.9
       ],
       "share_of_runs_higher_than_baseline": 0.0,
       "paired_runs": 100
      },
      "cumulative": {
-      "median_paired_ratio": 0.3359,
-      "change_percent": -66.4,
+      "median_paired_ratio": 0.3499,
+      "change_percent": -65.0,
       "change_percent_ci95": [
-       -67.9,
-       -62.5
+       -66.8,
+       -62.2
       ],
       "share_of_runs_higher_than_baseline": 0.0,
       "paired_runs": 100
      },
      "deaths": {
-      "median_paired_ratio": 0.2526,
-      "change_percent": -74.7,
+      "median_paired_ratio": 0.2642,
+      "change_percent": -73.6,
       "change_percent_ci95": [
-       -78.6,
+       -77.3,
        -66.7
       ],
       "share_of_runs_higher_than_baseline": 0.0,
@@ -2998,30 +3011,30 @@
     },
     "compensation": {
      "peak": {
-      "median_paired_ratio": 0.8253,
-      "change_percent": -17.5,
+      "median_paired_ratio": 0.8074,
+      "change_percent": -19.3,
       "change_percent_ci95": [
-       -21.3,
-       -15.0
+       -23.3,
+       -17.3
       ],
-      "share_of_runs_higher_than_baseline": 0.02,
+      "share_of_runs_higher_than_baseline": 0.0,
       "paired_runs": 100
      },
      "cumulative": {
-      "median_paired_ratio": 0.8452,
-      "change_percent": -15.5,
+      "median_paired_ratio": 0.8087,
+      "change_percent": -19.1,
       "change_percent_ci95": [
-       -17.8,
-       -14.5
+       -22.0,
+       -18.1
       ],
       "share_of_runs_higher_than_baseline": 0.0,
       "paired_runs": 100
      },
      "deaths": {
-      "median_paired_ratio": 0.8571,
-      "change_percent": -14.3,
+      "median_paired_ratio": 0.8519,
+      "change_percent": -14.8,
       "change_percent_ci95": [
-       -22.0,
+       -22.5,
        0.0
       ],
       "share_of_runs_higher_than_baseline": 0.01,
@@ -3030,30 +3043,30 @@
     },
     "credible_guarantees": {
      "peak": {
-      "median_paired_ratio": 0.4975,
-      "change_percent": -50.3,
+      "median_paired_ratio": 0.5037,
+      "change_percent": -49.6,
       "change_percent_ci95": [
-       -54.3,
-       -46.8
+       -53.7,
+       -45.0
       ],
       "share_of_runs_higher_than_baseline": 0.0,
       "paired_runs": 100
      },
      "cumulative": {
-      "median_paired_ratio": 0.5635,
-      "change_percent": -43.7,
+      "median_paired_ratio": 0.5779,
+      "change_percent": -42.2,
       "change_percent_ci95": [
-       -45.3,
-       -41.4
+       -44.3,
+       -39.5
       ],
       "share_of_runs_higher_than_baseline": 0.0,
       "paired_runs": 100
      },
      "deaths": {
-      "median_paired_ratio": 0.5217,
-      "change_percent": -47.8,
+      "median_paired_ratio": 0.5455,
+      "change_percent": -45.5,
       "change_percent_ci95": [
-       -54.8,
+       -52.1,
        -40.0
       ],
       "share_of_runs_higher_than_baseline": 0.0,
@@ -3062,31 +3075,31 @@
     },
     "heavy_policing": {
      "peak": {
-      "median_paired_ratio": 0.6631,
-      "change_percent": -33.7,
+      "median_paired_ratio": 0.6867,
+      "change_percent": -31.3,
       "change_percent_ci95": [
-       -37.2,
-       -24.0
+       -36.5,
+       -23.0
       ],
-      "share_of_runs_higher_than_baseline": 0.26,
+      "share_of_runs_higher_than_baseline": 0.25,
       "paired_runs": 100
      },
      "cumulative": {
-      "median_paired_ratio": 1.1405,
-      "change_percent": 14.0,
+      "median_paired_ratio": 1.1801,
+      "change_percent": 18.0,
       "change_percent_ci95": [
-       10.8,
-       22.2
+       12.1,
+       25.9
       ],
-      "share_of_runs_higher_than_baseline": 0.9,
+      "share_of_runs_higher_than_baseline": 0.91,
       "paired_runs": 100
      },
      "deaths": {
-      "median_paired_ratio": 3.6136,
-      "change_percent": 261.4,
+      "median_paired_ratio": 3.8182,
+      "change_percent": 281.8,
       "change_percent_ci95": [
-       234.6,
-       290.9
+       251.1,
+       300.0
       ],
       "share_of_runs_higher_than_baseline": 1.0,
       "paired_runs": 99
@@ -3112,195 +3125,79 @@
     "concession_rule": true,
     "counter_mobilization_symbolic_threat": 0.3,
     "death_model": "negative_binomial_split",
-    "death_dispersion": 1.0
+    "death_dispersion": 1.0,
+    "material_change_by_segment": {
+     "SC_above": 1.0,
+     "SC_below": 0.35,
+     "ST_above": 1.0,
+     "ST_below": 0.35,
+     "OBC_creamy": 0.0,
+     "OBC_above_ncl": 1.0,
+     "OBC_below": 0.25,
+     "General_above": 0.0,
+     "General_below_ews": -0.15,
+     "General_below_asset_excluded": -1.0
+    }
    },
    "population_options": {
     "same_group_neighbourhood_share": 0.7,
     "obc_creamy_share_of_above_line": 0.5,
     "ews_asset_exclusion_share": 0.15
    },
-   "recalibrated_mean_threshold": 6.9375,
-   "calibrated_median_peak_lakh": 44.8,
-   "baseline_median_peak_lakh": 41.7,
+   "recalibrated_mean_threshold": 6.9492,
+   "calibrated_median_peak_lakh": 44.6,
+   "baseline_median_peak_lakh": 43.4,
    "baseline_median_deaths": 11.0,
    "paired_effects": {
     "symbolic_only_validation": {
      "peak": {
-      "median_paired_ratio": 0.4208,
-      "change_percent": -57.9,
+      "median_paired_ratio": 0.3826,
+      "change_percent": -61.7,
       "change_percent_ci95": [
-       -61.6,
-       -54.7
+       -64.1,
+       -56.0
       ],
       "share_of_runs_higher_than_baseline": 0.02,
       "paired_runs": 100
      },
      "cumulative": {
-      "median_paired_ratio": 0.534,
-      "change_percent": -46.6,
+      "median_paired_ratio": 0.5133,
+      "change_percent": -48.7,
       "change_percent_ci95": [
-       -49.9,
-       -43.9
+       -51.7,
+       -42.0
       ],
-      "share_of_runs_higher_than_baseline": 0.08,
+      "share_of_runs_higher_than_baseline": 0.07,
       "paired_runs": 100
      },
      "deaths": {
-      "median_paired_ratio": 0.5,
-      "change_percent": -50.0,
+      "median_paired_ratio": 0.4664,
+      "change_percent": -53.4,
       "change_percent_ci95": [
-       -62.9,
-       -39.5
+       -65.2,
+       -35.1
       ],
-      "share_of_runs_higher_than_baseline": 0.12,
+      "share_of_runs_higher_than_baseline": 0.15,
       "paired_runs": 100
      }
     },
     "grandfathering": {
      "peak": {
-      "median_paired_ratio": 0.4733,
-      "change_percent": -52.7,
+      "median_paired_ratio": 0.46,
+      "change_percent": -54.0,
       "change_percent_ci95": [
-       -55.9,
-       -49.5
+       -57.9,
+       -50.6
       ],
-      "share_of_runs_higher_than_baseline": 0.01,
+      "share_of_runs_higher_than_baseline": 0.02,
       "paired_runs": 100
      },
      "cumulative": {
-      "median_paired_ratio": 0.568,
-      "change_percent": -43.2,
+      "median_paired_ratio": 0.5565,
+      "change_percent": -44.4,
       "change_percent_ci95": [
-       -45.8,
-       -39.5
-      ],
-      "share_of_runs_higher_than_baseline": 0.1,
-      "paired_runs": 100
-     },
-     "deaths": {
-      "median_paired_ratio": 0.5,
-      "change_percent": -50.0,
-      "change_percent_ci95": [
-       -59.1,
-       -38.9
-      ],
-      "share_of_runs_higher_than_baseline": 0.14,
-      "paired_runs": 100
-     }
-    },
-    "seat_expansion": {
-     "peak": {
-      "median_paired_ratio": 0.6189,
-      "change_percent": -38.1,
-      "change_percent_ci95": [
-       -39.5,
-       -35.5
-      ],
-      "share_of_runs_higher_than_baseline": 0.04,
-      "paired_runs": 100
-     },
-     "cumulative": {
-      "median_paired_ratio": 0.663,
-      "change_percent": -33.7,
-      "change_percent_ci95": [
-       -36.2,
-       -31.8
-      ],
-      "share_of_runs_higher_than_baseline": 0.1,
-      "paired_runs": 100
-     },
-     "deaths": {
-      "median_paired_ratio": 0.6667,
-      "change_percent": -33.3,
-      "change_percent_ci95": [
-       -39.4,
-       -24.2
-      ],
-      "share_of_runs_higher_than_baseline": 0.13,
-      "paired_runs": 100
-     }
-    },
-    "hybrid_caste_subquotas": {
-     "peak": {
-      "median_paired_ratio": 0.028,
-      "change_percent": -97.2,
-      "change_percent_ci95": [
-       -97.4,
-       -97.0
-      ],
-      "share_of_runs_higher_than_baseline": 0.0,
-      "paired_runs": 100
-     },
-     "cumulative": {
-      "median_paired_ratio": 0.1201,
-      "change_percent": -88.0,
-      "change_percent_ci95": [
-       -88.7,
-       -85.8
-      ],
-      "share_of_runs_higher_than_baseline": 0.0,
-      "paired_runs": 100
-     },
-     "deaths": {
-      "median_paired_ratio": 0.0455,
-      "change_percent": -95.5,
-      "change_percent_ci95": [
-       -97.4,
-       -91.3
-      ],
-      "share_of_runs_higher_than_baseline": 0.0,
-      "paired_runs": 100
-     }
-    },
-    "sub_classification": {
-     "peak": {
-      "median_paired_ratio": 0.6814,
-      "change_percent": -31.9,
-      "change_percent_ci95": [
-       -32.6,
-       -29.8
-      ],
-      "share_of_runs_higher_than_baseline": 0.05,
-      "paired_runs": 100
-     },
-     "cumulative": {
-      "median_paired_ratio": 0.714,
-      "change_percent": -28.6,
-      "change_percent_ci95": [
-       -30.0,
-       -26.9
-      ],
-      "share_of_runs_higher_than_baseline": 0.09,
-      "paired_runs": 100
-     },
-     "deaths": {
-      "median_paired_ratio": 0.7386,
-      "change_percent": -26.1,
-      "change_percent_ci95": [
-       -31.0,
-       -18.1
-      ],
-      "share_of_runs_higher_than_baseline": 0.2,
-      "paired_runs": 100
-     }
-    },
-    "consensus_commission": {
-     "peak": {
-      "median_paired_ratio": 0.3391,
-      "change_percent": -66.1,
-      "change_percent_ci95": [
-       -69.2,
-       -63.2
-      ],
-      "share_of_runs_higher_than_baseline": 0.01,
-      "paired_runs": 100
-     },
-     "cumulative": {
-      "median_paired_ratio": 0.5408,
-      "change_percent": -45.9,
-      "change_percent_ci95": [
-       -49.7,
-       -39.3
+       -48.4,
+       -41.3
       ],
       "share_of_runs_higher_than_baseline": 0.11,
       "paired_runs": 100
@@ -3309,39 +3206,167 @@
       "median_paired_ratio": 0.5,
       "change_percent": -50.0,
       "change_percent_ci95": [
-       -59.2,
-       -38.1
+       -60.0,
+       -36.4
       ],
-      "share_of_runs_higher_than_baseline": 0.13,
+      "share_of_runs_higher_than_baseline": 0.15,
+      "paired_runs": 100
+     }
+    },
+    "seat_expansion": {
+     "peak": {
+      "median_paired_ratio": 0.6442,
+      "change_percent": -35.6,
+      "change_percent_ci95": [
+       -37.7,
+       -33.7
+      ],
+      "share_of_runs_higher_than_baseline": 0.05,
+      "paired_runs": 100
+     },
+     "cumulative": {
+      "median_paired_ratio": 0.6812,
+      "change_percent": -31.9,
+      "change_percent_ci95": [
+       -34.8,
+       -29.1
+      ],
+      "share_of_runs_higher_than_baseline": 0.15,
+      "paired_runs": 100
+     },
+     "deaths": {
+      "median_paired_ratio": 0.7267,
+      "change_percent": -27.3,
+      "change_percent_ci95": [
+       -35.3,
+       -17.1
+      ],
+      "share_of_runs_higher_than_baseline": 0.19,
+      "paired_runs": 100
+     }
+    },
+    "hybrid_caste_subquotas": {
+     "peak": {
+      "median_paired_ratio": 0.0334,
+      "change_percent": -96.7,
+      "change_percent_ci95": [
+       -96.9,
+       -96.3
+      ],
+      "share_of_runs_higher_than_baseline": 0.0,
+      "paired_runs": 100
+     },
+     "cumulative": {
+      "median_paired_ratio": 0.1533,
+      "change_percent": -84.7,
+      "change_percent_ci95": [
+       -86.2,
+       -83.2
+      ],
+      "share_of_runs_higher_than_baseline": 0.0,
+      "paired_runs": 100
+     },
+     "deaths": {
+      "median_paired_ratio": 0.0667,
+      "change_percent": -93.3,
+      "change_percent_ci95": [
+       -96.4,
+       -88.9
+      ],
+      "share_of_runs_higher_than_baseline": 0.0,
+      "paired_runs": 100
+     }
+    },
+    "sub_classification": {
+     "peak": {
+      "median_paired_ratio": 0.7057,
+      "change_percent": -29.4,
+      "change_percent_ci95": [
+       -30.9,
+       -27.5
+      ],
+      "share_of_runs_higher_than_baseline": 0.06,
+      "paired_runs": 100
+     },
+     "cumulative": {
+      "median_paired_ratio": 0.7436,
+      "change_percent": -25.6,
+      "change_percent_ci95": [
+       -27.1,
+       -24.2
+      ],
+      "share_of_runs_higher_than_baseline": 0.12,
+      "paired_runs": 100
+     },
+     "deaths": {
+      "median_paired_ratio": 0.8,
+      "change_percent": -20.0,
+      "change_percent_ci95": [
+       -28.7,
+       -11.1
+      ],
+      "share_of_runs_higher_than_baseline": 0.16,
+      "paired_runs": 100
+     }
+    },
+    "consensus_commission": {
+     "peak": {
+      "median_paired_ratio": 0.3461,
+      "change_percent": -65.4,
+      "change_percent_ci95": [
+       -67.0,
+       -62.8
+      ],
+      "share_of_runs_higher_than_baseline": 0.01,
+      "paired_runs": 100
+     },
+     "cumulative": {
+      "median_paired_ratio": 0.57,
+      "change_percent": -43.0,
+      "change_percent_ci95": [
+       -48.2,
+       -35.7
+      ],
+      "share_of_runs_higher_than_baseline": 0.11,
+      "paired_runs": 100
+     },
+     "deaths": {
+      "median_paired_ratio": 0.5752,
+      "change_percent": -42.5,
+      "change_percent_ci95": [
+       -54.4,
+       -32.7
+      ],
+      "share_of_runs_higher_than_baseline": 0.15,
       "paired_runs": 100
      }
     },
     "compensation": {
      "peak": {
-      "median_paired_ratio": 0.877,
-      "change_percent": -12.3,
+      "median_paired_ratio": 0.8517,
+      "change_percent": -14.8,
       "change_percent_ci95": [
-       -13.5,
-       -11.0
+       -16.6,
+       -13.5
       ],
-      "share_of_runs_higher_than_baseline": 0.02,
+      "share_of_runs_higher_than_baseline": 0.04,
       "paired_runs": 100
      },
      "cumulative": {
-      "median_paired_ratio": 0.9095,
-      "change_percent": -9.0,
+      "median_paired_ratio": 0.8715,
+      "change_percent": -12.8,
       "change_percent_ci95": [
-       -11.1,
-       -8.3
+       -14.3,
+       -11.4
       ],
-      "share_of_runs_higher_than_baseline": 0.05,
+      "share_of_runs_higher_than_baseline": 0.07,
       "paired_runs": 100
      },
      "deaths": {
       "median_paired_ratio": 1.0,
       "change_percent": 0.0,
       "change_percent_ci95": [
-       -4.5,
+       -12.2,
        0.0
       ],
       "share_of_runs_higher_than_baseline": 0.14,
@@ -3350,63 +3375,63 @@
     },
     "credible_guarantees": {
      "peak": {
-      "median_paired_ratio": 0.6468,
-      "change_percent": -35.3,
+      "median_paired_ratio": 0.6651,
+      "change_percent": -33.5,
       "change_percent_ci95": [
-       -36.9,
-       -31.9
+       -36.2,
+       -31.8
       ],
-      "share_of_runs_higher_than_baseline": 0.04,
+      "share_of_runs_higher_than_baseline": 0.06,
       "paired_runs": 100
      },
      "cumulative": {
-      "median_paired_ratio": 0.7221,
-      "change_percent": -27.8,
+      "median_paired_ratio": 0.7326,
+      "change_percent": -26.7,
       "change_percent_ci95": [
-       -29.8,
-       -24.7
+       -29.0,
+       -24.6
       ],
-      "share_of_runs_higher_than_baseline": 0.14,
+      "share_of_runs_higher_than_baseline": 0.15,
       "paired_runs": 100
      },
      "deaths": {
-      "median_paired_ratio": 0.6923,
-      "change_percent": -30.8,
+      "median_paired_ratio": 0.7143,
+      "change_percent": -28.6,
       "change_percent_ci95": [
-       -40.0,
-       -24.2
+       -35.3,
+       -20.7
       ],
-      "share_of_runs_higher_than_baseline": 0.16,
+      "share_of_runs_higher_than_baseline": 0.18,
       "paired_runs": 100
      }
     },
     "heavy_policing": {
      "peak": {
-      "median_paired_ratio": 0.8216,
-      "change_percent": -17.8,
+      "median_paired_ratio": 0.8063,
+      "change_percent": -19.4,
       "change_percent_ci95": [
-       -26.5,
-       -13.5
+       -27.0,
+       -11.0
       ],
       "share_of_runs_higher_than_baseline": 0.2,
       "paired_runs": 100
      },
      "cumulative": {
-      "median_paired_ratio": 1.0638,
-      "change_percent": 6.4,
+      "median_paired_ratio": 1.0925,
+      "change_percent": 9.3,
       "change_percent_ci95": [
-       0.0,
-       11.1
+       5.0,
+       14.3
       ],
-      "share_of_runs_higher_than_baseline": 0.59,
+      "share_of_runs_higher_than_baseline": 0.64,
       "paired_runs": 100
      },
      "deaths": {
-      "median_paired_ratio": 3.25,
-      "change_percent": 225.0,
+      "median_paired_ratio": 3.3441,
+      "change_percent": 234.4,
       "change_percent_ci95": [
-       182.0,
-       256.3
+       195.8,
+       271.4
       ],
       "share_of_runs_higher_than_baseline": 0.89,
       "paired_runs": 100

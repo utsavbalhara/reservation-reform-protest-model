@@ -911,7 +911,7 @@
   },
   "seat_expansion": {
    "code": "L2",
-   "label": "Expand seats so no group loses",
+   "label": "Expand seats by a quarter (EWS precedent)",
    "category": "lever",
    "summary": {
     "median_peak_lakh": 193.4,

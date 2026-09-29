@@ -137,7 +137,7 @@ HYBRID_DESIGN = (
 SCENARIOS = (
     Scenario("baseline", "Base", "Abrupt ₹8L income-only switch", "reference", ()),
     Scenario("grandfathering", "L1", "Grandfather current cohorts + 10-year glide", "lever", (grandfather_current_cohorts_with_ten_year_glide,)),
-    Scenario("seat_expansion", "L2", "Expand seats so no group loses", "lever", (expand_seats_so_no_group_loses,)),
+    Scenario("seat_expansion", "L2", "Expand seats by a quarter (EWS precedent)", "lever", (expand_seats_so_no_group_loses,)),
     Scenario("hybrid_caste_subquotas", "L3", "Keep caste sub-quotas, add income filter", "lever", (keep_caste_subquotas_with_income_filter,)),
     Scenario("sub_classification", "L4", "Sub-classify to favour most-deprived", "lever", (sub_classify_to_favour_most_deprived,)),
     Scenario("consensus_commission", "L5", "Data-first commission + cross-party consensus", "lever", (build_consensus_through_data_first_commission,)),

@@ -17,9 +17,12 @@ READABLE_LEFT_OUT_NAMES = {
 
 
 def compact_regime(regime: str) -> dict:
+    """Summaries and paired effects (median over runs of scenario / baseline in the same world)."""
     scenarios = json.loads((RESULTS_FOLDER / f"intervention_comparison_{regime}.json").read_text())["scenarios"]
-    return {
-        key: {
+    compact = {}
+    for key, scenario in scenarios.items():
+        paired = scenario.get("paired_effects_vs_baseline") or {}
+        compact[key] = {
             "code": scenario["code"],
             "label": scenario["label"],
             "category": scenario["category"],
@@ -28,18 +31,31 @@ def compact_regime(regime: str) -> dict:
             "p90": scenario["summary"]["peak_lakh_90th_percentile"],
             "cumulative": scenario["summary"]["median_cumulative_crore"],
             "deaths": scenario["summary"]["median_deaths"],
+            "change": paired.get("peak", {}).get("change_percent", 0.0),
+            "deathRatio": paired.get("deaths", {}).get("median_paired_ratio", 1.0),
         }
-        for key, scenario in scenarios.items()
-    }
+    return compact
+
+
+def macro_values() -> dict:
+    """Headline numbers shared with the paper, read from its generated macros."""
+    import re
+    text = (REPOSITORY_ROOT / "paper" / "generated" / "grounded_macros.tex").read_text()
+    values = dict(re.findall(r"\\newcommand\{\\(\w+)\}\{(.*)\}", text))
+    clean = lambda value: value.replace("\\%", "%").replace("$-$", "−").replace("~", " ").replace("--", "–")
+    return {"__ELIG_LOSE__": clean(values["EligibilityLose"]), "__ELIG_GAIN__": clean(values["EligibilityGain"]),
+            "__SC_BELOW_SEATS__": clean(values["AllocChangeSCBelow"]), "__TURNOUT_2018__": clean(values["CalibTurnoutTwentyEighteenInterval"]),
+            "__ASSUMPTION_PEAK_LOW__": clean(values["AssumptionPeakLow"]), "__ASSUMPTION_PEAK_HIGH__": clean(values["AssumptionPeakHigh"])}
 
 
 def page_data() -> dict:
-    trajectories = json.loads((RESULTS_FOLDER / "daily_trajectories_central.json").read_text())
+    trajectories = json.loads((RESULTS_FOLDER / "daily_trajectories_grounded_central.json").read_text())
     robustness = json.loads((RESULTS_FOLDER / "robustness_checks.json").read_text())
     return {
-        "regimes": {regime: compact_regime(regime) for regime in ("central", "high-mobilization")},
+        "regimes": {"grounded": compact_regime("grounded_central"),
+                    **{regime: compact_regime(regime) for regime in ("central", "high-mobilization")}},
         "dailyPaths": {key: path["median_daily_lakh"] for key, path in trajectories["scenarios"].items()},
-        "bandhDays": trajectories["bandh_call_days"],
+        "bandhDays": [],
         "robustness": {
             "hybrid": [{"retained": check["symbolic_threat_retained"], "median": check["median_peak_lakh"], "cumulative": check["median_cumulative_crore"]}
                        for check in robustness["hybrid_sensitivity"]],
@@ -54,6 +70,8 @@ def build_page(asset_prefix: str, output_path: Path):
     template = (PAGE_FOLDER / "page_template.html").read_text()
     page = template.replace("__RESULTS_DATA__", json.dumps(page_data(), ensure_ascii=False, separators=(",", ":")))
     page = page.replace("__ASSET_PREFIX__", asset_prefix)
+    for placeholder, value in macro_values().items():
+        page = page.replace(placeholder, value)
     output_path.parent.mkdir(parents=True, exist_ok=True)
     output_path.write_text(page)
     print(f"Wrote {output_path}")
