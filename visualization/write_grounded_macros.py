@@ -275,6 +275,9 @@ def decomposition(macros, rows):
                 macros.append(macro(name + "Deaths", signed(effects["deaths"]["change_percent"])))
             if "protester_days" in effects:
                 macros.append(macro(name + "Days", signed(effects["protester_days"]["change_percent"])))
+            if "emergent_death_factor" in effects:
+                macros.append(macro(name + "EmergentDeathFactor", f"{effects['emergent_death_factor']:.1f}"))
+                macros.append(macro(name + "DeathRatio", f"{effects['deaths']['median_paired_ratio']:.1f}"))
 
 
 def break_even(macros, rows):
@@ -328,6 +331,7 @@ def structural_ensemble(macros, rows):
     variants = data["variants"]
     shares = data["share_of_variants_where_strongest"]
     macros.append(macro("EnsembleVariants", str(len(variants))))
+    macros.append(macro("EnsembleRuns", str(data["runs_per_scenario"])))
     macros.append(macro("EnsembleLThreeStrongest", str(sum(1 for v in variants.values() if v["single_lever_order_by_peak_change"][0] == "hybrid_caste_subquotas"))))
     macros.append(macro("EnsembleLSixWeakest", str(sum(1 for v in variants.values() if v["single_lever_order_by_peak_change"][-1] == "compensation"))))
     macros.append(macro("EnsembleLFiveAboveLOne", str(sum(1 for v in variants.values()
@@ -365,7 +369,7 @@ def grounded_assumptions(macros, rows):
     cells = data["cells"]
     peaks = [cell["baseline_median_peak_lakh"] for cell in cells]
     macros += [macro("AssumptionPeakLow", lakh_text(min(peaks))), macro("AssumptionPeakHigh", lakh_text(max(peaks))),
-               macro("AssumptionCells", str(len(cells))),
+               macro("AssumptionCells", str(len(cells))), macro("AssumptionRuns", str(data["runs"])),
                macro("AssumptionLThreeFirst", str(sum(cell["single_lever_order_by_peak_change"][0] == "hybrid_caste_subquotas" for cell in cells))),
                macro("AssumptionLSixLast", str(sum(cell["single_lever_order_by_peak_change"][-1] == "compensation" for cell in cells)))]
     table = []
