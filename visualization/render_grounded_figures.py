@@ -18,6 +18,12 @@ LEVER_CODES = {"grandfathering": "L1", "seat_expansion": "L2", "hybrid_caste_sub
 SEGMENT_LABELS = {"SC_above": "SC, above line", "SC_below": "SC, below line", "ST_above": "ST, above line", "ST_below": "ST, below line",
                   "OBC-NCL_above": "OBC non-creamy, above line", "OBC-NCL_below": "OBC, below line", "GEN-EWS": "General, EWS-eligible",
                   "GEN_below": "General, below line, not EWS", "GEN_above": "General, above line"}
+SHORT_LABELS = {"symbolic_only_validation": "Symbolic threat only (check)", "grandfathering": "Grandfathering, 10-year glide",
+                "seat_expansion": "Expand seats by a quarter", "hybrid_caste_subquotas": "Caste quotas with income filter",
+                "sub_classification": "Sub-classification", "consensus_commission": "Data-first commission, consensus",
+                "compensation": "Compensate above-line losers", "credible_guarantees": "Guarantee untouched protections",
+                "internet_shutdown": "Internet shutdowns", "heavy_policing": "Heavy policing", "managed_transition": "Managed transition package",
+                "hybrid_package": "Hybrid package", "baseline": "Abrupt switch"}
 EPISODE_LABELS = {"sc_st_bharat_bandh_2018": "SC/ST bandh, Apr 2018", "upper_caste_bandh_2018": "Upper-caste bandh, Sep 2018",
                   "sc_st_bharat_bandh_2024": "SC/ST bandh, Aug 2024", "ews_quota_2019": "EWS amendment, Jan 2019"}
 
@@ -112,9 +118,9 @@ def plot_paired_effects():
             axis.plot(effect["change_percent"], row + offset, "o", color=colour, markersize=5.5, label=label if row == 0 else None,
                       markeredgecolor="#fcfcfb", markeredgewidth=1)
     axis.axvline(0, color=MUTED_INK, linewidth=0.8)
-    axis.set_yticks(range(len(order)), [f"{LEVER_CODES[k]}  {grounded['scenarios'][k]['label'][:44]}" for k in order])
+    axis.set_yticks(range(len(order)), [f"{LEVER_CODES[k]}  {SHORT_LABELS[k]}" for k in order])
     axis.invert_yaxis()
-    axis.set_xlim(-102, 40)
+    axis.set_xlim(-102, 10)
     axis.set_xlabel("Change in peak-day turnout vs abrupt switch (median paired change, 95% CI)")
     axis.set_title("Intervention effects in both specifications")
     axis.legend(loc="lower right")
@@ -180,8 +186,9 @@ def plot_grounded_paths():
         days = np.arange(1, len(path["median_daily_lakh"]) + 1)
         axis.fill_between(days, np.maximum(path["daily_lakh_10th_percentile"], 0.01), np.maximum(path["daily_lakh_90th_percentile"], 0.01),
                           color=colour, alpha=0.12, linewidth=0)
-        axis.plot(days, np.maximum(path["median_daily_lakh"], 0.01), color=colour, label=f"{path['code']}  {path['label']}")
+        axis.plot(days, np.maximum(path["median_daily_lakh"], 0.01), color=colour, label=f"{path['code']}  {SHORT_LABELS[key]}")
     axis.set_yscale("log")
+    axis.yaxis.set_major_formatter(plt.FuncFormatter(lambda value, _: f"{value:g}"))
     axis.set_xlim(1, 40)
     axis.set_xlabel("Day of campaign")
     axis.set_ylabel("Protesters that day (lakh, log scale)")

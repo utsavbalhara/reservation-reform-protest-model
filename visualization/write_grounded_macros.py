@@ -232,6 +232,11 @@ def mapping_uncertainty(macros, rows):
             macros.append(macro(f"Map{word}Strongest{CODE_WORDS[LEVER_CODES[lever]]}", percent(probability, 0)))
         for lever, probability in data["probability_weakest_single_lever"].items():
             macros.append(macro(f"Map{word}Weakest{CODE_WORDS[LEVER_CODES[lever]]}", percent(probability, 0)))
+        levers = list(data["rank_distribution"])
+        for lever in levers:
+            ranks = data["rank_distribution"][lever]
+            bottom_two = ranks[str(len(levers))] + ranks[str(len(levers) - 1)]
+            macros.append(macro(f"Map{word}BottomTwo{CODE_WORDS[LEVER_CODES[lever]]}", percent(bottom_two, 0)))
         pairwise = data["probability_row_beats_column"]
         for a, b in (("hybrid_caste_subquotas", "consensus_commission"), ("consensus_commission", "grandfathering"),
                      ("hybrid_caste_subquotas", "grandfathering"), ("credible_guarantees", "compensation"), ("grandfathering", "seat_expansion")):
@@ -341,7 +346,8 @@ def structural_ensemble(macros, rows):
     for name, variant in variants.items():
         effects = variant["paired_effects"]
         order = [LEVER_CODES[lever] for lever in variant["single_lever_order_by_peak_change"]]
-        table.append(f"{variant['description']} & {variant['recalibrated_mean_threshold']:.2f} & "
+        description = variant["description"].replace("%", "\\%")
+        table.append(f"{description} & {variant['recalibrated_mean_threshold']:.2f} & "
                      + " & ".join(signed(effects[lever]["peak"]["change_percent"]) for lever in ("grandfathering", "hybrid_caste_subquotas", "consensus_commission", "compensation"))
                      + f" & {signed(effects['heavy_policing']['cumulative']['change_percent'])} & {order[0]} / {order[-1]}\\\\")
     rows["ensemble_rows.tex"] = table
