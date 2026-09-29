@@ -28,6 +28,7 @@ class ProtestModelParameters:
     organizational_capacity_by_group: np.ndarray = field(default_factory=_organizational_capacity_sc_st_obc_general)
     opposition_party_amplifier: float = 1.5
 
+    social_influence_saturates: bool = True
     max_neighbourhood_influence: float = 0.9
     neighbourhood_turnout_at_saturation: float = 0.10
     max_national_visibility_influence: float = 0.6

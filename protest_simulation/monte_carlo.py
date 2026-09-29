@@ -3,7 +3,7 @@ from dataclasses import dataclass
 import numpy as np
 
 from .model_parameters import BASELINE_ABRUPT_INCOME_ONLY_SWITCH, ProtestModelParameters
-from .parameter_uncertainty import draw_plausible_world
+from .parameter_uncertainty import MEAN_THRESHOLD_STANDARD_DEVIATION, draw_plausible_world
 from .protest_campaign import simulate_protest_campaign
 from .synthetic_population import build_synthetic_india
 
@@ -48,10 +48,13 @@ def run_paired_monte_carlo(
     run_count: int,
     regime_threshold_shift: float = 0.0,
     base_parameters: ProtestModelParameters = BASELINE_ABRUPT_INCOME_ONLY_SWITCH,
+    mean_threshold_standard_deviation: float = MEAN_THRESHOLD_STANDARD_DEVIATION,
 ) -> ScenarioRuns:
     runs = ScenarioRuns([], [], [])
     for run_index in range(run_count):
-        world = draw_plausible_world(base_parameters, np.random.default_rng(WORLD_DRAW_SEED_OFFSET + run_index))
+        world = draw_plausible_world(
+            base_parameters, np.random.default_rng(WORLD_DRAW_SEED_OFFSET + run_index), mean_threshold_standard_deviation
+        )
         world.mean_participation_threshold += regime_threshold_shift
         for intervention in interventions:
             intervention(world)

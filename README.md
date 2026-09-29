@@ -4,7 +4,7 @@
 
 Utsav Balhara · B.Tech, Netaji Subhas University of Technology (NSUT), New Delhi · September 2026
 
-[Research report (PDF)](report/research_report.pdf) · [Interactive results page](artifact/v2/index.html) · [Usage](USAGE.md) · [Github Repo](https://github.com/utsavbalhara/reservation-reform-protest-model)
+[Research paper (PDF)](paper/reservation_reform_protest_paper.pdf) · [Research report (PDF)](report/research_report.pdf) · [Interactive results page](artifact/v2/index.html) · [Usage](USAGE.md) · [Github Repo](https://github.com/utsavbalhara/reservation-reform-protest-model)
 
 ![Four policy paths simulated on the same population](videos/four_policy_paths_preview.gif)
 
@@ -76,6 +76,19 @@ Median of 50 paired Monte Carlo runs per scenario. Peak is the busiest single da
 
 **C2: hybrid package.** L3 + L4 + L1 + L5 + L6 + L7. Almost nothing is left to drive a cascade.
 
+## How the model was built (and what went wrong first)
+
+The final model is the fourth specification. The paper documents each earlier one, and `experiments/replay_model_development.py` re-runs them with the current code.
+
+| Iteration | Change | What went wrong | How it was caught |
+|---|---|---|---|
+| 1 | Linear, unbounded contagion; narrow thresholds | About 98 crore people on the street at every threshold tried: almost every SC, ST and OBC agent | Implausible scale; contagion had no ceiling |
+| 2 | Saturating contagion | Turnout tipped abruptly (3× fall per 0.1 threshold step); grandfathering −99%, compensation −91% | A symbolic-only shock (like 2018) produced about 10,000 protesters, contradicting the 2018 bandh |
+| 3 | Reweighted symbolic vs material grievance | Symbolic-only shock stayed under 5% of baseline at every weighting | The failure was structural, not a matter of weights |
+| 4 | Wide threshold distribution (a tail of low-threshold activists) | Smooth response; symbolic-only shock gives 29% of baseline, a bandh at 2018 scale | Final model |
+
+The lesson: calibration to a turnout number was not enough. The validation test against a qualitatively different historical case, a shock with no material loss, exposed the errors.
+
 ## Theory in brief
 
 | Mechanism | Source | In plain words |
@@ -123,6 +136,7 @@ results/                   JSON output
 figures/                   PNG and PDF figures
 videos/                    MP4 simulation videos and GIF previews
 report/                    research report (LaTeX source and PDF)
+paper/                     full research paper (LaTeX source and PDF)
 artifact/                  interactive results pages (v1, v2)
 ```
 
@@ -132,4 +146,4 @@ Grievance weights, intervention effects and neighbourhood structure are assumpti
 
 ## Citation
 
-> Balhara, U. (2026). *Designing Reservation Reform Without Mass Unrest: An agent-based simulation of protest mobilization against an income-only quota in India.* Research report, Netaji Subhas University of Technology. https://github.com/utsavbalhara/reservation-reform-protest-model
+> Balhara, U. (2026). *Designing Reservation Reform Without Mass Unrest: An Agent-Based Model of Protest Mobilization Against an Income-Only Quota in India.* Netaji Subhas University of Technology. https://github.com/utsavbalhara/reservation-reform-protest-model

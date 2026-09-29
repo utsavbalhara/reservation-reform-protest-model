@@ -81,9 +81,15 @@ def simulate_protest_campaign(
             * population.identity_strength
             * (felt_symbolic_threat + martyrdom_rise_by_group[group] * feels_threatened)
         )
-        social_pull = neighbourhood_influence * np.tanh(
-            neighbourhood_turnout[population.neighbourhood] / parameters.neighbourhood_turnout_at_saturation
-        ) + national_influence * np.tanh(group_turnout[group] / parameters.national_turnout_at_saturation)
+        if parameters.social_influence_saturates:
+            social_pull = neighbourhood_influence * np.tanh(
+                neighbourhood_turnout[population.neighbourhood] / parameters.neighbourhood_turnout_at_saturation
+            ) + national_influence * np.tanh(group_turnout[group] / parameters.national_turnout_at_saturation)
+        else:
+            social_pull = (
+                neighbourhood_influence * neighbourhood_turnout[population.neighbourhood]
+                + national_influence * group_turnout[group]
+            )
         net_motivation = grievance + social_pull + organizational_push_by_group[group] * mobilization_today - participation_threshold
         if is_bandh_day:
             net_motivation -= parameters.heavy_policing_turnout_cost

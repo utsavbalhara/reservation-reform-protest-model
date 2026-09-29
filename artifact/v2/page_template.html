@@ -132,6 +132,7 @@ pre{font:400 .8rem/1.55 var(--mono);background:var(--surface);border:1px solid v
   <p class="subtitle">An agent-based simulation of protest mobilization against an income-only quota in India, and of the policy designs that would keep it small.</p>
   <div class="byline"><span><strong>Utsav Balhara</strong> · B.Tech, Netaji Subhas University of Technology (NSUT), New Delhi</span><span class="note">September 2026</span></div>
   <div class="links">
+    <a href="https://github.com/utsavbalhara/reservation-reform-protest-model/blob/main/paper/reservation_reform_protest_paper.pdf" target="_blank" rel="noopener">Research paper (PDF)</a>
     <a href="https://github.com/utsavbalhara/reservation-reform-protest-model/blob/main/report/research_report.pdf" target="_blank" rel="noopener">Research report (PDF)</a>
     <a href="https://github.com/utsavbalhara/reservation-reform-protest-model" target="_blank" rel="noopener">Code and data on GitHub</a>
   </div>
@@ -199,6 +200,21 @@ pre{font:400 .8rem/1.55 var(--mono);background:var(--surface);border:1px solid v
   <figure>
     <img src="__ASSET_PREFIX__figures/fig05_threshold_response_curve.png" alt="Line chart of peak-day protesters against mean threshold on a log scale; turnout halves roughly every quarter step." loading="lazy">
     <figcaption>Calibration and validation. The mean threshold (6.6) puts the baseline peak in the middle of an independent 20 lakh – 1 crore estimate. The check: a symbolic-only shock, like 2018, still produces a bandh-scale protest.</figcaption>
+  </figure>
+</section>
+
+<section aria-labelledby="development-title">
+  <h2 id="development-title">How the model was built</h2>
+  <p>The final model is the fourth specification. The first two were badly wrong, and the way they were caught is part of the finding.</p>
+  <ol>
+    <li><strong>Unbounded contagion.</strong> Crowd influence had no ceiling, so almost every SC, ST and OBC agent protested: about 98 crore people.</li>
+    <li><strong>Narrow thresholds.</strong> Bounding contagion allowed calibration, but turnout tipped abruptly and compensation alone appeared to cut protest by 91%. A validation test exposed it: removing all material loss, like the 2018 Atrocities Act ruling, left about 10,000 protesters, while 2018 produced India's largest bandh.</li>
+    <li><strong>Reweighting.</strong> Shifting weight from material to symbolic grievance did not help. The symbolic-only shock stayed under 5% of baseline, so the problem was structural.</li>
+    <li><strong>Wide thresholds.</strong> Modelling a long tail of low-threshold activists gave a smooth response. The symbolic-only shock now produces a bandh at 2018 scale.</li>
+  </ol>
+  <figure>
+    <img src="__ASSET_PREFIX__figures/fig08_model_development.png" alt="Left: iteration 2 turnout tips abruptly with threshold while the final model responds smoothly. Right: iteration 2 overstated grandfathering and compensation compared with the final model." loading="lazy">
+    <figcaption>Iteration 2 against the final model. Calibration to a turnout number was not enough; a test against a different historical case caught the error.</figcaption>
   </figure>
 </section>
 

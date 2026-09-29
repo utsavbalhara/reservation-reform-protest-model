@@ -24,6 +24,8 @@ Run every command from the repository root.
 | `python -m experiments.check_robustness` | Hybrid sensitivity and managed-transition leave-one-out, 30 runs each | ~4 min | `results/robustness_checks.json` |
 | `python -m experiments.calibrate_participation_threshold` | Turnout against mean threshold, baseline and symbolic-only validation | ~3 min | `results/threshold_response_curve.json` |
 | `python -m experiments.record_daily_trajectories` | Day-by-day turnout for every scenario, 20 runs each | ~2 min | `results/daily_trajectories_central.json` |
+| `python -m experiments.replay_model_development` | Re-runs iterations 1–3 of the model's development with the current code | ~4 min | `results/model_development_history.json` |
+| `python -m experiments.sensitivity_analysis` | ±25% one-at-a-time sensitivity, lever-ranking stability, agent-count convergence | ~30 min | `results/sensitivity_analysis.json` |
 
 ## Build figures, videos, report and page
 
@@ -37,6 +39,9 @@ All of these read only from `results/`, so they run in seconds to minutes and ne
 | `cd report && xelatex research_report.tex && xelatex research_report.tex` | `report/research_report.pdf` (run twice for the contents page) |
 | `xelatex mechanism_diagram.tex` in `report/`, then `pdftoppm -r 220 -png -singlefile mechanism_diagram.pdf ../figures/fig00_mechanism` | the model diagram as `figures/fig00_mechanism.png` |
 | `python -m visualization.build_results_page` | `artifact/v2/index.html` with results injected from `results/` |
+| `python -m visualization.render_paper_figures` | `figures/fig08_model_development`, `figures/fig09_sensitivity_tornado` |
+| `python -m visualization.write_paper_macros` | `paper/generated/`: development-history, sensitivity and convergence numbers |
+| `cd paper && xelatex reservation_reform_protest_paper.tex && xelatex reservation_reform_protest_paper.tex` | `paper/reservation_reform_protest_paper.pdf` |
 
 The report never contains hand-typed results: tables and numbers come from `report/generated/`. After re-running any experiment, rebuild the macros and the report.
 
