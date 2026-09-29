@@ -1,0 +1,408 @@
+<title>Reservation Reform Protest Model</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Spectral:wght@500;600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: single reading column (~70ch) with full-width instruments (videos, results chart, scenario explorer); research-report treatment */
+:root{
+  --bg:#f5f6f4; --surface:#ffffff; --figure:#fcfcfb; --fg:#1d2327; --muted:#5b666c; --line:#d8dddb;
+  --accent:#1f6f6b; --accent-soft:#d6e9e6; --deep:#4a3aa7; --warn:#c2502a; --warn-soft:#f6e1d8; --lever:#2a78d6; --base:#7d878c;
+  --display:"Spectral", Georgia, "Times New Roman", serif;
+  --body:"IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono:"IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#141a1d; --surface:#1b2327; --figure:#e9ebe8; --fg:#e4e9e7; --muted:#9aa6a9; --line:#2d383c;
+  --accent:#5fb8ae; --accent-soft:#1d3a38; --deep:#9085e9; --warn:#e27b64; --warn-soft:#3a2420; --lever:#3987e5; --base:#8d989c; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#141a1d; --surface:#1b2327; --figure:#e9ebe8; --fg:#e4e9e7; --muted:#9aa6a9; --line:#2d383c;
+  --accent:#5fb8ae; --accent-soft:#1d3a38; --deep:#9085e9; --warn:#e27b64; --warn-soft:#3a2420; --lever:#3987e5; --base:#8d989c; color-scheme:dark}
+body{background:var(--bg);color:var(--fg);font:16px/1.6 var(--body);padding-inline:20px;padding-block:32px 72px}
+.wrap{max-width:820px;margin:0 auto;display:flex;flex-direction:column;gap:48px}
+h1,h2,h3{font-family:var(--display);font-weight:600;line-height:1.2;text-wrap:balance;margin:0}
+h1{font-size:clamp(2rem,5vw,2.9rem);letter-spacing:-.01em}
+h2{font-size:1.55rem}
+h3{font-size:1.12rem}
+p{margin:0;max-width:70ch}
+a{color:var(--accent)}
+.eyebrow{font:500 .75rem/1.4 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+section{display:flex;flex-direction:column;gap:16px}
+header{display:flex;flex-direction:column;gap:14px}
+.subtitle{font-family:var(--display);font-size:1.25rem;color:var(--muted);line-height:1.4;max-width:60ch}
+.byline{display:flex;flex-wrap:wrap;gap:6px 18px;align-items:baseline;font-size:.95rem}
+.byline strong{font-weight:600}
+.links{display:flex;flex-wrap:wrap;gap:10px}
+.links a{font:500 .85rem var(--body);text-decoration:none;border:1px solid var(--line);border-radius:4px;padding:7px 12px;background:var(--surface)}
+.links a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.note{font-size:.9rem;color:var(--muted)}
+ul,ol{margin:0;padding-left:1.2em;display:flex;flex-direction:column;gap:8px;max-width:70ch}
+strong{font-weight:600}
+
+.glance{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:20px 22px;display:flex;flex-direction:column;gap:12px}
+.findings{list-style:none;padding:0;gap:12px}
+.findings li{display:grid;grid-template-columns:4.6rem minmax(0,1fr);gap:14px;align-items:baseline;border-top:1px solid var(--line);padding-top:12px}
+.findings .num{font:500 1.2rem/1 var(--mono);color:var(--accent);font-variant-numeric:tabular-nums}
+.findings li.bad .num{color:var(--warn)}
+
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px}
+.tile{border-top:2px solid var(--fg);padding-top:10px;display:flex;flex-direction:column;gap:4px}
+.tile .big{font:500 1.6rem/1 var(--mono);font-variant-numeric:tabular-nums}
+.tile span{font-size:.88rem;color:var(--muted)}
+
+.videos{display:grid;gap:18px}
+figure{margin:0;display:flex;flex-direction:column;gap:8px}
+figure video,figure img{width:100%;height:auto;display:block;border-radius:4px;background:var(--figure);border:1px solid var(--line)}
+figcaption{font-size:.88rem;color:var(--muted);max-width:75ch}
+
+.mechanisms{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px 22px}
+.mechanisms article{display:flex;flex-direction:column;gap:8px;min-width:0}
+.mechanisms p{font-size:.93rem}
+.plain{background:var(--accent-soft);border-radius:4px;padding:9px 12px;font-size:.9rem}
+.plain b{color:var(--accent);font-weight:600}
+.steps{counter-reset:none}
+
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:18px 18px 14px;display:flex;flex-direction:column;gap:14px}
+.controls{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between}
+.seg{display:inline-flex;border:1px solid var(--line);border-radius:4px;overflow:hidden}
+.seg button{font:500 .85rem var(--body);background:transparent;color:var(--muted);border:0;padding:7px 12px;cursor:pointer}
+.seg button[aria-pressed="true"]{background:var(--accent-soft);color:var(--fg)}
+.legend{display:flex;flex-wrap:wrap;gap:14px;font-size:.8rem;color:var(--muted)}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+.swatch{width:10px;height:10px;border-radius:2px;display:inline-block}
+.chart{display:flex;flex-direction:column}
+.axis,.row{display:grid;grid-template-columns:minmax(0,15rem) minmax(0,1fr) 4.4rem 3.4rem;gap:10px;align-items:center}
+.axis{font:400 .72rem var(--mono);color:var(--muted);padding-bottom:4px;border-bottom:1px solid var(--line)}
+.axis .scale{position:relative;height:1.2em}
+.axis .scale span{position:absolute;transform:translateX(-50%);white-space:nowrap}
+.axis .heading{text-align:right}
+.chart-section{font:500 .7rem var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);padding:12px 0 4px}
+.row{padding:5px 0;border-bottom:1px dashed var(--line)}
+.row .name{font-size:.86rem;line-height:1.3;min-width:0}
+.row .name b{font:500 .78rem var(--mono);color:var(--muted);margin-right:4px}
+.track{position:relative;height:18px}
+.track .gridline{position:absolute;top:0;bottom:0;width:1px;background:var(--line)}
+.track .reference{position:absolute;top:-3px;bottom:-3px;width:0;border-left:1.5px dashed var(--base)}
+.track .range{position:absolute;top:6px;height:6px;border-radius:3px;opacity:.35}
+.track .dot{position:absolute;top:3px;width:12px;height:12px;border-radius:50%;transform:translateX(-50%);border:2px solid var(--surface)}
+.value,.deaths{font:500 .82rem var(--mono);text-align:right;font-variant-numeric:tabular-nums}
+.deaths{color:var(--muted)}
+.deaths.high{color:var(--warn)}
+.category-reference{background:var(--base)} .category-lever{background:var(--lever)} .category-suppression{background:var(--warn)} .category-package{background:var(--deep)}
+@media (max-width:640px){
+  .axis,.row{grid-template-columns:minmax(0,1fr) 4rem 3rem}
+  .axis .spacer{display:none}
+  .row .name{grid-column:1/-1}
+}
+
+.explorer{display:grid;grid-template-columns:minmax(0,14rem) minmax(0,1fr);gap:18px;align-items:start}
+.scenario-list{display:flex;flex-direction:column;gap:2px}
+.scenario-list button{display:grid;grid-template-columns:2.6rem minmax(0,1fr);gap:6px;text-align:left;font:400 .86rem/1.3 var(--body);color:var(--fg);background:transparent;border:0;border-left:3px solid transparent;padding:7px 8px;cursor:pointer;border-radius:0 4px 4px 0}
+.scenario-list button b{font:500 .78rem var(--mono);color:var(--muted)}
+.scenario-list button[aria-selected="true"]{background:var(--accent-soft);border-left-color:var(--accent)}
+.scenario-list button:hover{background:var(--accent-soft)}
+.detail{display:flex;flex-direction:column;gap:14px;min-width:0}
+.detail h3{font-size:1.3rem}
+.pill{display:inline-block;font:500 .72rem var(--mono);padding:2px 8px;border-radius:3px;white-space:nowrap;color:#fff}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(118px,1fr));gap:10px}
+.stat{border-top:1px solid var(--line);padding-top:8px;display:flex;flex-direction:column;gap:2px}
+.stat .label{font:500 .7rem var(--mono);letter-spacing:.05em;text-transform:uppercase;color:var(--muted)}
+.stat .number{font:500 1.15rem var(--mono);font-variant-numeric:tabular-nums}
+.stat .number.good{color:var(--accent)} .stat .number.bad{color:var(--warn)}
+.detail dl{display:grid;grid-template-columns:minmax(0,1fr);gap:10px;margin:0}
+.detail dt{font:500 .72rem var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.detail dd{margin:2px 0 0;font-size:.95rem}
+.path svg{width:100%;height:auto;display:block}
+.path text{font:400 11px var(--mono);fill:var(--muted)}
+@media (max-width:700px){.explorer{grid-template-columns:minmax(0,1fr)}.scenario-list{flex-direction:row;flex-wrap:wrap}.scenario-list button{grid-template-columns:auto;border-left:0;border-bottom:3px solid transparent;border-radius:4px 4px 0 0}.scenario-list button span{display:none}.scenario-list button[aria-selected="true"]{border-bottom-color:var(--accent)}}
+
+.gallery{display:grid;gap:26px}
+table{border-collapse:collapse;width:100%;font-size:.88rem}
+.tablewrap{overflow-x:auto}
+th,td{text-align:left;vertical-align:top;padding:9px 10px 9px 0;border-bottom:1px solid var(--line)}
+th{font:500 .72rem var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+td.number{font-family:var(--mono);font-variant-numeric:tabular-nums;white-space:nowrap}
+pre{font:400 .8rem/1.55 var(--mono);background:var(--surface);border:1px solid var(--line);border-radius:4px;padding:12px 14px;overflow-x:auto;margin:0}
+.sources{font-size:.85rem;color:var(--muted)}
+@media (prefers-reduced-motion:reduce){*{scroll-behavior:auto}}
+</style>
+
+<div class="wrap">
+<header>
+  <div class="eyebrow">Research · Agent-based policy simulation · India</div>
+  <h1>Designing Reservation Reform Without Mass Unrest</h1>
+  <p class="subtitle">An agent-based simulation of protest mobilization against an income-only quota in India, and of the policy designs that would keep it small.</p>
+  <div class="byline"><span><strong>Utsav Balhara</strong> · B.Tech, Netaji Subhas University of Technology (NSUT), New Delhi</span><span class="note">September 2026</span></div>
+  <div class="links">
+    <a href="https://github.com/utsavbalhara/reservation-reform-protest-model/blob/main/report/research_report.pdf" target="_blank" rel="noopener">Research report (PDF)</a>
+    <a href="https://github.com/utsavbalhara/reservation-reform-protest-model" target="_blank" rel="noopener">Code and data on GitHub</a>
+  </div>
+</header>
+
+<section class="glance" aria-labelledby="glance-title">
+  <h2 id="glance-title">At a glance</h2>
+  <p><strong>Question.</strong> If India replaced caste-based reservation with a single ₹8 lakh income test, how many people would protest, and which policy designs would keep that number small?</p>
+  <p><strong>Method.</strong> A synthetic India of 120,000 agents, each standing for about 12,000 people. Grievance combines loss-averse material loss with symbolic threat to caste recognition. Protest spreads through neighbourhood and national threshold cascades, amplified by party mobilization on bandh days. Thirteen scenarios were run 50 times each with paired uncertainty draws, in two mobilization regimes.</p>
+  <ul class="findings" id="findings"></ul>
+  <p class="note">Magnitudes depend on assumed parameters; the ranking of interventions is the robust result.</p>
+</section>
+
+<section aria-labelledby="watch-title">
+  <h2 id="watch-title">Watch the simulation</h2>
+  <p>Both videos are drawn frame by frame from live model runs. Each square is a neighbourhood of about 12 lakh people, coloured by the share on the street that day. Both use the run closest to the 50-run median.</p>
+  <div class="videos">
+    <figure>
+      <video controls muted loop playsinline preload="metadata" src="__ASSET_PREFIX__videos/baseline_campaign.mp4"></video>
+      <figcaption>The abrupt switch over 40 days. Protest starts in SC neighbourhoods, spreads on each bandh call, and fades between calls as fatigue sets in.</figcaption>
+    </figure>
+    <figure>
+      <video controls muted loop playsinline preload="metadata" src="__ASSET_PREFIX__videos/four_policy_paths.mp4"></video>
+      <figcaption>Four policy paths run on the same population with the same random draws. Only the policy differs. Heavy policing keeps more people on the street between bandhs and has four times the deaths; keeping caste sub-quotas barely produces a protest at all.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section aria-labelledby="question-title">
+  <h2 id="question-title">The question</h2>
+  <p>India reserves seats in public education and government jobs for Scheduled Castes (15%), Scheduled Tribes (7.5%), Other Backward Classes (27%) and, since 2019, Economically Weaker Sections of the general category (10%). OBC families above ₹8 lakh are already excluded, and EWS already applies only below ₹8 lakh. SC and ST quotas have no income test.</p>
+  <p>At a ₹8 lakh line, converting everything to an income test changes little on paper:</p>
+  <div class="tiles">
+    <div class="tile"><div class="big">2.8%</div><span>lose eligibility: SC and ST families above ₹8 lakh (about 4 crore people)</span></div>
+    <div class="tile"><div class="big">~80%</div><span>reserved before and after</span></div>
+    <div class="tile"><div class="big">~17%</div><span>unreserved before and after</span></div>
+  </div>
+  <p>Yet reservation politics mobilizes around what a change means, not only who loses. A 2018 Supreme Court ruling on the SC/ST Atrocities Act removed nobody's quota and still triggered the largest Bharat Bandh on record. In 2024, a suggestion of a creamy layer for SC and ST triggered another.</p>
+</section>
+
+<section aria-labelledby="theory-title">
+  <h2 id="theory-title">Theory: why people would protest</h2>
+  <div class="mechanisms">
+    <article><h3>Loss aversion</h3><p>Losses weigh about 2.25 times as much as equal gains. Pierson shows that taking benefits away is harder than creating them, because losses are concentrated and visible while gains are diffuse.</p><div class="plain"><b>In plain words.</b> Losing a quota feels worse than never having had one.</div></article>
+    <article><h3>Symbolic threat</h3><p>People draw self-worth from their group and react strongly to threats to its standing. For SC and ST communities, caste-based reservation is also constitutional recognition of historical injustice.</p><div class="plain"><b>In plain words.</b> Many would protest because they read the change as erasing their community's recognition, not because they lose a seat.</div></article>
+    <article><h3>Threshold cascades</h3><p>Granovetter: each person joins once enough others have. Small changes in grievance can produce very large changes in turnout near the tipping point.</p><div class="plain"><b>In plain words.</b> Lower grievance a little and the chain reaction can stop early.</div></article>
+    <article><h3>Organization</h3><p>Resource mobilization theory: grievance is common, organized protest is not. Parties and networks supply the bandh calls and buses. Opposition parties backed both the 2018 and 2024 bandhs.</p><div class="plain"><b>In plain words.</b> Anger needs machinery. Parties that co-own a reform stop supplying it.</div></article>
+    <article><h3>Repression and backfire</h3><p>Visible force often backfires: deaths create martyrs and broaden support. Rydzak finds India's internet shutdowns are associated with more violent protest, not less.</p><div class="plain"><b>In plain words.</b> Force may shrink a crowd today but makes protest angrier, longer and deadlier.</div></article>
+  </div>
+</section>
+
+<section aria-labelledby="model-title">
+  <h2 id="model-title">How the model works</h2>
+  <figure>
+    <img src="__ASSET_PREFIX__figures/fig00_mechanism.png" alt="Flow diagram: material loss and symbolic threat feed grievance; grievance, organization and social pull feed each person's daily decision; turnout feeds back through contagion, fatigue, and deaths that raise symbolic threat." loading="lazy">
+    <figcaption>What drives one person's decision each day. Dashed arrows are feedback loops.</figcaption>
+  </figure>
+  <ol>
+    <li><strong>Grievance</strong> is material loss (weighted 2.25× if it is a loss) plus symbolic threat multiplied by how strongly the person identifies with their group.</li>
+    <li><strong>Social pull</strong> rises with yesterday's turnout in the neighbourhood and the group's national turnout. Both saturate: a crowd can only pull so hard.</li>
+    <li><strong>Organization</strong> adds a push on bandh-call days (days 3, 13 and 26), larger when opposition parties back the protest.</li>
+    <li>The person <strong>protests</strong> with a probability that rises smoothly as grievance plus pull plus push exceeds their personal threshold.</li>
+    <li>Protesting raises the threshold a little (<strong>fatigue</strong>). Deaths raise symbolic threat for the groups on the street (the <strong>martyr effect</strong>).</li>
+  </ol>
+  <figure>
+    <img src="__ASSET_PREFIX__figures/fig05_threshold_response_curve.png" alt="Line chart of peak-day protesters against mean threshold on a log scale; turnout halves roughly every quarter step." loading="lazy">
+    <figcaption>Calibration and validation. The mean threshold (6.6) puts the baseline peak in the middle of an independent 20 lakh – 1 crore estimate. The check: a symbolic-only shock, like 2018, still produces a bandh-scale protest.</figcaption>
+  </figure>
+</section>
+
+<section aria-labelledby="results-title">
+  <h2 id="results-title">Results</h2>
+  <div class="panel">
+    <div class="controls">
+      <div class="seg" role="group" aria-label="Mobilization regime">
+        <button id="regime-central" type="button" aria-pressed="true" data-regime="central">Central regime</button>
+        <button id="regime-high" type="button" aria-pressed="false" data-regime="high-mobilization">High-mobilization regime</button>
+      </div>
+      <div class="legend">
+        <span><i class="swatch category-reference"></i>Reference</span>
+        <span><i class="swatch category-lever"></i>Single lever</span>
+        <span><i class="swatch category-package"></i>Package</span>
+        <span><i class="swatch category-suppression"></i>Suppression</span>
+      </div>
+    </div>
+    <div class="chart" id="ranking-chart" aria-label="Peak-day protesters in lakh, log scale, median with 10th to 90th percentile range"></div>
+    <p class="note">Dot: median of 50 runs. Bar: 10th–90th percentile. Dashed line: baseline median. Log scale in lakh (100 lakh = 1 crore). Deaths are the median over a 40-day campaign.</p>
+  </div>
+</section>
+
+<section aria-labelledby="explorer-title">
+  <h2 id="explorer-title">Scenario by scenario</h2>
+  <p>Pick a scenario to see what it is, the theory behind it, how it enters the model, what happened, and why.</p>
+  <div class="panel explorer">
+    <div class="scenario-list" role="tablist" aria-label="Scenarios" id="scenario-list"></div>
+    <div class="detail" role="tabpanel" id="scenario-detail" aria-live="polite"></div>
+  </div>
+</section>
+
+<section aria-labelledby="figures-title">
+  <h2 id="figures-title">Figures</h2>
+  <div class="gallery">
+    <figure><img src="__ASSET_PREFIX__figures/fig02_daily_turnout_paths.png" alt="Daily turnout over 40 days for baseline, heavy policing, consensus commission and caste sub-quotas, log scale." loading="lazy"><figcaption>Daily turnout for four contrasting scenarios. Heavy policing flattens bandh-day spikes but keeps more people on the street between them.</figcaption></figure>
+    <figure><img src="__ASSET_PREFIX__figures/fig04_grievance_composition.png" alt="Stacked bars of average grievance by group, income position and tier, split into symbolic threat and material loss." loading="lazy"><figcaption>Where grievance comes from. Symbolic threat is the larger part for every group except SC and ST families above the line, who are under 3% of India.</figcaption></figure>
+    <figure><img src="__ASSET_PREFIX__figures/fig03_turnout_by_group.png" alt="Daily baseline turnout by social group; SC turnout dominates." loading="lazy"><figcaption>Who protests under the abrupt switch. SC turnout dominates; General-category turnout is zero because the reform favours them.</figcaption></figure>
+    <figure><img src="__ASSET_PREFIX__figures/fig06_suppression_backfire.png" alt="Bar chart indexing peak turnout, total participants and deaths to the baseline for internet shutdowns and heavy policing." loading="lazy"><figcaption>Suppression indexed to the baseline (= 100).</figcaption></figure>
+  </div>
+</section>
+
+<section aria-labelledby="robustness-title">
+  <h2 id="robustness-title">Robustness</h2>
+  <figure><img src="__ASSET_PREFIX__figures/fig07_robustness_checks.png" alt="Left: hybrid peak turnout at 40, 60 and 80 percent of symbolic threat retained. Right: managed-transition package with each component removed." loading="lazy"><figcaption>The hybrid still cuts turnout by about 80% if it removes only a fifth of the symbolic threat. In the managed transition, only removing the consensus commission changes the result materially.</figcaption></figure>
+  <div class="tablewrap">
+  <table>
+    <thead><tr><th>Test</th><th>Peak (lakh)</th><th>Ever protest (crore)</th></tr></thead>
+    <tbody id="robustness-rows"></tbody>
+  </table>
+  </div>
+</section>
+
+<section aria-labelledby="meaning-title">
+  <h2 id="meaning-title">What this means</h2>
+  <ol>
+    <li><strong>Design matters more than compensation.</strong> Protest against this reform is mostly about recognition. A design that keeps caste recognition while targeting by income does far better than paying the people who lose.</li>
+    <li><strong>Process is policy.</strong> If the income-only end state is the goal, a data-first commission with cross-party ownership matters more than any single material concession.</li>
+    <li><strong>Suppression is not mitigation.</strong> It lowers the peak modestly while multiplying deaths, consistent with India's record on shutdowns.</li>
+    <li><strong>Levers compound.</strong> Turnout responds non-linearly, so packages do far better than their parts.</li>
+  </ol>
+  <p class="note">Limits: grievance weights, lever effects and neighbourhood structure are assumptions informed by qualitative evidence, not estimates from Indian protest data. Regional variation, counter-protests, courts, elections and media are not modelled. Treat magnitudes as order-of-magnitude and the ranking as the finding.</p>
+</section>
+
+<section aria-labelledby="reproduce-title">
+  <h2 id="reproduce-title">Reproduce it</h2>
+<pre>pip install -r requirements.txt
+python -m experiments.compare_interventions --regime central
+python -m experiments.compare_interventions --regime high-mobilization
+python -m experiments.check_robustness
+python -m experiments.record_daily_trajectories
+python -m visualization.render_result_figures
+python -m visualization.render_campaign_videos</pre>
+  <ul class="sources">
+    <li>Granovetter (1978), Threshold models of collective behavior. Kahneman &amp; Tversky (1979); Tversky &amp; Kahneman (1992), prospect theory.</li>
+    <li>McCarthy &amp; Zald (1977), resource mobilization. Hess &amp; Martin (2006), repression and backfire.</li>
+    <li>Pierson (1994, 1996), <a href="http://rszarf.ips.uw.edu.pl/welfare-state/pierson_politics.pdf" target="_blank" rel="noopener">The New Politics of the Welfare State</a>.</li>
+    <li>Rydzak (2019), <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3330413" target="_blank" rel="noopener">Of Blackouts and Bandhs</a>.</li>
+    <li><a href="https://www.tribuneindia.com/news/nation/2-14-lakh-additional-seats-to-be-created-in-central-educational-institutions-centre-tells-sc-435929" target="_blank" rel="noopener">2.14 lakh additional seats for EWS (The Tribune)</a>; <a href="https://www.mdpi.com/2076-0760/13/3/132" target="_blank" rel="noopener">Brazil's Quota Law (MDPI)</a>.</li>
+    <li><a href="https://en.wikipedia.org/wiki/2018_Atrocities_Act_protests" target="_blank" rel="noopener">2018 Atrocities Act protests</a>; <a href="https://www.deccanherald.com/amp/story/india%2Frajasthan%2Fbharat-bandh-evokes-mixed-response-in-rajasthan-3158392" target="_blank" rel="noopener">2024 bandh in Rajasthan (Deccan Herald)</a>.</li>
+  </ul>
+</section>
+</div>
+
+<script>
+const researchResults = __RESULTS_DATA__;
+
+const scenarioSections = [
+  ["Reference", ["baseline", "symbolic_only_validation"]],
+  ["Single levers", ["grandfathering", "seat_expansion", "hybrid_caste_subquotas", "sub_classification", "consensus_commission", "compensation", "credible_guarantees"]],
+  ["Packages", ["managed_transition", "hybrid_package"]],
+  ["Suppression (tested for backfire)", ["internet_shutdown", "heavy_policing"]],
+];
+const explorerOrder = scenarioSections.flatMap(([, keys]) => keys);
+const categoryNames = {reference: "Reference", lever: "Single lever", package: "Package", suppression: "Suppression"};
+const smallestLakhOnAxis = 0.3, largestLakhOnAxis = 800;
+const axisTicks = [[1, "1 lakh"], [10, "10 lakh"], [100, "1 crore"]];
+
+const escapeHtml = text => String(text).replace(/[&<>"]/g, character => ({"&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;"}[character]));
+const positionOnLogAxis = lakh => {
+  const clampedLakh = Math.min(Math.max(lakh, smallestLakhOnAxis), largestLakhOnAxis);
+  return (Math.log10(clampedLakh) - Math.log10(smallestLakhOnAxis)) / (Math.log10(largestLakhOnAxis) - Math.log10(smallestLakhOnAxis)) * 100;
+};
+const formatLakh = lakh => lakh >= 100 ? (lakh / 100).toFixed(1) + " cr" : (lakh < 10 ? lakh.toFixed(1) : Math.round(lakh)) + " L";
+const percentChange = (value, baseline) => {
+  const change = Math.round((value / baseline - 1) * 100);
+  return (change > 0 ? "+" : change < 0 ? "−" : "") + Math.abs(change) + "%";
+};
+
+function renderFindings() {
+  const central = researchResults.regimes.central;
+  const baseline = central.baseline;
+  const findings = [
+    ["", `An abrupt switch draws about <strong>${formatLakh(baseline.median)}</strong> onto the streets on the peak day, with ${baseline.cumulative.toFixed(2)} crore protesting at some point and about ${Math.round(baseline.deaths)} deaths.`],
+    [percentChange(central.hybrid_caste_subquotas.median, baseline.median), "<strong>Keeping caste as the qualifier and adding an income filter inside each quota</strong> is the strongest single lever. Most of the anger is about losing caste recognition, not losing a seat."],
+    [percentChange(central.consensus_commission.median, baseline.median), "<strong>A data-first commission with cross-party consensus</strong> is the strongest lever that keeps the full income-only end state."],
+    [percentChange(central.managed_transition.median, baseline.median), `<strong>A managed transition</strong> (grandfathering, seat expansion, consensus, compensation, guarantees) reaches the same end state with about ${formatLakh(central.managed_transition.median)} on the peak day.`],
+    [percentChange(central.compensation.median, baseline.median), "<strong>Compensating the people who lose eligibility</strong> does little: they are under 3% of India, and money does not answer symbolic threat."],
+    [`×${(central.heavy_policing.deaths / baseline.deaths).toFixed(1)}`, `<strong>Internet shutdowns and heavy policing</strong> lower the peak by ${percentChange(central.internet_shutdown.median, baseline.median).replace("−", "")} and ${percentChange(central.heavy_policing.median, baseline.median).replace("−", "")} but multiply deaths by ${(central.internet_shutdown.deaths / baseline.deaths).toFixed(1)} and ${(central.heavy_policing.deaths / baseline.deaths).toFixed(1)}.`],
+  ];
+  document.getElementById("findings").innerHTML = findings.map(([number, text], index) =>
+    `<li class="${index === findings.length - 1 ? "bad" : ""}"><span class="num">${number || "Base"}</span><span>${text}</span></li>`).join("");
+}
+
+function renderRankingChart(regime) {
+  const results = researchResults.regimes[regime];
+  const baselineMedian = results.baseline.median;
+  let chartHtml = `<div class="axis"><span class="spacer"></span><div class="scale">${axisTicks.map(([lakh, tickLabel]) => `<span style="left:${positionOnLogAxis(lakh)}%">${tickLabel}</span>`).join("")}</div><span class="heading">Median</span><span class="heading">Deaths</span></div>`;
+  for (const [sectionName, keys] of scenarioSections) {
+    chartHtml += `<div class="chart-section">${sectionName}</div>`;
+    for (const key of keys) {
+      const result = results[key];
+      const deathsWellAboveBaseline = result.deaths > results.baseline.deaths * 1.5;
+      chartHtml += `<div class="row"><span class="name"><b>${escapeHtml(result.code)}</b>${escapeHtml(result.label)}</span><div class="track">${axisTicks.map(([lakh]) => `<i class="gridline" style="left:${positionOnLogAxis(lakh)}%"></i>`).join("")}<i class="reference" style="left:${positionOnLogAxis(baselineMedian)}%"></i><i class="range category-${result.category}" style="left:${positionOnLogAxis(result.p10)}%;width:${Math.max(positionOnLogAxis(result.p90) - positionOnLogAxis(result.p10), 0.8)}%"></i><i class="dot category-${result.category}" style="left:${positionOnLogAxis(result.median)}%"></i></div><span class="value">${formatLakh(result.median)}</span><span class="deaths${deathsWellAboveBaseline ? " high" : ""}">${Math.round(result.deaths)}</span></div>`;
+    }
+  }
+  document.getElementById("ranking-chart").innerHTML = chartHtml;
+  document.querySelectorAll(".seg button").forEach(button => button.setAttribute("aria-pressed", button.dataset.regime === regime));
+}
+
+function dailyPathSvg(key) {
+  const width = 600, height = 170, left = 52, right = 10, top = 12, bottom = 26;
+  const days = researchResults.dailyPaths.baseline.length;
+  const logFloor = Math.log10(0.05), logCeiling = Math.log10(300);
+  const x = day => left + day / (days - 1) * (width - left - right);
+  const y = lakh => top + (1 - (Math.log10(Math.max(lakh, 0.05)) - logFloor) / (logCeiling - logFloor)) * (height - top - bottom);
+  const pathFor = values => values.map((lakh, day) => `${day ? "L" : "M"}${x(day).toFixed(1)},${y(lakh).toFixed(1)}`).join("");
+  const colourVariable = {reference: "--base", lever: "--lever", package: "--deep", suppression: "--warn"}[researchResults.regimes.central[key].category];
+  const bandhMarks = researchResults.bandhDays.map(day => `<rect x="${x(day) - 5}" y="${top}" width="10" height="${height - top - bottom}" fill="var(--line)" opacity="0.6"/>`).join("");
+  const gridMarks = [[0.1, "10k"], [1, "1 L"], [10, "10 L"], [100, "1 cr"]].map(([lakh, tickLabel]) =>
+    `<line x1="${left}" x2="${width - right}" y1="${y(lakh)}" y2="${y(lakh)}" stroke="var(--line)"/><text x="${left - 6}" y="${y(lakh) + 4}" text-anchor="end">${tickLabel}</text>`).join("");
+  const dayMarks = [0, 10, 20, 30, 39].map(day => `<text x="${x(day)}" y="${height - 8}" text-anchor="middle">${day + 1}</text>`).join("");
+  const baselineLine = key === "baseline" ? "" : `<path d="${pathFor(researchResults.dailyPaths.baseline)}" fill="none" stroke="var(--base)" stroke-width="1.5" stroke-dasharray="4 3"/>`;
+  return `<svg viewBox="0 0 ${width} ${height}" role="img" aria-label="Median daily protesters over 40 days, log scale${key === "baseline" ? "" : ", with the baseline dashed"}">${bandhMarks}${gridMarks}${dayMarks}${baselineLine}<path d="${pathFor(researchResults.dailyPaths[key])}" fill="none" style="stroke:var(${colourVariable})" stroke-width="2.4" stroke-linejoin="round"/></svg>`;
+}
+
+function renderScenarioDetail(key) {
+  const central = researchResults.regimes.central, high = researchResults.regimes["high-mobilization"];
+  const result = central[key], highResult = high[key], explanation = researchResults.explanations[key];
+  const isBaseline = key === "baseline";
+  const peakChange = isBaseline ? "—" : percentChange(result.median, central.baseline.median);
+  const changeClass = isBaseline ? "" : (result.median < central.baseline.median ? "good" : "bad");
+  const deathRatio = (result.deaths / central.baseline.deaths);
+  const pillColour = {reference: "var(--base)", lever: "var(--lever)", package: "var(--deep)", suppression: "var(--warn)"}[result.category];
+  document.getElementById("scenario-detail").innerHTML = `
+    <div><span class="pill" style="background:${pillColour}">${escapeHtml(result.code)} · ${categoryNames[result.category]}</span></div>
+    <h3>${escapeHtml(result.label)}</h3>
+    <div class="plain"><b>In plain words.</b> ${escapeHtml(explanation.plain)}</div>
+    <div class="stats">
+      <div class="stat"><span class="label">Peak day</span><span class="number">${formatLakh(result.median)}</span><span class="note">${result.p10}–${result.p90} L</span></div>
+      <div class="stat"><span class="label">vs baseline</span><span class="number ${changeClass}">${peakChange}</span><span class="note">high regime ${isBaseline ? formatLakh(highResult.median) : percentChange(highResult.median, high.baseline.median)}</span></div>
+      <div class="stat"><span class="label">Ever protest</span><span class="number">${result.cumulative.toFixed(2)} cr</span><span class="note">${isBaseline ? "" : percentChange(result.cumulative, central.baseline.cumulative) + " vs baseline"}</span></div>
+      <div class="stat"><span class="label">Deaths</span><span class="number ${deathRatio > 1.5 ? "bad" : ""}">${Math.round(result.deaths)}</span><span class="note">${isBaseline ? "median, 40 days" : "×" + deathRatio.toFixed(1) + " baseline"}</span></div>
+    </div>
+    <div class="path">${dailyPathSvg(key)}<p class="note">Median daily turnout, 20 runs, log scale${isBaseline ? "" : "; dashed line is the baseline"}. Shaded columns are bandh calls.</p></div>
+    <dl>
+      <div><dt>What it is</dt><dd>${escapeHtml(explanation.what)}</dd></div>
+      <div><dt>Theory</dt><dd>${escapeHtml(explanation.theory)}</dd></div>
+      <div><dt>How it is modelled</dt><dd>${escapeHtml(explanation.modelled)}</dd></div>
+      <div><dt>Why it came out this way</dt><dd>${escapeHtml(explanation.why)}</dd></div>
+    </dl>`;
+  document.querySelectorAll("#scenario-list button").forEach(button => button.setAttribute("aria-selected", button.dataset.scenario === key));
+}
+
+function renderScenarioList() {
+  const central = researchResults.regimes.central;
+  document.getElementById("scenario-list").innerHTML = explorerOrder.map(key =>
+    `<button type="button" role="tab" id="scenario-tab-${key}" data-scenario="${key}" aria-selected="false"><b>${escapeHtml(central[key].code)}</b><span>${escapeHtml(central[key].label)}</span></button>`).join("");
+  document.querySelectorAll("#scenario-list button").forEach(button => button.addEventListener("click", () => renderScenarioDetail(button.dataset.scenario)));
+}
+
+function renderRobustness() {
+  const rows = [
+    ...researchResults.robustness.hybrid.map(check => [`Hybrid keeps ${Math.round(check.retained * 100)}% of symbolic threat`, check.median, check.cumulative]),
+    ...researchResults.robustness.leaveOneOut.map(check => [check.label, check.median, check.cumulative]),
+  ];
+  document.getElementById("robustness-rows").innerHTML = rows.map(([test, median, cumulative]) =>
+    `<tr><td>${escapeHtml(test)}</td><td class="number">${median.toFixed(1)}</td><td class="number">${cumulative.toFixed(2)}</td></tr>`).join("");
+}
+
+document.querySelectorAll(".seg button").forEach(button => button.addEventListener("click", () => renderRankingChart(button.dataset.regime)));
+renderFindings();
+renderRankingChart("central");
+renderScenarioList();
+renderScenarioDetail("hybrid_caste_subquotas");
+renderRobustness();
+</script>

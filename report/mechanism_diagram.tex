@@ -1,0 +1,43 @@
+\documentclass[border=6pt]{standalone}
+\usepackage{fontspec}
+\setsansfont{TeX Gyre Heros}
+\setmainfont{TeX Gyre Pagella}
+\usepackage{amsmath}
+\usepackage{xcolor}
+\usepackage{tikz}
+\usetikzlibrary{positioning,arrows.meta,calc,fit}
+\definecolor{ink}{HTML}{1D2327}
+\definecolor{muted}{HTML}{5B666C}
+\definecolor{accent}{HTML}{1F6F6B}
+\definecolor{lever}{HTML}{2A78D6}
+\definecolor{package}{HTML}{4A3AA7}
+\definecolor{suppression}{HTML}{EB6834}
+\begin{document}
+\begin{tikzpicture}[
+  box/.style={draw=#1,fill=#1!8,rounded corners=2pt,align=center,font=\sffamily\small,minimum height=10mm,text width=28mm,inner sep=2pt},
+  box/.default=muted,
+  arrow/.style={-{Stealth[length=2.2mm]},thick,draw=ink!70},
+  loop/.style={-{Stealth[length=2.2mm]},thick,draw=suppression,dashed},
+  looplabel/.style={font=\sffamily\scriptsize,text=suppression}]
+\node[box=suppression] (material) at (0,1.0) {Material loss\\ \scriptsize×\,loss aversion};
+\node[box=lever] (symbolic) at (0,-1.0) {Symbolic threat\\ \scriptsize×\,identity strength};
+\node[box=ink] (grievance) at (4.1,0) {Grievance};
+\node[box=ink] (decision) at (8.2,0) {Protest today?\\ \scriptsize if total $>$ threshold};
+\node[box=package] (organization) at (8.2,2.3) {Organization\\ \scriptsize parties, bandh calls};
+\node[box=accent] (social) at (8.2,-2.3) {Social pull\\ \scriptsize neighbours, national};
+\node[box=ink,text width=24mm] (turnout) at (12.2,0) {Turnout};
+\node[box=muted,text width=24mm] (fatigue) at (12.2,2.3) {Fatigue\\ \scriptsize raises threshold};
+\node[box=suppression,text width=24mm] (deaths) at (12.2,-2.3) {Violence\\ and deaths};
+\draw[arrow] (material.east) -- (grievance.north west);
+\draw[arrow] (symbolic.east) -- (grievance.south west);
+\draw[arrow] (grievance) -- (decision);
+\draw[arrow] (organization) -- (decision);
+\draw[arrow] (social) -- (decision);
+\draw[arrow] (decision) -- (turnout);
+\draw[loop] (turnout) -- (fatigue);
+\draw[loop] (fatigue.west) -- node[looplabel,above,sloped]{fatigue} (decision.north east);
+\draw[loop] (turnout.south west) -- node[looplabel,above,sloped]{contagion} (social.east);
+\draw[loop] (turnout) -- (deaths);
+\draw[loop] (deaths.south) -- ++(0,-0.75) -| node[looplabel,pos=0.25,below]{martyr effect raises symbolic threat} (symbolic.south);
+\end{tikzpicture}
+\end{document}
