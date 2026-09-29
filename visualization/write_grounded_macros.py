@@ -197,6 +197,17 @@ def calibration(macros, rows):
     rows["spatial_rows.tex"] = table
     scores = load("loeo_scores.json")
     if scores:
+        for key, word in words.items():
+            if key in scores:
+                score = scores[key]
+                predicted = score["deaths"]["predicted"]
+                if predicted:
+                    macros.append(macro(f"Loeo{word}Deaths", f"{predicted['median']:.0f}"))
+                spatial_score = score["spatial_spearman"]
+                macros += [macro(f"Loeo{word}SpatialModel", number(spatial_score["model"], 2)),
+                           macro(f"Loeo{word}SpatialPopulation", number(spatial_score["baseline_population"], 2)),
+                           macro(f"Loeo{word}SpatialSCST", number(spatial_score["baseline_sc_plus_st_population"], 2))]
+        macros.append(macro("LoeoStates", str(next(iter(scores.values()))["spatial_spearman"]["states"])))
         table = []
         for key, score in scores.items():
             predicted = score["deaths"]["predicted"]
