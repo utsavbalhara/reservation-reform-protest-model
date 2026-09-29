@@ -4,7 +4,7 @@
 
 Utsav Balhara · B.Tech, Netaji Subhas University of Technology (NSUT), New Delhi · September 2026
 
-[Research report (PDF)](report/research_report.pdf) · [Interactive results page](artifact/v2/index.html) · [Usage](USAGE.md)
+[Research report (PDF)](report/research_report.pdf) · [Interactive results page](artifact/v2/index.html) · [Usage](USAGE.md) · [Github Repo](https://github.com/utsavbalhara/reservation-reform-protest-model)
 
 ![Four policy paths simulated on the same population](videos/four_policy_paths_preview.gif)
 
