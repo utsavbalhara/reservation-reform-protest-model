@@ -412,6 +412,7 @@ def structural_ensemble(macros, rows):
     macros.append(macro("EnsembleRuns", str(data["runs_per_scenario"])))
     macros.append(macro("EnsembleLThreeStrongest", str(sum(1 for v in variants.values() if v["single_lever_order_by_peak_change"][0] == "hybrid_caste_subquotas"))))
     macros.append(macro("EnsembleLSixWeakest", str(sum(1 for v in variants.values() if v["single_lever_order_by_peak_change"][-1] == "compensation"))))
+    macros.append(macro("EnsembleLFourWeakest", str(sum(1 for v in variants.values() if v["single_lever_order_by_peak_change"][-1] == "sub_classification"))))
     macros.append(macro("EnsembleLFiveAboveLOne", str(sum(1 for v in variants.values()
                                                             if v["paired_effects"]["consensus_commission"]["peak"]["change_percent"] < v["paired_effects"]["grandfathering"]["peak"]["change_percent"]))))
     macros.append(macro("EnsembleBTwoCumulativeHigher", str(sum(1 for v in variants.values() if v["paired_effects"]["heavy_policing"]["cumulative"]["change_percent"] > 0))))

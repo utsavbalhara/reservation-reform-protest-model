@@ -49,12 +49,12 @@
      "median_peak_lakh": 39.6
     },
     "sub_classification": {
-     "peak_change_percent": -24.9,
+     "peak_change_percent": -18.1,
      "ci95": [
-      -26.0,
-      -23.6
+      -20.9,
+      -15.7
      ],
-     "median_peak_lakh": 46.6
+     "median_peak_lakh": 50.5
     },
     "consensus_commission": {
      "peak_change_percent": -37.4,
@@ -145,12 +145,12 @@
      "median_peak_lakh": 23.7
     },
     "sub_classification": {
-     "peak_change_percent": -27.5,
+     "peak_change_percent": -15.1,
      "ci95": [
-      -30.0,
-      -25.0
+      -18.3,
+      -14.3
      ],
-     "median_peak_lakh": 37.2
+     "median_peak_lakh": 42.8
     },
     "consensus_commission": {
      "peak_change_percent": -43.9,
@@ -241,12 +241,12 @@
      "median_peak_lakh": 14.0
     },
     "sub_classification": {
-     "peak_change_percent": -26.7,
+     "peak_change_percent": -11.2,
      "ci95": [
-      -30.1,
-      -25.8
+      -12.4,
+      -9.9
      ],
-     "median_peak_lakh": 35.2
+     "median_peak_lakh": 44.8
     },
     "consensus_commission": {
      "peak_change_percent": -52.3,
@@ -287,8 +287,8 @@
     "consensus_commission",
     "seat_expansion",
     "compensation",
-    "sub_classification",
-    "credible_guarantees"
+    "credible_guarantees",
+    "sub_classification"
    ],
    "strongest_material_lever": "grandfathering",
    "strongest_symbolic_lever": "hybrid_caste_subquotas",
@@ -337,12 +337,12 @@
      "median_peak_lakh": 9.7
     },
     "sub_classification": {
-     "peak_change_percent": -29.3,
+     "peak_change_percent": -6.4,
      "ci95": [
-      -33.3,
-      -27.4
+      -8.0,
+      -2.2
      ],
-     "median_peak_lakh": 33.0
+     "median_peak_lakh": 48.0
     },
     "consensus_commission": {
      "peak_change_percent": -61.6,
@@ -383,8 +383,8 @@
     "consensus_commission",
     "seat_expansion",
     "compensation",
-    "sub_classification",
-    "credible_guarantees"
+    "credible_guarantees",
+    "sub_classification"
    ],
    "strongest_material_lever": "grandfathering",
    "strongest_symbolic_lever": "hybrid_caste_subquotas",
@@ -433,12 +433,12 @@
      "median_peak_lakh": 6.6
     },
     "sub_classification": {
-     "peak_change_percent": -33.1,
+     "peak_change_percent": 1.9,
      "ci95": [
-      -37.0,
-      -29.1
+      -0.5,
+      5.7
      ],
-     "median_peak_lakh": 28.3
+     "median_peak_lakh": 47.5
     },
     "consensus_commission": {
      "peak_change_percent": -68.9,
@@ -478,9 +478,9 @@
     "grandfathering",
     "consensus_commission",
     "seat_expansion",
-    "sub_classification",
     "credible_guarantees",
-    "compensation"
+    "compensation",
+    "sub_classification"
    ],
    "strongest_material_lever": "grandfathering",
    "strongest_symbolic_lever": "hybrid_caste_subquotas",
@@ -529,12 +529,12 @@
      "median_peak_lakh": 4.0
     },
     "sub_classification": {
-     "peak_change_percent": -31.5,
+     "peak_change_percent": 23.9,
      "ci95": [
-      -39.6,
-      -27.0
+      13.2,
+      47.5
      ],
-     "median_peak_lakh": 26.4
+     "median_peak_lakh": 59.9
     },
     "consensus_commission": {
      "peak_change_percent": -75.5,
@@ -575,8 +575,8 @@
     "grandfathering",
     "seat_expansion",
     "credible_guarantees",
-    "sub_classification",
-    "compensation"
+    "compensation",
+    "sub_classification"
    ],
    "strongest_material_lever": "grandfathering",
    "strongest_symbolic_lever": "hybrid_caste_subquotas",
@@ -625,12 +625,12 @@
      "median_peak_lakh": 2.9
     },
     "sub_classification": {
-     "peak_change_percent": -33.8,
+     "peak_change_percent": 51.4,
      "ci95": [
-      -39.7,
-      -29.0
+      36.0,
+      80.2
      ],
-     "median_peak_lakh": 26.9
+     "median_peak_lakh": 84.1
     },
     "consensus_commission": {
      "peak_change_percent": -79.4,
@@ -671,8 +671,8 @@
     "grandfathering",
     "credible_guarantees",
     "seat_expansion",
-    "sub_classification",
-    "compensation"
+    "compensation",
+    "sub_classification"
    ],
    "strongest_material_lever": "grandfathering",
    "strongest_symbolic_lever": "hybrid_caste_subquotas",
@@ -721,12 +721,12 @@
      "median_peak_lakh": 1.1
     },
     "sub_classification": {
-     "peak_change_percent": -36.5,
+     "peak_change_percent": 75.1,
      "ci95": [
-      -40.9,
-      -32.3
+      63.4,
+      102.5
      ],
-     "median_peak_lakh": 21.4
+     "median_peak_lakh": 100.9
     },
     "consensus_commission": {
      "peak_change_percent": -87.2,
@@ -766,9 +766,9 @@
     "consensus_commission",
     "grandfathering",
     "credible_guarantees",
-    "sub_classification",
     "seat_expansion",
-    "compensation"
+    "compensation",
+    "sub_classification"
    ],
    "strongest_material_lever": "grandfathering",
    "strongest_symbolic_lever": "hybrid_caste_subquotas",
@@ -817,12 +817,12 @@
      "median_peak_lakh": 0.5
     },
     "sub_classification": {
-     "peak_change_percent": -33.6,
+     "peak_change_percent": 116.1,
      "ci95": [
-      -40.4,
-      -27.8
+      70.3,
+      152.2
      ],
-     "median_peak_lakh": 20.6
+     "median_peak_lakh": 122.0
     },
     "consensus_commission": {
      "peak_change_percent": -90.1,
@@ -862,9 +862,9 @@
     "consensus_commission",
     "credible_guarantees",
     "grandfathering",
-    "sub_classification",
     "seat_expansion",
-    "compensation"
+    "compensation",
+    "sub_classification"
    ],
    "strongest_material_lever": "grandfathering",
    "strongest_symbolic_lever": "hybrid_caste_subquotas",
@@ -913,12 +913,12 @@
      "median_peak_lakh": 0.2
     },
     "sub_classification": {
-     "peak_change_percent": -36.7,
+     "peak_change_percent": 183.5,
      "ci95": [
-      -43.3,
-      -26.7
+      104.0,
+      328.6
      ],
-     "median_peak_lakh": 13.5
+     "median_peak_lakh": 134.8
     },
     "consensus_commission": {
      "peak_change_percent": -95.1,
@@ -958,9 +958,9 @@
     "consensus_commission",
     "credible_guarantees",
     "grandfathering",
-    "sub_classification",
     "seat_expansion",
-    "compensation"
+    "compensation",
+    "sub_classification"
    ],
    "strongest_material_lever": "grandfathering",
    "strongest_symbolic_lever": "hybrid_caste_subquotas",
@@ -1009,12 +1009,12 @@
      "median_peak_lakh": 0.0
     },
     "sub_classification": {
-     "peak_change_percent": -26.4,
+     "peak_change_percent": 221.3,
      "ci95": [
-      -31.2,
-      -17.5
+      122.2,
+      379.8
      ],
-     "median_peak_lakh": 8.2
+     "median_peak_lakh": 147.5
     },
     "consensus_commission": {
      "peak_change_percent": -97.3,
@@ -1054,9 +1054,9 @@
     "consensus_commission",
     "credible_guarantees",
     "grandfathering",
-    "sub_classification",
     "seat_expansion",
-    "compensation"
+    "compensation",
+    "sub_classification"
    ],
    "strongest_material_lever": "grandfathering",
    "strongest_symbolic_lever": "hybrid_caste_subquotas",

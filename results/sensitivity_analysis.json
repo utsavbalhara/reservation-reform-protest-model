@@ -6,7 +6,7 @@
   "grandfathering": -49.3,
   "seat_expansion": -33.0,
   "hybrid_caste_subquotas": -90.9,
-  "sub_classification": -25.8,
+  "sub_classification": 159.3,
   "consensus_commission": -71.5,
   "compensation": -15.0,
   "credible_guarantees": -40.4,
@@ -22,16 +22,16 @@
     "grandfathering": -52.2,
     "seat_expansion": -25.1,
     "hybrid_caste_subquotas": -90.0,
-    "sub_classification": -25.1,
+    "sub_classification": 104.1,
     "consensus_commission": -70.8,
     "compensation": -11.7,
     "credible_guarantees": -46.4,
     "managed_transition": -90.4,
     "hybrid_package": -97.3
    },
-   "rank_correlation_with_reference": 0.983,
+   "rank_correlation_with_reference": 1.0,
    "strongest_single_lever": "hybrid_caste_subquotas",
-   "weakest_single_lever": "compensation"
+   "weakest_single_lever": "sub_classification"
   },
   {
    "parameter": "loss_aversion",
@@ -41,14 +41,14 @@
     "grandfathering": -71.2,
     "seat_expansion": -57.5,
     "hybrid_caste_subquotas": -93.5,
-    "sub_classification": -35.1,
+    "sub_classification": 81.5,
     "consensus_commission": -81.2,
     "compensation": -46.4,
     "credible_guarantees": -58.4,
     "managed_transition": -95.8,
     "hybrid_package": -98.8
    },
-   "rank_correlation_with_reference": 0.983,
+   "rank_correlation_with_reference": 1.0,
    "strongest_single_lever": "hybrid_caste_subquotas",
    "weakest_single_lever": "sub_classification"
   },
@@ -60,16 +60,16 @@
     "grandfathering": -52.2,
     "seat_expansion": -25.1,
     "hybrid_caste_subquotas": -90.0,
-    "sub_classification": -25.1,
+    "sub_classification": 104.1,
     "consensus_commission": -70.8,
     "compensation": -11.7,
     "credible_guarantees": -46.4,
     "managed_transition": -90.4,
-    "hybrid_package": -97.3
+    "hybrid_package": -96.9
    },
-   "rank_correlation_with_reference": 0.983,
+   "rank_correlation_with_reference": 1.0,
    "strongest_single_lever": "hybrid_caste_subquotas",
-   "weakest_single_lever": "compensation"
+   "weakest_single_lever": "sub_classification"
   },
   {
    "parameter": "material_loss_weight",
@@ -79,14 +79,14 @@
     "grandfathering": -71.2,
     "seat_expansion": -57.5,
     "hybrid_caste_subquotas": -93.5,
-    "sub_classification": -35.1,
+    "sub_classification": 81.4,
     "consensus_commission": -81.2,
     "compensation": -46.4,
     "credible_guarantees": -58.4,
     "managed_transition": -95.8,
     "hybrid_package": -98.8
    },
-   "rank_correlation_with_reference": 0.983,
+   "rank_correlation_with_reference": 1.0,
    "strongest_single_lever": "hybrid_caste_subquotas",
    "weakest_single_lever": "sub_classification"
   },
@@ -98,16 +98,16 @@
     "grandfathering": -46.0,
     "seat_expansion": -29.2,
     "hybrid_caste_subquotas": -81.0,
-    "sub_classification": -21.2,
+    "sub_classification": 34.3,
     "consensus_commission": -59.1,
     "compensation": -16.8,
     "credible_guarantees": -23.4,
     "managed_transition": -85.4,
-    "hybrid_package": -94.9
+    "hybrid_package": -94.2
    },
    "rank_correlation_with_reference": 0.983,
    "strongest_single_lever": "hybrid_caste_subquotas",
-   "weakest_single_lever": "compensation"
+   "weakest_single_lever": "sub_classification"
   },
   {
    "parameter": "symbolic_threat_weight",
@@ -117,16 +117,16 @@
     "grandfathering": -75.2,
     "seat_expansion": -39.1,
     "hybrid_caste_subquotas": -98.5,
-    "sub_classification": -45.2,
+    "sub_classification": 11.5,
     "consensus_commission": -92.7,
     "compensation": -11.9,
     "credible_guarantees": -67.5,
     "managed_transition": -98.6,
     "hybrid_package": -99.8
    },
-   "rank_correlation_with_reference": 0.983,
+   "rank_correlation_with_reference": 1.0,
    "strongest_single_lever": "hybrid_caste_subquotas",
-   "weakest_single_lever": "compensation"
+   "weakest_single_lever": "sub_classification"
   },
   {
    "parameter": "opposition_party_amplifier",
@@ -136,16 +136,16 @@
     "grandfathering": -60.3,
     "seat_expansion": -45.2,
     "hybrid_caste_subquotas": -89.7,
-    "sub_classification": -24.2,
+    "sub_classification": 163.5,
     "consensus_commission": -67.9,
     "compensation": -15.1,
     "credible_guarantees": -45.2,
     "managed_transition": -91.7,
-    "hybrid_package": -97.6
+    "hybrid_package": -97.2
    },
    "rank_correlation_with_reference": 1.0,
    "strongest_single_lever": "hybrid_caste_subquotas",
-   "weakest_single_lever": "compensation"
+   "weakest_single_lever": "sub_classification"
   },
   {
    "parameter": "opposition_party_amplifier",
@@ -155,7 +155,7 @@
     "grandfathering": -61.5,
     "seat_expansion": -49.3,
     "hybrid_caste_subquotas": -92.4,
-    "sub_classification": -43.5,
+    "sub_classification": 88.8,
     "consensus_commission": -79.3,
     "compensation": -30.6,
     "credible_guarantees": -52.5,
@@ -164,7 +164,7 @@
    },
    "rank_correlation_with_reference": 1.0,
    "strongest_single_lever": "hybrid_caste_subquotas",
-   "weakest_single_lever": "compensation"
+   "weakest_single_lever": "sub_classification"
   },
   {
    "parameter": "max_neighbourhood_influence",
@@ -174,7 +174,7 @@
     "grandfathering": -49.6,
     "seat_expansion": -33.1,
     "hybrid_caste_subquotas": -90.8,
-    "sub_classification": -26.1,
+    "sub_classification": 157.1,
     "consensus_commission": -71.1,
     "compensation": -14.8,
     "credible_guarantees": -41.2,
@@ -183,7 +183,7 @@
    },
    "rank_correlation_with_reference": 1.0,
    "strongest_single_lever": "hybrid_caste_subquotas",
-   "weakest_single_lever": "compensation"
+   "weakest_single_lever": "sub_classification"
   },
   {
    "parameter": "max_neighbourhood_influence",
@@ -193,7 +193,7 @@
     "grandfathering": -61.9,
     "seat_expansion": -49.4,
     "hybrid_caste_subquotas": -93.2,
-    "sub_classification": -44.2,
+    "sub_classification": 104.7,
     "consensus_commission": -79.0,
     "compensation": -35.6,
     "credible_guarantees": -55.3,
@@ -202,7 +202,7 @@
    },
    "rank_correlation_with_reference": 1.0,
    "strongest_single_lever": "hybrid_caste_subquotas",
-   "weakest_single_lever": "compensation"
+   "weakest_single_lever": "sub_classification"
   },
   {
    "parameter": "max_national_visibility_influence",
@@ -212,7 +212,7 @@
     "grandfathering": -49.6,
     "seat_expansion": -31.6,
     "hybrid_caste_subquotas": -90.6,
-    "sub_classification": -24.8,
+    "sub_classification": 145.6,
     "consensus_commission": -70.9,
     "compensation": -13.7,
     "credible_guarantees": -40.5,
@@ -221,7 +221,7 @@
    },
    "rank_correlation_with_reference": 1.0,
    "strongest_single_lever": "hybrid_caste_subquotas",
-   "weakest_single_lever": "compensation"
+   "weakest_single_lever": "sub_classification"
   },
   {
    "parameter": "max_national_visibility_influence",
@@ -231,7 +231,7 @@
     "grandfathering": -61.6,
     "seat_expansion": -48.8,
     "hybrid_caste_subquotas": -93.2,
-    "sub_classification": -44.0,
+    "sub_classification": 134.2,
     "consensus_commission": -78.6,
     "compensation": -32.2,
     "credible_guarantees": -54.8,
@@ -240,7 +240,7 @@
    },
    "rank_correlation_with_reference": 1.0,
    "strongest_single_lever": "hybrid_caste_subquotas",
-   "weakest_single_lever": "compensation"
+   "weakest_single_lever": "sub_classification"
   },
   {
    "parameter": "participation_threshold_spread",
@@ -250,14 +250,14 @@
     "grandfathering": -60.0,
     "seat_expansion": -30.0,
     "hybrid_caste_subquotas": -93.3,
-    "sub_classification": -20.0,
+    "sub_classification": 110.0,
     "consensus_commission": -81.7,
     "compensation": -21.7,
     "credible_guarantees": -41.7,
     "managed_transition": -96.7,
     "hybrid_package": -98.3
    },
-   "rank_correlation_with_reference": 0.983,
+   "rank_correlation_with_reference": 1.0,
    "strongest_single_lever": "hybrid_caste_subquotas",
    "weakest_single_lever": "sub_classification"
   },
@@ -269,16 +269,16 @@
     "grandfathering": -47.4,
     "seat_expansion": -31.7,
     "hybrid_caste_subquotas": -89.8,
-    "sub_classification": -32.0,
+    "sub_classification": -0.7,
     "consensus_commission": -57.7,
     "compensation": -7.7,
     "credible_guarantees": -30.9,
     "managed_transition": -91.1,
-    "hybrid_package": -96.3
+    "hybrid_package": -96.0
    },
-   "rank_correlation_with_reference": 0.933,
+   "rank_correlation_with_reference": 0.983,
    "strongest_single_lever": "hybrid_caste_subquotas",
-   "weakest_single_lever": "compensation"
+   "weakest_single_lever": "sub_classification"
   },
   {
    "parameter": "decision_noise",
@@ -288,16 +288,16 @@
     "grandfathering": -59.2,
     "seat_expansion": -28.0,
     "hybrid_caste_subquotas": -92.7,
-    "sub_classification": -25.6,
+    "sub_classification": 107.3,
     "consensus_commission": -71.6,
     "compensation": -15.2,
     "credible_guarantees": -43.3,
     "managed_transition": -93.4,
-    "hybrid_package": -98.6
+    "hybrid_package": -98.3
    },
    "rank_correlation_with_reference": 1.0,
    "strongest_single_lever": "hybrid_caste_subquotas",
-   "weakest_single_lever": "compensation"
+   "weakest_single_lever": "sub_classification"
   },
   {
    "parameter": "decision_noise",
@@ -307,16 +307,16 @@
     "grandfathering": -64.5,
     "seat_expansion": -55.6,
     "hybrid_caste_subquotas": -91.8,
-    "sub_classification": -39.7,
+    "sub_classification": 70.5,
     "consensus_commission": -80.0,
     "compensation": -13.7,
     "credible_guarantees": -57.6,
     "managed_transition": -92.8,
-    "hybrid_package": -97.5
+    "hybrid_package": -96.9
    },
    "rank_correlation_with_reference": 1.0,
    "strongest_single_lever": "hybrid_caste_subquotas",
-   "weakest_single_lever": "compensation"
+   "weakest_single_lever": "sub_classification"
   },
   {
    "parameter": "fatigue_per_protest_day",
@@ -326,7 +326,7 @@
     "grandfathering": -64.0,
     "seat_expansion": -52.3,
     "hybrid_caste_subquotas": -93.1,
-    "sub_classification": -48.5,
+    "sub_classification": 102.7,
     "consensus_commission": -78.7,
     "compensation": -38.1,
     "credible_guarantees": -55.7,
@@ -335,7 +335,7 @@
    },
    "rank_correlation_with_reference": 1.0,
    "strongest_single_lever": "hybrid_caste_subquotas",
-   "weakest_single_lever": "compensation"
+   "weakest_single_lever": "sub_classification"
   },
   {
    "parameter": "fatigue_per_protest_day",
@@ -345,7 +345,7 @@
     "grandfathering": -50.0,
     "seat_expansion": -32.9,
     "hybrid_caste_subquotas": -90.4,
-    "sub_classification": -25.0,
+    "sub_classification": 148.3,
     "consensus_commission": -72.8,
     "compensation": -17.1,
     "credible_guarantees": -40.7,
@@ -354,7 +354,7 @@
    },
    "rank_correlation_with_reference": 1.0,
    "strongest_single_lever": "hybrid_caste_subquotas",
-   "weakest_single_lever": "compensation"
+   "weakest_single_lever": "sub_classification"
   },
   {
    "parameter": "deaths_per_crore_protester_days",
@@ -364,7 +364,7 @@
     "grandfathering": -57.6,
     "seat_expansion": -33.0,
     "hybrid_caste_subquotas": -90.9,
-    "sub_classification": -25.8,
+    "sub_classification": 85.9,
     "consensus_commission": -71.2,
     "compensation": -15.0,
     "credible_guarantees": -47.4,
@@ -373,7 +373,7 @@
    },
    "rank_correlation_with_reference": 1.0,
    "strongest_single_lever": "hybrid_caste_subquotas",
-   "weakest_single_lever": "compensation"
+   "weakest_single_lever": "sub_classification"
   },
   {
    "parameter": "deaths_per_crore_protester_days",
@@ -383,7 +383,7 @@
     "grandfathering": -67.6,
     "seat_expansion": -57.7,
     "hybrid_caste_subquotas": -94.2,
-    "sub_classification": -52.4,
+    "sub_classification": 72.4,
     "consensus_commission": -81.8,
     "compensation": -27.1,
     "credible_guarantees": -61.9,
@@ -392,7 +392,7 @@
    },
    "rank_correlation_with_reference": 1.0,
    "strongest_single_lever": "hybrid_caste_subquotas",
-   "weakest_single_lever": "compensation"
+   "weakest_single_lever": "sub_classification"
   },
   {
    "parameter": "symbolic_threat_rise_per_death",
@@ -402,7 +402,7 @@
     "grandfathering": -54.0,
     "seat_expansion": -33.8,
     "hybrid_caste_subquotas": -90.9,
-    "sub_classification": -25.8,
+    "sub_classification": 150.4,
     "consensus_commission": -72.9,
     "compensation": -20.2,
     "credible_guarantees": -43.5,
@@ -411,7 +411,7 @@
    },
    "rank_correlation_with_reference": 1.0,
    "strongest_single_lever": "hybrid_caste_subquotas",
-   "weakest_single_lever": "compensation"
+   "weakest_single_lever": "sub_classification"
   },
   {
    "parameter": "symbolic_threat_rise_per_death",
@@ -421,7 +421,7 @@
     "grandfathering": -50.5,
     "seat_expansion": -33.8,
     "hybrid_caste_subquotas": -91.5,
-    "sub_classification": -29.4,
+    "sub_classification": 146.9,
     "consensus_commission": -70.4,
     "compensation": -13.9,
     "credible_guarantees": -38.9,
@@ -430,7 +430,7 @@
    },
    "rank_correlation_with_reference": 1.0,
    "strongest_single_lever": "hybrid_caste_subquotas",
-   "weakest_single_lever": "compensation"
+   "weakest_single_lever": "sub_classification"
   },
   {
    "parameter": "mean_participation_threshold",
@@ -440,16 +440,16 @@
     "grandfathering": -77.7,
     "seat_expansion": -53.6,
     "hybrid_caste_subquotas": -95.4,
-    "sub_classification": -53.0,
+    "sub_classification": 31.7,
     "consensus_commission": -87.6,
     "compensation": -42.5,
     "credible_guarantees": -71.0,
     "managed_transition": -96.3,
-    "hybrid_package": -98.7
+    "hybrid_package": -98.6
    },
    "rank_correlation_with_reference": 1.0,
    "strongest_single_lever": "hybrid_caste_subquotas",
-   "weakest_single_lever": "compensation"
+   "weakest_single_lever": "sub_classification"
   },
   {
    "parameter": "mean_participation_threshold",
@@ -459,16 +459,16 @@
     "grandfathering": -57.9,
     "seat_expansion": -40.8,
     "hybrid_caste_subquotas": -89.9,
-    "sub_classification": -23.7,
+    "sub_classification": 78.9,
     "consensus_commission": -70.6,
     "compensation": -14.0,
     "credible_guarantees": -43.9,
     "managed_transition": -92.5,
-    "hybrid_package": -98.2
+    "hybrid_package": -97.8
    },
    "rank_correlation_with_reference": 1.0,
    "strongest_single_lever": "hybrid_caste_subquotas",
-   "weakest_single_lever": "compensation"
+   "weakest_single_lever": "sub_classification"
   }
  ],
  "agent_count_convergence": [
@@ -479,14 +479,22 @@
     "peak_lakh_10th_percentile": 11.1,
     "peak_lakh_90th_percentile": 119.6,
     "median_cumulative_crore": 1.43,
-    "median_deaths": 23.5
+    "median_deaths": 23.5,
+    "median_bandhs_called": 3.0,
+    "share_of_runs_conceded": 0.0,
+    "median_concession_day": null,
+    "median_campaign_days": 37.0
    },
    "hybrid_caste_subquotas": {
     "median_peak_lakh": 2.4,
     "peak_lakh_10th_percentile": 1.0,
     "peak_lakh_90th_percentile": 4.5,
     "median_cumulative_crore": 0.09,
-    "median_deaths": 0.5
+    "median_deaths": 0.5,
+    "median_bandhs_called": 3.0,
+    "share_of_runs_conceded": 0.0,
+    "median_concession_day": null,
+    "median_campaign_days": 39.0
    }
   },
   {
@@ -496,14 +504,22 @@
     "peak_lakh_10th_percentile": 10.7,
     "peak_lakh_90th_percentile": 122.2,
     "median_cumulative_crore": 1.4,
-    "median_deaths": 16.5
+    "median_deaths": 16.5,
+    "median_bandhs_called": 3.0,
+    "share_of_runs_conceded": 0.0,
+    "median_concession_day": null,
+    "median_campaign_days": 38.5
    },
    "hybrid_caste_subquotas": {
     "median_peak_lakh": 1.9,
     "peak_lakh_10th_percentile": 0.9,
     "peak_lakh_90th_percentile": 3.9,
     "median_cumulative_crore": 0.08,
-    "median_deaths": 0.0
+    "median_deaths": 0.0,
+    "median_bandhs_called": 3.0,
+    "share_of_runs_conceded": 0.0,
+    "median_concession_day": null,
+    "median_campaign_days": 40.0
    }
   },
   {
@@ -513,14 +529,22 @@
     "peak_lakh_10th_percentile": 14.2,
     "peak_lakh_90th_percentile": 109.4,
     "median_cumulative_crore": 1.32,
-    "median_deaths": 20.5
+    "median_deaths": 20.5,
+    "median_bandhs_called": 3.0,
+    "share_of_runs_conceded": 0.0,
+    "median_concession_day": null,
+    "median_campaign_days": 40.0
    },
    "hybrid_caste_subquotas": {
     "median_peak_lakh": 2.6,
     "peak_lakh_10th_percentile": 1.6,
     "peak_lakh_90th_percentile": 4.0,
     "median_cumulative_crore": 0.1,
-    "median_deaths": 0.0
+    "median_deaths": 0.0,
+    "median_bandhs_called": 3.0,
+    "share_of_runs_conceded": 0.0,
+    "median_concession_day": null,
+    "median_campaign_days": 39.0
    }
   },
   {
@@ -530,14 +554,22 @@
     "peak_lakh_10th_percentile": 11.2,
     "peak_lakh_90th_percentile": 120.0,
     "median_cumulative_crore": 1.33,
-    "median_deaths": 25.0
+    "median_deaths": 25.0,
+    "median_bandhs_called": 3.0,
+    "share_of_runs_conceded": 0.0,
+    "median_concession_day": null,
+    "median_campaign_days": 38.5
    },
    "hybrid_caste_subquotas": {
     "median_peak_lakh": 2.3,
     "peak_lakh_10th_percentile": 1.7,
     "peak_lakh_90th_percentile": 4.1,
     "median_cumulative_crore": 0.1,
-    "median_deaths": 0.0
+    "median_deaths": 0.0,
+    "median_bandhs_called": 3.0,
+    "share_of_runs_conceded": 0.0,
+    "median_concession_day": null,
+    "median_campaign_days": 39.0
    }
   }
  ]
