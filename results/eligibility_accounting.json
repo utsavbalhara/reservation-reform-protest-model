@@ -685,5 +685,30 @@
    },
    "original_accounting": 0.02889
   }
+ },
+ "joint_prior": {
+  "income_share_factor_prior": [
+   0.6,
+   1.4
+  ],
+  "creamy_prior": [
+   0.3,
+   0.7
+  ],
+  "asset_prior": [
+   0.05,
+   0.25
+  ],
+  "draws": 20000,
+  "share_losing_eligibility_p05_p50_p95": [
+   0.04698,
+   0.06605,
+   0.0924
+  ],
+  "share_gaining_eligibility_p05_p50_p95": [
+   0.01216,
+   0.03002,
+   0.05074
+  ]
  }
 }

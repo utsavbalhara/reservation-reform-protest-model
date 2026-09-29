@@ -189,74 +189,74 @@
   "L3": {
    "full": {
     "peak": {
-     "median_paired_ratio": 0.0315,
-     "change_percent": -96.8,
+     "median_paired_ratio": 0.0829,
+     "change_percent": -91.7,
      "change_percent_ci95": [
-      -97.7,
-      -93.7
+      -95.2,
+      -86.7
      ],
      "share_of_runs_higher_than_baseline": 0.02,
      "paired_runs": 50
     },
     "cumulative": {
-     "median_paired_ratio": 0.0922,
-     "change_percent": -90.8,
+     "median_paired_ratio": 0.1692,
+     "change_percent": -83.1,
      "change_percent_ci95": [
-      -93.7,
-      -85.9
+      -88.3,
+      -74.2
      ],
-     "share_of_runs_higher_than_baseline": 0.0,
+     "share_of_runs_higher_than_baseline": 0.02,
      "paired_runs": 50
     },
     "deaths": {
-     "median_paired_ratio": 0.0588,
-     "change_percent": -94.1,
+     "median_paired_ratio": 0.125,
+     "change_percent": -87.5,
      "change_percent_ci95": [
-      -95.8,
-      -81.8
+      -92.9,
+      -77.2
      ],
-     "share_of_runs_higher_than_baseline": 0.0,
+     "share_of_runs_higher_than_baseline": 0.08,
      "paired_runs": 50
     },
     "protester_days": {
-     "median_paired_ratio": 0.0997,
-     "change_percent": -90.0
+     "median_paired_ratio": 0.2225,
+     "change_percent": -77.8
     }
    },
    "symbolic_only": {
     "peak": {
-     "median_paired_ratio": 0.0975,
-     "change_percent": -90.3,
+     "median_paired_ratio": 0.2474,
+     "change_percent": -75.3,
      "change_percent_ci95": [
-      -93.2,
-      -88.1
+      -84.8,
+      -60.0
      ],
-     "share_of_runs_higher_than_baseline": 0.02,
+     "share_of_runs_higher_than_baseline": 0.0,
      "paired_runs": 50
     },
     "cumulative": {
-     "median_paired_ratio": 0.175,
-     "change_percent": -82.5,
+     "median_paired_ratio": 0.3295,
+     "change_percent": -67.1,
      "change_percent_ci95": [
-      -89.4,
-      -77.1
+      -79.7,
+      -43.3
      ],
-     "share_of_runs_higher_than_baseline": 0.02,
+     "share_of_runs_higher_than_baseline": 0.0,
      "paired_runs": 50
     },
     "deaths": {
-     "median_paired_ratio": 0.1335,
-     "change_percent": -86.7,
+     "median_paired_ratio": 0.3382,
+     "change_percent": -66.2,
      "change_percent_ci95": [
-      -91.3,
-      -75.7
+      -80.5,
+      -22.6
      ],
-     "share_of_runs_higher_than_baseline": 0.12,
+     "share_of_runs_higher_than_baseline": 0.16,
      "paired_runs": 50
     },
     "protester_days": {
-     "median_paired_ratio": 0.1757,
-     "change_percent": -82.4
+     "median_paired_ratio": 0.3316,
+     "change_percent": -66.8
     }
    },
    "allocation_only": {
@@ -696,88 +696,90 @@
   },
   "sub_classification": {
    "protester_day_share_by_group": {
-    "SC": 0.613,
-    "ST": 0.222,
-    "OBC": 0.125,
-    "General": 0.026
+    "SC": 0.632,
+    "ST": 0.244,
+    "OBC": 0.089,
+    "General": 0.022
    },
    "sc_st_share_ever_protesting_by_tier": {
-    "better_off_share_protesting": 0.0763,
-    "most_deprived_share_protesting": 0.0075
+    "better_off_share_protesting": 0.1187,
+    "most_deprived_share_protesting": 0.0083
    },
    "protester_day_share_by_state": {
-    "Uttar Pradesh": 0.1637,
-    "West Bengal": 0.0826,
-    "Bihar": 0.081,
-    "Maharashtra": 0.072,
-    "Madhya Pradesh": 0.0715,
-    "Rajasthan": 0.0628,
-    "Odisha": 0.0603,
-    "Tamil Nadu": 0.0548,
-    "Gujarat": 0.0467,
-    "Karnataka": 0.0399,
-    "Andhra Pradesh": 0.0384,
-    "Jharkhand": 0.0378,
-    "Punjab": 0.0291,
-    "Telangana": 0.028,
-    "Chhattisgarh": 0.0258,
-    "Kerala": 0.0166,
-    "Assam": 0.0146,
-    "Haryana": 0.0133,
-    "Delhi": 0.0119,
-    "Jammu & Kashmir": 0.0097,
-    "Himachal Pradesh": 0.0067,
-    "Uttarakhand": 0.0062,
-    "Meghalaya": 0.0061,
-    "Tripura": 0.0049,
-    "Nagaland": 0.0048,
+    "Uttar Pradesh": 0.1593,
+    "West Bengal": 0.0845,
+    "Bihar": 0.0773,
+    "Madhya Pradesh": 0.0744,
+    "Maharashtra": 0.0732,
+    "Rajasthan": 0.0641,
+    "Odisha": 0.0612,
+    "Tamil Nadu": 0.0537,
+    "Gujarat": 0.0451,
+    "Karnataka": 0.0404,
+    "Jharkhand": 0.0387,
+    "Andhra Pradesh": 0.0377,
+    "Punjab": 0.0288,
+    "Chhattisgarh": 0.0285,
+    "Telangana": 0.0268,
+    "Assam": 0.0158,
+    "Kerala": 0.0155,
+    "Haryana": 0.0139,
+    "Delhi": 0.0116,
+    "Jammu & Kashmir": 0.0094,
+    "Uttarakhand": 0.0067,
+    "Meghalaya": 0.0065,
+    "Himachal Pradesh": 0.0064,
+    "Tripura": 0.0055,
+    "Nagaland": 0.0049,
     "Arunachal Pradesh": 0.0026,
-    "Sikkim": 0.002,
-    "Mizoram": 0.0014,
+    "Mizoram": 0.0018,
+    "Sikkim": 0.0017,
+    "Manipur": 0.0011,
     "Puducherry": 0.0009,
-    "Manipur": 0.0005,
-    "Goa": 0.0004
+    "Goa": 0.0005,
+    "Chandigarh": 0.0001
    }
   },
   "hybrid_caste_subquotas": {
    "protester_day_share_by_group": {
-    "SC": 0.33,
-    "ST": 0.182,
-    "OBC": 0.353,
-    "General": 0.069
+    "SC": 0.381,
+    "ST": 0.187,
+    "OBC": 0.314,
+    "General": 0.072
    },
    "sc_st_share_ever_protesting_by_tier": {
-    "better_off_share_protesting": 0.0058,
-    "most_deprived_share_protesting": 0.0039
+    "better_off_share_protesting": 0.0083,
+    "most_deprived_share_protesting": 0.0054
    },
    "protester_day_share_by_state": {
-    "Uttar Pradesh": 0.1717,
-    "Bihar": 0.0962,
-    "Madhya Pradesh": 0.0852,
-    "Gujarat": 0.0708,
-    "Rajasthan": 0.0624,
-    "Odisha": 0.06,
-    "West Bengal": 0.0575,
-    "Andhra Pradesh": 0.0539,
-    "Jharkhand": 0.0493,
-    "Tamil Nadu": 0.0462,
-    "Maharashtra": 0.0407,
-    "Karnataka": 0.0258,
-    "Punjab": 0.0213,
-    "Himachal Pradesh": 0.0201,
-    "Telangana": 0.0169,
-    "Delhi": 0.0163,
-    "Kerala": 0.0144,
-    "Chhattisgarh": 0.0105,
-    "Jammu & Kashmir": 0.0102,
-    "Assam": 0.0099,
-    "Haryana": 0.0075,
-    "Sikkim": 0.0037,
-    "Uttarakhand": 0.0037,
-    "Arunachal Pradesh": 0.0034,
-    "Puducherry": 0.0026,
-    "Meghalaya": 0.0016,
-    "Tripura": 0.001
+    "Uttar Pradesh": 0.1684,
+    "Bihar": 0.0946,
+    "Madhya Pradesh": 0.0762,
+    "West Bengal": 0.0659,
+    "Gujarat": 0.0621,
+    "Rajasthan": 0.0599,
+    "Odisha": 0.059,
+    "Maharashtra": 0.0558,
+    "Tamil Nadu": 0.0494,
+    "Andhra Pradesh": 0.0481,
+    "Jharkhand": 0.0439,
+    "Karnataka": 0.0294,
+    "Punjab": 0.0234,
+    "Telangana": 0.0186,
+    "Delhi": 0.0173,
+    "Himachal Pradesh": 0.0171,
+    "Kerala": 0.0171,
+    "Jammu & Kashmir": 0.0123,
+    "Assam": 0.0116,
+    "Chhattisgarh": 0.0103,
+    "Haryana": 0.0076,
+    "Uttarakhand": 0.0066,
+    "Arunachal Pradesh": 0.0033,
+    "Sikkim": 0.0032,
+    "Puducherry": 0.0024,
+    "Meghalaya": 0.0023,
+    "Tripura": 0.0012,
+    "Nagaland": 0.0007
    }
   }
  }

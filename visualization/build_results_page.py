@@ -46,7 +46,12 @@ def macro_values() -> dict:
     return {"__ELIG_LOSE__": clean(values["EligibilityLose"]), "__ELIG_GAIN__": clean(values["EligibilityGain"]),
             "__SC_BELOW_SEATS__": clean(values["AllocChangeSCBelow"]), "__TURNOUT_2018__": clean(values["CalibTurnoutTwentyEighteenInterval"]),
             "__ASSUMPTION_PEAK_LOW__": clean(values["AssumptionPeakLow"]), "__ASSUMPTION_PEAK_HIGH__": clean(values["AssumptionPeakHigh"]),
-            "__DEPRIVED_CHANGE__": clean(values["FactDeprivedChange"]), "__BETTER_OFF_CHANGE__": clean(values["FactBetterOffChange"])}
+            "__DEPRIVED_CHANGE__": clean(values["FactDeprivedChange"]), "__BETTER_OFF_CHANGE__": clean(values["FactBetterOffChange"]),
+            "__L3_RETAINED__": clean(values["LThreeRetainedMedian"]), "__L3_FIRST__": clean(values["MapGroundedStrongestLThree"]),
+            "__CONCEDE_BASE__": clean(values["ConcessionReferenceBaselineShare"]), "__CONCEDE_DAY__": clean(values["ConcessionReferenceBaselineDay"]),
+            "__CONCEDE_L3__": clean(values["ConcessionReferenceShareLThree"]), "__CONCEDE_C1__": clean(values["ConcessionReferenceShareCOne"]),
+            "__CONCEDE_C2__": clean(values["ConcessionReferenceShareCTwo"]), "__CONCEDE_SLOW_C1__": clean(values["ConcessionSlowShareCOne"]),
+            "__ELIG_LOSE_RANGE__": clean(values["EligibilityLoseJoint"])}
 
 
 def page_data() -> dict:

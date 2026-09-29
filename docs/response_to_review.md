@@ -1,130 +1,118 @@
-# Response to the review
+# Response to the reviews
 
-The review recommended major revision. This document answers each point: what was done, where it is in the revised paper (section numbers refer to `paper/reservation_reform_protest_paper.pdf`), and what was not done and why. Every number in the paper is generated from result files; the commands are in the paper's Reproducibility section and in `USAGE.md`.
+Thank you for the second review. This document answers it point by point, and below it summarizes my response to the first review. Section numbers refer to `paper/reservation_reform_protest_paper.pdf`. Every number in the paper is generated from the result files; the commands are in the paper's Reproducibility section and in `USAGE.md`.
 
-## Summary of the revision
+## Second review
 
-The stylized model is kept as a reference specification. Alongside it, a **grounded specification** replaces its assumed inputs wherever data allow, and four components now link into one analysis (Figure 1):
+### 1. L3's residual threat, and the 2024 episode
 
-1. an **eligibility accounting** under the actual creamy-layer and EWS rules (Section 2.2);
-2. an **allocation model** of IIT seats built on India's over-and-above choice rule, a latent merit model fitted to five years of JEE (Advanced) rank lists, and income priors constrained by published evidence, validated against actual allotments (Section 5);
-3. a **protest model on 640 Census districts** whose behavioural parameters and shock sizes are **history-matched to GDELT event counts** from four episodes, with frozen leave-one-episode-out predictions (Sections 6, 7, 10);
-4. an **uncertainty layer**: priors on every intervention effect, channel decompositions, sweeps of the unidentified assumptions, an eleven-variant structural ensemble and Morris screening (Sections 11.5–12).
+I agree this was the most important point. In the grounded specification, L3 no longer uses an assumed share of the reform's symbolic threat for SC and ST. Each run takes the ratio of the 2024 shock to the reform's shock for the parameter set drawn in that run, so the share is drawn jointly with R and with every other calibrated parameter (Experimental design section and the scenario table).
 
-The revision changed three conclusions of the original analysis and confirmed the top and bottom of the lever ranking. The changed conclusions are that the reform is small, that seat expansion helps, and that heavy policing broadens protest. The level of protest the reform would provoke is now reported as not identified.
+- The share has a median of 0.57 and a 90% interval of 0.06–1.00 at R = 1.
+- In 16% of the retained sets the 2024 shock exceeds the reform's (up to 1.89). I cap the share at 1, because the income filter is part of the reform and cannot threaten more than all of it.
+- In 31% of the sets the share is below the old value of 0.4.
 
-## Major points
+Results:
+- L3's paired change in peak is now −92% (95% Monte Carlo interval −95% to −87%), against −97% before.
+- Under the priors on the other levers' effects, L3 is the strongest single lever with probability 87%, against 95% before.
+- It stays first across the assumption grid and in the grounded structural ensemble (Robustness section).
 
-**1. Eligibility is not allocation; the pool merger was treated loosely.**
-Done. Section 5 builds an allocation model. It uses the over-and-above choice rule (Sönmez and Yenmez 2022; Aygün and Turhan 2023), which the review pointed to, rather than an invented mechanism. The latent merit model is fitted by maximum likelihood to the category composition of the JEE (Advanced) Common Rank Lists for 2021–2025, and family income enters through priors constrained by the JIC parental-income tables. Validation:
-- category shares by rank decile within 3.5 percentage points;
-- implied cutoffs agree across lists that share a cutoff;
-- reserved-first processing reproduces actual category allotments to within 406 seats, while open-first misses by up to 2,386.
+The headline is weaker but holds, and it now rests on the episode data rather than on my judgement. OBC, which the 2024 episode did not concern, keeps the prior.
 
-Result: under a merged pool, below-line SC candidates lose 72% of their IIT seats and below-line ST candidates 85%, although they keep eligibility. The protest model's material inputs now come from this table.
+### 2. L4 and the better-off tier
 
-**2. The legal accounting was inaccurate, and "2.8%" was presented as a finding.**
-Done. Section 2.1 states the actual rules:
-- the creamy-layer income test excludes salary and agricultural income, and there are separate status criteria;
-- EWS carries asset exclusions.
+Done. L4 now raises the better-off SC/ST tier's symbolic threat by a fifth, with a prior from 0 to 50%, as well as lowering the deprived tier's. The 2024 record supports this: better-off SC groups objected to sub-classification.
 
-Section 2.2 and `experiments/eligibility_accounting.py` recompute who changes status, with priors on the two unobserved shares. Result: 6.8% of Indians lose eligibility (range 5.2–8.3%) and 3.1% gain it. The figure of 2.9% comes from counting only SC/ST families above the line, and the paper explains why that count is wrong.
+The effect is large:
+- L4's paired change in peak falls from −40% to −12%.
+- Under the priors it is the weakest single lever in 55% of draws.
+- The hybrid package, which includes L4, still changes the peak by −99%, because L3 and the other levers dominate it.
 
-**3. The ranking of interventions was baked into the intervention mappings.**
-Addressed three ways (Sections 11.5, 11.6):
-- **Priors.** Every lever's effect size now has a uniform prior. Each run draws one mapping, and we report the probability that each lever ranks first to last. L3 comes first with probability 95% (grounded) and 82% (stylized).
-- **Channels.** Each lever is decomposed into its channels on paired worlds, which shows what drives it. L5 works mostly through its assumed symbolic cut (−48%), not party machinery (−15%).
-- **Data-based levers.** Where a lever is itself an allocation rule (L2 seat expansion, L3 caste quotas with an income filter), its material effect now comes from the allocation model rather than an assumption. This is what reversed the verdict on L2.
+The Interventions section and the hypothesis table (H4) report the change.
 
-What remains assumed: how much a commission, a guarantee or an income filter lowers perceived threat. The paper says so, and names survey experiments as the way to estimate it.
+### 3. Concession
 
-**4. Suppression findings were mostly inputs.**
-Done (Sections 6.5, 11.4, 11.5, 11.6).
-- Deaths are split into police-attributed and other deaths, and heavy policing raises only the former.
-- The response of turnout to deaths now has a prior running from deterrence to strong backfire.
-- The decomposition separates the assumed rise in deaths from the emergent change in protester-days.
+I added a section on concession as an outcome ("Does the reform survive?"). You were right that the paper had not discussed a striking implication of the model: in every simulated campaign, an abrupt switch is reversed, after a median of 5 days. The section says plainly that this follows from the assumed concession rule as much as from the calibrated dynamics. Nothing after the first bandh day is fitted, and in 2018 the concession came months later. The peak falls on the first bandh day in 60% of baseline runs, so everything after it is extrapolation.
 
-Revised conclusion: suppression costs lives in every specification. Whether it broadens protest depends on the unidentified response to deaths, and it does not in the grounded specification, where governments concede quickly.
+The new concession table ranks every scenario by the share of runs with a concession, under the reference rule and under a slow rule (at most 3% a day, with the pressure midpoint doubled). It also gives the peak with no concession at all.
 
-**5. The ratio of symbolic to material weight (w_s/w_m) is unidentified.**
-Acknowledged and bounded (Section 11.7).
-- **Stylized:** a sweep holding w_s·w_m fixed, recalibrating θ̄ at each point, finds that a material lever is strongest only when w_s/w_m ≤ 1.47 (reference 7.3).
-- **Grounded:** the episodes involve no material change, so they don't identify w_m either. A direct sweep of w_m from ×0.25 to ×8 never makes a material lever the strongest; it reorders the middle of the ranking.
+| Scenario | Reference rule | Slow rule |
+|---|---|---|
+| Abrupt switch (baseline) | 100% | 70% |
+| L3 | 78% | 32% |
+| Grandfathering | 94% | — |
+| Commission | 94% | — |
+| Managed transition | 74% | 28% |
+| Hybrid package | 34% | 14% |
 
-**6. The 2018 validation failed its own benchmarks.**
-Replaced. The model is no longer calibrated to a headcount. It is history-matched to precision-corrected GDELT event counts for four episodes (Sections 7, 10):
-- the April 2018 and August 2024 SC/ST bandhs;
-- the September 2018 upper-caste bandh, with the threat pointing the other way;
-- the EWS amendment as a null episode.
+The order of levers by concession largely follows their order by peak, because the hazard rises with turnout. What changes is the meaning of the ranking: no single lever makes concession unlikely, and in the model only a package keeps an income-only reform in place in most worlds, and only under the slow rule.
 
-Two published crowd estimates (Maratha 2017, Patidar 2015) anchor the observation model. The 2018 bandh is coded as locally organized, following Scroll's reporting.
+### 4. What the calibration identifies
 
-Event data identify relative shock sizes far better than turnout: the implied 2018 turnout is 7–539 lakh (90%). The frozen leave-one-episode-out predictions of deaths and geography are weak. The paper draws the consequence that the reform's protest level is not identified, and presents paired comparisons between designs as the object of the analysis.
+I agree, and the paper now says so.
+- **"Grounded" is defined (Introduction, Scope).** It refers to the inputs: population, eligibility rules and material changes. The behavioural parameters are prior-dominated.
+- **Identification (Calibration results).** The retained 90% ranges cover 86% of the prior for the mean threshold, 83% for the spread and 89% for mixing. The claim that the data "do not support complete segregation" is gone.
+- **Matching choices (new sensitivity table).** The final wave is judged again with the discrepancy at 0.3, 0.5 and 0.8 and the cutoff at 2.5, 3 and 3.5. Between 9 and 2,471 sets survive, the behavioural ranges move with the setting, and the 2024-to-2018 ratio stays wide throughout.
+- **Seeds.** I resimulated the 281 retained sets with ten seeds; 275 (98%) stay non-implausible. The two-day episode outputs vary little between seeds. The heavy tails belong to the reform runs, which use 50 runs per scenario.
+- **Weighting.** The paper now says that retained sets are equally weighted and drawn uniformly, not a posterior.
+- **S1 and S3.** The stylized-facts table marks both as partly by construction, for the reasons you gave.
 
-**7. The dynamics were too stylized (exogenous bandhs, no geography, single-group neighbourhoods).**
-Done (Sections 6, 12.2). The grounded specification has:
-- endogenous bandh calls;
-- a pressure-dependent concession with a General-category backlash;
-- negative-binomial, split deaths and a response parameter for deaths;
-- separate random streams;
-- a population on 640 Census districts with NFHS-5 shares and neighbourhood mixing estimated in calibration (median 0.78).
+### 5. Using the IIT shock for the whole population
 
-Each alternative can be switched on its own. The structural ensemble reruns the comparison under eleven variants, each recalibrated, and L3 comes first and compensation last in all of them.
+Partly done.
+- **Allotment error by category.** The largest error, as a share of the actual allotment, is 0.6% for SC, 1.3% for ST, 1.4% for OBC-NCL, 6.1% for General and 15.1% for GEN-EWS. The paper now says that the SC and ST match is close to mechanical under reserved-first processing, so the General and GEN-EWS errors are the real test, and the GEN-EWS error is large (allocation model, Validation).
+- **Scaling down.** The material-weight sweep already scales every material change to 0.25 and 0.5 of its value. The paper now presents it as the check you asked for, and the order at the top is unchanged.
+- **Limitations.** The IIT extrapolation, the absence of exposure weighting and the fixed applicant pool (JEE Main cutoffs) are now listed.
 
-**8. Statistics should be paired, with bootstrap intervals.**
-Done throughout. Every change is the median over runs of the ratio to the baseline in the same world, with a 95% percentile-bootstrap interval and the share of runs above the baseline (Section 6.6). One earlier claim was an artifact of comparing medians: shutdowns raising cumulative participation by 9%. It is gone.
+Not done: a job-side bound from UPSC or SSC category-wise data. I have not yet assembled those data and say so in the limitations.
 
-## Minor points
+### 6. Assumed income shares behind the eligibility figures
 
-- **L3 vs C2 naming.** L3 is "keep caste quotas, income filter inside them"; C2 is the "hybrid package". The word "hybrid" is no longer used for L3.
-- **Brazil's Law 12.711.** Now discussed in the text (Section 5.5) as a precedent for sub-quotas inside an income-based quota.
-- **Section 2.3 uncited.** The mobilization record is now cited (Scroll, Al Jazeera news and opinion), and the conflicting crowd reports for 2018 are stated.
-- **S3 non-discriminating.** S3 is revised: large mobilizations don't require party backing (2018) and party backing doesn't guarantee them (2024). The grounded model agrees: raising backing from the 2018 to the 2024 level changes the peak by a factor of 1.04 (Table 10).
-- **L4 "symbolic share 0.3" ambiguous.** Now stated precisely: the most-deprived tier's symbolic threat falls from 0.8 to 0.3 times its group's, and its material change falls by half the unit loss (Table 7).
-- **Figure 4 overlapping labels.** Replaced by a legend; the new figures follow the same rule.
+Done. The eligibility accounting now puts a prior on each group's above-line share (a factor from 0.6 to 1.4) together with the two legal shares. The 90% interval is 4.7–9.2% losing eligibility, against 5.2–8.3% when only the legal shares varied, and 1.2–5.1% gaining it. The abstract and the eligibility section give the wider range. I have not grounded the income shares in PLFS, IHDS or SECC; that remains future work.
 
-## Literature
+### 7. Robustness on the grounded specification
 
-Added and used in the text:
-- Kuran (1991) and Marwell and Oliver (1993) on cascades and critical mass.
-- Wilkinson (2004) on the state politics of violence, which motivates concession and policing.
-- Windrum, Fagiolo and Moneta (2007) on validating agent-based models.
-- Vernon et al. (2010) and Andrianakis et al. (2015) on history matching.
-- Cranmer et al. (2020) on simulation-based inference, noted as an alternative.
-- Morris (1991), Campolongo et al. (2007) and Saltelli et al. (2008) on global sensitivity.
-- Grimm et al. (2020) on the ODD protocol; the ODD summary is in Appendix F.
+Done.
+- **Grounded ensemble.** There is now a structural ensemble on the grounded specification. Its variants are threshold shapes, fixed bandh days, no or slow concession, Poisson deaths, deaths that deter or have no effect, a single random stream, and the stylized material table. It is not recalibrated, because the thresholds come from the episodes and there is no turnout target to recalibrate against.
+- **Morris screening.** The grounded screening is now the one in the main text; the stylized one moved to an appendix.
+- **Stylized checks.** The one-at-a-time sensitivity and convergence checks, which are stylized-only, moved to an appendix and are labelled as such.
 
-Also added, from the author's own search:
-- Sönmez and Yenmez (2022), and Aygün and Turhan (2020; 2023a; 2023b), on reservation choice rules.
-- Bertrand, Hanna and Mullainathan (2010), and Deshpande and Ramachandran (2019a; 2019b), on caste versus income targeting.
-- Deshpande et al. (2026) on perceptions under income-based affirmative action.
-- Srbljinović et al. (2003), Lemos (2018), and Thron and Jackson (2015) on protest and conflict models; the last is a critique the paper answers directly in Section 3.
-- Leetaru and Schrodt (2013), Hammond and Weidmann (2014), and Raleigh et al. (2010) on event data.
+### 8. Disclosure and provenance
 
-The novelty claim is narrowed to "the first agent-based model of reservation politics and the first comparison of reservation reform designs by the protest they would provoke". It is supported by a documented search: 18 Google Scholar queries and an SSRN search (Appendix A, `docs/literature_search.md`).
+- **Relevance labels.** Appendix B, Section 7 and the limitations now say that the labels were assigned by a large language model from the URL text and have not been checked by a human coder. A coding kit for hand-coding the sample from the articles by two independent coders, and a script that computes Krippendorff's alpha and replaces the labels, are in `data/coding/` and `data_pipelines/relevance_agreement.py`. Until that coding is done, the paper states the labels' provenance as it is.
+- **Frozen predictions.** The calibration results now give the timing: the three predictions were committed 36, 18 and less than one minute before the scoring commit. The hashes show the predictions were not changed after scoring, but not that they were made independently of the analysis that scored them.
+- **Literature.** Several references came from your searches in review, not from mine. My first response credited them to "my own search", which was wrong, and I apologize. Appendix A now says that several cited works were suggested in review.
+- **Al Jazeera.** You were right that its same-day report of "thousands" concerned the Jantar Mantar gathering in Delhi. The paper now cites The Caravan (Donthi 2018: "thousands of Dalits across the country") and no longer describes the event data as ruling out a press figure.
+- **References.** I checked the new references against their sources. The authors of the 2026 Durham working paper and the venues of the Aygün–Turhan papers are correct. The page range of Deshpande and Ramachandran (2019a) is corrected to 27–31.
 
-## The improvement plan (A–H)
+### Minor points
 
-| Plan item | Status |
-|---|---|
-| A. Merged-pool merit allocation | Done (Section 5). IIT only; NEET attempted and excluded after failing a tail check; government jobs not covered. |
-| B. District population | Done: Census 2011 districts, NFHS-5 state OBC shares, estimated mixing. Not done: state-level income adjustment, jati-level tiers beyond two SC/ST tiers, organizational capacity by state, survey-based identity strength. Listed as limitations. |
-| C. Episode dataset | Done with GDELT: 10 episodes, keyword filters, a precision audit of 246 URLs, deaths and party backing coded from cited reporting. Not done: a second independent coder and an agreement statistic (Krippendorff's α). The ACLED pipeline is built and awaits the data. |
-| D. Multi-episode calibration and out-of-sample validation | Done: history matching to four episodes; leave-one-episode-out predictions frozen, hashed and pushed to the public repository before scoring. OSF preregistration was not used; the public git history serves as the timestamp. |
-| E. Grounding intervention mappings | Partly: priors, rank probabilities, decompositions, and allocation-derived levers L2 and L3. The survey was skipped at the author's decision, so perceived-threat effects remain priors. |
-| F. Structural upgrades | Done: endogenous bandhs, concession and backlash, split deaths, response to deaths, mixing, threshold shapes, legal eligibility flags. |
-| G. Global sensitivity, ensembles, paired CIs, verification | Done: Morris screening in both specifications (not Sobol), the eleven-variant ensemble, paired bootstrap CIs, and a test suite with an independent scalar reimplementation. |
-| H. Rewrite | Done: paper, report, README, usage guide and results page. |
+- **Monte Carlo intervals.** The bootstrap intervals are now described as the Monte Carlo precision of the median paired change, not uncertainty about the real-world effect (Uncertainty and paired sampling).
+- **What counts as protest.** The model section now defines an agent-day of protest as taking part in the day's action, not passive compliance with a shutdown, and notes that this reading is not tested against data.
+- **Implausible peaks.** The section on uncertainty over interventions reports the share of runs whose baseline peak exceeds 5 crore and 10 crore people on one day. It shows that L3 is still the strongest lever in most of the runs that stay below 5 crore. I did not add a plausibility constraint to the history matching, because the episodes, not the reform, are what is matched there.
 
-## What the revision does not claim
+## First review (summary of my earlier response)
 
-- The level of protest is not identified: the baseline peak runs from 29 lakh to 6.8 crore across the assumptions the data leave open.
-- The model does not predict where violence will occur, and its state distribution is a demographic baseline.
-- The seat results are for IIT admissions.
-- How strongly a commission, a guarantee or an income filter reduces perceived threat is a prior.
+The first review recommended major revision.
 
-## Open items for the author
+**Main changes.** In response I:
+- built the allocation model on the over-and-above choice rule you pointed to (Sönmez and Yenmez 2022; Aygün and Turhan 2023);
+- recomputed eligibility under the actual creamy-layer and EWS rules;
+- replaced the single headcount target with history matching to GDELT event counts from four episodes, coding 2018 as locally organized;
+- put priors on every intervention effect and decomposed each lever into its channels;
+- split deaths by attribution, with a prior on the response to deaths;
+- reported paired effects with bootstrap intervals;
+- added endogenous bandhs, concession, district geography and estimated mixing, each switchable;
+- ran a structural ensemble and Morris screening.
 
-- The GDELT relevance labels were produced from URL text by a single coder and have not been double-coded. `data/derived/gdelt_relevance_audit.csv` records who coded them. Before submission they should be re-coded by the author and a second person, with an agreement statistic.
-- ACLED: place the export in `data/raw/acled/` and run `python -m data_pipelines.acled_episode_events`, then `python -m experiments.acled_cross_check`.
-- The simulation videos show the stylized model; the captions say so.
+**Conclusions that changed.** Three conclusions of the original version did not survive: that the reform is a small eligibility change, that seat expansion on the EWS model helps, and that heavy policing broadens protest.
+
+**Minor points.**
+- L3 and C2 are now named distinctly.
+- Brazil's Law 12.711 is discussed.
+- The mobilization record is cited.
+- S3 is revised.
+- L4's parameters are stated precisely.
+- Overlapping figure labels were replaced by legends.
+
+**Not done.** The survey experiment on perceived threat. The mappings of commission, guarantees and income filter onto threat remain priors, apart from L3's, which now comes from the 2024 episode.

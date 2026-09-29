@@ -18,7 +18,8 @@ from protest_simulation import SCENARIO_BY_KEY
 from protest_simulation.geography import state_names
 from protest_simulation.monte_carlo import CAMPAIGN_SEED_OFFSET, paired_effects_from_runs, paired_worlds
 from protest_simulation.parallel import run_campaigns
-from protest_simulation.policy_interventions import _scale_segment_losses, _use_lever_table, remove_all_material_loss
+from protest_simulation.policy_interventions import (SC_ST_THREAT_RETAINED_UNDER_INCOME_FILTER, _scale_segment_losses, _use_lever_table,
+                                                   income_filter_threat_retained_from_episodes, remove_all_material_loss)
 from protest_simulation.protest_campaign import (
     SEGMENT_NAMES, eligibility_segment_of_each_agent, material_loss_felt_by_each_agent, symbolic_threat_felt_by_each_agent)
 from protest_simulation.specifications import get_specification
@@ -37,7 +38,10 @@ def no_symbolic(world):
 
 def l3_symbolic(world):
     symbolic = world.symbolic_threat_by_group.copy()
-    symbolic[: OBC + 1] *= 0.4
+    symbolic[: OBC + 1] *= SC_ST_THREAT_RETAINED_UNDER_INCOME_FILTER
+    from_episodes = income_filter_threat_retained_from_episodes(world)
+    if from_episodes is not None:
+        symbolic[:OBC] = world.symbolic_threat_by_group[:OBC] * from_episodes
     world.symbolic_threat_by_group = symbolic
 
 

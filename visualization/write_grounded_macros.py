@@ -70,6 +70,11 @@ def eligibility(macros, rows):
                macro("EligibilityGainRange", f"{percent(ranges['share_gaining_eligibility'][0])}--{percent(ranges['share_gaining_eligibility'][1])}"),
                macro("EligibilityOriginal", percent(population["original_accounting"])),
                macro("EligibilitySCSTAbove", percent(central["share_sc_st_above_line"]))]
+    joint = data.get("joint_prior")
+    if joint:
+        lose, gain = joint["share_losing_eligibility_p05_p50_p95"], joint["share_gaining_eligibility_p05_p50_p95"]
+        macros += [macro("EligibilityLoseJoint", f"{percent(lose[0])}--{percent(lose[2])}"),
+                   macro("EligibilityGainJoint", f"{percent(gain[0])}--{percent(gain[2])}")]
     shares = central["segment_shares"]
     table = [("SC and ST families above \\rupee8 lakh", shares["SC_above"] + shares["ST_above"], "Reserved", "\\textbf{Unreserved}"),
              ("OBC above \\rupee8 lakh, non-creamy today", shares["OBC_above_ncl"], "Reserved", "\\textbf{Unreserved}"),
@@ -99,6 +104,10 @@ def allocation(macros, rows):
     check = data["allotment_check"]
     if check and "reserved_first" in next(iter(check.values())):
         macros.append(macro("AllocMaxAllotmentGap", f"{max(v['reserved_first']['largest_absolute_gap'] for v in check.values()):,}".replace(",", "{,}")))
+        # Largest error per category, as a share of the actual allotment, over the years checked (reserved-first order).
+        for index, name in enumerate(("GEN", "EWS", "OBC", "SC", "ST")):
+            relative = max(abs(v["reserved_first"]["model"][index] - v["actual"][index]) / v["actual"][index] for v in check.values())
+            macros.append(macro(f"AllotErr{name}", percent(relative)))
         macros.append(macro("AllocMaxAllotmentGapOpenFirst", f"{max(v['open_first']['largest_absolute_gap'] for v in check.values()):,}".replace(",", "{,}")))
     main = data["summary"]["reserved_first|0.595"]
     names = {"SC_above": "SCAbove", "SC_below": "SCBelow", "ST_above": "STAbove", "ST_below": "STBelow", "OBC-NCL_above": "OBCAbove",
@@ -461,11 +470,125 @@ def grounded_assumptions(macros, rows):
             + f" & {LEVER_CODES[point['single_lever_order_by_peak_change'][0]]}\\\\" for point in sweep]
 
 
+def income_filter_threat(macros, rows):
+    """L3's residual symbolic threat for SC and ST, from the 2024 episode: the 2024 shock over the reform's (R = 1)."""
+    samples = load("episode_calibration_nroy_samples.json")
+    if samples is None:
+        return
+    ratio = np.array([s["magnitude_sc_st_bharat_bandh_2024"] / s["magnitude_sc_st_bharat_bandh_2018"] for s in samples])
+    macros += [macro("LThreeRetainedMedian", f"{np.median(np.minimum(ratio, 1)):.2f}"),
+               macro("LThreeRetainedInterval", f"{np.percentile(ratio, 5):.2f}--{min(1.0, np.percentile(ratio, 95)):.2f}"),
+               macro("LThreeRetainedUncapped", f"{np.percentile(ratio, 95):.2f}"),
+               macro("LThreeRetainedCappedShare", percent(float(np.mean(ratio > 1)), 0)),
+               macro("LThreeRetainedBelowReference", percent(float(np.mean(ratio < 0.4)), 0))]
+
+
+def plausibility(macros, rows):
+    """Rank probabilities restricted to runs whose baseline peak is at most 5 crore on one day."""
+    data = load("intervention_mapping_uncertainty_grounded.json")
+    if data is None:
+        return
+    runs = data["runs"]
+    baseline = np.array(runs["baseline"]["peak_day_protesters"], float)
+    levers = [lever for lever in data["rank_distribution"]]
+    for limit, word in ((5e7, "Five"), (1e8, "Ten")):
+        keep = baseline <= limit
+        macros.append(macro(f"PlausibleShareBaselineAbove{word}Crore", percent(float(np.mean(~keep)), 0)))
+        if keep.sum() >= 20:
+            peaks = np.array([runs[lever]["peak_day_protesters"] for lever in levers], float)[:, keep]
+            strongest = np.argmin(peaks / baseline[keep], axis=0)
+            macros.append(macro(f"PlausibleLThreeFirstBelow{word}Crore", percent(float(np.mean(np.array(levers)[strongest] == "hybrid_caste_subquotas")), 0)))
+            macros.append(macro(f"PlausibleRunsBelow{word}Crore", str(int(keep.sum()))))
+
+
+def concession(macros, rows):
+    data = load("concession_outcome.json")
+    if data is None:
+        return
+    rules = data["rules"]
+    macros.append(macro("ConcessionRuns", str(data["runs"])))
+    for rule, word in (("reference", "Reference"), ("slow", "Slow"), ("none", "None")):
+        scenarios = rules[rule]["scenarios"]
+        macros.append(macro(f"Concession{word}BaselineShare", percent(scenarios["baseline"]["share_conceded"], 0)))
+        day = scenarios["baseline"]["median_concession_day"]
+        macros.append(macro(f"Concession{word}BaselineDay", "--" if day is None else f"{day:.0f}"))
+        macros.append(macro(f"Concession{word}FirstLever", LEVER_CODES[rules[rule]["lever_order_by_concession"][0]]))
+        macros.append(macro(f"Concession{word}PeakFirst", LEVER_CODES[rules[rule]["lever_order_by_peak"][0]]))
+        macros.append(macro(f"Concession{word}PeakOnFirstBandh", percent(scenarios["baseline"]["share_peak_on_first_bandh_day"], 0)))
+        for key, code in LEVER_CODES.items():
+            if key in scenarios and key != "baseline":
+                macros.append(macro(f"Concession{word}Share{CODE_WORDS[code]}", percent(scenarios[key]["share_conceded"], 0)))
+                macros.append(macro(f"Concession{word}Peak{CODE_WORDS[code]}", signed(scenarios[key]["paired_effects"]["peak"]["change_percent"])))
+    table = []
+    for key in ("baseline",) + tuple(k for k in rules["reference"]["scenarios"] if k != "baseline"):
+        cells = []
+        for rule in ("reference", "slow"):
+            record = rules[rule]["scenarios"][key]
+            day = record["median_concession_day"]
+            cells.append(f"{record['share_conceded'] * 100:.0f}\% & {'--' if day is None else f'{day:.0f}'}")
+        none = rules["none"]["scenarios"][key]
+        change = "--" if key == "baseline" else signed(none["paired_effects"]["peak"]["change_percent"])
+        code = "Base" if key == "baseline" else LEVER_CODES[key]
+        table.append(f"{code} & " + " & ".join(cells) + f" & {lakh_text(none['median_peak_lakh'])} & {change}\\\\")
+    rows["concession_rows.tex"] = table
+
+
+def calibration_sensitivity(macros, rows):
+    data = load("calibration_sensitivity.json")
+    if data is None:
+        return
+    def rng(values, digits=2):
+        return f"{values[0]:.{digits}f}--{values[2]:.{digits}f}"
+    table = []
+    for setting in data["settings"]:
+        if "mean_participation_threshold" not in setting:
+            table.append(f"{setting['model_discrepancy_log']:.1f} & {setting['cutoff']:.1f} & {setting['kept']} & \\multicolumn{{5}}{{c}}{{too few sets}}\\\\")
+            continue
+        table.append(f"{setting['model_discrepancy_log']:.1f} & {setting['cutoff']:.1f} & {setting['kept']} & "
+                     f"{rng(setting['mean_participation_threshold'])} & {rng(setting['participation_threshold_spread'])} & "
+                     f"{rng(setting['same_group_neighbourhood_share'])} & {rng(setting['ratio_2024_to_2018'])} & "
+                     f"{rng(setting['bandh_day_turnout_2018_lakh'], 0)}\\\\")
+    rows["calibration_sensitivity_rows.tex"] = table
+    kept = {(s["model_discrepancy_log"], s["cutoff"]): s["kept"] for s in data["settings"]}
+    macros += [macro("CalibSensFinalWave", f"{data['final_wave_sets']:,}".replace(",", "{,}")),
+               macro("CalibSensKeptMin", f"{min(kept.values()):,}".replace(",", "{,}")), macro("CalibSensKeptMax", f"{max(kept.values()):,}".replace(",", "{,}"))]
+    for name, word in (("mean_participation_threshold", "Theta"), ("participation_threshold_spread", "Spread"), ("same_group_neighbourhood_share", "Mixing")):
+        macros.append(macro(f"CalibIdent{word}", percent(data["identification"][name], 0)))
+    seeds = data["more_seeds"]
+    macros += [macro("CalibSeedsMany", str(seeds["seeds"])), macro("CalibSeedsStill", str(seeds["still_retained"])),
+               macro("CalibSeedsStillShare", percent(seeds["share_still_retained"], 0)),
+               macro("CalibSeedsLogChange", f"{seeds['median_abs_log_change_2018_events']:.2f}")]
+
+
+def ensemble_grounded(macros, rows):
+    data = load("structural_ensemble_grounded.json")
+    if data is None:
+        return
+    variants = data["variants"]
+    macros += [macro("GEnsembleVariants", str(len(variants))), macro("GEnsembleRuns", str(data["runs_per_scenario"])),
+               macro("GEnsembleLThreeStrongest", str(sum(v["single_lever_order_by_peak_change"][0] == "hybrid_caste_subquotas" for v in variants.values()))),
+               macro("GEnsembleLSixWeakest", str(sum(v["single_lever_order_by_peak_change"][-1] == "compensation" for v in variants.values()))),
+               macro("GEnsembleLFourWeakest", str(sum(v["single_lever_order_by_peak_change"][-1] == "sub_classification" for v in variants.values()))),
+               macro("GEnsembleBottomTwoLTwoLSix", str(sum(set(v["single_lever_order_by_peak_change"][-2:]) <= {"compensation", "seat_expansion", "sub_classification"}
+                                                            and "compensation" in v["single_lever_order_by_peak_change"][-3:] for v in variants.values()))),
+               macro("GEnsembleLFiveAboveLOne", str(sum(v["paired_effects"]["consensus_commission"]["peak"]["change_percent"]
+                                                        < v["paired_effects"]["grandfathering"]["peak"]["change_percent"] for v in variants.values())))]
+    table = []
+    for name, variant in variants.items():
+        effects = variant["paired_effects"]
+        order = [LEVER_CODES[lever] for lever in variant["single_lever_order_by_peak_change"]]
+        table.append(f"{variant['description'].replace('%', chr(92) + '%')} & {lakh_text(variant['baseline_median_peak_lakh'])} & "
+                     + " & ".join(signed(effects[lever]["peak"]["change_percent"]) for lever in ("grandfathering", "hybrid_caste_subquotas", "sub_classification", "consensus_commission", "compensation"))
+                     + f" & {order[0]} / {order[-1]}\\\\")
+    rows["ensemble_grounded_rows.tex"] = table
+
+
 def main():
     GENERATED_FOLDER.mkdir(parents=True, exist_ok=True)
     macros, rows = [], {}
     for section in (eligibility, allocation, episodes, calibration, mapping_uncertainty, decomposition, break_even,
-                    global_sensitivity, structural_ensemble, grounded_extras, grounded_assumptions, grounded_channels, stylized_facts):
+                    global_sensitivity, structural_ensemble, grounded_extras, grounded_assumptions, grounded_channels, stylized_facts,
+                    income_filter_threat, plausibility, concession, calibration_sensitivity, ensemble_grounded):
         section(macros, rows)
     (GENERATED_FOLDER / "grounded_macros.tex").write_text("\n".join(macros) + "\n")
     for name, lines in rows.items():

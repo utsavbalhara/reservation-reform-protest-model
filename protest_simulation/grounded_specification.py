@@ -82,6 +82,8 @@ def grounded_base_parameters() -> ProtestModelParameters:
     samples = calibrated_samples()
     central = {name: float(np.median([sample[name] for sample in samples])) for name in samples[0]}
     apply_calibrated_sample(parameters, central)
+    parameters.episode_2024_threat_relative_to_2018 = float(np.median(
+        [sample["magnitude_sc_st_bharat_bandh_2024"] / sample["magnitude_sc_st_bharat_bandh_2018"] for sample in samples]))
     return parameters
 
 
@@ -89,6 +91,8 @@ def apply_calibrated_sample(parameters: ProtestModelParameters, sample: dict) ->
     parameters.mean_participation_threshold = sample["mean_participation_threshold"]
     parameters.participation_threshold_spread = sample["participation_threshold_spread"]
     magnitude = sample["magnitude_sc_st_bharat_bandh_2018"] * REFORM_TO_2018_SHOCK_RATIO
+    parameters.reform_shock_ratio = REFORM_TO_2018_SHOCK_RATIO
+    parameters.episode_2024_threat_relative_to_2018 = sample["magnitude_sc_st_bharat_bandh_2024"] / sample["magnitude_sc_st_bharat_bandh_2018"]
     parameters.symbolic_threat_by_group = BASELINE_ABRUPT_INCOME_ONLY_SWITCH.symbolic_threat_by_group * magnitude
     bandh_rate = 10 ** sample["log10_bandh_deaths_per_crore"]
     parameters.deaths_per_crore_protester_days = bandh_rate * ORDINARY_TO_BANDH_DEATH_RATE

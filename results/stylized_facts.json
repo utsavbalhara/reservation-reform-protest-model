@@ -22,11 +22,11 @@
    "most_deprived_share_protesting": 0.0637
   },
   "with_sub_classification": {
-   "better_off_share_protesting": 0.0763,
-   "most_deprived_share_protesting": 0.0075
+   "better_off_share_protesting": 0.1187,
+   "most_deprived_share_protesting": 0.0083
   },
-  "most_deprived_change_percent": -88.2,
-  "better_off_change_percent": -19.7,
+  "most_deprived_change_percent": -87.0,
+  "better_off_change_percent": 24.9,
   "source": "grounded_channels.json"
  },
  "S5_deaths_and_concession": {

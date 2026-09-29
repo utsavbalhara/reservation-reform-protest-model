@@ -1,0 +1,1460 @@
+{
+ "runs": 50,
+ "rules": {
+  "reference": {
+   "changes": {},
+   "scenarios": {
+    "baseline": {
+     "share_conceded": 1.0,
+     "median_concession_day": 5.0,
+     "share_conceded_by_day_10": 0.8,
+     "median_peak_lakh": 214.1,
+     "median_cumulative_crore": 3.32,
+     "median_deaths": 95.0,
+     "share_peak_on_first_bandh_day": 0.6
+    },
+    "grandfathering": {
+     "share_conceded": 0.94,
+     "median_concession_day": 6.0,
+     "share_conceded_by_day_10": 0.68,
+     "median_peak_lakh": 83.5,
+     "median_cumulative_crore": 1.69,
+     "median_deaths": 70.0,
+     "share_peak_on_first_bandh_day": 0.5,
+     "paired_effects": {
+      "peak": {
+       "median_paired_ratio": 0.4754,
+       "change_percent": -52.5,
+       "change_percent_ci95": [
+        -59.2,
+        -47.4
+       ],
+       "share_of_runs_higher_than_baseline": 0.02,
+       "paired_runs": 50
+      },
+      "cumulative": {
+       "median_paired_ratio": 0.5807,
+       "change_percent": -41.9,
+       "change_percent_ci95": [
+        -50.4,
+        -38.7
+       ],
+       "share_of_runs_higher_than_baseline": 0.02,
+       "paired_runs": 50
+      },
+      "deaths": {
+       "median_paired_ratio": 0.5365,
+       "change_percent": -46.4,
+       "change_percent_ci95": [
+        -57.8,
+        -35.8
+       ],
+       "share_of_runs_higher_than_baseline": 0.12,
+       "paired_runs": 50
+      }
+     }
+    },
+    "seat_expansion": {
+     "share_conceded": 1.0,
+     "median_concession_day": 5.0,
+     "share_conceded_by_day_10": 0.8,
+     "median_peak_lakh": 193.4,
+     "median_cumulative_crore": 2.99,
+     "median_deaths": 93.5,
+     "share_peak_on_first_bandh_day": 0.58,
+     "paired_effects": {
+      "peak": {
+       "median_paired_ratio": 0.9056,
+       "change_percent": -9.4,
+       "change_percent_ci95": [
+        -11.7,
+        -8.2
+       ],
+       "share_of_runs_higher_than_baseline": 0.02,
+       "paired_runs": 50
+      },
+      "cumulative": {
+       "median_paired_ratio": 0.915,
+       "change_percent": -8.5,
+       "change_percent_ci95": [
+        -10.4,
+        -7.0
+       ],
+       "share_of_runs_higher_than_baseline": 0.0,
+       "paired_runs": 50
+      },
+      "deaths": {
+       "median_paired_ratio": 0.9371,
+       "change_percent": -6.3,
+       "change_percent_ci95": [
+        -12.2,
+        -4.8
+       ],
+       "share_of_runs_higher_than_baseline": 0.18,
+       "paired_runs": 50
+      }
+     }
+    },
+    "hybrid_caste_subquotas": {
+     "share_conceded": 0.78,
+     "median_concession_day": 10.0,
+     "share_conceded_by_day_10": 0.42,
+     "median_peak_lakh": 17.6,
+     "median_cumulative_crore": 0.51,
+     "median_deaths": 19.5,
+     "share_peak_on_first_bandh_day": 0.46,
+     "paired_effects": {
+      "peak": {
+       "median_paired_ratio": 0.0829,
+       "change_percent": -91.7,
+       "change_percent_ci95": [
+        -95.2,
+        -86.7
+       ],
+       "share_of_runs_higher_than_baseline": 0.02,
+       "paired_runs": 50
+      },
+      "cumulative": {
+       "median_paired_ratio": 0.1692,
+       "change_percent": -83.1,
+       "change_percent_ci95": [
+        -88.3,
+        -74.2
+       ],
+       "share_of_runs_higher_than_baseline": 0.02,
+       "paired_runs": 50
+      },
+      "deaths": {
+       "median_paired_ratio": 0.125,
+       "change_percent": -87.5,
+       "change_percent_ci95": [
+        -92.9,
+        -77.2
+       ],
+       "share_of_runs_higher_than_baseline": 0.08,
+       "paired_runs": 50
+      }
+     }
+    },
+    "sub_classification": {
+     "share_conceded": 1.0,
+     "median_concession_day": 5.0,
+     "share_conceded_by_day_10": 0.82,
+     "median_peak_lakh": 188.8,
+     "median_cumulative_crore": 2.68,
+     "median_deaths": 98.0,
+     "share_peak_on_first_bandh_day": 0.62,
+     "paired_effects": {
+      "peak": {
+       "median_paired_ratio": 0.8752,
+       "change_percent": -12.5,
+       "change_percent_ci95": [
+        -16.7,
+        -4.5
+       ],
+       "share_of_runs_higher_than_baseline": 0.22,
+       "paired_runs": 50
+      },
+      "cumulative": {
+       "median_paired_ratio": 0.8886,
+       "change_percent": -11.1,
+       "change_percent_ci95": [
+        -16.2,
+        -7.6
+       ],
+       "share_of_runs_higher_than_baseline": 0.18,
+       "paired_runs": 50
+      },
+      "deaths": {
+       "median_paired_ratio": 0.9189,
+       "change_percent": -8.1,
+       "change_percent_ci95": [
+        -12.3,
+        0.0
+       ],
+       "share_of_runs_higher_than_baseline": 0.26,
+       "paired_runs": 50
+      }
+     }
+    },
+    "consensus_commission": {
+     "share_conceded": 0.94,
+     "median_concession_day": 6.0,
+     "share_conceded_by_day_10": 0.68,
+     "median_peak_lakh": 84.4,
+     "median_cumulative_crore": 1.57,
+     "median_deaths": 57.5,
+     "share_peak_on_first_bandh_day": 0.44,
+     "paired_effects": {
+      "peak": {
+       "median_paired_ratio": 0.4244,
+       "change_percent": -57.6,
+       "change_percent_ci95": [
+        -61.3,
+        -53.0
+       ],
+       "share_of_runs_higher_than_baseline": 0.02,
+       "paired_runs": 50
+      },
+      "cumulative": {
+       "median_paired_ratio": 0.5459,
+       "change_percent": -45.4,
+       "change_percent_ci95": [
+        -52.1,
+        -40.2
+       ],
+       "share_of_runs_higher_than_baseline": 0.02,
+       "paired_runs": 50
+      },
+      "deaths": {
+       "median_paired_ratio": 0.4838,
+       "change_percent": -51.6,
+       "change_percent_ci95": [
+        -60.6,
+        -40.6
+       ],
+       "share_of_runs_higher_than_baseline": 0.08,
+       "paired_runs": 50
+      }
+     }
+    },
+    "compensation": {
+     "share_conceded": 1.0,
+     "median_concession_day": 5.0,
+     "share_conceded_by_day_10": 0.78,
+     "median_peak_lakh": 197.0,
+     "median_cumulative_crore": 3.0,
+     "median_deaths": 95.0,
+     "share_peak_on_first_bandh_day": 0.58,
+     "paired_effects": {
+      "peak": {
+       "median_paired_ratio": 0.9227,
+       "change_percent": -7.7,
+       "change_percent_ci95": [
+        -9.0,
+        -6.4
+       ],
+       "share_of_runs_higher_than_baseline": 0.0,
+       "paired_runs": 50
+      },
+      "cumulative": {
+       "median_paired_ratio": 0.9353,
+       "change_percent": -6.5,
+       "change_percent_ci95": [
+        -7.9,
+        -5.9
+       ],
+       "share_of_runs_higher_than_baseline": 0.0,
+       "paired_runs": 50
+      },
+      "deaths": {
+       "median_paired_ratio": 0.9503,
+       "change_percent": -5.0,
+       "change_percent_ci95": [
+        -7.3,
+        -2.7
+       ],
+       "share_of_runs_higher_than_baseline": 0.2,
+       "paired_runs": 50
+      }
+     }
+    },
+    "credible_guarantees": {
+     "share_conceded": 0.96,
+     "median_concession_day": 5.0,
+     "share_conceded_by_day_10": 0.76,
+     "median_peak_lakh": 114.0,
+     "median_cumulative_crore": 1.92,
+     "median_deaths": 78.5,
+     "share_peak_on_first_bandh_day": 0.56,
+     "paired_effects": {
+      "peak": {
+       "median_paired_ratio": 0.6003,
+       "change_percent": -40.0,
+       "change_percent_ci95": [
+        -43.7,
+        -34.7
+       ],
+       "share_of_runs_higher_than_baseline": 0.0,
+       "paired_runs": 50
+      },
+      "cumulative": {
+       "median_paired_ratio": 0.6796,
+       "change_percent": -32.0,
+       "change_percent_ci95": [
+        -35.2,
+        -27.3
+       ],
+       "share_of_runs_higher_than_baseline": 0.0,
+       "paired_runs": 50
+      },
+      "deaths": {
+       "median_paired_ratio": 0.6736,
+       "change_percent": -32.6,
+       "change_percent_ci95": [
+        -37.4,
+        -23.5
+       ],
+       "share_of_runs_higher_than_baseline": 0.12,
+       "paired_runs": 50
+      }
+     }
+    },
+    "internet_shutdown": {
+     "share_conceded": 1.0,
+     "median_concession_day": 5.0,
+     "share_conceded_by_day_10": 0.8,
+     "median_peak_lakh": 146.5,
+     "median_cumulative_crore": 2.6,
+     "median_deaths": 139.0,
+     "share_peak_on_first_bandh_day": 0.54,
+     "paired_effects": {
+      "peak": {
+       "median_paired_ratio": 0.7374,
+       "change_percent": -26.3,
+       "change_percent_ci95": [
+        -28.4,
+        -23.4
+       ],
+       "share_of_runs_higher_than_baseline": 0.08,
+       "paired_runs": 50
+      },
+      "cumulative": {
+       "median_paired_ratio": 0.7999,
+       "change_percent": -20.0,
+       "change_percent_ci95": [
+        -24.9,
+        -15.5
+       ],
+       "share_of_runs_higher_than_baseline": 0.12,
+       "paired_runs": 50
+      },
+      "deaths": {
+       "median_paired_ratio": 1.4236,
+       "change_percent": 42.4,
+       "change_percent_ci95": [
+        14.7,
+        65.1
+       ],
+       "share_of_runs_higher_than_baseline": 0.82,
+       "paired_runs": 50
+      }
+     }
+    },
+    "heavy_policing": {
+     "share_conceded": 1.0,
+     "median_concession_day": 5.0,
+     "share_conceded_by_day_10": 0.82,
+     "median_peak_lakh": 188.5,
+     "median_cumulative_crore": 3.41,
+     "median_deaths": 219.5,
+     "share_peak_on_first_bandh_day": 0.44,
+     "paired_effects": {
+      "peak": {
+       "median_paired_ratio": 0.8691,
+       "change_percent": -13.1,
+       "change_percent_ci95": [
+        -16.9,
+        -0.5
+       ],
+       "share_of_runs_higher_than_baseline": 0.34,
+       "paired_runs": 50
+      },
+      "cumulative": {
+       "median_paired_ratio": 0.9627,
+       "change_percent": -3.7,
+       "change_percent_ci95": [
+        -6.8,
+        2.0
+       ],
+       "share_of_runs_higher_than_baseline": 0.44,
+       "paired_runs": 50
+      },
+      "deaths": {
+       "median_paired_ratio": 2.6335,
+       "change_percent": 163.4,
+       "change_percent_ci95": [
+        122.6,
+        212.4
+       ],
+       "share_of_runs_higher_than_baseline": 0.92,
+       "paired_runs": 50
+      }
+     }
+    },
+    "managed_transition": {
+     "share_conceded": 0.74,
+     "median_concession_day": 10.0,
+     "share_conceded_by_day_10": 0.42,
+     "median_peak_lakh": 18.7,
+     "median_cumulative_crore": 0.7,
+     "median_deaths": 15.0,
+     "share_peak_on_first_bandh_day": 0.34,
+     "paired_effects": {
+      "peak": {
+       "median_paired_ratio": 0.0822,
+       "change_percent": -91.8,
+       "change_percent_ci95": [
+        -93.8,
+        -90.2
+       ],
+       "share_of_runs_higher_than_baseline": 0.02,
+       "paired_runs": 50
+      },
+      "cumulative": {
+       "median_paired_ratio": 0.161,
+       "change_percent": -83.9,
+       "change_percent_ci95": [
+        -89.1,
+        -77.0
+       ],
+       "share_of_runs_higher_than_baseline": 0.0,
+       "paired_runs": 50
+      },
+      "deaths": {
+       "median_paired_ratio": 0.1115,
+       "change_percent": -88.9,
+       "change_percent_ci95": [
+        -94.3,
+        -83.7
+       ],
+       "share_of_runs_higher_than_baseline": 0.06,
+       "paired_runs": 50
+      }
+     }
+    },
+    "hybrid_package": {
+     "share_conceded": 0.34,
+     "median_concession_day": 12.0,
+     "share_conceded_by_day_10": 0.12,
+     "median_peak_lakh": 2.8,
+     "median_cumulative_crore": 0.22,
+     "median_deaths": 3.5,
+     "share_peak_on_first_bandh_day": 0.12,
+     "paired_effects": {
+      "peak": {
+       "median_paired_ratio": 0.0118,
+       "change_percent": -98.8,
+       "change_percent_ci95": [
+        -99.2,
+        -96.9
+       ],
+       "share_of_runs_higher_than_baseline": 0.0,
+       "paired_runs": 50
+      },
+      "cumulative": {
+       "median_paired_ratio": 0.0587,
+       "change_percent": -94.1,
+       "change_percent_ci95": [
+        -95.8,
+        -90.9
+       ],
+       "share_of_runs_higher_than_baseline": 0.0,
+       "paired_runs": 50
+      },
+      "deaths": {
+       "median_paired_ratio": 0.0291,
+       "change_percent": -97.1,
+       "change_percent_ci95": [
+        -99.0,
+        -94.7
+       ],
+       "share_of_runs_higher_than_baseline": 0.02,
+       "paired_runs": 50
+      }
+     }
+    }
+   },
+   "lever_order_by_concession": [
+    "hybrid_caste_subquotas",
+    "grandfathering",
+    "consensus_commission",
+    "credible_guarantees",
+    "seat_expansion",
+    "sub_classification",
+    "compensation"
+   ],
+   "lever_order_by_peak": [
+    "hybrid_caste_subquotas",
+    "consensus_commission",
+    "grandfathering",
+    "credible_guarantees",
+    "sub_classification",
+    "seat_expansion",
+    "compensation"
+   ]
+  },
+  "slow": {
+   "changes": {
+    "concession_max_daily_hazard": 0.03,
+    "concession_pressure_midpoint": 2.0
+   },
+   "scenarios": {
+    "baseline": {
+     "share_conceded": 0.7,
+     "median_concession_day": 17.0,
+     "share_conceded_by_day_10": 0.28,
+     "median_peak_lakh": 260.5,
+     "median_cumulative_crore": 5.2,
+     "median_deaths": 439.5,
+     "share_peak_on_first_bandh_day": 0.54
+    },
+    "grandfathering": {
+     "share_conceded": 0.64,
+     "median_concession_day": 16.0,
+     "share_conceded_by_day_10": 0.24,
+     "median_peak_lakh": 91.1,
+     "median_cumulative_crore": 2.27,
+     "median_deaths": 203.5,
+     "share_peak_on_first_bandh_day": 0.32,
+     "paired_effects": {
+      "peak": {
+       "median_paired_ratio": 0.4884,
+       "change_percent": -51.2,
+       "change_percent_ci95": [
+        -58.3,
+        -45.2
+       ],
+       "share_of_runs_higher_than_baseline": 0.0,
+       "paired_runs": 50
+      },
+      "cumulative": {
+       "median_paired_ratio": 0.5712,
+       "change_percent": -42.9,
+       "change_percent_ci95": [
+        -48.5,
+        -39.0
+       ],
+       "share_of_runs_higher_than_baseline": 0.0,
+       "paired_runs": 50
+      },
+      "deaths": {
+       "median_paired_ratio": 0.4904,
+       "change_percent": -51.0,
+       "change_percent_ci95": [
+        -57.1,
+        -40.0
+       ],
+       "share_of_runs_higher_than_baseline": 0.02,
+       "paired_runs": 50
+      }
+     }
+    },
+    "seat_expansion": {
+     "share_conceded": 0.7,
+     "median_concession_day": 17.0,
+     "share_conceded_by_day_10": 0.26,
+     "median_peak_lakh": 238.3,
+     "median_cumulative_crore": 4.83,
+     "median_deaths": 364.5,
+     "share_peak_on_first_bandh_day": 0.5,
+     "paired_effects": {
+      "peak": {
+       "median_paired_ratio": 0.9128,
+       "change_percent": -8.7,
+       "change_percent_ci95": [
+        -9.8,
+        -6.1
+       ],
+       "share_of_runs_higher_than_baseline": 0.02,
+       "paired_runs": 50
+      },
+      "cumulative": {
+       "median_paired_ratio": 0.92,
+       "change_percent": -8.0,
+       "change_percent_ci95": [
+        -9.0,
+        -6.6
+       ],
+       "share_of_runs_higher_than_baseline": 0.02,
+       "paired_runs": 50
+      },
+      "deaths": {
+       "median_paired_ratio": 0.9396,
+       "change_percent": -6.0,
+       "change_percent_ci95": [
+        -10.9,
+        -4.2
+       ],
+       "share_of_runs_higher_than_baseline": 0.26,
+       "paired_runs": 50
+      }
+     }
+    },
+    "hybrid_caste_subquotas": {
+     "share_conceded": 0.32,
+     "median_concession_day": 25.0,
+     "share_conceded_by_day_10": 0.1,
+     "median_peak_lakh": 24.1,
+     "median_cumulative_crore": 0.75,
+     "median_deaths": 43.5,
+     "share_peak_on_first_bandh_day": 0.22,
+     "paired_effects": {
+      "peak": {
+       "median_paired_ratio": 0.0861,
+       "change_percent": -91.4,
+       "change_percent_ci95": [
+        -95.0,
+        -89.8
+       ],
+       "share_of_runs_higher_than_baseline": 0.0,
+       "paired_runs": 50
+      },
+      "cumulative": {
+       "median_paired_ratio": 0.1411,
+       "change_percent": -85.9,
+       "change_percent_ci95": [
+        -88.1,
+        -81.6
+       ],
+       "share_of_runs_higher_than_baseline": 0.0,
+       "paired_runs": 50
+      },
+      "deaths": {
+       "median_paired_ratio": 0.074,
+       "change_percent": -92.6,
+       "change_percent_ci95": [
+        -94.7,
+        -83.1
+       ],
+       "share_of_runs_higher_than_baseline": 0.0,
+       "paired_runs": 50
+      }
+     }
+    },
+    "sub_classification": {
+     "share_conceded": 0.72,
+     "median_concession_day": 19.0,
+     "share_conceded_by_day_10": 0.26,
+     "median_peak_lakh": 264.9,
+     "median_cumulative_crore": 4.72,
+     "median_deaths": 431.0,
+     "share_peak_on_first_bandh_day": 0.54,
+     "paired_effects": {
+      "peak": {
+       "median_paired_ratio": 0.8657,
+       "change_percent": -13.4,
+       "change_percent_ci95": [
+        -15.1,
+        -4.5
+       ],
+       "share_of_runs_higher_than_baseline": 0.2,
+       "paired_runs": 50
+      },
+      "cumulative": {
+       "median_paired_ratio": 0.8479,
+       "change_percent": -15.2,
+       "change_percent_ci95": [
+        -17.6,
+        -10.4
+       ],
+       "share_of_runs_higher_than_baseline": 0.1,
+       "paired_runs": 50
+      },
+      "deaths": {
+       "median_paired_ratio": 0.9544,
+       "change_percent": -4.6,
+       "change_percent_ci95": [
+        -12.1,
+        2.2
+       ],
+       "share_of_runs_higher_than_baseline": 0.4,
+       "paired_runs": 50
+      }
+     }
+    },
+    "consensus_commission": {
+     "share_conceded": 0.64,
+     "median_concession_day": 16.0,
+     "share_conceded_by_day_10": 0.24,
+     "median_peak_lakh": 123.0,
+     "median_cumulative_crore": 2.6,
+     "median_deaths": 127.0,
+     "share_peak_on_first_bandh_day": 0.36,
+     "paired_effects": {
+      "peak": {
+       "median_paired_ratio": 0.4021,
+       "change_percent": -59.8,
+       "change_percent_ci95": [
+        -61.3,
+        -56.7
+       ],
+       "share_of_runs_higher_than_baseline": 0.02,
+       "paired_runs": 50
+      },
+      "cumulative": {
+       "median_paired_ratio": 0.5562,
+       "change_percent": -44.4,
+       "change_percent_ci95": [
+        -49.6,
+        -42.6
+       ],
+       "share_of_runs_higher_than_baseline": 0.02,
+       "paired_runs": 50
+      },
+      "deaths": {
+       "median_paired_ratio": 0.409,
+       "change_percent": -59.1,
+       "change_percent_ci95": [
+        -62.6,
+        -55.3
+       ],
+       "share_of_runs_higher_than_baseline": 0.02,
+       "paired_runs": 50
+      }
+     }
+    },
+    "compensation": {
+     "share_conceded": 0.7,
+     "median_concession_day": 17.0,
+     "share_conceded_by_day_10": 0.26,
+     "median_peak_lakh": 241.0,
+     "median_cumulative_crore": 4.87,
+     "median_deaths": 365.5,
+     "share_peak_on_first_bandh_day": 0.5,
+     "paired_effects": {
+      "peak": {
+       "median_paired_ratio": 0.9335,
+       "change_percent": -6.7,
+       "change_percent_ci95": [
+        -8.1,
+        -5.1
+       ],
+       "share_of_runs_higher_than_baseline": 0.02,
+       "paired_runs": 50
+      },
+      "cumulative": {
+       "median_paired_ratio": 0.9407,
+       "change_percent": -5.9,
+       "change_percent_ci95": [
+        -6.7,
+        -5.2
+       ],
+       "share_of_runs_higher_than_baseline": 0.02,
+       "paired_runs": 50
+      },
+      "deaths": {
+       "median_paired_ratio": 0.9587,
+       "change_percent": -4.1,
+       "change_percent_ci95": [
+        -9.0,
+        -2.0
+       ],
+       "share_of_runs_higher_than_baseline": 0.26,
+       "paired_runs": 50
+      }
+     }
+    },
+    "credible_guarantees": {
+     "share_conceded": 0.66,
+     "median_concession_day": 17.0,
+     "share_conceded_by_day_10": 0.26,
+     "median_peak_lakh": 188.1,
+     "median_cumulative_crore": 3.34,
+     "median_deaths": 255.5,
+     "share_peak_on_first_bandh_day": 0.46,
+     "paired_effects": {
+      "peak": {
+       "median_paired_ratio": 0.628,
+       "change_percent": -37.2,
+       "change_percent_ci95": [
+        -40.8,
+        -31.2
+       ],
+       "share_of_runs_higher_than_baseline": 0.02,
+       "paired_runs": 50
+      },
+      "cumulative": {
+       "median_paired_ratio": 0.7172,
+       "change_percent": -28.3,
+       "change_percent_ci95": [
+        -31.3,
+        -25.8
+       ],
+       "share_of_runs_higher_than_baseline": 0.02,
+       "paired_runs": 50
+      },
+      "deaths": {
+       "median_paired_ratio": 0.6248,
+       "change_percent": -37.5,
+       "change_percent_ci95": [
+        -40.5,
+        -28.2
+       ],
+       "share_of_runs_higher_than_baseline": 0.1,
+       "paired_runs": 50
+      }
+     }
+    },
+    "internet_shutdown": {
+     "share_conceded": 0.7,
+     "median_concession_day": 15.0,
+     "share_conceded_by_day_10": 0.28,
+     "median_peak_lakh": 176.2,
+     "median_cumulative_crore": 3.79,
+     "median_deaths": 476.0,
+     "share_peak_on_first_bandh_day": 0.54,
+     "paired_effects": {
+      "peak": {
+       "median_paired_ratio": 0.7061,
+       "change_percent": -29.4,
+       "change_percent_ci95": [
+        -31.3,
+        -27.7
+       ],
+       "share_of_runs_higher_than_baseline": 0.02,
+       "paired_runs": 50
+      },
+      "cumulative": {
+       "median_paired_ratio": 0.7836,
+       "change_percent": -21.6,
+       "change_percent_ci95": [
+        -24.7,
+        -18.7
+       ],
+       "share_of_runs_higher_than_baseline": 0.02,
+       "paired_runs": 50
+      },
+      "deaths": {
+       "median_paired_ratio": 1.2539,
+       "change_percent": 25.4,
+       "change_percent_ci95": [
+        15.4,
+        38.8
+       ],
+       "share_of_runs_higher_than_baseline": 0.84,
+       "paired_runs": 50
+      }
+     }
+    },
+    "heavy_policing": {
+     "share_conceded": 0.76,
+     "median_concession_day": 14.0,
+     "share_conceded_by_day_10": 0.32,
+     "median_peak_lakh": 235.5,
+     "median_cumulative_crore": 4.97,
+     "median_deaths": 809.0,
+     "share_peak_on_first_bandh_day": 0.6,
+     "paired_effects": {
+      "peak": {
+       "median_paired_ratio": 0.8222,
+       "change_percent": -17.8,
+       "change_percent_ci95": [
+        -23.8,
+        -14.8
+       ],
+       "share_of_runs_higher_than_baseline": 0.1,
+       "paired_runs": 50
+      },
+      "cumulative": {
+       "median_paired_ratio": 0.9383,
+       "change_percent": -6.2,
+       "change_percent_ci95": [
+        -8.1,
+        -5.1
+       ],
+       "share_of_runs_higher_than_baseline": 0.18,
+       "paired_runs": 50
+      },
+      "deaths": {
+       "median_paired_ratio": 2.2554,
+       "change_percent": 125.5,
+       "change_percent_ci95": [
+        100.9,
+        159.7
+       ],
+       "share_of_runs_higher_than_baseline": 0.92,
+       "paired_runs": 50
+      }
+     }
+    },
+    "managed_transition": {
+     "share_conceded": 0.28,
+     "median_concession_day": 24.0,
+     "share_conceded_by_day_10": 0.06,
+     "median_peak_lakh": 24.3,
+     "median_cumulative_crore": 0.89,
+     "median_deaths": 38.5,
+     "share_peak_on_first_bandh_day": 0.12,
+     "paired_effects": {
+      "peak": {
+       "median_paired_ratio": 0.0737,
+       "change_percent": -92.6,
+       "change_percent_ci95": [
+        -93.5,
+        -90.9
+       ],
+       "share_of_runs_higher_than_baseline": 0.0,
+       "paired_runs": 50
+      },
+      "cumulative": {
+       "median_paired_ratio": 0.1759,
+       "change_percent": -82.4,
+       "change_percent_ci95": [
+        -85.6,
+        -79.4
+       ],
+       "share_of_runs_higher_than_baseline": 0.0,
+       "paired_runs": 50
+      },
+      "deaths": {
+       "median_paired_ratio": 0.0895,
+       "change_percent": -91.1,
+       "change_percent_ci95": [
+        -95.3,
+        -85.6
+       ],
+       "share_of_runs_higher_than_baseline": 0.0,
+       "paired_runs": 50
+      }
+     }
+    },
+    "hybrid_package": {
+     "share_conceded": 0.14,
+     "median_concession_day": 23.0,
+     "share_conceded_by_day_10": 0.04,
+     "median_peak_lakh": 2.8,
+     "median_cumulative_crore": 0.21,
+     "median_deaths": 3.5,
+     "share_peak_on_first_bandh_day": 0.1,
+     "paired_effects": {
+      "peak": {
+       "median_paired_ratio": 0.011,
+       "change_percent": -98.9,
+       "change_percent_ci95": [
+        -99.4,
+        -97.7
+       ],
+       "share_of_runs_higher_than_baseline": 0.0,
+       "paired_runs": 50
+      },
+      "cumulative": {
+       "median_paired_ratio": 0.0395,
+       "change_percent": -96.1,
+       "change_percent_ci95": [
+        -97.6,
+        -94.3
+       ],
+       "share_of_runs_higher_than_baseline": 0.0,
+       "paired_runs": 50
+      },
+      "deaths": {
+       "median_paired_ratio": 0.0082,
+       "change_percent": -99.2,
+       "change_percent_ci95": [
+        -99.6,
+        -98.0
+       ],
+       "share_of_runs_higher_than_baseline": 0.0,
+       "paired_runs": 50
+      }
+     }
+    }
+   },
+   "lever_order_by_concession": [
+    "hybrid_caste_subquotas",
+    "grandfathering",
+    "consensus_commission",
+    "credible_guarantees",
+    "seat_expansion",
+    "compensation",
+    "sub_classification"
+   ],
+   "lever_order_by_peak": [
+    "hybrid_caste_subquotas",
+    "consensus_commission",
+    "grandfathering",
+    "credible_guarantees",
+    "sub_classification",
+    "seat_expansion",
+    "compensation"
+   ]
+  },
+  "none": {
+   "changes": {
+    "concession_rule": false,
+    "counter_mobilization_symbolic_threat": 0.0
+   },
+   "scenarios": {
+    "baseline": {
+     "share_conceded": 0.0,
+     "median_concession_day": null,
+     "share_conceded_by_day_10": 0.0,
+     "median_peak_lakh": 332.8,
+     "median_cumulative_crore": 6.62,
+     "median_deaths": 478.5,
+     "share_peak_on_first_bandh_day": 0.42
+    },
+    "grandfathering": {
+     "share_conceded": 0.0,
+     "median_concession_day": null,
+     "share_conceded_by_day_10": 0.0,
+     "median_peak_lakh": 116.6,
+     "median_cumulative_crore": 3.08,
+     "median_deaths": 273.0,
+     "share_peak_on_first_bandh_day": 0.22,
+     "paired_effects": {
+      "peak": {
+       "median_paired_ratio": 0.5114,
+       "change_percent": -48.9,
+       "change_percent_ci95": [
+        -57.1,
+        -44.0
+       ],
+       "share_of_runs_higher_than_baseline": 0.0,
+       "paired_runs": 50
+      },
+      "cumulative": {
+       "median_paired_ratio": 0.5888,
+       "change_percent": -41.1,
+       "change_percent_ci95": [
+        -47.1,
+        -37.4
+       ],
+       "share_of_runs_higher_than_baseline": 0.0,
+       "paired_runs": 50
+      },
+      "deaths": {
+       "median_paired_ratio": 0.4984,
+       "change_percent": -50.2,
+       "change_percent_ci95": [
+        -55.2,
+        -44.3
+       ],
+       "share_of_runs_higher_than_baseline": 0.0,
+       "paired_runs": 50
+      }
+     }
+    },
+    "seat_expansion": {
+     "share_conceded": 0.0,
+     "median_concession_day": null,
+     "share_conceded_by_day_10": 0.0,
+     "median_peak_lakh": 303.1,
+     "median_cumulative_crore": 6.0,
+     "median_deaths": 484.5,
+     "share_peak_on_first_bandh_day": 0.4,
+     "paired_effects": {
+      "peak": {
+       "median_paired_ratio": 0.9128,
+       "change_percent": -8.7,
+       "change_percent_ci95": [
+        -9.8,
+        -6.1
+       ],
+       "share_of_runs_higher_than_baseline": 0.0,
+       "paired_runs": 50
+      },
+      "cumulative": {
+       "median_paired_ratio": 0.9226,
+       "change_percent": -7.7,
+       "change_percent_ci95": [
+        -8.9,
+        -6.5
+       ],
+       "share_of_runs_higher_than_baseline": 0.0,
+       "paired_runs": 50
+      },
+      "deaths": {
+       "median_paired_ratio": 0.9414,
+       "change_percent": -5.9,
+       "change_percent_ci95": [
+        -12.0,
+        -3.5
+       ],
+       "share_of_runs_higher_than_baseline": 0.26,
+       "paired_runs": 50
+      }
+     }
+    },
+    "hybrid_caste_subquotas": {
+     "share_conceded": 0.0,
+     "median_concession_day": null,
+     "share_conceded_by_day_10": 0.0,
+     "median_peak_lakh": 25.6,
+     "median_cumulative_crore": 0.82,
+     "median_deaths": 47.0,
+     "share_peak_on_first_bandh_day": 0.16,
+     "paired_effects": {
+      "peak": {
+       "median_paired_ratio": 0.0804,
+       "change_percent": -92.0,
+       "change_percent_ci95": [
+        -95.0,
+        -88.9
+       ],
+       "share_of_runs_higher_than_baseline": 0.0,
+       "paired_runs": 50
+      },
+      "cumulative": {
+       "median_paired_ratio": 0.1352,
+       "change_percent": -86.5,
+       "change_percent_ci95": [
+        -89.4,
+        -82.1
+       ],
+       "share_of_runs_higher_than_baseline": 0.0,
+       "paired_runs": 50
+      },
+      "deaths": {
+       "median_paired_ratio": 0.0668,
+       "change_percent": -93.3,
+       "change_percent_ci95": [
+        -95.5,
+        -89.4
+       ],
+       "share_of_runs_higher_than_baseline": 0.0,
+       "paired_runs": 50
+      }
+     }
+    },
+    "sub_classification": {
+     "share_conceded": 0.0,
+     "median_concession_day": null,
+     "share_conceded_by_day_10": 0.0,
+     "median_peak_lakh": 301.9,
+     "median_cumulative_crore": 5.79,
+     "median_deaths": 682.5,
+     "share_peak_on_first_bandh_day": 0.44,
+     "paired_effects": {
+      "peak": {
+       "median_paired_ratio": 0.86,
+       "change_percent": -14.0,
+       "change_percent_ci95": [
+        -16.1,
+        -9.6
+       ],
+       "share_of_runs_higher_than_baseline": 0.18,
+       "paired_runs": 50
+      },
+      "cumulative": {
+       "median_paired_ratio": 0.8445,
+       "change_percent": -15.6,
+       "change_percent_ci95": [
+        -17.3,
+        -12.0
+       ],
+       "share_of_runs_higher_than_baseline": 0.1,
+       "paired_runs": 50
+      },
+      "deaths": {
+       "median_paired_ratio": 0.993,
+       "change_percent": -0.7,
+       "change_percent_ci95": [
+        -7.1,
+        13.1
+       ],
+       "share_of_runs_higher_than_baseline": 0.5,
+       "paired_runs": 50
+      }
+     }
+    },
+    "consensus_commission": {
+     "share_conceded": 0.0,
+     "median_concession_day": null,
+     "share_conceded_by_day_10": 0.0,
+     "median_peak_lakh": 127.2,
+     "median_cumulative_crore": 3.46,
+     "median_deaths": 285.5,
+     "share_peak_on_first_bandh_day": 0.34,
+     "paired_effects": {
+      "peak": {
+       "median_paired_ratio": 0.3994,
+       "change_percent": -60.1,
+       "change_percent_ci95": [
+        -61.6,
+        -56.8
+       ],
+       "share_of_runs_higher_than_baseline": 0.0,
+       "paired_runs": 50
+      },
+      "cumulative": {
+       "median_paired_ratio": 0.5638,
+       "change_percent": -43.6,
+       "change_percent_ci95": [
+        -45.2,
+        -40.6
+       ],
+       "share_of_runs_higher_than_baseline": 0.0,
+       "paired_runs": 50
+      },
+      "deaths": {
+       "median_paired_ratio": 0.4221,
+       "change_percent": -57.8,
+       "change_percent_ci95": [
+        -63.0,
+        -53.7
+       ],
+       "share_of_runs_higher_than_baseline": 0.0,
+       "paired_runs": 50
+      }
+     }
+    },
+    "compensation": {
+     "share_conceded": 0.0,
+     "median_concession_day": null,
+     "share_conceded_by_day_10": 0.0,
+     "median_peak_lakh": 310.9,
+     "median_cumulative_crore": 6.09,
+     "median_deaths": 437.5,
+     "share_peak_on_first_bandh_day": 0.4,
+     "paired_effects": {
+      "peak": {
+       "median_paired_ratio": 0.9352,
+       "change_percent": -6.5,
+       "change_percent_ci95": [
+        -7.7,
+        -4.9
+       ],
+       "share_of_runs_higher_than_baseline": 0.0,
+       "paired_runs": 50
+      },
+      "cumulative": {
+       "median_paired_ratio": 0.9408,
+       "change_percent": -5.9,
+       "change_percent_ci95": [
+        -6.5,
+        -4.8
+       ],
+       "share_of_runs_higher_than_baseline": 0.0,
+       "paired_runs": 50
+      },
+      "deaths": {
+       "median_paired_ratio": 0.9553,
+       "change_percent": -4.5,
+       "change_percent_ci95": [
+        -8.0,
+        -2.5
+       ],
+       "share_of_runs_higher_than_baseline": 0.24,
+       "paired_runs": 50
+      }
+     }
+    },
+    "credible_guarantees": {
+     "share_conceded": 0.0,
+     "median_concession_day": null,
+     "share_conceded_by_day_10": 0.0,
+     "median_peak_lakh": 208.7,
+     "median_cumulative_crore": 4.39,
+     "median_deaths": 385.5,
+     "share_peak_on_first_bandh_day": 0.34,
+     "paired_effects": {
+      "peak": {
+       "median_paired_ratio": 0.6636,
+       "change_percent": -33.6,
+       "change_percent_ci95": [
+        -37.4,
+        -29.6
+       ],
+       "share_of_runs_higher_than_baseline": 0.0,
+       "paired_runs": 50
+      },
+      "cumulative": {
+       "median_paired_ratio": 0.7351,
+       "change_percent": -26.5,
+       "change_percent_ci95": [
+        -29.3,
+        -23.1
+       ],
+       "share_of_runs_higher_than_baseline": 0.0,
+       "paired_runs": 50
+      },
+      "deaths": {
+       "median_paired_ratio": 0.6394,
+       "change_percent": -36.1,
+       "change_percent_ci95": [
+        -42.3,
+        -26.7
+       ],
+       "share_of_runs_higher_than_baseline": 0.08,
+       "paired_runs": 50
+      }
+     }
+    },
+    "internet_shutdown": {
+     "share_conceded": 0.0,
+     "median_concession_day": null,
+     "share_conceded_by_day_10": 0.0,
+     "median_peak_lakh": 194.3,
+     "median_cumulative_crore": 4.47,
+     "median_deaths": 592.0,
+     "share_peak_on_first_bandh_day": 0.52,
+     "paired_effects": {
+      "peak": {
+       "median_paired_ratio": 0.7066,
+       "change_percent": -29.3,
+       "change_percent_ci95": [
+        -30.8,
+        -27.6
+       ],
+       "share_of_runs_higher_than_baseline": 0.02,
+       "paired_runs": 50
+      },
+      "cumulative": {
+       "median_paired_ratio": 0.7964,
+       "change_percent": -20.4,
+       "change_percent_ci95": [
+        -21.4,
+        -16.7
+       ],
+       "share_of_runs_higher_than_baseline": 0.02,
+       "paired_runs": 50
+      },
+      "deaths": {
+       "median_paired_ratio": 1.2545,
+       "change_percent": 25.5,
+       "change_percent_ci95": [
+        19.0,
+        48.1
+       ],
+       "share_of_runs_higher_than_baseline": 0.9,
+       "paired_runs": 50
+      }
+     }
+    },
+    "heavy_policing": {
+     "share_conceded": 0.0,
+     "median_concession_day": null,
+     "share_conceded_by_day_10": 0.0,
+     "median_peak_lakh": 256.4,
+     "median_cumulative_crore": 6.21,
+     "median_deaths": 967.5,
+     "share_peak_on_first_bandh_day": 0.58,
+     "paired_effects": {
+      "peak": {
+       "median_paired_ratio": 0.7978,
+       "change_percent": -20.2,
+       "change_percent_ci95": [
+        -25.6,
+        -16.9
+       ],
+       "share_of_runs_higher_than_baseline": 0.04,
+       "paired_runs": 50
+      },
+      "cumulative": {
+       "median_paired_ratio": 0.9385,
+       "change_percent": -6.1,
+       "change_percent_ci95": [
+        -7.0,
+        -5.7
+       ],
+       "share_of_runs_higher_than_baseline": 0.1,
+       "paired_runs": 50
+      },
+      "deaths": {
+       "median_paired_ratio": 2.2498,
+       "change_percent": 125.0,
+       "change_percent_ci95": [
+        94.2,
+        154.2
+       ],
+       "share_of_runs_higher_than_baseline": 1.0,
+       "paired_runs": 50
+      }
+     }
+    },
+    "managed_transition": {
+     "share_conceded": 0.0,
+     "median_concession_day": null,
+     "share_conceded_by_day_10": 0.0,
+     "median_peak_lakh": 24.8,
+     "median_cumulative_crore": 1.02,
+     "median_deaths": 39.0,
+     "share_peak_on_first_bandh_day": 0.12,
+     "paired_effects": {
+      "peak": {
+       "median_paired_ratio": 0.0725,
+       "change_percent": -92.8,
+       "change_percent_ci95": [
+        -93.7,
+        -91.1
+       ],
+       "share_of_runs_higher_than_baseline": 0.0,
+       "paired_runs": 50
+      },
+      "cumulative": {
+       "median_paired_ratio": 0.1527,
+       "change_percent": -84.7,
+       "change_percent_ci95": [
+        -86.5,
+        -81.0
+       ],
+       "share_of_runs_higher_than_baseline": 0.0,
+       "paired_runs": 50
+      },
+      "deaths": {
+       "median_paired_ratio": 0.0816,
+       "change_percent": -91.8,
+       "change_percent_ci95": [
+        -95.7,
+        -89.3
+       ],
+       "share_of_runs_higher_than_baseline": 0.0,
+       "paired_runs": 50
+      }
+     }
+    },
+    "hybrid_package": {
+     "share_conceded": 0.0,
+     "median_concession_day": null,
+     "share_conceded_by_day_10": 0.0,
+     "median_peak_lakh": 2.7,
+     "median_cumulative_crore": 0.21,
+     "median_deaths": 3.5,
+     "share_peak_on_first_bandh_day": 0.08,
+     "paired_effects": {
+      "peak": {
+       "median_paired_ratio": 0.0096,
+       "change_percent": -99.0,
+       "change_percent_ci95": [
+        -99.4,
+        -97.8
+       ],
+       "share_of_runs_higher_than_baseline": 0.0,
+       "paired_runs": 50
+      },
+      "cumulative": {
+       "median_paired_ratio": 0.03,
+       "change_percent": -97.0,
+       "change_percent_ci95": [
+        -97.6,
+        -94.9
+       ],
+       "share_of_runs_higher_than_baseline": 0.0,
+       "paired_runs": 50
+      },
+      "deaths": {
+       "median_paired_ratio": 0.0043,
+       "change_percent": -99.6,
+       "change_percent_ci95": [
+        -99.7,
+        -98.8
+       ],
+       "share_of_runs_higher_than_baseline": 0.0,
+       "paired_runs": 50
+      }
+     }
+    }
+   },
+   "lever_order_by_concession": [
+    "grandfathering",
+    "seat_expansion",
+    "hybrid_caste_subquotas",
+    "sub_classification",
+    "consensus_commission",
+    "compensation",
+    "credible_guarantees"
+   ],
+   "lever_order_by_peak": [
+    "hybrid_caste_subquotas",
+    "consensus_commission",
+    "grandfathering",
+    "credible_guarantees",
+    "sub_classification",
+    "seat_expansion",
+    "compensation"
+   ]
+  }
+ }
+}

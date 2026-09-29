@@ -1,0 +1,392 @@
+{
+ "final_wave_sets": 6000,
+ "settings": [
+  {
+   "model_discrepancy_log": 0.3,
+   "cutoff": 2.5,
+   "kept": 9,
+   "mean_participation_threshold": [
+    5.493,
+    7.513,
+    8.374
+   ],
+   "participation_threshold_spread": [
+    1.203,
+    1.629,
+    2.074
+   ],
+   "same_group_neighbourhood_share": [
+    0.554,
+    0.667,
+    0.926
+   ],
+   "magnitude_sc_st_bharat_bandh_2018": [
+    0.956,
+    1.536,
+    1.985
+   ],
+   "ratio_2024_to_2018": [
+    0.061,
+    0.545,
+    0.869
+   ],
+   "share_ratio_above_one": 0.0,
+   "bandh_day_turnout_2018_lakh": [
+    12.994,
+    46.172,
+    100.582
+   ]
+  },
+  {
+   "model_discrepancy_log": 0.3,
+   "cutoff": 3.0,
+   "kept": 28,
+   "mean_participation_threshold": [
+    5.973,
+    7.562,
+    8.384
+   ],
+   "participation_threshold_spread": [
+    1.311,
+    1.832,
+    2.149
+   ],
+   "same_group_neighbourhood_share": [
+    0.542,
+    0.715,
+    0.93
+   ],
+   "magnitude_sc_st_bharat_bandh_2018": [
+    0.838,
+    1.441,
+    1.946
+   ],
+   "ratio_2024_to_2018": [
+    0.099,
+    0.676,
+    1.134
+   ],
+   "share_ratio_above_one": 0.107,
+   "bandh_day_turnout_2018_lakh": [
+    9.901,
+    33.367,
+    107.788
+   ]
+  },
+  {
+   "model_discrepancy_log": 0.3,
+   "cutoff": 3.5,
+   "kept": 64,
+   "mean_participation_threshold": [
+    5.333,
+    7.285,
+    8.395
+   ],
+   "participation_threshold_spread": [
+    1.153,
+    1.774,
+    2.155
+   ],
+   "same_group_neighbourhood_share": [
+    0.537,
+    0.754,
+    0.955
+   ],
+   "magnitude_sc_st_bharat_bandh_2018": [
+    0.68,
+    1.419,
+    2.241
+   ],
+   "ratio_2024_to_2018": [
+    0.062,
+    0.582,
+    1.178
+   ],
+   "share_ratio_above_one": 0.141,
+   "bandh_day_turnout_2018_lakh": [
+    9.639,
+    36.044,
+    228.733
+   ]
+  },
+  {
+   "model_discrepancy_log": 0.5,
+   "cutoff": 2.5,
+   "kept": 87,
+   "mean_participation_threshold": [
+    5.429,
+    7.278,
+    8.406
+   ],
+   "participation_threshold_spread": [
+    1.152,
+    1.787,
+    2.151
+   ],
+   "same_group_neighbourhood_share": [
+    0.527,
+    0.752,
+    0.98
+   ],
+   "magnitude_sc_st_bharat_bandh_2018": [
+    0.566,
+    1.519,
+    2.375
+   ],
+   "ratio_2024_to_2018": [
+    0.089,
+    0.625,
+    1.373
+   ],
+   "share_ratio_above_one": 0.161,
+   "bandh_day_turnout_2018_lakh": [
+    9.666,
+    53.351,
+    295.534
+   ]
+  },
+  {
+   "model_discrepancy_log": 0.5,
+   "cutoff": 3.0,
+   "kept": 281,
+   "mean_participation_threshold": [
+    5.352,
+    7.056,
+    8.351
+   ],
+   "participation_threshold_spread": [
+    0.989,
+    1.747,
+    2.155
+   ],
+   "same_group_neighbourhood_share": [
+    0.536,
+    0.777,
+    0.98
+   ],
+   "magnitude_sc_st_bharat_bandh_2018": [
+    0.504,
+    1.587,
+    2.375
+   ],
+   "ratio_2024_to_2018": [
+    0.055,
+    0.575,
+    1.893
+   ],
+   "share_ratio_above_one": 0.16,
+   "bandh_day_turnout_2018_lakh": [
+    6.57,
+    62.597,
+    538.679
+   ]
+  },
+  {
+   "model_discrepancy_log": 0.5,
+   "cutoff": 3.5,
+   "kept": 615,
+   "mean_participation_threshold": [
+    5.257,
+    6.757,
+    8.312
+   ],
+   "participation_threshold_spread": [
+    0.999,
+    1.728,
+    2.151
+   ],
+   "same_group_neighbourhood_share": [
+    0.534,
+    0.768,
+    0.979
+   ],
+   "magnitude_sc_st_bharat_bandh_2018": [
+    0.412,
+    1.534,
+    2.383
+   ],
+   "ratio_2024_to_2018": [
+    0.073,
+    0.649,
+    2.394
+   ],
+   "share_ratio_above_one": 0.257,
+   "bandh_day_turnout_2018_lakh": [
+    6.655,
+    68.863,
+    682.167
+   ]
+  },
+  {
+   "model_discrepancy_log": 0.8,
+   "cutoff": 2.5,
+   "kept": 819,
+   "mean_participation_threshold": [
+    5.235,
+    6.661,
+    8.209
+   ],
+   "participation_threshold_spread": [
+    1.025,
+    1.734,
+    2.152
+   ],
+   "same_group_neighbourhood_share": [
+    0.533,
+    0.763,
+    0.975
+   ],
+   "magnitude_sc_st_bharat_bandh_2018": [
+    0.508,
+    1.618,
+    2.383
+   ],
+   "ratio_2024_to_2018": [
+    0.072,
+    0.642,
+    2.058
+   ],
+   "share_ratio_above_one": 0.23,
+   "bandh_day_turnout_2018_lakh": [
+    7.519,
+    105.546,
+    840.254
+   ]
+  },
+  {
+   "model_discrepancy_log": 0.8,
+   "cutoff": 3.0,
+   "kept": 1642,
+   "mean_participation_threshold": [
+    5.144,
+    6.426,
+    8.144
+   ],
+   "participation_threshold_spread": [
+    1.049,
+    1.745,
+    2.15
+   ],
+   "same_group_neighbourhood_share": [
+    0.529,
+    0.752,
+    0.975
+   ],
+   "magnitude_sc_st_bharat_bandh_2018": [
+    0.382,
+    1.576,
+    2.382
+   ],
+   "ratio_2024_to_2018": [
+    0.072,
+    0.682,
+    2.619
+   ],
+   "share_ratio_above_one": 0.272,
+   "bandh_day_turnout_2018_lakh": [
+    6.692,
+    125.56,
+    1052.523
+   ]
+  },
+  {
+   "model_discrepancy_log": 0.8,
+   "cutoff": 3.5,
+   "kept": 2471,
+   "mean_participation_threshold": [
+    5.128,
+    6.345,
+    8.124
+   ],
+   "participation_threshold_spread": [
+    1.043,
+    1.745,
+    2.151
+   ],
+   "same_group_neighbourhood_share": [
+    0.528,
+    0.751,
+    0.976
+   ],
+   "magnitude_sc_st_bharat_bandh_2018": [
+    0.354,
+    1.539,
+    2.382
+   ],
+   "ratio_2024_to_2018": [
+    0.078,
+    0.699,
+    3.073
+   ],
+   "share_ratio_above_one": 0.295,
+   "bandh_day_turnout_2018_lakh": [
+    5.87,
+    129.757,
+    1092.019
+   ]
+  }
+ ],
+ "prior_ranges": {
+  "mean_participation_threshold": [
+   5.0,
+   8.5
+  ],
+  "participation_threshold_spread": [
+   0.8,
+   2.2
+  ],
+  "same_group_neighbourhood_share": [
+   0.5,
+   1.0
+  ]
+ },
+ "identification": {
+  "mean_participation_threshold": 0.857,
+  "participation_threshold_spread": 0.833,
+  "same_group_neighbourhood_share": 0.887
+ },
+ "more_seeds": {
+  "seeds": 10,
+  "retained_with_two_seeds": 281,
+  "still_retained": 275,
+  "share_still_retained": 0.979,
+  "median_abs_log_change_2018_events": 0.011,
+  "median_seed_log_sd_2018_events": {
+   "two_seeds": 0.007,
+   "many_seeds": 0.02
+  },
+  "ranges_still_retained": {
+   "mean_participation_threshold": [
+    5.351,
+    7.068,
+    8.352
+   ],
+   "participation_threshold_spread": [
+    1.036,
+    1.757,
+    2.157
+   ],
+   "same_group_neighbourhood_share": [
+    0.536,
+    0.777,
+    0.98
+   ],
+   "magnitude_sc_st_bharat_bandh_2018": [
+    0.51,
+    1.595,
+    2.375
+   ],
+   "ratio_2024_to_2018": [
+    0.054,
+    0.569,
+    1.71
+   ],
+   "share_ratio_above_one": 0.149,
+   "bandh_day_turnout_2018_lakh": [
+    6.812,
+    66.235,
+    545.703
+   ]
+  }
+ }
+}

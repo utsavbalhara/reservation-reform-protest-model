@@ -18,6 +18,13 @@ class ProtestModelParameters:
     symbolic_threat_weight: float = 3.3
     symbolic_threat_by_group: np.ndarray = field(default_factory=_symbolic_threat_of_abolishing_caste_quotas)
     most_deprived_tier_share_of_symbolic_threat: float = 0.8
+    # Symbolic threat felt by the better-off SC/ST tier, relative to its group's (sub-classification can raise it).
+    better_off_tier_symbolic_threat_factor: float = 1.0
+    # Grounded specification only: the 2024 episode's estimated shock relative to 2018's, for the parameter set drawn
+    # in this world, and the reform's shock relative to 2018 (R). Their ratio is the share of the reform's symbolic
+    # threat that a 2024-type change (an income filter inside SC/ST quotas) carries; lever L3 uses it.
+    episode_2024_threat_relative_to_2018: float = None
+    reform_shock_ratio: float = 1.0
 
     material_loss_sc_st_above_income_line: float = 1.0
     material_loss_sc_st_below_income_line: float = 0.35

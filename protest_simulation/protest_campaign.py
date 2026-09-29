@@ -72,7 +72,8 @@ def material_loss_felt_by_each_agent(population: SyntheticPopulation, parameters
 
 
 def symbolic_threat_felt_by_each_agent(population: SyntheticPopulation, parameters: ProtestModelParameters) -> np.ndarray:
-    tier_share = np.where(population.is_most_deprived_tier, parameters.most_deprived_tier_share_of_symbolic_threat, 1.0)
+    tier_share = np.where(population.is_most_deprived_tier, parameters.most_deprived_tier_share_of_symbolic_threat,
+                          np.where(population.is_sc_or_st, parameters.better_off_tier_symbolic_threat_factor, 1.0))
     return parameters.symbolic_threat_by_group[population.social_group] * tier_share
 
 

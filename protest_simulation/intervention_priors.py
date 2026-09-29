@@ -11,13 +11,15 @@ instead of being assumed.
 """
 import numpy as np
 
+from .policy_interventions import income_filter_threat_retained_from_episodes
 from .synthetic_population import OBC
 
 LEVER_PRIORS = {
     "grandfathering": {"material_factor": (0.1, 0.6, 0.3), "symbolic_factor": (0.85, 1.0, 0.95)},
     "seat_expansion": {"below_line_loss_removed": (0.6, 1.0, 1.0)},
     "hybrid_caste_subquotas": {"symbolic_retained": (0.3, 0.9, 0.4)},
-    "sub_classification": {"deprived_tier_gain": (0.2, 0.8, 0.5), "deprived_tier_symbolic_share": (0.2, 0.8, 0.3)},
+    "sub_classification": {"deprived_tier_gain": (0.2, 0.8, 0.5), "deprived_tier_symbolic_share": (0.2, 0.8, 0.3),
+                           "better_off_tier_symbolic_factor": (1.0, 1.5, 1.2)},
     "consensus_commission": {"amplifier_factor": (0.5, 0.9, 1 / 1.5), "symbolic_factor": (0.7, 1.0, 0.8)},
     "compensation": {"above_line_loss_factor": (0.25, 0.75, 0.5)},
     "credible_guarantees": {"symbolic_factor": (0.7, 1.0, 0.85)},
@@ -72,6 +74,11 @@ def apply_lever(parameters, lever: str, mapping: dict) -> None:
     elif lever == "hybrid_caste_subquotas":
         symbolic = parameters.symbolic_threat_by_group.copy()
         symbolic[: OBC + 1] *= values["symbolic_retained"]
+        # Grounded specification: SC and ST keep the share implied by the 2024 episode for this world's calibration set,
+        # instead of the prior; the prior still applies to OBC, which the 2024 episode did not concern.
+        from_episodes = income_filter_threat_retained_from_episodes(parameters)
+        if from_episodes is not None:
+            symbolic[:OBC] = parameters.symbolic_threat_by_group[:OBC] * from_episodes
         parameters.symbolic_threat_by_group = symbolic
         parameters.material_loss_sc_st_below_income_line = 0.0
         parameters.material_loss_obc_below_income_line = 0.0
@@ -80,6 +87,7 @@ def apply_lever(parameters, lever: str, mapping: dict) -> None:
     elif lever == "sub_classification":
         parameters.sub_classification_gain_for_most_deprived_tier = values["deprived_tier_gain"]
         parameters.most_deprived_tier_share_of_symbolic_threat = values["deprived_tier_symbolic_share"]
+        parameters.better_off_tier_symbolic_threat_factor = values["better_off_tier_symbolic_factor"]
     elif lever == "consensus_commission":
         parameters.opposition_party_amplifier *= values["amplifier_factor"]
         parameters.symbolic_threat_by_group = parameters.symbolic_threat_by_group * values["symbolic_factor"]

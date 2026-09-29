@@ -1,4 +1,5 @@
 {
+ "specification": "stylized",
  "regime": "central",
  "run_count": 50,
  "agent_count": 120000,
@@ -12,7 +13,43 @@
     "peak_lakh_10th_percentile": 14.9,
     "peak_lakh_90th_percentile": 118.9,
     "median_cumulative_crore": 1.29,
-    "median_deaths": 18.5
+    "median_deaths": 18.5,
+    "median_bandhs_called": 3.0,
+    "share_of_runs_conceded": 0.0,
+    "median_concession_day": null,
+    "median_campaign_days": 38.0
+   },
+   "paired_effects_vs_baseline": {
+    "peak": {
+     "median_paired_ratio": 1.0,
+     "change_percent": 0.0,
+     "change_percent_ci95": [
+      0.0,
+      0.0
+     ],
+     "share_of_runs_higher_than_baseline": 0.0,
+     "paired_runs": 50
+    },
+    "cumulative": {
+     "median_paired_ratio": 1.0,
+     "change_percent": 0.0,
+     "change_percent_ci95": [
+      0.0,
+      0.0
+     ],
+     "share_of_runs_higher_than_baseline": 0.0,
+     "paired_runs": 50
+    },
+    "deaths": {
+     "median_paired_ratio": 1.0,
+     "change_percent": 0.0,
+     "change_percent_ci95": [
+      0.0,
+      0.0
+     ],
+     "share_of_runs_higher_than_baseline": 0.0,
+     "paired_runs": 49
+    }
    },
    "runs": {
     "peak_day_protesters": [
@@ -170,39 +207,363 @@
      3,
      4,
      31
+    ],
+    "bandh_days_called": [
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ]
+    ],
+    "conceded_on_day": [
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null
+    ],
+    "campaign_days_run": [
+     28,
+     40,
+     40,
+     40,
+     40,
+     30,
+     40,
+     28,
+     40,
+     40,
+     29,
+     40,
+     40,
+     40,
+     28,
+     35,
+     40,
+     27,
+     29,
+     40,
+     40,
+     31,
+     28,
+     28,
+     40,
+     28,
+     29,
+     40,
+     40,
+     28,
+     39,
+     27,
+     29,
+     28,
+     40,
+     39,
+     39,
+     38,
+     40,
+     28,
+     28,
+     28,
+     38,
+     40,
+     27,
+     40,
+     40,
+     38,
+     37,
+     28
     ]
-   },
-   "paired_effects_vs_baseline": {
-    "peak": {
-     "median_paired_ratio": 1.0,
-     "change_percent": 0.0,
-     "change_percent_ci95": [
-      0.0,
-      0.0
-     ],
-     "share_of_runs_higher_than_baseline": 0.0,
-     "paired_runs": 50
-    },
-    "cumulative": {
-     "median_paired_ratio": 1.0,
-     "change_percent": 0.0,
-     "change_percent_ci95": [
-      0.0,
-      0.0
-     ],
-     "share_of_runs_higher_than_baseline": 0.0,
-     "paired_runs": 50
-    },
-    "deaths": {
-     "median_paired_ratio": 1.0,
-     "change_percent": 0.0,
-     "change_percent_ci95": [
-      0.0,
-      0.0
-     ],
-     "share_of_runs_higher_than_baseline": 0.0,
-     "paired_runs": 49
-    }
    }
   },
   "grandfathering": {
@@ -214,7 +575,43 @@
     "peak_lakh_10th_percentile": 6.6,
     "peak_lakh_90th_percentile": 41.5,
     "median_cumulative_crore": 0.5,
-    "median_deaths": 5.5
+    "median_deaths": 5.5,
+    "median_bandhs_called": 3.0,
+    "share_of_runs_conceded": 0.0,
+    "median_concession_day": null,
+    "median_campaign_days": 40.0
+   },
+   "paired_effects_vs_baseline": {
+    "peak": {
+     "median_paired_ratio": 0.3382,
+     "change_percent": -66.2,
+     "change_percent_ci95": [
+      -72.9,
+      -62.2
+     ],
+     "share_of_runs_higher_than_baseline": 0.0,
+     "paired_runs": 50
+    },
+    "cumulative": {
+     "median_paired_ratio": 0.3912,
+     "change_percent": -60.9,
+     "change_percent_ci95": [
+      -63.1,
+      -57.1
+     ],
+     "share_of_runs_higher_than_baseline": 0.0,
+     "paired_runs": 50
+    },
+    "deaths": {
+     "median_paired_ratio": 0.3636,
+     "change_percent": -63.6,
+     "change_percent_ci95": [
+      -75.0,
+      -58.9
+     ],
+     "share_of_runs_higher_than_baseline": 0.0,
+     "paired_runs": 49
+    }
    },
    "runs": {
     "peak_day_protesters": [
@@ -372,39 +769,363 @@
      3,
      1,
      5
+    ],
+    "bandh_days_called": [
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ]
+    ],
+    "conceded_on_day": [
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null
+    ],
+    "campaign_days_run": [
+     35,
+     39,
+     40,
+     40,
+     36,
+     40,
+     40,
+     40,
+     40,
+     40,
+     40,
+     40,
+     40,
+     37,
+     37,
+     40,
+     40,
+     32,
+     40,
+     36,
+     40,
+     40,
+     40,
+     40,
+     40,
+     40,
+     40,
+     40,
+     40,
+     40,
+     39,
+     40,
+     39,
+     30,
+     37,
+     40,
+     40,
+     40,
+     40,
+     40,
+     32,
+     40,
+     40,
+     39,
+     40,
+     38,
+     39,
+     38,
+     38,
+     35
     ]
-   },
-   "paired_effects_vs_baseline": {
-    "peak": {
-     "median_paired_ratio": 0.3382,
-     "change_percent": -66.2,
-     "change_percent_ci95": [
-      -72.9,
-      -62.2
-     ],
-     "share_of_runs_higher_than_baseline": 0.0,
-     "paired_runs": 50
-    },
-    "cumulative": {
-     "median_paired_ratio": 0.3912,
-     "change_percent": -60.9,
-     "change_percent_ci95": [
-      -63.1,
-      -57.1
-     ],
-     "share_of_runs_higher_than_baseline": 0.0,
-     "paired_runs": 50
-    },
-    "deaths": {
-     "median_paired_ratio": 0.3636,
-     "change_percent": -63.6,
-     "change_percent_ci95": [
-      -75.0,
-      -58.9
-     ],
-     "share_of_runs_higher_than_baseline": 0.0,
-     "paired_runs": 49
-    }
    }
   },
   "seat_expansion": {
@@ -416,7 +1137,43 @@
     "peak_lakh_10th_percentile": 9.8,
     "peak_lakh_90th_percentile": 65.8,
     "median_cumulative_crore": 0.74,
-    "median_deaths": 11.0
+    "median_deaths": 11.0,
+    "median_bandhs_called": 3.0,
+    "share_of_runs_conceded": 0.0,
+    "median_concession_day": null,
+    "median_campaign_days": 40.0
+   },
+   "paired_effects_vs_baseline": {
+    "peak": {
+     "median_paired_ratio": 0.5569,
+     "change_percent": -44.3,
+     "change_percent_ci95": [
+      -49.7,
+      -36.6
+     ],
+     "share_of_runs_higher_than_baseline": 0.0,
+     "paired_runs": 50
+    },
+    "cumulative": {
+     "median_paired_ratio": 0.5913,
+     "change_percent": -40.9,
+     "change_percent_ci95": [
+      -44.6,
+      -36.4
+     ],
+     "share_of_runs_higher_than_baseline": 0.0,
+     "paired_runs": 50
+    },
+    "deaths": {
+     "median_paired_ratio": 0.5833,
+     "change_percent": -41.7,
+     "change_percent_ci95": [
+      -50.4,
+      -32.5
+     ],
+     "share_of_runs_higher_than_baseline": 0.0,
+     "paired_runs": 49
+    }
    },
    "runs": {
     "peak_day_protesters": [
@@ -574,39 +1331,363 @@
      3,
      4,
      13
+    ],
+    "bandh_days_called": [
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ]
+    ],
+    "conceded_on_day": [
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null
+    ],
+    "campaign_days_run": [
+     39,
+     40,
+     38,
+     40,
+     39,
+     37,
+     39,
+     38,
+     40,
+     40,
+     40,
+     40,
+     40,
+     40,
+     29,
+     39,
+     40,
+     29,
+     37,
+     36,
+     40,
+     40,
+     38,
+     29,
+     40,
+     40,
+     35,
+     40,
+     40,
+     40,
+     39,
+     34,
+     34,
+     28,
+     40,
+     39,
+     40,
+     40,
+     40,
+     40,
+     28,
+     27,
+     40,
+     40,
+     40,
+     31,
+     40,
+     38,
+     37,
+     40
     ]
-   },
-   "paired_effects_vs_baseline": {
-    "peak": {
-     "median_paired_ratio": 0.5569,
-     "change_percent": -44.3,
-     "change_percent_ci95": [
-      -49.7,
-      -36.6
-     ],
-     "share_of_runs_higher_than_baseline": 0.0,
-     "paired_runs": 50
-    },
-    "cumulative": {
-     "median_paired_ratio": 0.5913,
-     "change_percent": -40.9,
-     "change_percent_ci95": [
-      -44.6,
-      -36.4
-     ],
-     "share_of_runs_higher_than_baseline": 0.0,
-     "paired_runs": 50
-    },
-    "deaths": {
-     "median_paired_ratio": 0.5833,
-     "change_percent": -41.7,
-     "change_percent_ci95": [
-      -50.4,
-      -32.5
-     ],
-     "share_of_runs_higher_than_baseline": 0.0,
-     "paired_runs": 49
-    }
    }
   },
   "hybrid_caste_subquotas": {
@@ -618,7 +1699,43 @@
     "peak_lakh_10th_percentile": 1.7,
     "peak_lakh_90th_percentile": 4.3,
     "median_cumulative_crore": 0.1,
-    "median_deaths": 1.0
+    "median_deaths": 1.0,
+    "median_bandhs_called": 3.0,
+    "share_of_runs_conceded": 0.0,
+    "median_concession_day": null,
+    "median_campaign_days": 39.0
+   },
+   "paired_effects_vs_baseline": {
+    "peak": {
+     "median_paired_ratio": 0.0565,
+     "change_percent": -94.3,
+     "change_percent_ci95": [
+      -95.9,
+      -91.8
+     ],
+     "share_of_runs_higher_than_baseline": 0.0,
+     "paired_runs": 50
+    },
+    "cumulative": {
+     "median_paired_ratio": 0.0752,
+     "change_percent": -92.5,
+     "change_percent_ci95": [
+      -93.3,
+      -90.1
+     ],
+     "share_of_runs_higher_than_baseline": 0.0,
+     "paired_runs": 50
+    },
+    "deaths": {
+     "median_paired_ratio": 0.0211,
+     "change_percent": -97.9,
+     "change_percent_ci95": [
+      -100.0,
+      -94.1
+     ],
+     "share_of_runs_higher_than_baseline": 0.0,
+     "paired_runs": 49
+    }
    },
    "runs": {
     "peak_day_protesters": [
@@ -776,39 +1893,363 @@
      1,
      1,
      0
+    ],
+    "bandh_days_called": [
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ]
+    ],
+    "conceded_on_day": [
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null
+    ],
+    "campaign_days_run": [
+     38,
+     38,
+     36,
+     40,
+     40,
+     40,
+     39,
+     39,
+     40,
+     40,
+     37,
+     39,
+     40,
+     26,
+     35,
+     39,
+     39,
+     40,
+     39,
+     39,
+     37,
+     40,
+     40,
+     37,
+     40,
+     39,
+     40,
+     35,
+     39,
+     39,
+     37,
+     40,
+     37,
+     36,
+     40,
+     38,
+     37,
+     38,
+     37,
+     40,
+     39,
+     39,
+     40,
+     39,
+     38,
+     40,
+     34,
+     40,
+     37,
+     39
     ]
-   },
-   "paired_effects_vs_baseline": {
-    "peak": {
-     "median_paired_ratio": 0.0565,
-     "change_percent": -94.3,
-     "change_percent_ci95": [
-      -95.9,
-      -91.8
-     ],
-     "share_of_runs_higher_than_baseline": 0.0,
-     "paired_runs": 50
-    },
-    "cumulative": {
-     "median_paired_ratio": 0.0752,
-     "change_percent": -92.5,
-     "change_percent_ci95": [
-      -93.3,
-      -90.1
-     ],
-     "share_of_runs_higher_than_baseline": 0.0,
-     "paired_runs": 50
-    },
-    "deaths": {
-     "median_paired_ratio": 0.0211,
-     "change_percent": -97.9,
-     "change_percent_ci95": [
-      -100.0,
-      -94.1
-     ],
-     "share_of_runs_higher_than_baseline": 0.0,
-     "paired_runs": 49
-    }
    }
   },
   "sub_classification": {
@@ -816,201 +2257,561 @@
    "label": "Sub-classify to favour most-deprived",
    "category": "lever",
    "summary": {
-    "median_peak_lakh": 26.9,
-    "peak_lakh_10th_percentile": 11.6,
-    "peak_lakh_90th_percentile": 71.4,
-    "median_cumulative_crore": 0.83,
-    "median_deaths": 13.5
-   },
-   "runs": {
-    "peak_day_protesters": [
-     5767000.0,
-     1265333.3333333333,
-     1338333.3333333333,
-     1082833.3333333333,
-     669166.6666666666,
-     5523666.666666666,
-     2993000.0,
-     4501666.666666666,
-     1922333.3333333333,
-     912500.0,
-     2640166.6666666665,
-     2822666.6666666665,
-     2579333.333333333,
-     1326166.6666666665,
-     7348666.666666666,
-     4380000.0,
-     2141333.333333333,
-     7519000.0,
-     5329000.0,
-     1314000.0,
-     1168000.0,
-     2652333.333333333,
-     4075833.333333333,
-     6691666.666666666,
-     1545166.6666666665,
-     6557833.333333333,
-     4173166.6666666665,
-     1289666.6666666665,
-     1727666.6666666665,
-     7117500.0,
-     997666.6666666666,
-     7823166.666666666,
-     2287333.333333333,
-     10207833.333333332,
-     1508666.6666666665,
-     3285000.0,
-     2372500.0,
-     2968666.6666666665,
-     1350500.0,
-     5913000.0,
-     10852666.666666666,
-     5767000.0,
-     1654666.6666666665,
-     1058500.0,
-     3491833.333333333,
-     2737500.0,
-     2871333.333333333,
-     1654666.6666666665,
-     1642500.0,
-     2834833.333333333
-    ],
-    "cumulative_unique_protesters": [
-     13067000.0,
-     5304666.666666666,
-     4112333.333333333,
-     3431000.0,
-     2409000.0,
-     13821333.333333332,
-     7677166.666666666,
-     11156833.333333332,
-     6570000.0,
-     3552666.6666666665,
-     8285500.0,
-     8504500.0,
-     9064166.666666666,
-     4453000.0,
-     15914000.0,
-     10171333.333333332,
-     8017833.333333333,
-     16485833.333333332,
-     11704333.333333332,
-     4623333.333333333,
-     4392166.666666666,
-     7579833.333333333,
-     11570500.0,
-     17301000.0,
-     5037000.0,
-     13870000.0,
-     10791833.333333332,
-     4647666.666666666,
-     5487166.666666666,
-     15317833.333333332,
-     3053833.333333333,
-     22423166.666666664,
-     7032333.333333333,
-     21145666.666666664,
-     4842333.333333333,
-     9490000.0,
-     8577500.0,
-     8297666.666666666,
-     4136666.6666666665,
-     13140000.0,
-     26255666.666666664,
-     12908833.333333332,
-     5426333.333333333,
-     3431000.0,
-     11120333.333333332,
-     9027666.666666666,
-     7871833.333333333,
-     5499333.333333333,
-     4891000.0,
-     8468000.0
-    ],
-    "total_deaths": [
-     18,
-     8,
-     0,
-     2,
-     1,
-     22,
-     14,
-     16,
-     6,
-     4,
-     7,
-     17,
-     18,
-     7,
-     44,
-     20,
-     19,
-     35,
-     16,
-     4,
-     4,
-     16,
-     34,
-     21,
-     7,
-     31,
-     20,
-     8,
-     7,
-     28,
-     3,
-     26,
-     11,
-     49,
-     2,
-     30,
-     11,
-     23,
-     7,
-     30,
-     77,
-     35,
-     6,
-     6,
-     27,
-     12,
-     5,
-     3,
-     4,
-     13
-    ]
+    "median_peak_lakh": 84.1,
+    "peak_lakh_10th_percentile": 24.5,
+    "peak_lakh_90th_percentile": 168.7,
+    "median_cumulative_crore": 1.72,
+    "median_deaths": 37.0,
+    "median_bandhs_called": 3.0,
+    "share_of_runs_conceded": 0.0,
+    "median_concession_day": null,
+    "median_campaign_days": 28.0
    },
    "paired_effects_vs_baseline": {
     "peak": {
-     "median_paired_ratio": 0.6622,
-     "change_percent": -33.8,
+     "median_paired_ratio": 1.4649,
+     "change_percent": 46.5,
      "change_percent_ci95": [
-      -39.4,
-      -28.5
+      25.3,
+      77.4
      ],
-     "share_of_runs_higher_than_baseline": 0.0,
+     "share_of_runs_higher_than_baseline": 0.96,
      "paired_runs": 50
     },
     "cumulative": {
-     "median_paired_ratio": 0.6489,
-     "change_percent": -35.1,
+     "median_paired_ratio": 1.2022,
+     "change_percent": 20.2,
      "change_percent_ci95": [
-      -38.8,
-      -30.9
+      14.3,
+      28.9
      ],
-     "share_of_runs_higher_than_baseline": 0.0,
+     "share_of_runs_higher_than_baseline": 1.0,
      "paired_runs": 50
     },
     "deaths": {
-     "median_paired_ratio": 0.7209,
-     "change_percent": -27.9,
+     "median_paired_ratio": 1.5556,
+     "change_percent": 55.6,
      "change_percent_ci95": [
-      -41.7,
-      -12.5
+      23.5,
+      83.9
      ],
-     "share_of_runs_higher_than_baseline": 0.0,
+     "share_of_runs_higher_than_baseline": 0.857,
      "paired_runs": 49
     }
+   },
+   "runs": {
+    "peak_day_protesters": [
+     12239666.666666666,
+     1995333.3333333333,
+     3735166.6666666665,
+     1764166.6666666665,
+     1107166.6666666665,
+     17374000.0,
+     7652833.333333333,
+     13371166.666666666,
+     13395500.0,
+     2834833.333333333,
+     16546666.666666666,
+     7105333.333333333,
+     10439000.0,
+     3808166.6666666665,
+     13943000.0,
+     9587333.333333332,
+     7579833.333333333,
+     16814333.333333332,
+     13444166.666666666,
+     2652333.333333333,
+     3370166.6666666665,
+     4793666.666666666,
+     11193333.333333332,
+     24053500.0,
+     4161000.0,
+     10256500.0,
+     8504500.0,
+     2834833.333333333,
+     6521333.333333333,
+     12191000.0,
+     1666833.3333333333,
+     24284666.666666664,
+     7871833.333333333,
+     23019333.333333332,
+     4294833.333333333,
+     8322000.0,
+     9709000.0,
+     5900833.333333333,
+     2165666.6666666665,
+     11461000.0,
+     22459666.666666664,
+     10901333.333333332,
+     4416500.0,
+     2482000.0,
+     10597166.666666666,
+     8565333.333333332,
+     11619166.666666666,
+     4477333.333333333,
+     2530666.6666666665,
+     8674833.333333332
+    ],
+    "cumulative_unique_protesters": [
+     24747000.0,
+     7421666.666666666,
+     10074000.0,
+     5353333.333333333,
+     3333666.6666666665,
+     31037166.666666664,
+     14697333.333333332,
+     22277166.666666664,
+     24017000.0,
+     7811000.0,
+     25975833.333333332,
+     14454000.0,
+     22970666.666666664,
+     9976666.666666666,
+     29589333.333333332,
+     17629500.0,
+     17288833.333333332,
+     29966500.0,
+     23773666.666666664,
+     9149333.333333332,
+     9952333.333333332,
+     12032833.333333332,
+     24418500.0,
+     34091000.0,
+     10998666.666666666,
+     23469500.0,
+     17495666.666666664,
+     9672500.0,
+     13578000.0,
+     27764333.333333332,
+     4465166.666666666,
+     43021333.33333333,
+     14709500.0,
+     40028333.33333333,
+     12178833.333333332,
+     16169500.0,
+     18213500.0,
+     13261666.666666666,
+     6947166.666666666,
+     24394166.666666664,
+     42534666.666666664,
+     21802666.666666664,
+     11193333.333333332,
+     7470333.333333333,
+     24625333.333333332,
+     17690333.333333332,
+     20135833.333333332,
+     12872333.333333332,
+     6898500.0,
+     17069833.333333332
+    ],
+    "total_deaths": [
+     48,
+     9,
+     16,
+     2,
+     1,
+     48,
+     36,
+     49,
+     50,
+     16,
+     61,
+     31,
+     57,
+     21,
+     98,
+     23,
+     55,
+     73,
+     38,
+     12,
+     18,
+     21,
+     81,
+     42,
+     30,
+     68,
+     27,
+     21,
+     50,
+     68,
+     3,
+     52,
+     17,
+     140,
+     19,
+     48,
+     26,
+     41,
+     12,
+     80,
+     151,
+     74,
+     21,
+     14,
+     78,
+     38,
+     27,
+     10,
+     4,
+     38
+    ],
+    "bandh_days_called": [
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ]
+    ],
+    "conceded_on_day": [
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null
+    ],
+    "campaign_days_run": [
+     27,
+     40,
+     40,
+     29,
+     40,
+     27,
+     28,
+     28,
+     26,
+     40,
+     27,
+     29,
+     27,
+     37,
+     28,
+     27,
+     33,
+     28,
+     27,
+     40,
+     40,
+     36,
+     28,
+     27,
+     39,
+     29,
+     28,
+     40,
+     28,
+     29,
+     35,
+     27,
+     28,
+     27,
+     40,
+     27,
+     27,
+     30,
+     40,
+     28,
+     27,
+     28,
+     39,
+     40,
+     27,
+     28,
+     28,
+     39,
+     37,
+     27
+    ]
    }
   },
   "consensus_commission": {
@@ -1022,7 +2823,43 @@
     "peak_lakh_10th_percentile": 4.1,
     "peak_lakh_90th_percentile": 24.2,
     "median_cumulative_crore": 0.41,
-    "median_deaths": 4.5
+    "median_deaths": 4.5,
+    "median_bandhs_called": 3.0,
+    "share_of_runs_conceded": 0.0,
+    "median_concession_day": null,
+    "median_campaign_days": 40.0
+   },
+   "paired_effects_vs_baseline": {
+    "peak": {
+     "median_paired_ratio": 0.2043,
+     "change_percent": -79.6,
+     "change_percent_ci95": [
+      -84.4,
+      -75.3
+     ],
+     "share_of_runs_higher_than_baseline": 0.0,
+     "paired_runs": 50
+    },
+    "cumulative": {
+     "median_paired_ratio": 0.3373,
+     "change_percent": -66.3,
+     "change_percent_ci95": [
+      -68.3,
+      -61.0
+     ],
+     "share_of_runs_higher_than_baseline": 0.0,
+     "paired_runs": 50
+    },
+    "deaths": {
+     "median_paired_ratio": 0.24,
+     "change_percent": -76.0,
+     "change_percent_ci95": [
+      -83.3,
+      -65.9
+     ],
+     "share_of_runs_higher_than_baseline": 0.0,
+     "paired_runs": 49
+    }
    },
    "runs": {
     "peak_day_protesters": [
@@ -1180,39 +3017,363 @@
      1,
      1,
      5
+    ],
+    "bandh_days_called": [
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ]
+    ],
+    "conceded_on_day": [
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null
+    ],
+    "campaign_days_run": [
+     40,
+     40,
+     40,
+     40,
+     39,
+     40,
+     40,
+     40,
+     40,
+     39,
+     40,
+     40,
+     40,
+     38,
+     40,
+     40,
+     40,
+     40,
+     40,
+     40,
+     40,
+     40,
+     40,
+     40,
+     40,
+     40,
+     40,
+     40,
+     40,
+     40,
+     40,
+     40,
+     40,
+     40,
+     40,
+     40,
+     40,
+     40,
+     40,
+     40,
+     40,
+     40,
+     40,
+     40,
+     40,
+     40,
+     39,
+     40,
+     40,
+     40
     ]
-   },
-   "paired_effects_vs_baseline": {
-    "peak": {
-     "median_paired_ratio": 0.2043,
-     "change_percent": -79.6,
-     "change_percent_ci95": [
-      -84.4,
-      -75.3
-     ],
-     "share_of_runs_higher_than_baseline": 0.0,
-     "paired_runs": 50
-    },
-    "cumulative": {
-     "median_paired_ratio": 0.3373,
-     "change_percent": -66.3,
-     "change_percent_ci95": [
-      -68.3,
-      -61.0
-     ],
-     "share_of_runs_higher_than_baseline": 0.0,
-     "paired_runs": 50
-    },
-    "deaths": {
-     "median_paired_ratio": 0.24,
-     "change_percent": -76.0,
-     "change_percent_ci95": [
-      -83.3,
-      -65.9
-     ],
-     "share_of_runs_higher_than_baseline": 0.0,
-     "paired_runs": 49
-    }
    }
   },
   "compensation": {
@@ -1224,7 +3385,43 @@
     "peak_lakh_10th_percentile": 13.1,
     "peak_lakh_90th_percentile": 93.9,
     "median_cumulative_crore": 1.08,
-    "median_deaths": 16.5
+    "median_deaths": 16.5,
+    "median_bandhs_called": 3.0,
+    "share_of_runs_conceded": 0.0,
+    "median_concession_day": null,
+    "median_campaign_days": 39.5
+   },
+   "paired_effects_vs_baseline": {
+    "peak": {
+     "median_paired_ratio": 0.8244,
+     "change_percent": -17.6,
+     "change_percent_ci95": [
+      -22.0,
+      -14.3
+     ],
+     "share_of_runs_higher_than_baseline": 0.04,
+     "paired_runs": 50
+    },
+    "cumulative": {
+     "median_paired_ratio": 0.8473,
+     "change_percent": -15.3,
+     "change_percent_ci95": [
+      -17.9,
+      -13.0
+     ],
+     "share_of_runs_higher_than_baseline": 0.0,
+     "paired_runs": 50
+    },
+    "deaths": {
+     "median_paired_ratio": 0.8571,
+     "change_percent": -14.3,
+     "change_percent_ci95": [
+      -32.5,
+      0.0
+     ],
+     "share_of_runs_higher_than_baseline": 0.02,
+     "paired_runs": 49
+    }
    },
    "runs": {
     "peak_day_protesters": [
@@ -1382,39 +3579,363 @@
      3,
      4,
      18
+    ],
+    "bandh_days_called": [
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ]
+    ],
+    "conceded_on_day": [
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null
+    ],
+    "campaign_days_run": [
+     31,
+     40,
+     40,
+     40,
+     38,
+     31,
+     40,
+     40,
+     40,
+     40,
+     40,
+     40,
+     40,
+     40,
+     28,
+     40,
+     40,
+     27,
+     39,
+     40,
+     40,
+     40,
+     39,
+     29,
+     40,
+     27,
+     34,
+     40,
+     40,
+     28,
+     39,
+     29,
+     34,
+     27,
+     37,
+     39,
+     39,
+     38,
+     40,
+     28,
+     30,
+     27,
+     40,
+     40,
+     40,
+     40,
+     40,
+     38,
+     37,
+     38
     ]
-   },
-   "paired_effects_vs_baseline": {
-    "peak": {
-     "median_paired_ratio": 0.8244,
-     "change_percent": -17.6,
-     "change_percent_ci95": [
-      -22.0,
-      -14.3
-     ],
-     "share_of_runs_higher_than_baseline": 0.04,
-     "paired_runs": 50
-    },
-    "cumulative": {
-     "median_paired_ratio": 0.8473,
-     "change_percent": -15.3,
-     "change_percent_ci95": [
-      -17.9,
-      -13.0
-     ],
-     "share_of_runs_higher_than_baseline": 0.0,
-     "paired_runs": 50
-    },
-    "deaths": {
-     "median_paired_ratio": 0.8571,
-     "change_percent": -14.3,
-     "change_percent_ci95": [
-      -32.5,
-      0.0
-     ],
-     "share_of_runs_higher_than_baseline": 0.02,
-     "paired_runs": 49
-    }
    }
   },
   "credible_guarantees": {
@@ -1426,7 +3947,43 @@
     "peak_lakh_10th_percentile": 9.6,
     "peak_lakh_90th_percentile": 55.2,
     "median_cumulative_crore": 0.68,
-    "median_deaths": 7.5
+    "median_deaths": 7.5,
+    "median_bandhs_called": 3.0,
+    "share_of_runs_conceded": 0.0,
+    "median_concession_day": null,
+    "median_campaign_days": 40.0
+   },
+   "paired_effects_vs_baseline": {
+    "peak": {
+     "median_paired_ratio": 0.5059,
+     "change_percent": -49.4,
+     "change_percent_ci95": [
+      -55.3,
+      -42.1
+     ],
+     "share_of_runs_higher_than_baseline": 0.0,
+     "paired_runs": 50
+    },
+    "cumulative": {
+     "median_paired_ratio": 0.5629,
+     "change_percent": -43.7,
+     "change_percent_ci95": [
+      -46.1,
+      -38.4
+     ],
+     "share_of_runs_higher_than_baseline": 0.0,
+     "paired_runs": 50
+    },
+    "deaths": {
+     "median_paired_ratio": 0.5294,
+     "change_percent": -47.1,
+     "change_percent_ci95": [
+      -58.3,
+      -38.0
+     ],
+     "share_of_runs_higher_than_baseline": 0.0,
+     "paired_runs": 49
+    }
    },
    "runs": {
     "peak_day_protesters": [
@@ -1584,39 +4141,363 @@
      3,
      4,
      13
+    ],
+    "bandh_days_called": [
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ]
+    ],
+    "conceded_on_day": [
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null
+    ],
+    "campaign_days_run": [
+     35,
+     40,
+     40,
+     40,
+     39,
+     40,
+     40,
+     40,
+     40,
+     40,
+     40,
+     40,
+     40,
+     40,
+     29,
+     40,
+     40,
+     29,
+     39,
+     36,
+     40,
+     40,
+     40,
+     30,
+     40,
+     40,
+     40,
+     40,
+     40,
+     40,
+     39,
+     38,
+     34,
+     28,
+     38,
+     40,
+     40,
+     40,
+     40,
+     39,
+     29,
+     38,
+     40,
+     40,
+     40,
+     31,
+     39,
+     38,
+     37,
+     40
     ]
-   },
-   "paired_effects_vs_baseline": {
-    "peak": {
-     "median_paired_ratio": 0.5059,
-     "change_percent": -49.4,
-     "change_percent_ci95": [
-      -55.3,
-      -42.1
-     ],
-     "share_of_runs_higher_than_baseline": 0.0,
-     "paired_runs": 50
-    },
-    "cumulative": {
-     "median_paired_ratio": 0.5629,
-     "change_percent": -43.7,
-     "change_percent_ci95": [
-      -46.1,
-      -38.4
-     ],
-     "share_of_runs_higher_than_baseline": 0.0,
-     "paired_runs": 50
-    },
-    "deaths": {
-     "median_paired_ratio": 0.5294,
-     "change_percent": -47.1,
-     "change_percent_ci95": [
-      -58.3,
-      -38.0
-     ],
-     "share_of_runs_higher_than_baseline": 0.0,
-     "paired_runs": 49
-    }
    }
   },
   "internet_shutdown": {
@@ -1628,7 +4509,43 @@
     "peak_lakh_10th_percentile": 17.2,
     "peak_lakh_90th_percentile": 73.7,
     "median_cumulative_crore": 1.41,
-    "median_deaths": 54.5
+    "median_deaths": 54.5,
+    "median_bandhs_called": 3.0,
+    "share_of_runs_conceded": 0.0,
+    "median_concession_day": null,
+    "median_campaign_days": 40.0
+   },
+   "paired_effects_vs_baseline": {
+    "peak": {
+     "median_paired_ratio": 0.7891,
+     "change_percent": -21.1,
+     "change_percent_ci95": [
+      -30.6,
+      -1.9
+     ],
+     "share_of_runs_higher_than_baseline": 0.34,
+     "paired_runs": 50
+    },
+    "cumulative": {
+     "median_paired_ratio": 0.9828,
+     "change_percent": -1.7,
+     "change_percent_ci95": [
+      -6.6,
+      17.8
+     ],
+     "share_of_runs_higher_than_baseline": 0.48,
+     "paired_runs": 50
+    },
+    "deaths": {
+     "median_paired_ratio": 2.55,
+     "change_percent": 155.0,
+     "change_percent_ci95": [
+      115.0,
+      206.1
+     ],
+     "share_of_runs_higher_than_baseline": 0.98,
+     "paired_runs": 49
+    }
    },
    "runs": {
     "peak_day_protesters": [
@@ -1786,39 +4703,363 @@
      16,
      4,
      57
+    ],
+    "bandh_days_called": [
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ]
+    ],
+    "conceded_on_day": [
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null
+    ],
+    "campaign_days_run": [
+     40,
+     40,
+     40,
+     40,
+     40,
+     40,
+     40,
+     40,
+     40,
+     40,
+     40,
+     40,
+     40,
+     39,
+     40,
+     40,
+     40,
+     40,
+     40,
+     40,
+     40,
+     40,
+     40,
+     40,
+     40,
+     40,
+     40,
+     40,
+     40,
+     40,
+     40,
+     40,
+     39,
+     40,
+     40,
+     40,
+     40,
+     40,
+     40,
+     40,
+     38,
+     40,
+     40,
+     40,
+     40,
+     40,
+     40,
+     40,
+     39,
+     40
     ]
-   },
-   "paired_effects_vs_baseline": {
-    "peak": {
-     "median_paired_ratio": 0.7891,
-     "change_percent": -21.1,
-     "change_percent_ci95": [
-      -30.6,
-      -1.9
-     ],
-     "share_of_runs_higher_than_baseline": 0.34,
-     "paired_runs": 50
-    },
-    "cumulative": {
-     "median_paired_ratio": 0.9828,
-     "change_percent": -1.7,
-     "change_percent_ci95": [
-      -6.6,
-      17.8
-     ],
-     "share_of_runs_higher_than_baseline": 0.48,
-     "paired_runs": 50
-    },
-    "deaths": {
-     "median_paired_ratio": 2.55,
-     "change_percent": 155.0,
-     "change_percent_ci95": [
-      115.0,
-      206.1
-     ],
-     "share_of_runs_higher_than_baseline": 0.98,
-     "paired_runs": 49
-    }
    }
   },
   "heavy_policing": {
@@ -1830,7 +5071,43 @@
     "peak_lakh_10th_percentile": 17.4,
     "peak_lakh_90th_percentile": 73.3,
     "median_cumulative_crore": 1.61,
-    "median_deaths": 79.5
+    "median_deaths": 79.5,
+    "median_bandhs_called": 3.0,
+    "share_of_runs_conceded": 0.0,
+    "median_concession_day": null,
+    "median_campaign_days": 40.0
+   },
+   "paired_effects_vs_baseline": {
+    "peak": {
+     "median_paired_ratio": 0.7455,
+     "change_percent": -25.5,
+     "change_percent_ci95": [
+      -38.9,
+      -0.3
+     ],
+     "share_of_runs_higher_than_baseline": 0.34,
+     "paired_runs": 50
+    },
+    "cumulative": {
+     "median_paired_ratio": 1.14,
+     "change_percent": 14.0,
+     "change_percent_ci95": [
+      10.6,
+      36.8
+     ],
+     "share_of_runs_higher_than_baseline": 0.9,
+     "paired_runs": 50
+    },
+    "deaths": {
+     "median_paired_ratio": 3.9091,
+     "change_percent": 290.9,
+     "change_percent_ci95": [
+      250.0,
+      323.1
+     ],
+     "share_of_runs_higher_than_baseline": 1.0,
+     "paired_runs": 49
+    }
    },
    "runs": {
     "peak_day_protesters": [
@@ -1988,39 +5265,363 @@
      41,
      19,
      90
+    ],
+    "bandh_days_called": [
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ]
+    ],
+    "conceded_on_day": [
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null
+    ],
+    "campaign_days_run": [
+     40,
+     40,
+     40,
+     40,
+     40,
+     40,
+     40,
+     40,
+     40,
+     40,
+     39,
+     40,
+     40,
+     40,
+     39,
+     40,
+     40,
+     40,
+     40,
+     40,
+     40,
+     40,
+     40,
+     27,
+     40,
+     40,
+     40,
+     40,
+     40,
+     40,
+     40,
+     30,
+     40,
+     28,
+     40,
+     40,
+     40,
+     40,
+     40,
+     40,
+     35,
+     40,
+     40,
+     40,
+     40,
+     40,
+     40,
+     40,
+     40,
+     40
     ]
-   },
-   "paired_effects_vs_baseline": {
-    "peak": {
-     "median_paired_ratio": 0.7455,
-     "change_percent": -25.5,
-     "change_percent_ci95": [
-      -38.9,
-      -0.3
-     ],
-     "share_of_runs_higher_than_baseline": 0.34,
-     "paired_runs": 50
-    },
-    "cumulative": {
-     "median_paired_ratio": 1.14,
-     "change_percent": 14.0,
-     "change_percent_ci95": [
-      10.6,
-      36.8
-     ],
-     "share_of_runs_higher_than_baseline": 0.9,
-     "paired_runs": 50
-    },
-    "deaths": {
-     "median_paired_ratio": 3.9091,
-     "change_percent": 290.9,
-     "change_percent_ci95": [
-      250.0,
-      323.1
-     ],
-     "share_of_runs_higher_than_baseline": 1.0,
-     "paired_runs": 49
-    }
    }
   },
   "managed_transition": {
@@ -2032,7 +5633,43 @@
     "peak_lakh_10th_percentile": 1.4,
     "peak_lakh_90th_percentile": 3.4,
     "median_cumulative_crore": 0.12,
-    "median_deaths": 1.0
+    "median_deaths": 1.0,
+    "median_bandhs_called": 3.0,
+    "share_of_runs_conceded": 0.0,
+    "median_concession_day": null,
+    "median_campaign_days": 40.0
+   },
+   "paired_effects_vs_baseline": {
+    "peak": {
+     "median_paired_ratio": 0.0486,
+     "change_percent": -95.1,
+     "change_percent_ci95": [
+      -96.5,
+      -93.1
+     ],
+     "share_of_runs_higher_than_baseline": 0.0,
+     "paired_runs": 50
+    },
+    "cumulative": {
+     "median_paired_ratio": 0.0884,
+     "change_percent": -91.2,
+     "change_percent_ci95": [
+      -92.0,
+      -89.6
+     ],
+     "share_of_runs_higher_than_baseline": 0.0,
+     "paired_runs": 50
+    },
+    "deaths": {
+     "median_paired_ratio": 0.0328,
+     "change_percent": -96.7,
+     "change_percent_ci95": [
+      -100.0,
+      -93.8
+     ],
+     "share_of_runs_higher_than_baseline": 0.0,
+     "paired_runs": 49
+    }
    },
    "runs": {
     "peak_day_protesters": [
@@ -2190,39 +5827,363 @@
      0,
      0,
      0
+    ],
+    "bandh_days_called": [
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ]
+    ],
+    "conceded_on_day": [
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null
+    ],
+    "campaign_days_run": [
+     40,
+     39,
+     40,
+     38,
+     40,
+     40,
+     40,
+     40,
+     36,
+     40,
+     40,
+     40,
+     40,
+     38,
+     40,
+     38,
+     38,
+     40,
+     40,
+     40,
+     40,
+     40,
+     39,
+     38,
+     39,
+     40,
+     40,
+     39,
+     40,
+     40,
+     37,
+     40,
+     38,
+     39,
+     40,
+     40,
+     40,
+     40,
+     40,
+     39,
+     40,
+     40,
+     40,
+     40,
+     40,
+     40,
+     40,
+     40,
+     39,
+     39
     ]
-   },
-   "paired_effects_vs_baseline": {
-    "peak": {
-     "median_paired_ratio": 0.0486,
-     "change_percent": -95.1,
-     "change_percent_ci95": [
-      -96.5,
-      -93.1
-     ],
-     "share_of_runs_higher_than_baseline": 0.0,
-     "paired_runs": 50
-    },
-    "cumulative": {
-     "median_paired_ratio": 0.0884,
-     "change_percent": -91.2,
-     "change_percent_ci95": [
-      -92.0,
-      -89.6
-     ],
-     "share_of_runs_higher_than_baseline": 0.0,
-     "paired_runs": 50
-    },
-    "deaths": {
-     "median_paired_ratio": 0.0328,
-     "change_percent": -96.7,
-     "change_percent_ci95": [
-      -100.0,
-      -93.8
-     ],
-     "share_of_runs_higher_than_baseline": 0.0,
-     "paired_runs": 49
-    }
    }
   },
   "hybrid_package": {
@@ -2231,118 +6192,153 @@
    "category": "package",
    "summary": {
     "median_peak_lakh": 0.6,
-    "peak_lakh_10th_percentile": 0.4,
-    "peak_lakh_90th_percentile": 0.9,
+    "peak_lakh_10th_percentile": 0.5,
+    "peak_lakh_90th_percentile": 1.0,
     "median_cumulative_crore": 0.04,
-    "median_deaths": 0.0
+    "median_deaths": 0.0,
+    "median_bandhs_called": 3.0,
+    "share_of_runs_conceded": 0.0,
+    "median_concession_day": null,
+    "median_campaign_days": 39.0
+   },
+   "paired_effects_vs_baseline": {
+    "peak": {
+     "median_paired_ratio": 0.0126,
+     "change_percent": -98.7,
+     "change_percent_ci95": [
+      -98.9,
+      -98.2
+     ],
+     "share_of_runs_higher_than_baseline": 0.0,
+     "paired_runs": 50
+    },
+    "cumulative": {
+     "median_paired_ratio": 0.0309,
+     "change_percent": -96.9,
+     "change_percent_ci95": [
+      -97.2,
+      -96.2
+     ],
+     "share_of_runs_higher_than_baseline": 0.0,
+     "paired_runs": 50
+    },
+    "deaths": {
+     "median_paired_ratio": 0.0,
+     "change_percent": -100.0,
+     "change_percent_ci95": [
+      -100.0,
+      -100.0
+     ],
+     "share_of_runs_higher_than_baseline": 0.0,
+     "paired_runs": 49
+    }
    },
    "runs": {
     "peak_day_protesters": [
      85166.66666666666,
      48666.666666666664,
-     48666.666666666664,
-     24333.333333333332,
-     48666.666666666664,
-     85166.66666666666,
-     48666.666666666664,
-     48666.666666666664,
      60833.33333333333,
      36500.0,
-     97333.33333333333,
-     48666.666666666664,
-     60833.33333333333,
-     48666.666666666664,
-     73000.0,
-     60833.33333333333,
-     60833.33333333333,
-     85166.66666666666,
-     73000.0,
-     60833.33333333333,
-     60833.33333333333,
-     60833.33333333333,
-     60833.33333333333,
-     60833.33333333333,
-     73000.0,
-     60833.33333333333,
-     85166.66666666666,
-     60833.33333333333,
-     36500.0,
-     60833.33333333333,
-     36500.0,
-     146000.0,
      48666.666666666664,
      85166.66666666666,
      48666.666666666664,
-     85166.66666666666,
-     60833.33333333333,
+     48666.666666666664,
      73000.0,
      36500.0,
-     48666.666666666664,
-     85166.66666666666,
      109500.0,
      48666.666666666664,
+     60833.33333333333,
+     48666.666666666664,
+     97333.33333333333,
+     60833.33333333333,
+     60833.33333333333,
+     73000.0,
+     73000.0,
+     73000.0,
+     48666.666666666664,
+     60833.33333333333,
+     60833.33333333333,
+     85166.66666666666,
+     73000.0,
+     60833.33333333333,
+     85166.66666666666,
+     60833.33333333333,
      36500.0,
+     60833.33333333333,
+     36500.0,
+     182500.0,
      48666.666666666664,
+     97333.33333333333,
      48666.666666666664,
+     85166.66666666666,
+     73000.0,
+     85166.66666666666,
+     48666.666666666664,
+     60833.33333333333,
+     97333.33333333333,
+     121666.66666666666,
+     60833.33333333333,
+     48666.666666666664,
+     60833.33333333333,
+     60833.33333333333,
      48666.666666666664,
      73000.0,
      48666.666666666664,
      60833.33333333333
     ],
     "cumulative_unique_protesters": [
-     571833.3333333333,
+     620500.0,
      413666.6666666666,
-     267666.6666666666,
-     255500.0,
-     243333.3333333333,
-     523166.6666666666,
-     328500.0,
-     340666.6666666666,
-     316333.3333333333,
-     279833.3333333333,
-     717833.3333333333,
-     389333.3333333333,
-     365000.0,
-     316333.3333333333,
-     559666.6666666666,
-     352833.3333333333,
-     474500.0,
-     462333.3333333333,
-     571833.3333333333,
-     316333.3333333333,
      292000.0,
-     547500.0,
-     328500.0,
-     547500.0,
-     377166.6666666666,
-     486666.6666666666,
-     498833.3333333333,
+     292000.0,
+     316333.3333333333,
+     571833.3333333333,
      352833.3333333333,
-     267666.6666666666,
+     352833.3333333333,
+     352833.3333333333,
+     292000.0,
+     754333.3333333333,
+     377166.6666666666,
+     413666.6666666666,
+     340666.6666666666,
+     571833.3333333333,
+     401500.0,
+     535333.3333333333,
+     438000.0,
+     608333.3333333333,
+     340666.6666666666,
+     352833.3333333333,
+     559666.6666666666,
+     450166.6666666666,
+     571833.3333333333,
+     401500.0,
+     498833.3333333333,
+     498833.3333333333,
+     365000.0,
+     255500.0,
      413666.6666666666,
      194666.66666666666,
-     730000.0,
-     365000.0,
-     413666.6666666666,
-     328500.0,
-     413666.6666666666,
-     365000.0,
+     839500.0,
      389333.3333333333,
-     279833.3333333333,
-     389333.3333333333,
-     608333.3333333333,
-     547500.0,
+     584000.0,
      316333.3333333333,
-     279833.3333333333,
-     377166.6666666666,
      438000.0,
-     340666.6666666666,
+     389333.3333333333,
+     401500.0,
+     304166.6666666666,
+     413666.6666666666,
+     632666.6666666666,
+     535333.3333333333,
      340666.6666666666,
      292000.0,
-     340666.6666666666
+     425833.3333333333,
+     438000.0,
+     328500.0,
+     389333.3333333333,
+     292000.0,
+     389333.3333333333
     ],
     "total_deaths": [
-     1,
      0,
      0,
      0,
@@ -2350,7 +6346,8 @@
      0,
      0,
      0,
-     1,
+     0,
+     0,
      1,
      2,
      0,
@@ -2362,21 +6359,21 @@
      0,
      0,
      0,
-     1,
-     0,
-     0,
-     0,
-     0,
-     0,
-     0,
      0,
      1,
+     2,
      0,
      0,
      0,
      0,
      0,
-     1,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
      0,
      0,
      0,
@@ -2392,39 +6389,363 @@
      0,
      0,
      0
+    ],
+    "bandh_days_called": [
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ]
+    ],
+    "conceded_on_day": [
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null
+    ],
+    "campaign_days_run": [
+     40,
+     39,
+     39,
+     36,
+     39,
+     38,
+     39,
+     40,
+     39,
+     39,
+     40,
+     39,
+     40,
+     40,
+     40,
+     40,
+     39,
+     40,
+     39,
+     39,
+     40,
+     39,
+     38,
+     40,
+     38,
+     39,
+     40,
+     40,
+     40,
+     40,
+     39,
+     34,
+     36,
+     40,
+     40,
+     39,
+     40,
+     37,
+     40,
+     40,
+     40,
+     38,
+     39,
+     39,
+     38,
+     39,
+     37,
+     40,
+     38,
+     40
     ]
-   },
-   "paired_effects_vs_baseline": {
-    "peak": {
-     "median_paired_ratio": 0.012,
-     "change_percent": -98.8,
-     "change_percent_ci95": [
-      -99.0,
-      -98.3
-     ],
-     "share_of_runs_higher_than_baseline": 0.0,
-     "paired_runs": 50
-    },
-    "cumulative": {
-     "median_paired_ratio": 0.0305,
-     "change_percent": -97.0,
-     "change_percent_ci95": [
-      -97.4,
-      -96.5
-     ],
-     "share_of_runs_higher_than_baseline": 0.0,
-     "paired_runs": 50
-    },
-    "deaths": {
-     "median_paired_ratio": 0.0,
-     "change_percent": -100.0,
-     "change_percent_ci95": [
-      -100.0,
-      -100.0
-     ],
-     "share_of_runs_higher_than_baseline": 0.0,
-     "paired_runs": 49
-    }
    }
   },
   "symbolic_only_validation": {
@@ -2436,7 +6757,43 @@
     "peak_lakh_10th_percentile": 6.0,
     "peak_lakh_90th_percentile": 37.6,
     "median_cumulative_crore": 0.47,
-    "median_deaths": 5.5
+    "median_deaths": 5.5,
+    "median_bandhs_called": 3.0,
+    "share_of_runs_conceded": 0.0,
+    "median_concession_day": null,
+    "median_campaign_days": 40.0
+   },
+   "paired_effects_vs_baseline": {
+    "peak": {
+     "median_paired_ratio": 0.3007,
+     "change_percent": -69.9,
+     "change_percent_ci95": [
+      -74.6,
+      -64.6
+     ],
+     "share_of_runs_higher_than_baseline": 0.0,
+     "paired_runs": 50
+    },
+    "cumulative": {
+     "median_paired_ratio": 0.3675,
+     "change_percent": -63.2,
+     "change_percent_ci95": [
+      -65.0,
+      -58.7
+     ],
+     "share_of_runs_higher_than_baseline": 0.0,
+     "paired_runs": 50
+    },
+    "deaths": {
+     "median_paired_ratio": 0.3529,
+     "change_percent": -64.7,
+     "change_percent_ci95": [
+      -75.0,
+      -60.0
+     ],
+     "share_of_runs_higher_than_baseline": 0.0,
+     "paired_runs": 49
+    }
    },
    "runs": {
     "peak_day_protesters": [
@@ -2594,39 +6951,363 @@
      3,
      1,
      5
+    ],
+    "bandh_days_called": [
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ],
+     [
+      2,
+      12,
+      25
+     ]
+    ],
+    "conceded_on_day": [
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null
+    ],
+    "campaign_days_run": [
+     40,
+     39,
+     40,
+     40,
+     38,
+     40,
+     40,
+     40,
+     40,
+     40,
+     40,
+     40,
+     40,
+     38,
+     37,
+     40,
+     40,
+     36,
+     40,
+     40,
+     40,
+     40,
+     40,
+     40,
+     40,
+     40,
+     40,
+     40,
+     38,
+     40,
+     37,
+     40,
+     36,
+     36,
+     40,
+     40,
+     40,
+     40,
+     40,
+     40,
+     34,
+     37,
+     40,
+     39,
+     40,
+     38,
+     40,
+     38,
+     38,
+     35
     ]
-   },
-   "paired_effects_vs_baseline": {
-    "peak": {
-     "median_paired_ratio": 0.3007,
-     "change_percent": -69.9,
-     "change_percent_ci95": [
-      -74.6,
-      -64.6
-     ],
-     "share_of_runs_higher_than_baseline": 0.0,
-     "paired_runs": 50
-    },
-    "cumulative": {
-     "median_paired_ratio": 0.3675,
-     "change_percent": -63.2,
-     "change_percent_ci95": [
-      -65.0,
-      -58.7
-     ],
-     "share_of_runs_higher_than_baseline": 0.0,
-     "paired_runs": 50
-    },
-    "deaths": {
-     "median_paired_ratio": 0.3529,
-     "change_percent": -64.7,
-     "change_percent_ci95": [
-      -75.0,
-      -60.0
-     ],
-     "share_of_runs_higher_than_baseline": 0.0,
-     "paired_runs": 49
-    }
    }
   }
  }

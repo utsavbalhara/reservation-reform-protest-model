@@ -33,6 +33,7 @@ def sampler_with(base_sampler, shock_ratio, backing, reference_amplifier):
     def sample(parameters, random_generator, mean_threshold_standard_deviation=0.0):
         world = base_sampler(parameters, random_generator, mean_threshold_standard_deviation)
         world.symbolic_threat_by_group = world.symbolic_threat_by_group * shock_ratio
+        world.reform_shock_ratio *= shock_ratio
         world.opposition_party_amplifier *= party_amplifier(backing, reference_amplifier) / reference_amplifier
         return world
     return sample
