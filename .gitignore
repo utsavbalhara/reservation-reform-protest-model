@@ -7,3 +7,4 @@ build/
 *.toc
 *.out
 report/mechanism_diagram.pdf
+data/raw/

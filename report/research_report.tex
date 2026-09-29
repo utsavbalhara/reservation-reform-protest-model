@@ -20,6 +20,7 @@
 \usepackage{caption}
 \usepackage[hidelinks]{hyperref}
 \usepackage{float}
+\setlength{\emergencystretch}{2em}
 \setcounter{tocdepth}{2}
 \setcounter{secnumdepth}{2}
 \usepackage{array}
@@ -53,12 +54,14 @@
 
 \newcommand{\outcomeline}[6]{%
   \begin{tabular}{@{}llll@{}}
-  \sffamily\small\color{muted}Peak day (central) & \sffamily\small\color{muted}Change & \sffamily\small\color{muted}Ever protested & \sffamily\small\color{muted}Deaths\\
+  \sffamily\small\color{muted}Peak day (grounded) & \sffamily\small\color{muted}Change & \sffamily\small\color{muted}Ever protested & \sffamily\small\color{muted}Deaths\\
   \textbf{#1} \small(#2) & \textbf{#3} & #4 & #5\\
   \end{tabular}\par\smallskip
-  {\small\color{muted}High-mobilization regime: #6}\par}
+  {\small\color{muted}Stylized specification: #6}\par}
 
 \input{generated/result_macros.tex}
+\input{../paper/generated/paper_macros.tex}
+\input{../paper/generated/grounded_macros.tex}
 \makeatletter\newcommand{\tablerows}[1]{\@@input #1 }\makeatother
 
 \begin{document}
@@ -78,19 +81,19 @@
 \vspace{8mm}
 \begin{keyresult}[At a glance]
 \textbf{Question.} If India replaced caste-based reservation with a single income test (family income below \rupee8 lakh), how many people would protest, and which policy designs would keep that number small?\par\smallskip
-\textbf{Method.} A synthetic India of 120{,}000 agents (each standing for about 12{,}000 people) whose grievance combines loss-averse material loss with symbolic threat to caste recognition. Protest spreads through neighbourhood and national threshold cascades amplified by party mobilization on bandh days. Thirteen scenarios were each run 50 times with paired uncertainty draws, in two mobilization regimes.\par\smallskip
+\textbf{Method.} Three pieces fit together. A seat-allocation model, built on the rule India actually uses and on five years of JEE (Advanced) rank lists, estimates who gains and loses IIT seats. A synthetic India of 120{,}000 agents across 640 districts turns those losses, and the threat to caste recognition, into protest. The protest model is checked against news-event data from four real episodes, including the 2018 Bharat Bandh.\par\smallskip
 \textbf{Findings.}
 \begin{itemize}[leftmargin=12pt]
-\item An abrupt switch draws about \PeakCentralBaseline{} onto the streets on the peak day (\CumulativeCentralBaseline{} ever protest, about \DeathsCentralBaseline{} deaths).
-\item Keeping caste as the qualifier and adding an income filter inside each quota cuts peak turnout by \PeakChangeCentralHybridCasteSubquotas{}. Most of the anger is about losing caste recognition, not about losing a seat.
-\item If the income-only end state is kept, a data-first commission with cross-party consensus is the strongest single lever (\PeakChangeCentralConsensusCommission{}). A managed-transition package reaches \PeakCentralManagedTransition{} (\PeakChangeCentralManagedTransition{}).
-\item Compensating the people who lose eligibility does little (\PeakChangeCentralCompensation{}).
-\item Internet shutdowns and heavy policing lower the peak modestly while multiplying deaths by \DeathRatioCentralInternetShutdown{} and \DeathRatioCentralHeavyPolicing{} times.
+\item Under the real creamy-layer and EWS rules, \EligibilityLose{} of Indians lose eligibility, and below-line SC students, who keep eligibility, lose \AllocChangeSCBelow{} of their IIT seats to below-line General students.
+\item How many people would protest cannot be pinned down: the answer moves by more than tenfold with assumptions the data cannot settle. The ranking of policy designs varies much less than the headcount.
+\item Keeping caste quotas and adding an income filter inside them changes peak turnout by \PeakChangeGroundedHybridCasteSubquotas{} and is the strongest option in every check.
+\item Compensating the families who lose eligibility (\PeakChangeGroundedCompensation) and adding seats, as was done for EWS in 2019 (\PeakChangeGroundedSeatExpansion), are the weakest options.
+\item Among options that keep the income-only end state, a cross-party commission (\PeakChangeGroundedConsensusCommission) and grandfathering (\PeakChangeGroundedGrandfathering) come next; which is stronger is not settled.
+\item Internet shutdowns and heavy policing lower the peak (\PeakChangeGroundedInternetShutdown{} and \PeakChangeGroundedHeavyPolicing) and multiply deaths by \DeathRatioGroundedInternetShutdown{} and \DeathRatioGroundedHeavyPolicing.
 \end{itemize}
-\textbf{Status of the numbers.} Magnitudes depend on assumed parameters; the ranking of interventions is the robust result.
 \end{keyresult}
 \vfill
-{\footnotesize\color{muted} Code, data, figures and videos: see the repository. Every number in this report is generated from the result files by \texttt{visualization/write\_latex\_result\_macros.py}.\par}
+{\footnotesize\color{muted} Code, data, figures and videos: see the repository. Every number in this report is generated from the result files; none is typed by hand. The full analysis, with methods and all robustness checks, is in the accompanying research paper.\par}
 \end{titlepage}
 
 \tableofcontents
@@ -98,381 +101,319 @@
 
 \section{The question}
 
-India reserves seats in public education and government jobs for Scheduled Castes (SC, 15\%), Scheduled Tribes (ST, 7.5\%) and Other Backward Classes (OBC, 27\%). Since 2019 it has also reserved 10\% for Economically Weaker Sections (EWS) of the general category. Two of these categories already carry an income test. OBC candidates from families above \rupee8 lakh a year (the ``creamy layer'') are excluded, and EWS applies only below \rupee8 lakh. SC and ST quotas have no income test at all.
+India reserves seats in public education and government jobs for Scheduled Castes (SC, 15\%), Scheduled Tribes (ST, 7.5\%) and Other Backward Classes (OBC, 27\%), and since 2019 10\% for Economically Weaker Sections (EWS) of the General category. Two of these carry an income test already: OBC families in the ``creamy layer'' are excluded, and EWS applies only below \rupee8 lakh. SC and ST quotas have no income test.
 
-This report asks what would happen if the whole system were converted into a single income test at \rupee8 lakh, with caste removed as a criterion. It asks two questions:
+This report asks what would happen if the whole system were converted into a single income test at \rupee8 lakh, with caste removed as a criterion:
 \begin{enumerate}
 \item How many people would protest, and for how long?
 \item Which changes to the policy's design, sequencing and politics would keep that protest small?
 \end{enumerate}
 
-\subsection{Who actually changes status}
-At the \rupee8 lakh line the eligibility change is small. OBC families above the line and general-category families below it already have the status an income test would give them. The people who lose eligibility are SC and ST families above \rupee8 lakh, about 2.8\% of the population in this model (roughly 4 crore people). About 80\% of Indians are reserved before and after, and about 17\% are unreserved before and after.
+\subsection{Who changes status}
+An earlier version of this analysis said that only SC and ST families above \rupee8 lakh, about \EligibilityOriginal{} of Indians, would lose eligibility. That treated the two existing income tests as the same gross-income cut, which they are not. The OBC creamy-layer test ignores salary and farm income, so many OBC families above \rupee8 lakh are eligible today and would lose eligibility too. The EWS test also excludes families with land or property above set limits, so some poorer General families are ineligible today and would gain. With central estimates, \EligibilityLose{} of Indians lose eligibility and \EligibilityGain{} gain it.
 
-That small eligibility shift is why protest is a puzzle worth modelling. Recent history shows that reservation politics mobilizes around what a change symbolizes, not only around who loses a benefit:
+\subsection{Who gains and loses seats}
+Today each category has its own quota. After the reform, all families below the line compete in one pool. The seat-allocation model, which uses the rule India applies and the published JEE (Advanced) rank lists for 2021--2025, finds that in IIT admissions:
 \begin{itemize}
-\item In 2018 a Supreme Court ruling that diluted the SC/ST (Prevention of Atrocities) Act removed nobody's quota, yet it triggered the largest Bharat Bandh on record and at least 11 deaths.
-\item In 2024 the Supreme Court permitted sub-classification within SC/ST quotas, and some judges suggested a creamy layer for them. That triggered another nationwide bandh.
+\item below-line SC students would lose \AllocChangeSCBelow{} of their seats and below-line ST students \AllocChangeSTBelow, although they keep eligibility;
+\item below-line General students would gain (\AllocChangeEWS{} for those eligible for EWS today, \AllocChangeGENBelow{} for those who are not), and below-line OBC students would gain a little (\AllocChangeOBCBelow).
 \end{itemize}
+At the same income, SC and ST candidates sit lower in the rank lists; a pool open to every below-line family therefore admits fewer of them than their own quota does.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.92\linewidth]{../figures/fig10_allocation_seat_changes.pdf}
+\caption{Change in IIT seats by group under a merged income-only pool (median, with 90\% intervals over the uncertainty about family incomes).}
+\end{figure}
 
 \section{Theory: why people would protest}
 
-Five bodies of theory shape the model. Each is stated formally, then in plain words.
-
 \subsection{Loss aversion and the politics of taking things away}
-People weigh losses roughly twice as heavily as equal gains; Tversky and Kahneman estimate a loss-aversion coefficient of about 2.25. Pierson's work on welfare retrenchment builds on this. Cutting an existing benefit is politically harder than creating one, because the losses are concentrated, immediate and visible while the gains are diffuse and uncertain. Governments that succeed at retrenchment typically use three techniques:
-\begin{itemize}
-\item \emph{Grandfathering}, which exempts people already receiving the benefit.
-\item \emph{Compensation} for the people who lose.
-\item \emph{Blame-sharing} through broad coalitions.
-\end{itemize}
+People weigh losses about twice as heavily as equal gains; Tversky and Kahneman estimate a loss-aversion coefficient of 2.25. Pierson's work on welfare retrenchment builds on this: cutting an existing benefit is harder than creating one, and governments that succeed use grandfathering, compensation for losers, and blame-sharing through broad coalitions.
 \begin{plainwords}Taking away a quota feels worse than never having had one, and the people who lose are easier to organize than the people who gain.\end{plainwords}
 
 \subsection{Symbolic threat and group identity}
-Social identity theory holds that people derive part of their self-worth from group membership, and react strongly to threats to the group's status. For SC and ST communities, caste-based reservation is also a constitutional recognition of historical injustice. Removing caste as the basis therefore carries a symbolic threat independent of any individual's eligibility. The 2018 bandh is the clearest Indian evidence that symbolic threat alone can mobilize at national scale.
-\begin{plainwords}Many people would protest not because they lose a seat, but because they read the change as erasing their community's recognition.\end{plainwords}
+For SC and ST communities, caste-based reservation is also a constitutional recognition of historical injustice. Removing caste as the basis therefore carries a symbolic threat independent of any individual's eligibility. The 2018 bandh, which followed a court ruling that removed no one's quota, is the clearest Indian evidence that symbolic threat alone can mobilize at national scale.
+\begin{plainwords}Many people would protest because they read the change as erasing their community's recognition, whether or not they lose a seat.\end{plainwords}
 
 \subsection{Threshold cascades}
-Granovetter's threshold model treats each person as having a personal threshold: the share of others who must already be protesting before they join. A few activists join at once, and their presence tips people with slightly higher thresholds, and so on. Small differences in the distribution of thresholds or grievances can produce very large differences in turnout, which makes the system non-linear near its tipping point.
-\begin{plainwords}People join when enough of their neighbours already have. Pushing grievance down a little can remove far more protest than you would expect, because it stops the chain reaction early.\end{plainwords}
+Granovetter's threshold model treats each person as having a personal threshold: the share of others who must already be protesting before they join. Small differences in the distribution of thresholds or grievances can produce large differences in turnout.
+\begin{plainwords}People join when enough of their neighbours already have. Lowering grievance a little can remove a large share of the protest, because fewer people join early and the chain reaction stops sooner.\end{plainwords}
 
-\subsection{Organization and elite cues}
-Resource-mobilization theory (McCarthy and Zald) argues that grievance is common but organized protest is not. Organizations, parties and networks supply the buses, bandh calls and messaging that convert grievance into turnout. Both the 2018 and 2024 bandhs had support from opposition parties.
-\begin{plainwords}Anger needs machinery. When opposition parties co-own a reform, they stop supplying that machinery to protests against it.\end{plainwords}
+\subsection{Organization}
+Organizations, parties and networks supply the bandh calls and messaging that turn grievance into turnout. The 2018 bandh, however, was organized with little central leadership or party backing, through local groups and WhatsApp; the 2024 bandh had opposition-party backing and drew a mixed response. Party machinery is one amplifier among several, not a precondition.
+\begin{plainwords}Protest needs organizing, but in 2018 local groups did it over WhatsApp, without party backing.\end{plainwords}
 
 \subsection{Repression and backfire}
-Studies of repression find that visible force against protesters often backfires. Deaths create martyrs, and perceived injustice broadens support. India has imposed more internet shutdowns than any other country, and Rydzak finds that shutdowns in India are associated with more violent collective action, not less, because they disrupt the coordination that peaceful protest relies on.
-\begin{plainwords}Cutting the internet or sending in heavy policing may shrink the crowd on a given day, but it tends to make protest angrier, longer and deadlier.\end{plainwords}
+Studies of repression find that force sometimes deters and sometimes backfires. Rydzak finds that internet shutdowns in India are associated with more violent collective action, not less.
+\begin{plainwords}Cutting the internet or sending in heavy policing may shrink the crowd on a given day, and it costs lives. Whether it also makes protest bigger depends on how people react to deaths.\end{plainwords}
 
 \section{The model in simple terms}
 
 \begin{figure}[H]
 \centering
-\begin{tikzpicture}[
-  box/.style={draw=#1,fill=#1!8,rounded corners=2pt,align=center,font=\sffamily\small,minimum height=10mm,text width=28mm,inner sep=2pt},
-  box/.default=muted,
-  arrow/.style={-{Stealth[length=2.2mm]},thick,draw=ink!70},
-  loop/.style={-{Stealth[length=2.2mm]},thick,draw=suppression,dashed},
-  looplabel/.style={font=\sffamily\scriptsize,text=suppression}]
-\node[box=suppression] (material) at (0,1.0) {Material loss\\ \scriptsize×\,loss aversion};
-\node[box=lever] (symbolic) at (0,-1.0) {Symbolic threat\\ \scriptsize×\,identity strength};
-\node[box=ink] (grievance) at (4.1,0) {Grievance};
-\node[box=ink] (decision) at (8.2,0) {Protest today?\\ \scriptsize if total $>$ threshold};
-\node[box=package] (organization) at (8.2,2.3) {Organization\\ \scriptsize parties, bandh calls};
-\node[box=accent] (social) at (8.2,-2.3) {Social pull\\ \scriptsize neighbours, national};
-\node[box=ink,text width=24mm] (turnout) at (12.2,0) {Turnout};
-\node[box=muted,text width=24mm] (fatigue) at (12.2,2.3) {Fatigue\\ \scriptsize raises threshold};
-\node[box=suppression,text width=24mm] (deaths) at (12.2,-2.3) {Violence\\ and deaths};
-\draw[arrow] (material.east) -- (grievance.north west);
-\draw[arrow] (symbolic.east) -- (grievance.south west);
-\draw[arrow] (grievance) -- (decision);
-\draw[arrow] (organization) -- (decision);
-\draw[arrow] (social) -- (decision);
-\draw[arrow] (decision) -- (turnout);
-\draw[loop] (turnout) -- (fatigue);
-\draw[loop] (fatigue.west) -- node[looplabel,above,sloped]{fatigue} (decision.north east);
-\draw[loop] (turnout.south west) -- node[looplabel,above,sloped]{contagion} (social.east);
-\draw[loop] (turnout) -- (deaths);
-\draw[loop] (deaths.south) -- ++(0,-0.75) -| node[looplabel,pos=0.25,below]{martyr effect raises symbolic threat} (symbolic.south);
-\end{tikzpicture}
-\caption{What drives one person's decision each day. Dashed orange arrows are feedback loops: today's turnout shapes tomorrow's decisions.}
+\includegraphics[width=0.95\linewidth]{../figures/fig00_mechanism.pdf}
+\caption{What drives one person's decision each day. Dashed arrows are feedback loops: today's turnout shapes tomorrow's decisions.}
 \end{figure}
 
 \subsection{The synthetic India}
-The model builds 120{,}000 agents, each standing for about 12{,}000 people. Group shares follow the 2011 Census for SC (16.6\%) and ST (8.6\%) and survey estimates for OBC (42\%), leaving 32.8\% General. About one family in five sits above \rupee8 lakh: 30\% of General, 17\% of OBC, 12\% of SC and 10\% of ST. SC and ST are split into a better-off tier and a most-deprived tier, with most above-line families in the better-off tier. Agents live in neighbourhoods of about 100 agents from the same group.
+The model builds 120{,}000 agents, each standing for about 12{,}000 people, spread across India's 640 Census 2011 districts in proportion to population. Each district has its own SC and ST shares; OBC and General shares follow the state's figures from the National Family Health Survey. About one family in five sits above \rupee8 lakh. Agents live in neighbourhoods of about 100; most neighbourhoods are single-group, and the rest are mixed.
 
 \subsection{How one day works}
 For every agent, every day:
 \begin{enumerate}
-\item \textbf{Grievance} is the material loss (weighted 2.25 times if it is a loss) plus the symbolic threat multiplied by how strongly the agent identifies with its group.
-\item \textbf{Social pull} rises with the share of the agent's neighbourhood that protested yesterday and with its group's national turnout. Both effects saturate, because a crowd can only pull so hard.
-\item \textbf{Organization} adds a push on bandh-call days (days 3, 13 and 26), larger when opposition parties back the protest.
-\item The agent \textbf{protests} with a probability that rises smoothly as grievance plus pull plus push exceeds its personal threshold.
-\item Protesting raises the agent's threshold a little (\textbf{fatigue}).
-\item Deaths occur in proportion to turnout. Each death raises symbolic threat for the groups on the street (the \textbf{martyr effect}).
+\item \textbf{Grievance} is the material loss (weighted 2.25 times if it is a loss), taken from the seat-allocation model, plus the symbolic threat multiplied by how strongly the agent identifies with its group.
+\item \textbf{Social pull} rises with the share of the agent's neighbourhood that protested yesterday and with its group's national turnout. Both effects saturate.
+\item \textbf{Organization} adds a push on bandh days. Organizations call a bandh when they expect a credible turnout.
+\item The agent \textbf{protests} with a probability that rises smoothly as grievance plus pull plus push exceeds its personal threshold. Protesting raises the threshold a little (\textbf{fatigue}).
+\item Deaths occur in proportion to turnout, most of them on bandh days, and raise symbolic threat for the groups on the street (the \textbf{martyr effect}).
+\item The government may \textbf{concede} under pressure, which relieves grievance but can provoke a counter-mobilization by the General category.
 \end{enumerate}
 
-\noindent Formally, agent $i$ in group $g$ protests on day $t$ with probability
-\begin{equation}
-P_{i,t}=\sigma\!\left(\frac{w_m\,L(m_i)+w_s\,\iota_i\,(s_g+\mu_{g,t})+\beta_n\tanh\!\frac{n_{c(i),t-1}}{n^*}+\beta_v\tanh\!\frac{v_{g,t-1}}{v^*}+a\,o_g\,b_t-\theta_{i,t}}{\tau}\right),
-\end{equation}
-where $L(m)=\lambda m$ for losses and $m$ for gains, $\iota_i$ is identity strength, $s_g$ symbolic threat, $\mu_{g,t}$ the martyr effect, $n$ and $v$ neighbourhood and national turnout, $o_g$ organizational capacity, $a$ the opposition-party amplifier, $b_t$ the bandh-day mobilization, and $\theta_{i,t}$ the agent's threshold.
+\subsection{Checking the model against real protests}
+Protest turnout in India is rarely counted, and the estimates that exist differ by a factor of a hundred (for 2018, from ``thousands'' to ``hundreds of thousands''). Instead of a headcount, the model is checked against how many protest events the news reported, from the GDELT database, for four episodes: the SC/ST Bharat Bandhs of April 2018 and August 2024, the upper-caste bandh of September 2018, and the EWS amendment of January 2019, which drew little protest. Parameter sets that cannot reproduce all four are discarded; \CalibKept{} survive after \CalibWaves{} rounds of \CalibWaveSize{} sets each.
 
-\subsection{Calibration and a validation check}
-The one free level parameter is the mean participation threshold. It is set to 6.6, which puts the baseline peak near 46 lakh, the middle of an independent prior estimate of 20 lakh to 1 crore. The check that matters is separate. Removing all material loss leaves only symbolic threat, much like the 2018 Atrocities Act ruling. That shock alone should still produce a bandh at 2018 scale. The model gives \PeakCentralSymbolicOnlyValidation{}, which passes.
-
-\begin{figure}[H]
-\centering
-\includegraphics[width=0.92\linewidth]{../figures/fig05_threshold_response_curve.pdf}
-\caption{Peak-day turnout against the mean threshold. Turnout roughly halves for every quarter-step in threshold. Any lever that lowers net motivation therefore has a multiplied effect on turnout.}
-\end{figure}
-
-\begin{figure}[H]
-\centering
-\includegraphics[width=0.92\linewidth]{../figures/fig04_grievance_composition.pdf}
-\caption{Average grievance by segment in the baseline. Symbolic threat is the larger part for every group except SC and ST families above the line, who make up under 3\% of India.}
-\end{figure}
+Results of the check:
+\begin{itemize}
+\item The event data tell us how big the episodes were \emph{relative to each other} much better than how big they were. The surviving sets imply that \CalibTurnoutTwentyEighteenInterval{} lakh people joined the 2018 bandh.
+\item When one episode was hidden from the model and predicted from the others, the predictions of deaths and of which states protest were weak. The model is a tool for comparing policy designs, not a forecast.
+\end{itemize}
 
 \section{Results at a glance}
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=\linewidth]{../figures/fig01_intervention_ranking.pdf}
-\caption{Peak-day protesters for all thirteen scenarios, median of 50 paired runs with the 10th--90th percentile range, on a log scale.}
+\includegraphics[width=\linewidth]{../figures/fig12_paired_effects.pdf}
+\caption{Change in peak-day turnout for each option compared with the abrupt switch in the same simulated world. Dots are medians, lines 95\% intervals, for the data-grounded model and the original stylized model.}
 \end{figure}
 
 \begin{table}[H]
 \centering\small
-\caption{Central regime, 50 paired runs per scenario. Peak in lakh; cumulative in crore.}
-\begin{tabularx}{\linewidth}{@{}lLrrrrr@{}}
+\caption{Grounded model, \RunCountGrounded{} paired runs per scenario. Peak in lakh; change is the median paired change with 95\% interval; ever protested in crore.}
+\begin{tabularx}{\linewidth}{@{}lLrrrrrr@{}}
 \toprule
- & Scenario & Peak & 10th--90th & Change & Ever protest & Deaths\\
+ & Scenario & Peak & 10th--90th & Change & 95\% CI & Ever & Deaths\\
+\midrule
+\tablerows{generated/scenario_table_grounded_central.tex}
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\begin{table}[H]
+\centering\small
+\caption{Stylized model, central regime, \RunCountCentral{} paired runs per scenario.}
+\begin{tabularx}{\linewidth}{@{}lLrrrrrr@{}}
+\toprule
+ & Scenario & Peak & 10th--90th & Change & 95\% CI & Ever & Deaths\\
 \midrule
 \tablerows{generated/scenario_table_central.tex}
 \bottomrule
 \end{tabularx}
 \end{table}
 
-\begin{table}[H]
-\centering\small
-\caption{High-mobilization regime (mean threshold lowered by 0.5), 50 paired runs per scenario.}
-\begin{tabularx}{\linewidth}{@{}lLrrrrr@{}}
-\toprule
- & Scenario & Peak & 10th--90th & Change & Ever protest & Deaths\\
-\midrule
-\tablerows{generated/scenario_table_high-mobilization.tex}
-\bottomrule
-\end{tabularx}
-\end{table}
+\paragraph{About the headcounts} The grounded model's baseline peak of \PeakGroundedBaseline{} rests on two things the data cannot settle: how strongly the reform would threaten caste recognition compared with the 2018 ruling, and how much material grievance weighs. Across the plausible range the peak runs from \AssumptionPeakLow{} to \AssumptionPeakHigh. The headcounts are illustrations; the changes between designs are the result.
+
+\section{Where the anger comes from, and who protests}
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.92\linewidth]{../figures/fig02_daily_turnout_paths.pdf}
-\caption{Daily turnout for four contrasting scenarios. Bandh calls produce the spikes. Heavy policing flattens those spikes but keeps more people on the street between them.}\label{fig:paths}
+\includegraphics[width=0.9\linewidth]{../figures/fig16_grievance_composition_grounded.pdf}
+\caption{Average grievance by group in the grounded model, split into symbolic threat and material change.}
 \end{figure}
+
+\begin{itemize}
+\item \textbf{Symbolic and material grievance.} Symbolic threat is \SymbolicShareOfGrievance{} of all the grievance that pushes people towards protest. Removing it cuts the peak by \GChanNoSymbolic; removing the material losses cuts it by \GChanNoMaterial. For below-line SC and ST families, the seat losses add between a third and a half to their grievance.
+\item \textbf{Who protests.} SC communities make up \GroupShareSC{} of protester-days and ST communities \GroupShareST.
+\item \textbf{Where.} \TopStates. This is where the SC and ST population lives, not a prediction of where organizers will succeed: in 2018, Punjab, where the bandh call began, reported far more protest than its population share.
+\end{itemize}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.9\linewidth]{../figures/fig17_state_distribution.pdf}
+\caption{Share of protest by state in the grounded model, and the share of reported protest events by state on 2 April 2018.}
+\end{figure}
+
+\subsection{Patterns from past protests}
+Five patterns from past episodes, and whether the model shows them:
+\begin{enumerate}
+\item A threat to recognition alone can bring out a national bandh: \textbf{yes}.
+\item Protest concentrates on bandh days: \textbf{mostly} (bandh days are about \FactBandhToOrdinary{} times ordinary days).
+\item Party backing is not what makes a bandh large: \textbf{yes} (raising party backing from the 2018 to the 2024 level changes the peak by a factor of only \FactBackingPeakRatio).
+\item A group splits when a reform creates winners inside it: \textbf{yes} (sub-classification changes the poorest sub-castes' participation by \FactDeprivedChange).
+\item Some bandhs turn deadly and governments concede: \textbf{partly}. Deaths and concessions happen in the model, but it cannot tell which bandhs will turn violent.
+\end{enumerate}
 
 \section{Scenario by scenario}
 
-Each scenario below follows the same layout: what the policy is, the theory behind it, a plain-language summary, how it enters the model, the outcome, and why the outcome came out that way. All percentages compare peak-day turnout with the baseline median of \PeakCentralBaseline{}.
+Each scenario follows the same layout: what the policy is, the theory behind it, a plain-language summary, how it enters the model, the outcome, and why. Changes compare peak-day turnout with the abrupt switch in the same simulated world.
 
 \subsection{Base: the abrupt \rupee8 lakh income-only switch}
 \subsubsection{What it is}
 Parliament replaces SC, ST, OBC and EWS quotas with a single income test at \rupee8 lakh, effective immediately, with no consultation or transition.
-\subsubsection{Theory}
-Every protest driver is at full strength. Above-line SC and ST families suffer a concentrated loss; below-line reserved groups lose their separate pools; symbolic threat is unmitigated; and opposition parties are free to mobilize.
 \begin{plainwords}This is the reference point: the reform done in the most provocative way.\end{plainwords}
 \subsubsection{Outcome}
-\outcomeline{\PeakCentralBaseline}{\PeakRangeCentralBaseline}{--}{\CumulativeCentralBaseline}{\DeathsCentralBaseline}{\PeakHighBaseline{} peak, \CumulativeHighBaseline{} ever protest, \DeathsHighBaseline{} deaths.}
+\outcomeline{\PeakGroundedBaseline}{\PeakRangeGroundedBaseline}{--}{\CumulativeGroundedBaseline}{\DeathsGroundedBaseline}{\PeakCentralBaseline{} peak, \CumulativeCentralBaseline{} ever protest, \DeathsCentralBaseline{} deaths.}
 \subsubsection{Why}
-SC communities carry most of the turnout (Figure~\ref{fig:groups}): they have the highest symbolic threat, the strongest organizations and the largest group of direct losers. Turnout spikes on each bandh call and decays between them as fatigue sets in. The wide range across runs reflects how close the system sits to its tipping point.
+SC communities carry most of the turnout: they combine the highest symbolic threat, the strongest organizations and, according to the allocation model, the largest seat losses. In the grounded model the government concedes in \GroundedConcededShare{} of runs, after a median of \GroundedConcessionDay{} days.
 
-\begin{figure}[H]
-\centering
-\includegraphics[width=0.85\linewidth]{../figures/fig03_turnout_by_group.pdf}
-\caption{Baseline turnout by group. SC turnout dominates; General-category turnout is zero because the reform favours them.}
-\label{fig:groups}
-\end{figure}
-
-\subsection{V: validation, symbolic threat only}
+\subsection{V: symbolic threat only (a check)}
 \subsubsection{What it is}
-A check, not a policy. All material loss is removed, so only the symbolic threat of abolishing caste-based quotas remains. This resembles the 2018 Atrocities Act ruling, which changed no one's quota.
-\subsubsection{Theory}
-If identity-based mobilization is real, a symbolic shock alone should still produce a large national bandh.
-\begin{plainwords}We checked that the model can reproduce something like the 2018 bandh before trusting it on anything else.\end{plainwords}
+All material loss is removed, so only the symbolic threat remains, much like the 2018 ruling.
 \subsubsection{Outcome}
-\outcomeline{\PeakCentralSymbolicOnlyValidation}{\PeakRangeCentralSymbolicOnlyValidation}{\PeakChangeCentralSymbolicOnlyValidation}{\CumulativeCentralSymbolicOnlyValidation}{\DeathsCentralSymbolicOnlyValidation}{\PeakHighSymbolicOnlyValidation{} peak.}
+\outcomeline{\PeakGroundedSymbolicOnlyValidation}{\PeakRangeGroundedSymbolicOnlyValidation}{\PeakChangeGroundedSymbolicOnlyValidation}{\CumulativeGroundedSymbolicOnlyValidation}{\DeathsGroundedSymbolicOnlyValidation}{\PeakCentralSymbolicOnlyValidation{} (\PeakChangeCentralSymbolicOnlyValidation).}
 \subsubsection{Why}
-Symbolic threat alone produces bandh-scale protest, consistent with 2018. Removing material loss still cuts turnout by about 70\%, because material loss pushes the most motivated agents over their thresholds and they seed the cascade.
+Symbolic threat alone still produces a large protest. Material loss matters more in the grounded model than in the stylized one, because the allocation model shows that below-line SC and ST students lose most of their seats, not a small share.
 
 \subsection{L1: grandfather current cohorts, with a 10-year glide}
 \subsubsection{What it is}
 Students and job applicants already in the pipeline keep their current category rights. The income test is phased in over ten years.
-\subsubsection{Theory}
-Loss aversion applies to losses felt now. Grandfathering is Pierson's classic blame-avoidance tool: it converts an immediate, concentrated loss into a deferred and discounted one.
 \begin{plainwords}Nobody who is counting on a quota today loses it, and the change arrives slowly enough to plan around.\end{plainwords}
 \subsubsection{How it is modelled}
-Every material loss is cut to 30\% of its baseline value; symbolic threat falls by 5\%.
+Every material loss is cut to 30\% of its value; symbolic threat falls by 5\%.
 \subsubsection{Outcome}
-\outcomeline{\PeakCentralGrandfathering}{\PeakRangeCentralGrandfathering}{\PeakChangeCentralGrandfathering}{\CumulativeCentralGrandfathering}{\DeathsCentralGrandfathering}{\PeakHighGrandfathering{} (\PeakChangeHighGrandfathering).}
+\outcomeline{\PeakGroundedGrandfathering}{\PeakRangeGroundedGrandfathering}{\PeakChangeGroundedGrandfathering}{\CumulativeGroundedGrandfathering}{\DeathsGroundedGrandfathering}{\PeakCentralGrandfathering{} (\PeakChangeCentralGrandfathering).}
 \subsubsection{Why}
-Grandfathering takes out most of the material component, so turnout falls almost to the symbolic-only level (\PeakCentralSymbolicOnlyValidation). What remains is protest about recognition, which grandfathering does not address.
+Grandfathering removes most of the material grievance, and in the grounded model material grievance is large. It does nothing about recognition.
 
-\subsection{L2: expand seats so no group loses}
+\subsection{L2: expand seats}
 \subsubsection{What it is}
-Seats and posts are expanded so that no group's absolute number of seats falls, as the government did in 2019 when it added about 2.14 lakh seats in central institutions to introduce EWS without cutting other quotas.
-\subsubsection{Theory}
-When reserved pools merge, below-line SC, ST and OBC candidates face more competition. Expanding capacity removes that loss for the large below-line majority.
-\begin{plainwords}If the pie grows, nobody's slice has to shrink.\end{plainwords}
+Capacity grows by a quarter, the scale used to introduce EWS in 2019, and the merged pool fills the larger intake.
+\begin{plainwords}Adding seats might mean that nobody loses theirs.\end{plainwords}
 \subsubsection{How it is modelled}
-Material loss for below-line SC, ST and OBC is set to zero. Above-line SC and ST still lose eligibility.
+The allocation model is rerun with 25\% more seats.
 \subsubsection{Outcome}
-\outcomeline{\PeakCentralSeatExpansion}{\PeakRangeCentralSeatExpansion}{\PeakChangeCentralSeatExpansion}{\CumulativeCentralSeatExpansion}{\DeathsCentralSeatExpansion}{\PeakHighSeatExpansion{} (\PeakChangeHighSeatExpansion).}
+\outcomeline{\PeakGroundedSeatExpansion}{\PeakRangeGroundedSeatExpansion}{\PeakChangeGroundedSeatExpansion}{\CumulativeGroundedSeatExpansion}{\DeathsGroundedSeatExpansion}{\PeakCentralSeatExpansion{} (\PeakChangeCentralSeatExpansion).}
 \subsubsection{Why}
-The below-line loss is spread thinly across many people, so removing it lowers grievance only modestly per person. Both the direct losers and the symbolic threat remain. It is a useful supporting measure, not a solution.
+The EWS precedent does not transfer. EWS added a new category without merging any; here, even with a quarter more seats, the merged pool still ranks SC and ST candidates against General candidates, and below-line SC students still lose \AllocExpandedSCBelow{} of their seats. The stylized model assumed that expansion removes the loss, which is why it looked better there.
 
-\subsection{L3: keep caste sub-quotas, add an income filter inside them}
+\subsection{L3: keep caste quotas, add an income filter inside them}
 \subsubsection{What it is}
-A hybrid design. SC, ST and OBC quotas stay, but within each quota only families below the income line are eligible. In effect this extends the OBC creamy layer to SC and ST. Brazil's 2012 Quota Law works similarly: racial sub-quotas sit inside a public-school and income filter.
-\subsubsection{Theory}
-It keeps caste recognition, which carries most of the symbolic threat, while still targeting benefits by income. It also avoids merging pools, so below-line candidates lose nothing.
+SC, ST and OBC quotas stay, but within each only families below the income line are eligible. In effect this extends the OBC creamy layer to SC and ST. Brazil's 2012 Quota Law combines criteria in a similar way.
 \begin{plainwords}Keep the caste categories, but stop the richest families inside them from using the quota.\end{plainwords}
 \subsubsection{How it is modelled}
-Symbolic threat for SC, ST and OBC falls to 40\% of baseline; below-line material loss is removed. Above-line SC and ST still lose eligibility.
+Symbolic threat for SC, ST and OBC falls to 40\% of its value. The allocation model is rerun with SC and ST quotas closed to above-line families: their seats go to below-line SC and ST students, who gain (\AllocFilterSCBelow{} for SC, \AllocFilterSTBelow{} for ST).
 \subsubsection{Outcome}
-\outcomeline{\PeakCentralHybridCasteSubquotas}{\PeakRangeCentralHybridCasteSubquotas}{\PeakChangeCentralHybridCasteSubquotas}{\CumulativeCentralHybridCasteSubquotas}{\DeathsCentralHybridCasteSubquotas}{\PeakHighHybridCasteSubquotas{} (\PeakChangeHighHybridCasteSubquotas).}
+\outcomeline{\PeakGroundedHybridCasteSubquotas}{\PeakRangeGroundedHybridCasteSubquotas}{\PeakChangeGroundedHybridCasteSubquotas}{\CumulativeGroundedHybridCasteSubquotas}{\DeathsGroundedHybridCasteSubquotas}{\PeakCentralHybridCasteSubquotas{} (\PeakChangeCentralHybridCasteSubquotas).}
 \subsubsection{Why}
-It attacks the largest driver directly, and the cascade does the rest: once most agents fall below threshold, the chain reaction never starts. Remaining protest comes from above-line SC and ST families, who still lose. The result holds even if the hybrid removes only a fifth of the symbolic threat (\HybridRetainedEighty{}; Section~\ref{sec:robustness}). The main caution is the 2024 bandh, which a mere suggestion of an SC/ST creamy layer triggered. The real symbolic relief may be at the weak end of the tested range. This design also gives up the premise of the question, since caste stays a criterion.
+It removes most of both drivers at once: the symbolic threat, and the seat losses of the below-line majority, which become gains. It is the strongest option in every check. The 2024 bandh was triggered by a proposed SC/ST creamy layer, so the symbolic relief may be smaller than assumed. This design also keeps caste as a criterion, so it is an alternative to the reform rather than a version of it.
 
 \subsection{L4: sub-classify to favour the most-deprived}
 \subsubsection{What it is}
 Within SC and ST, a larger share of benefits goes to the most-deprived sub-castes, as permitted by the Supreme Court in 2024.
-\subsubsection{Theory}
-Coalitions can split when a reform creates real winners inside a protesting group. During the 2024 bandh, about 30 SC/ST communities in Rajasthan opposed the protest because they supported sub-classification.
 \begin{plainwords}Give the poorest sub-castes a better deal, and many of them will not join the protest.\end{plainwords}
 \subsubsection{How it is modelled}
-The most-deprived tier gains (material loss reduced by 0.5) and feels only 30\% of the symbolic threat.
+The most-deprived tier's material loss falls by half a unit, and its symbolic threat falls from 0.8 to 0.3 times its group's.
 \subsubsection{Outcome}
-\outcomeline{\PeakCentralSubClassification}{\PeakRangeCentralSubClassification}{\PeakChangeCentralSubClassification}{\CumulativeCentralSubClassification}{\DeathsCentralSubClassification}{\PeakHighSubClassification{} (\PeakChangeHighSubClassification).}
+\outcomeline{\PeakGroundedSubClassification}{\PeakRangeGroundedSubClassification}{\PeakChangeGroundedSubClassification}{\CumulativeGroundedSubClassification}{\DeathsGroundedSubClassification}{\PeakCentralSubClassification{} (\PeakChangeCentralSubClassification).}
 \subsubsection{Why}
-The most-deprived tier largely drops out, but the better-off tier, which includes nearly all the direct losers, keeps protesting. Many neighbourhoods are mixed across tiers, so the better-off tier's cascade still runs.
+Participation in the most-deprived tier changes by \FactDeprivedChange, and in the better-off tier by only \FactBetterOffChange.
 
 \subsection{L5: data-first commission with cross-party consensus}
 \subsubsection{What it is}
-The reform goes through a statutory commission that works from the caste census data before any legislation, with opposition parties represented and the final design negotiated across parties.
-\subsubsection{Theory}
-It combines procedural legitimacy with Pierson's blame-sharing. When opposition parties co-own a reform, they do not supply the organization, messaging and bandh calls that turn grievance into turnout.
-\begin{plainwords}If every major party signs off, nobody has a reason to bus people into the streets against it.\end{plainwords}
+The reform goes through a statutory commission that works from the caste census data before any legislation, with opposition parties represented.
+\begin{plainwords}If every major party signs off, and the design is built on data everyone has seen, the reform reads less as an attack.\end{plainwords}
 \subsubsection{How it is modelled}
 The opposition-party amplifier falls from 1.5 to 1.0; symbolic threat falls by 20\%.
 \subsubsection{Outcome}
-\outcomeline{\PeakCentralConsensusCommission}{\PeakRangeCentralConsensusCommission}{\PeakChangeCentralConsensusCommission}{\CumulativeCentralConsensusCommission}{\DeathsCentralConsensusCommission}{\PeakHighConsensusCommission{} (\PeakChangeHighConsensusCommission).}
+\outcomeline{\PeakGroundedConsensusCommission}{\PeakRangeGroundedConsensusCommission}{\PeakChangeGroundedConsensusCommission}{\CumulativeGroundedConsensusCommission}{\DeathsGroundedConsensusCommission}{\PeakCentralConsensusCommission{} (\PeakChangeCentralConsensusCommission).}
 \subsubsection{Why}
-Bandh-day mobilization sets peak turnout, and consensus removes a third of it while lowering symbolic threat for everyone. This is the strongest lever that keeps the full income-only end state, and it is the load-bearing part of the managed-transition package. It is also the hardest to achieve in practice.
+Most of the effect comes from the assumed cut in symbolic threat, not from withdrawing party machinery; in 2018 protest was large without it. Whether this option beats grandfathering depends on how much a commission would change what the reform means to people, which the model cannot tell.
 
-\subsection{L6: compensate above-line losers}
+\subsection{L6: compensate the families who lose eligibility}
 \subsubsection{What it is}
 Families that lose eligibility receive scholarships, hostel places and transitional grants.
-\subsubsection{Theory}
-Pierson's compensation strategy: buy off the concentrated losers.
 \begin{plainwords}Pay the people who lose the quota.\end{plainwords}
 \subsubsection{How it is modelled}
-Material loss for above-line SC and ST is halved.
+The losses of above-line SC, ST and non-creamy OBC families are halved.
 \subsubsection{Outcome}
-\outcomeline{\PeakCentralCompensation}{\PeakRangeCentralCompensation}{\PeakChangeCentralCompensation}{\CumulativeCentralCompensation}{\DeathsCentralCompensation}{\PeakHighCompensation{} (\PeakChangeHighCompensation).}
+\outcomeline{\PeakGroundedCompensation}{\PeakRangeGroundedCompensation}{\PeakChangeGroundedCompensation}{\CumulativeGroundedCompensation}{\DeathsGroundedCompensation}{\PeakCentralCompensation{} (\PeakChangeCentralCompensation).}
 \subsubsection{Why}
-The direct losers are under 3\% of the population, and money does nothing about symbolic threat. Compensation is the weakest lever, and removing it from the managed-transition package barely changes that package's result.
+It reaches a small minority, not the below-line majority whose seats the merged pool takes, and money does nothing about symbolic threat.
 
 \subsection{L7: guarantee untouched protections}
 \subsubsection{What it is}
 The reform is written with explicit guarantees about what stays untouched: SC/ST reserved seats in legislatures, the Atrocities Act, and a scheduled review clause.
-\subsubsection{Theory}
-Symbolic threat depends on what people believe the reform will lead to next. Credible guarantees limit that fear.
 \begin{plainwords}Say clearly, in law, what is not changing.\end{plainwords}
 \subsubsection{How it is modelled}
-Symbolic threat falls by 15\% for every group.
+Symbolic threat falls by 15\%.
 \subsubsection{Outcome}
-\outcomeline{\PeakCentralCredibleGuarantees}{\PeakRangeCentralCredibleGuarantees}{\PeakChangeCentralCredibleGuarantees}{\CumulativeCentralCredibleGuarantees}{\DeathsCentralCredibleGuarantees}{\PeakHighCredibleGuarantees{} (\PeakChangeHighCredibleGuarantees).}
+\outcomeline{\PeakGroundedCredibleGuarantees}{\PeakRangeGroundedCredibleGuarantees}{\PeakChangeGroundedCredibleGuarantees}{\CumulativeGroundedCredibleGuarantees}{\DeathsGroundedCredibleGuarantees}{\PeakCentralCredibleGuarantees{} (\PeakChangeCentralCredibleGuarantees).}
 \subsubsection{Why}
-A 15\% cut in symbolic threat produces a much larger cut in turnout. Symbolic threat is the dominant driver, and the cascade multiplies any reduction.
+A 15\% cut in symbolic threat produces a much larger cut in turnout, because the cascade multiplies any reduction.
 
 \subsection{B1: internet shutdowns (tested for backfire)}
 \subsubsection{What it is}
-Mobile internet is suspended in areas with protests, as Indian states have frequently done.
-\subsubsection{Theory}
-Rydzak finds that shutdowns in India are associated with more violent collective action, because they disrupt the coordination that disciplined, peaceful protest needs.
-\begin{plainwords}Cutting the internet makes it harder to organize, but it makes what does happen more chaotic and violent.\end{plainwords}
+Mobile internet is suspended in areas with protests.
 \subsubsection{How it is modelled}
-Neighbourhood and national influence fall by 40\% and bandh mobilization by 20\%, while the death rate rises 2.5 times.
+Neighbourhood and national influence fall by 40\% and bandh mobilization by 20\%, while violent deaths rise 2.5 times.
 \subsubsection{Outcome}
-\outcomeline{\PeakCentralInternetShutdown}{\PeakRangeCentralInternetShutdown}{\PeakChangeCentralInternetShutdown}{\CumulativeCentralInternetShutdown{} (\CumulativeChangeCentralInternetShutdown)}{\DeathsCentralInternetShutdown{} (×\DeathRatioCentralInternetShutdown)}{\PeakHighInternetShutdown{} (\PeakChangeHighInternetShutdown), \DeathsHighInternetShutdown{} deaths (×\DeathRatioHighInternetShutdown).}
+\outcomeline{\PeakGroundedInternetShutdown}{\PeakRangeGroundedInternetShutdown}{\PeakChangeGroundedInternetShutdown}{\CumulativeGroundedInternetShutdown{} (\CumulativeChangeGroundedInternetShutdown)}{\DeathsGroundedInternetShutdown{} (×\DeathRatioGroundedInternetShutdown)}{\PeakCentralInternetShutdown{} (\PeakChangeCentralInternetShutdown), deaths ×\DeathRatioCentralInternetShutdown.}
 \subsubsection{Why}
-Weaker coordination trims the peak, and more so when mobilization is high. But extra deaths feed the martyr effect, which raises symbolic threat and keeps people coming out, so more people protest overall in the central regime. Every version of this lever costs lives.
+Weaker coordination trims the peak. The rise in deaths is mostly the assumption itself: shutdowns are modelled as making protest more violent, following Rydzak's evidence.
 
 \subsection{B2: heavy policing and mass arrests (tested for backfire)}
 \subsubsection{What it is}
 Large deployments, preventive detentions and forceful dispersal on bandh days.
-\subsubsection{Theory}
-Force raises the cost of turning out but produces martyrs and perceived injustice, which broadens support.
-\begin{plainwords}Force can shrink a crowd on the day, but every death recruits more protesters for the days after.\end{plainwords}
 \subsubsection{How it is modelled}
-Turning out on bandh days costs 0.4 more; the death rate triples; each death raises symbolic threat 1.5 times as much.
+Turning out on bandh days costs more; deaths attributed to the police rise so that total deaths triple; each death raises symbolic threat half as much again.
 \subsubsection{Outcome}
-\outcomeline{\PeakCentralHeavyPolicing}{\PeakRangeCentralHeavyPolicing}{\PeakChangeCentralHeavyPolicing}{\CumulativeCentralHeavyPolicing{} (\CumulativeChangeCentralHeavyPolicing)}{\DeathsCentralHeavyPolicing{} (×\DeathRatioCentralHeavyPolicing)}{\PeakHighHeavyPolicing{} (\PeakChangeHighHeavyPolicing), \DeathsHighHeavyPolicing{} deaths (×\DeathRatioHighHeavyPolicing).}
+\outcomeline{\PeakGroundedHeavyPolicing}{\PeakRangeGroundedHeavyPolicing}{\PeakChangeGroundedHeavyPolicing}{\CumulativeGroundedHeavyPolicing{} (\CumulativeChangeGroundedHeavyPolicing)}{\DeathsGroundedHeavyPolicing{} (×\DeathRatioGroundedHeavyPolicing)}{\PeakCentralHeavyPolicing{} (\PeakChangeCentralHeavyPolicing), \CumulativeChangeCentralHeavyPolicing{} ever protest, deaths ×\DeathRatioCentralHeavyPolicing.}
 \subsubsection{Why}
-Figure~\ref{fig:paths} shows the mechanism. Policing flattens the bandh-day spikes, but the martyr effect keeps more people on the street between bandhs, so more people protest in total and many more die.
-
-\begin{figure}[H]
-\centering
-\includegraphics[width=0.85\linewidth]{../figures/fig06_suppression_backfire.pdf}
-\caption{Suppression indexed to the baseline (= 100), central regime.}
-\end{figure}
+Policing lowers the peak a little and costs many lives. In the stylized model it also makes more people protest in total, because martyrs keep protest going between bandhs. In the grounded model it does not, because the government concedes within days. Whether force backfires on turnout depends on how people react to deaths, which none of the episodes can tell us. The rise in deaths holds in every version of the model, but it follows from the assumption that policing makes protest deadlier.
 
 \subsection{C1: the managed-transition package}
 \subsubsection{What it is}
-Keep the full income-only end state, but get there with grandfathering (L1), seat expansion (L2), a consensus commission (L5), compensation (L6) and guarantees (L7).
-\subsubsection{Theory}
-Each lever pushes agents further below threshold. Because turnout responds non-linearly, combined levers do better than their separate effects suggest.
-\begin{plainwords}Do the same reform, but slowly, with more seats, with every party on board, and with clear promises.\end{plainwords}
+Keep the income-only end state, but get there with seat expansion (L2), grandfathering (L1), a consensus commission (L5), compensation (L6) and guarantees (L7).
 \subsubsection{Outcome}
-\outcomeline{\PeakCentralManagedTransition}{\PeakRangeCentralManagedTransition}{\PeakChangeCentralManagedTransition}{\CumulativeCentralManagedTransition}{\DeathsCentralManagedTransition}{\PeakHighManagedTransition{} (\PeakChangeHighManagedTransition).}
+\outcomeline{\PeakGroundedManagedTransition}{\PeakRangeGroundedManagedTransition}{\PeakChangeGroundedManagedTransition}{\CumulativeGroundedManagedTransition}{\DeathsGroundedManagedTransition}{\PeakCentralManagedTransition{} (\PeakChangeCentralManagedTransition).}
 \subsubsection{Why}
-The package stays below the tipping point in both regimes. Leaving out the consensus commission triples turnout (\ManagedTransitionWithoutBuildConsensusThroughDataFirstCommission{} against \ManagedTransitionFull{}), while leaving out compensation barely matters (\ManagedTransitionWithoutCompensateAboveLineLosers{}).
+Each component pushes people further below their thresholds, and because turnout responds non-linearly the combination does better than any single part.
 
 \subsection{C2: the hybrid-design package}
 \subsubsection{What it is}
-The hybrid design (L3) with sub-classification (L4), grandfathering (L1), the consensus commission (L5), compensation (L6) and guarantees (L7).
-\begin{plainwords}Keep caste categories with an income filter, favour the poorest sub-castes, phase it in, and get every party on board.\end{plainwords}
+L3 with sub-classification (L4), grandfathering (L1), the commission (L5), compensation (L6) and guarantees (L7).
 \subsubsection{Outcome}
-\outcomeline{\PeakCentralHybridPackage}{\PeakRangeCentralHybridPackage}{\PeakChangeCentralHybridPackage}{\CumulativeCentralHybridPackage}{\DeathsCentralHybridPackage}{\PeakHighHybridPackage{} (\PeakChangeHighHybridPackage).}
-\subsubsection{Why}
-Almost every driver is addressed at once. What remains is roughly the protest an ordinary contested policy change would draw.
+\outcomeline{\PeakGroundedHybridPackage}{\PeakRangeGroundedHybridPackage}{\PeakChangeGroundedHybridPackage}{\CumulativeGroundedHybridPackage}{\DeathsGroundedHybridPackage}{\PeakCentralHybridPackage{} (\PeakChangeCentralHybridPackage).}
 
-\section{Robustness}
+\section{How sure are these results?}
 \label{sec:robustness}
-Two checks test whether the headline findings rest on a single assumption.
 \begin{itemize}
-\item \textbf{Hybrid sensitivity.} The hybrid was rerun leaving 40\%, 60\% and 80\% of symbolic threat in place. Peak turnout was \HybridRetainedForty{}, \HybridRetainedSixty{} and \HybridRetainedEighty{}: still at least an 80\% cut.
-\item \textbf{Managed-transition leave-one-out.} Each of the five components was removed in turn. Only removing the consensus commission changes the result materially.
+\item \textbf{How strongly each policy works is uncertain.} When every policy's strength is drawn at random from a wide range, keeping caste quotas with an income filter still comes first with probability \MapGroundedStrongestLThree. The commission beats grandfathering with probability \MapGroundedLFiveBeatsLOne{}, so grandfathering is more often the stronger of the two.
+\item \textbf{The model's structure is uncertain.} Across \EnsembleVariants{} alternative structures (different threshold shapes, organizations that call bandhs only when turnout is credible, a government that can concede, mixed neighbourhoods, deaths that deter instead of mobilize), L3 comes first in \EnsembleLThreeStrongest{} and compensation last in \EnsembleLSixWeakest.
+\item \textbf{Every parameter moved at once.} A Morris screen across fifteen parameters finds L3 ahead of the commission in \MorrisLThreeBeatsLFive{} of design points in the stylized model and \MorrisGroundedLThreeBeatsLFive{} in the grounded one.
+\item \textbf{What the data cannot settle.} Across the reform's shock size and party backing, the baseline peak moves from \AssumptionPeakLow{} to \AssumptionPeakHigh{}, but L3 comes first in all \AssumptionCells{} combinations.
 \end{itemize}
-The ranking of levers is the same in the central and high-mobilization regimes.
-
-\begin{figure}[H]
-\centering
-\includegraphics[width=\linewidth]{../figures/fig07_robustness_checks.pdf}
-\caption{Left: hybrid sensitivity. Right: leave-one-out on the managed-transition package (30 paired runs each).}
-\end{figure}
 
 \section{What this means}
 \begin{enumerate}
-\item \textbf{Design matters more than compensation.} Protest against this reform is mostly about recognition, so a design that preserves caste recognition while targeting by income does far better than paying the people who lose.
-\item \textbf{Process is policy.} If the income-only end state is the goal, a data-first commission with cross-party ownership matters more than any single material concession.
-\item \textbf{Suppression is not a mitigation strategy.} In this model it lowers peak turnout only modestly while multiplying deaths, consistent with India's own record on shutdowns.
-\item \textbf{Levers compound.} Because turnout responds non-linearly, packages do far better than their parts.
+\item \textbf{A merged income pool is not neutral.} It moves most seats of below-line SC and ST students to below-line General students, and adding seats on the EWS model does not undo that.
+\item \textbf{Design matters more than compensation.} A design that keeps caste as the qualifier while filtering by income does far better than paying the people who lose.
+\item \textbf{If the income-only end state is the goal,} phasing and a process that changes what the reform means matter most, and they compound.
+\item \textbf{Suppression costs lives.} It lowers the peak less than most design options; whether it also broadens protest is uncertain.
 \end{enumerate}
 
 \subsection{Limitations}
 \begin{itemize}
-\item Grievance weights, lever effects and neighbourhood structure are assumptions informed by qualitative evidence, not estimates from Indian protest data.
-\item The calibration target is itself an estimate.
-\item Regional variation, counter-protests, courts, elections and media are not modelled.
-\item Neighbourhoods are single-group. Real mixing across groups could either dampen or spread protest.
-\item The model runs 40 days and says nothing about long-term political consequences.
+\item How strongly a commission, a guarantee or an income filter reduces the sense of threat is a judgement, handled with wide ranges.
+\item News-event data pin down the relative size of past protests, not their headcounts. The reform's protest level is therefore uncertain by more than tenfold.
+\item The seat model covers IIT admissions only. Government jobs and other institutions may differ.
+\item Jati-level differences, state politics, courts, elections and media are not modelled.
+\item Out-of-sample predictions of deaths and of which states protest were weak.
 \end{itemize}
-Treat magnitudes as order-of-magnitude and the ranking as the finding.
 
 \section{Reproducing this report}
 \begin{verbatim}
 pip install -r requirements.txt
+python -m experiments.merged_pool_allocation --draws 300
+python -m experiments.episode_calibration --wave-size 6000 --waves 3
+python -m experiments.compare_interventions --specification grounded
 python -m experiments.compare_interventions --regime central
-python -m experiments.compare_interventions --regime high-mobilization
-python -m experiments.check_robustness
-python -m experiments.calibrate_participation_threshold
-python -m experiments.record_daily_trajectories
-python -m visualization.render_result_figures
-python -m visualization.render_campaign_videos
+python -m visualization.render_grounded_figures
 python -m visualization.write_latex_result_macros
+python -m visualization.write_grounded_macros
 cd report && xelatex research_report.tex && xelatex research_report.tex
 \end{verbatim}
+The paper's Reproducibility section lists every command.
 
 \section*{References}
 \begin{small}
@@ -480,13 +421,15 @@ cd report && xelatex research_report.tex && xelatex research_report.tex
 \item Granovetter, M. (1978). Threshold models of collective behavior. \emph{American Journal of Sociology}, 83(6), 1420--1443.
 \item Hess, D., \& Martin, B. (2006). Repression, backfire, and the theory of transformative events. \emph{Mobilization}, 11(2), 249--267.
 \item Kahneman, D., \& Tversky, A. (1979). Prospect theory: An analysis of decision under risk. \emph{Econometrica}, 47(2), 263--291.
+\item Leetaru, K., \& Schrodt, P. A. (2013). GDELT: Global data on events, location, and tone, 1979--2012. International Studies Association Annual Convention.
 \item McCarthy, J. D., \& Zald, M. N. (1977). Resource mobilization and social movements: A partial theory. \emph{American Journal of Sociology}, 82(6), 1212--1241.
 \item Pierson, P. (1994). \emph{Dismantling the Welfare State? Reagan, Thatcher, and the Politics of Retrenchment}. Cambridge University Press.
-\item Pierson, P. (1996). The new politics of the welfare state. \emph{World Politics}, 48(2), 143--179.
 \item Rydzak, J. (2019). Of blackouts and bandhs: The strategy and structure of disconnected protest in India. SSRN Working Paper 3330413.
+\item Daniyal, S. (2018). The WhatsApp wires: How Dalits organised the Bharat Bandh without a central leadership. \emph{Scroll.in}, 7 April 2018.
+\item Sönmez, T., \& Yenmez, M. B. (2022). Affirmative action in India via vertical, horizontal, and overlapping reservations. \emph{Econometrica}, 90(3), 1143--1176.
 \item Tajfel, H., \& Turner, J. C. (1979). An integrative theory of intergroup conflict. In W. G. Austin \& S. Worchel (Eds.), \emph{The Social Psychology of Intergroup Relations}. Brooks/Cole.
 \item Tversky, A., \& Kahneman, D. (1992). Advances in prospect theory: Cumulative representation of uncertainty. \emph{Journal of Risk and Uncertainty}, 5(4), 297--323.
-\item Government of India, affidavit in \emph{Janhit Abhiyan v. Union of India} (2022) on 2.14 lakh additional seats for EWS, as reported by The Tribune and Bar \& Bench.
+\item Government of India, affidavit in \emph{Janhit Abhiyan v. Union of India} (2022) on 2.14 lakh additional seats for EWS, as reported by The Tribune.
 \item Brazil, Law No.\ 12.711 of 29 August 2012 (Quota Law).
 \item \emph{State of Punjab v. Davinder Singh} (2024), Supreme Court of India, on sub-classification of Scheduled Castes.
 \end{itemize}

@@ -1,0 +1,170 @@
+"""Reservation-related mobilization episodes used to calibrate and test the model.
+
+Every coded value cites where it came from. Crowd figures are given as reported, with the kind of source, because
+they disagree by up to two orders of magnitude (see 2018). Party backing is coded 0 (none) to 1 (full backing of major
+parties) from the cited reporting; it is a judgement. Calibration holds it fixed at the coded value, so an error in it
+is absorbed by the episode's estimated shock magnitude.
+
+Filters: "keywords"/"exclude_keywords" is the broad filter used for counts, corrected by the audited precision on core
+days (data/derived/gdelt_relevance_audit.csv). Where the first audit found poor precision outside core days, a stricter
+"strict_keywords" filter is recorded as well; its precision and recall are measured on the same audited sample.
+
+Role:
+  "mechanism": a shock of the kind the protest model represents (a threat to an existing group's reservation-related
+               protection or status). Used to calibrate and test mechanism parameters.
+  "observation": a demand-for-inclusion mobilization by a group outside the model's four categories. Used only to
+               calibrate how turnout and deaths show up in event data (the observation model), since crowd sizes for
+               these episodes are better documented.
+  "null": a reservation change that produced little street protest. Used as a check that the model stays quiet.
+"""
+
+EPISODES = {
+    "sc_st_bharat_bandh_2018": {
+        "label": "Bharat Bandh against dilution of the SC/ST Atrocities Act",
+        "role": "mechanism",
+        "core_days": ["2018-04-02"],
+        "window": ("2018-03-26", "2018-04-14"),
+        "keywords": ["dalit", "sc-st", "sc/st", "scst", "atrocit", "ambedkar", "bhim", "caste"],
+        "exclude_keywords": ["cauvery", "kashmir"],
+        "mobilizing_groups": ["SC", "ST"],
+        "shock": {"symbolic_threat_to": ["SC", "ST"], "material_loss": "none"},
+        "party_backing": 0.2,
+        "party_backing_basis": "Scroll (scroll.in/article/874714): little organised backing from political parties; led by local Dalit groups; first call from a local leader in Phagwara on 27 March, spread through WhatsApp.",
+        "deaths": {"low": 11, "high": 14, "days": 1,
+                   "sources": ["Wikipedia, 2018 Atrocities Act protests: at least 14 (9 Madhya Pradesh, 3 Uttar Pradesh, 2 Rajasthan)",
+                               "Al Jazeera opinion, 8 April 2018: at least 11", "Al Jazeera news, 2 April 2018 (same day): at least 4 in Madhya Pradesh"]},
+        "crowd": [{"figure": "thousands", "source": "Al Jazeera news report, 2 April 2018", "type": "news, same day"},
+                  {"figure": "hundreds of thousands", "source": "Al Jazeera opinion column, 8 April 2018", "type": "opinion"}],
+        "internet_shutdowns": "Punjab and Rajasthan suspended mobile internet (Al Jazeera, 2 April 2018)",
+        "government_response": "Review petition filed 2 April 2018; Parliament restored the Act by amendment in August 2018.",
+    },
+    "upper_caste_bandh_2018": {
+        "label": "Bharat Bandh by upper-caste and some OBC groups against the SC/ST Act amendment",
+        "role": "mechanism",
+        "core_days": ["2018-09-06"],
+        "window": ("2018-08-31", "2018-09-14"),
+        "keywords": ["savarna", "upper-caste", "upper caste", "sc-st", "sc/st", "scst", "atrocit", "bandh"],
+        "exclude_keywords": ["kerala-flood", "kashmir"],
+        "strict_keywords": ["savarna", "upper-caste", "upper caste", "sc-st", "sc/st", "scst", "atrocit"],
+        "strict_exclude_keywords": ["fuel", "petrol", "diesel", "kerala-flood", "kashmir"],
+        "mobilizing_groups": ["General"],
+        "shock": {"symbolic_threat_to": ["General"], "material_loss": "none", "note": "backlash after the government's concession to the April protests"},
+        "party_backing": 0.1,
+        "party_backing_basis": "Scroll (scroll.in/latest/893364): called by upper-caste organisations and some OBC groups; the BJP and allies had voted for the amendment.",
+        "deaths": {"low": 0, "high": 0, "days": 1, "sources": ["Scroll (scroll.in/latest/893364): bandh largely observed peacefully; no deaths reported"]},
+        "crowd": [],
+        "government_response": "None; the amendment stood.",
+    },
+    "sc_st_bharat_bandh_2024": {
+        "label": "Bharat Bandh against SC/ST sub-classification and a suggested creamy layer",
+        "role": "mechanism",
+        "core_days": ["2024-08-21"],
+        "window": ("2024-08-14", "2024-08-28"),
+        "keywords": ["dalit", "sc-st", "sc/st", "scst", "creamy", "sub-classif", "subclassif", "quota", "reservation", "bandh"],
+        "exclude_keywords": ["kolkata-doctor", "rg-kar", "bangladesh"],
+        "strict_keywords": ["dalit", "adivasi", "sc-st", "sc/st", "scst", "creamy", "sub-classif", "subclassif", "sub-quota", "bharat-bandh"],
+        "strict_exclude_keywords": ["badlapur", "maharashtra-bandh", "bengal-bandh", "bangla-bandh", "rg-kar", "kolkata", "bangladesh"],
+        "mobilizing_groups": ["SC", "ST"],
+        "shock": {"symbolic_threat_to": ["SC", "ST"], "material_loss": "none",
+                  "note": "Closest real analogue of the caste-sub-quota-with-income-filter design (L3) plus sub-classification (L4)."},
+        "party_backing": 0.6,
+        "party_backing_basis": "The Tribune, 21 August 2024: 21 organisations called it; supported by RJD and INDIA bloc partners, Left parties, BSP and SP in Uttar Pradesh; Congress gave 'moral support'.",
+        "deaths": {"low": 0, "high": 0, "days": 1, "sources": ["The Tribune, 21 August 2024: baton charges and detentions in Bihar and Gujarat; no deaths reported"]},
+        "crowd": [],
+        "regional_pattern": "Strongest in Bihar, Jharkhand and tribal belts; weak in Rajasthan, Punjab, Haryana, Assam and most of Uttar Pradesh (The Tribune). About 30 SC/ST communities in Rajasthan opposed it because they supported sub-classification (Deccan Herald).",
+        "government_response": "Union Cabinet stated no creamy layer would apply to SC/ST (August 2024).",
+    },
+    "ews_quota_2019": {
+        "label": "10% EWS quota enacted (103rd Amendment)",
+        "role": "null",
+        "core_days": ["2019-01-08", "2019-01-09"],
+        "window": ("2019-01-05", "2019-01-22"),
+        "keywords": ["ews", "10-per-cent-quota", "10-quota", "upper-caste-quota", "economically-weaker", "quota", "reservation"],
+        "exclude_keywords": [],
+        # 'ews' alone is a substring of 'news', so the strict filter accepts it only with delimiters.
+        "strict_keywords": ["-ews-", "/ews-", "ews-quota", "ews-reservation", "ews-bill", "economically-weaker", "upper-caste-quota",
+                            "quota-for-upper", "10-per-cent-quota", "10-quota", "upper-caste-reservation", "general-category-quota"],
+        "strict_exclude_keywords": ["strike", "citizenship", "trade-union", "cab-"],
+        "mobilizing_groups": [],
+        "shock": {"symbolic_threat_to": ["SC", "ST", "OBC"], "strength": "small", "material_loss": "none (seats expanded)"},
+        "party_backing": 0.0,
+        "party_backing_basis": "Passed the Lok Sabha on 8 January and the Rajya Sabha on 9 January 2019 with support across major parties; opposition was in Parliament, not on the street.",
+        "deaths": {"low": 0, "high": 0, "days": 0, "sources": ["No protest deaths reported"]},
+        "crowd": [],
+    },
+    "patidar_2015": {
+        "label": "Patidar agitation for OBC status (Gujarat)",
+        "role": "observation",
+        "core_days": ["2015-08-25", "2015-08-26", "2015-08-27"],
+        "window": ("2015-08-18", "2015-09-06"),
+        "keywords": ["patidar", "hardik", "patel-quota", "patel-agitation", "paas", "quota", "reservation"],
+        "exclude_keywords": [],
+        "deaths": {"low": 10, "high": 11, "days": 3, "sources": ["Wikipedia, Patidar reservation agitation: ten died in the violence, plus one in police custody"]},
+        "crowd": [{"figure": "over 500,000", "source": "Wikipedia, Patidar reservation agitation (25 August 2015 Ahmedabad rally)", "type": "encyclopedic summary of press reports"}],
+        "internet_shutdowns": "Mobile internet blocked across Gujarat, 26-31 August 2015",
+        "party_backing": 0.1,
+        "party_backing_basis": "Led by PAAS (Hardik Patel); Congress announced support only on 1 October 2015.",
+    },
+    "jat_2016": {
+        "label": "Jat agitation for OBC status (Haryana)",
+        "role": "observation",
+        "core_days": ["2016-02-19", "2016-02-20", "2016-02-21", "2016-02-22"],
+        "window": ("2016-02-08", "2016-03-01"),
+        "keywords": ["jat", "quota", "reservation", "haryana-violence", "rohtak"],
+        "exclude_keywords": [],
+        "deaths": {"low": 30, "high": 31, "days": 10, "sources": ["Wikipedia, Jat reservation agitation; Prakash Singh Committee period 7-22 February 2016"]},
+        "crowd": [],
+        "party_backing": 0.2,
+        "party_backing_basis": "Community organisations; politicians of several parties were accused of instigation (Prakash Singh Committee).",
+    },
+    "kapu_2016": {
+        "label": "Kapu Garjana rally for OBC status (Tuni, Andhra Pradesh)",
+        "role": "observation",
+        "core_days": ["2016-01-31"],
+        "window": ("2016-01-25", "2016-02-08"),
+        "keywords": ["kapu", "tuni", "ratnachal", "mudragada", "quota", "reservation"],
+        "exclude_keywords": [],
+        "deaths": {"low": 0, "high": 0, "days": 1, "sources": ["The News Minute / South First: coaches of the Ratnachal Express set on fire; no casualties"]},
+        "crowd": [],
+        "party_backing": 0.1,
+        "party_backing_basis": "Led by former minister Mudragada Padmanabham.",
+    },
+    "maratha_march_mumbai_2017": {
+        "label": "Maratha Kranti Morcha silent march, Mumbai",
+        "role": "observation",
+        "core_days": ["2017-08-09"],
+        "window": ("2017-08-03", "2017-08-15"),
+        "keywords": ["maratha", "morcha", "kranti", "quota", "reservation"],
+        "exclude_keywords": [],
+        "deaths": {"low": 0, "high": 0, "days": 1, "sources": ["Silent march; no deaths reported"]},
+        "crowd": [{"figure": "more than 2 million", "source": "organisers, reported by Al Jazeera 9 August 2017", "type": "organiser"},
+                  {"figure": "600,000 to about 1 million", "source": "Indian media, as summarised by Wikipedia", "type": "media"},
+                  {"figure": "100,000 to 400,000 expected", "source": "authorities' expectation", "type": "police, prior"}],
+        "party_backing": 0.5,
+        "party_backing_basis": "Non-party morcha with broad sympathy across parties.",
+    },
+    "maratha_quota_2018": {
+        "label": "Maratha quota agitation, violent phase (Maharashtra)",
+        "role": "observation",
+        "core_days": ["2018-07-24", "2018-07-25", "2018-08-09"],
+        "window": ("2018-07-20", "2018-08-12"),
+        "keywords": ["maratha", "quota", "reservation", "kranti", "morcha"],
+        "exclude_keywords": [],
+        "deaths": {"low": 2, "high": 8, "days": 18, "sources": ["Suicides rose to six by 31 July 2018 and a police constable died in Aurangabad (press reports); not all are protest-violence deaths"]},
+        "crowd": [],
+        "party_backing": 0.4,
+        "party_backing_basis": "Community-led; cross-party sympathy for the demand.",
+    },
+    "gujjar_2019": {
+        "label": "Gujjar rail blockade for a 5% quota (Rajasthan)",
+        "role": "observation",
+        "core_days": ["2019-02-08", "2019-02-09", "2019-02-10", "2019-02-11", "2019-02-12", "2019-02-13"],
+        "window": ("2019-02-06", "2019-02-18"),
+        "keywords": ["gujjar", "gurjar", "bainsla", "quota", "reservation"],
+        "exclude_keywords": [],
+        "deaths": {"low": 0, "high": 0, "days": 6, "sources": ["Gulf News / Business Standard: clashes near Dholpur, no casualties reported; Rajasthan passed a 5% quota bill on 13 February 2019"]},
+        "crowd": [],
+        "party_backing": 0.1,
+        "party_backing_basis": "Led by the Gujjar Arakshan Sangharsh Samiti (Kirori Singh Bainsla).",
+    },
+}

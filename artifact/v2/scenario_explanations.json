@@ -1,93 +1,93 @@
 {
-  "baseline": {
-    "what": "Parliament replaces SC, ST, OBC and EWS quotas with a single income test at ₹8 lakh, effective immediately, with no consultation or transition.",
-    "theory": "Every protest driver is at full strength: a concentrated loss for above-line SC and ST families, merged pools for everyone below the line, unmitigated symbolic threat, and opposition parties free to mobilize.",
-    "plain": "The reference point: the reform done in the most provocative way.",
-    "modelled": "Baseline parameters, calibrated so the peak lands in the middle of the 20 lakh – 1 crore prior estimate.",
-    "why": "SC communities carry most of the turnout. They have the highest symbolic threat, the strongest organizations and the largest group of direct losers. Turnout spikes on each bandh call and decays between them as fatigue sets in."
-  },
-  "symbolic_only_validation": {
-    "what": "A check, not a policy. All material loss is removed, so only the symbolic threat of abolishing caste-based quotas remains, much like the 2018 Atrocities Act ruling that changed no one's quota.",
-    "theory": "If identity-based mobilization is real, a symbolic shock alone should still produce a national bandh.",
-    "plain": "Before trusting the model on anything else, we checked that it could reproduce something like the 2018 bandh.",
-    "modelled": "Every material loss set to zero; everything else as in the baseline.",
-    "why": "Symbolic threat alone produces bandh-scale protest, consistent with 2018. Removing material loss still cuts turnout by about 70%, because material loss pushes the most motivated people over their thresholds, and they seed the cascade."
-  },
-  "grandfathering": {
-    "what": "Students and job applicants already in the pipeline keep their current category rights, and the income test phases in over ten years.",
-    "theory": "Loss aversion applies to losses felt now. Grandfathering is Pierson's classic blame-avoidance tool: it turns an immediate, concentrated loss into a deferred, discounted one.",
-    "plain": "Nobody counting on a quota today loses it, and the change arrives slowly enough to plan around.",
-    "modelled": "Every material loss cut to 30% of baseline; symbolic threat cut by 5%.",
-    "why": "It removes most of the material part of grievance, so turnout falls almost to the symbolic-only level. What remains is protest about recognition, which grandfathering does not touch."
-  },
-  "seat_expansion": {
-    "what": "Seats and posts expand so that no group's absolute number falls, as India did in 2019 by adding about 2.14 lakh seats to introduce EWS without cutting other quotas.",
-    "theory": "Merging reserved pools means more competition for below-line SC, ST and OBC candidates. Expanding capacity removes that loss for the large below-line majority.",
-    "plain": "If the pie grows, nobody's slice has to shrink.",
-    "modelled": "Material loss for below-line SC, ST and OBC set to zero. Above-line SC and ST still lose eligibility.",
-    "why": "The below-line loss is spread thinly over many people, so removing it lowers each person's grievance only a little. The direct losers and the symbolic threat both remain. A good supporting measure, not a solution."
-  },
-  "hybrid_caste_subquotas": {
-    "what": "SC, ST and OBC quotas stay, but within each quota only families below the income line are eligible. In effect, the OBC creamy layer extends to SC and ST. Brazil's 2012 Quota Law works similarly, with racial sub-quotas inside an income and public-school filter.",
-    "theory": "It keeps caste recognition, which carries most of the symbolic threat, while still targeting benefits by income. Pools don't merge, so below-line candidates lose nothing.",
-    "plain": "Keep the caste categories, but stop the richest families inside them from using the quota.",
-    "modelled": "Symbolic threat for SC, ST and OBC reduced to 40% of baseline; below-line material loss removed. Above-line SC and ST still lose eligibility.",
-    "why": "It attacks the largest driver directly, and the cascade does the rest: once most people fall below threshold, the chain reaction never starts. It still cuts turnout by about 80% if it removes only a fifth of the symbolic threat. The caution: in 2024 a mere suggestion of an SC/ST creamy layer triggered a bandh, so the real relief may be at the weak end. This design also keeps caste as a criterion, so it gives up the original premise."
-  },
-  "sub_classification": {
-    "what": "Within SC and ST, a larger share of benefits goes to the most-deprived sub-castes, as the Supreme Court permitted in 2024.",
-    "theory": "Coalitions split when a reform creates real winners inside the protesting group. During the 2024 bandh, about 30 SC/ST communities in Rajasthan opposed it because they supported sub-classification.",
-    "plain": "Give the poorest sub-castes a better deal, and many of them will not join the protest.",
-    "modelled": "The most-deprived tier gains (material loss reduced by 0.5) and feels only 30% of the symbolic threat.",
-    "why": "The most-deprived tier largely drops out, but the better-off tier, which holds nearly all the direct losers, keeps protesting, and its cascade still runs through mixed neighbourhoods."
-  },
-  "consensus_commission": {
-    "what": "A statutory commission works from caste-census data before any bill is drafted. Opposition parties sit on it, and the final design is negotiated across parties.",
-    "theory": "Procedural legitimacy plus Pierson's blame-sharing. Parties that co-own a reform do not supply the organization and bandh calls that turn grievance into turnout.",
-    "plain": "If every major party signs off, nobody has a reason to bus people into the streets against it.",
-    "modelled": "Opposition-party amplifier falls from 1.5 to 1.0; symbolic threat cut by 20%.",
-    "why": "Bandh-day mobilization sets peak turnout, and consensus removes a third of it while lowering symbolic threat for everyone. This is the strongest lever that keeps the full income-only end state, and the load-bearing part of the managed transition. It is also the hardest to achieve."
-  },
-  "compensation": {
-    "what": "Families that lose eligibility receive scholarships, hostel places and transitional grants.",
-    "theory": "Pierson's compensation strategy: buy off the concentrated losers.",
-    "plain": "Pay the people who lose the quota.",
-    "modelled": "Material loss for above-line SC and ST halved.",
-    "why": "The direct losers are under 3% of India, and money does nothing about symbolic threat. The weakest lever. Removing it from the managed transition barely changes the result."
-  },
-  "credible_guarantees": {
-    "what": "The law states what stays untouched: SC/ST reserved seats in legislatures, the Atrocities Act, and a scheduled review clause.",
-    "theory": "Symbolic threat depends on what people fear comes next. Credible guarantees cap that fear.",
-    "plain": "Say clearly, in law, what is not changing.",
-    "modelled": "Symbolic threat cut by 15% for every group.",
-    "why": "A 15% cut in symbolic threat produces a far larger cut in turnout, because symbolic threat is the dominant driver and the cascade multiplies any reduction."
-  },
-  "internet_shutdown": {
-    "what": "Mobile internet is suspended in areas with protests, as Indian states have often done.",
-    "theory": "Rydzak finds shutdowns in India are associated with more violent collective action, because they break the coordination that peaceful protest depends on.",
-    "plain": "Cutting the internet makes organizing harder, but what does happen becomes more chaotic and violent.",
-    "modelled": "Neighbourhood and national influence fall 40%, bandh mobilization 20%; the death rate rises 2.5 times.",
-    "why": "Weaker coordination trims the peak, more so when mobilization is high. Extra deaths feed the martyr effect, which raises symbolic threat and keeps people coming out. In the central regime more people protest overall, and in both regimes more people die."
-  },
-  "heavy_policing": {
-    "what": "Large deployments, preventive detentions and forceful dispersal on bandh days.",
-    "theory": "Force raises the cost of turning out but creates martyrs and perceived injustice, which broaden support.",
-    "plain": "Force can shrink a crowd on the day, but every death recruits more protesters for the days after.",
-    "modelled": "Turning out on bandh days costs 0.4 more; the death rate triples; each death raises symbolic threat 1.5 times as much.",
-    "why": "Policing flattens the bandh-day spikes, but the martyr effect keeps more people on the street between bandhs. More people protest in total and deaths rise more than fourfold."
-  },
-  "managed_transition": {
-    "what": "The full income-only end state, reached through grandfathering, seat expansion, a consensus commission, compensation and guarantees.",
-    "theory": "Each lever pushes people further below threshold. Because turnout responds non-linearly, levers combined do better than their separate effects suggest.",
-    "plain": "Do the same reform, but slowly, with more seats, every party on board, and clear promises.",
-    "modelled": "L1 + L2 + L5 + L6 + L7 applied together.",
-    "why": "The package stays below the tipping point in both regimes. Leaving out the consensus commission triples turnout; leaving out compensation barely matters."
-  },
-  "hybrid_package": {
-    "what": "The hybrid design with sub-classification, grandfathering, a consensus commission, compensation and guarantees.",
-    "theory": "Every driver is addressed at once: symbolic threat, material loss, organization and fear of what comes next.",
-    "plain": "Keep caste categories with an income filter, favour the poorest sub-castes, phase it in, and get every party on board.",
-    "modelled": "L3 + L4 + L1 + L5 + L6 + L7 applied together.",
-    "why": "Almost nothing is left to drive a cascade. The remaining protest is about what an ordinary contested policy change would draw."
-  }
+ "baseline": {
+  "what": "Parliament replaces SC, ST, OBC and EWS quotas with a single income test at ₹8 lakh, effective immediately, with no consultation or transition.",
+  "theory": "Every protest driver is at full strength: a concentrated loss for above-line SC and ST families, merged pools for everyone below the line, unmitigated symbolic threat, and opposition parties free to mobilize.",
+  "plain": "The reference point: the reform done in the most provocative way.",
+  "modelled": "Material losses per group come from the IIT seat-allocation model; the threshold, threshold spread, mixing and the 2018 shock size come from the parameter sets that reproduce four real episodes.",
+  "why": "SC communities carry most of the turnout: they combine the highest symbolic threat, the strongest organizations and the largest seat losses. Protest peaks early, and the government usually concedes within days. The headcount is uncertain by more than tenfold, because it depends on how the reform compares with the 2018 shock, which no data settle."
+ },
+ "symbolic_only_validation": {
+  "what": "A check, not a policy. All material loss is removed, so only the symbolic threat of abolishing caste-based quotas remains, much like the 2018 Atrocities Act ruling that changed no one's quota.",
+  "theory": "If identity-based mobilization is real, a symbolic shock alone should still produce a national bandh.",
+  "plain": "Before trusting the model on anything else, we checked that it could reproduce something like the 2018 bandh.",
+  "modelled": "Every material change set to zero; everything else as in the baseline.",
+  "why": "Symbolic threat alone still produces a large protest, as in 2018. Material loss matters more here than in the stylized model, because the allocation model shows that below-line SC and ST students lose most of their seats, not a small share."
+ },
+ "grandfathering": {
+  "what": "Students and job applicants already in the pipeline keep their current category rights, and the income test phases in over ten years.",
+  "theory": "Loss aversion applies to losses felt now. Grandfathering is one of the blame-avoidance tools Pierson describes: it turns an immediate, concentrated loss into a deferred, discounted one.",
+  "plain": "Nobody counting on a quota today loses it, and the change arrives slowly enough to plan around.",
+  "modelled": "Every material loss cut to 30% of its value; symbolic threat cut by 5%.",
+  "why": "It removes most of the material grievance, which is large in the grounded model. It does nothing about recognition. Across the uncertainty about how strongly each policy acts, it is more often the stronger of the two end-state-preserving levers than the commission."
+ },
+ "seat_expansion": {
+  "what": "Seats and posts expand by a quarter, as India did in 2019 by adding 2.14 lakh seats to introduce EWS without cutting other quotas.",
+  "theory": "Merging reserved pools means more competition for below-line SC, ST and OBC candidates. The hope is that expanding capacity removes that loss for the below-line majority.",
+  "plain": "Adding seats might mean that nobody loses theirs.",
+  "modelled": "The allocation model is rerun with a quarter more seats, the scale used to introduce EWS in 2019.",
+  "why": "The EWS precedent does not transfer. EWS added a category without merging any; here, even with more seats, the merged pool still ranks SC and ST candidates against General candidates, so below-line SC students still lose most of their seats."
+ },
+ "hybrid_caste_subquotas": {
+  "what": "SC, ST and OBC quotas stay, but within each quota only families below the income line are eligible. In effect, the OBC creamy layer extends to SC and ST. Brazil's 2012 Quota Law works similarly, with racial sub-quotas inside an income and public-school filter.",
+  "theory": "It keeps caste recognition, which carries most of the symbolic threat, while still targeting benefits by income. Pools don't merge, so below-line candidates lose nothing.",
+  "plain": "Keep the caste categories, but stop the richest families inside them from using the quota.",
+  "modelled": "Symbolic threat for SC, ST and OBC reduced to 40%; the allocation model is rerun with SC and ST quotas closed to above-line families, whose seats go to below-line SC and ST students.",
+  "why": "It removes most of both drivers at once: the symbolic threat, and the seat losses of the below-line majority, which become gains. It is the strongest lever in every check. In 2024 a proposed SC/ST creamy layer triggered a bandh, so the symbolic relief may be smaller than assumed. This design also keeps caste as a criterion, so it is an alternative to the reform rather than a version of it."
+ },
+ "sub_classification": {
+  "what": "Within SC and ST, a larger share of benefits goes to the most-deprived sub-castes, as the Supreme Court permitted in 2024.",
+  "theory": "Coalitions split when a reform creates winners inside the protesting group. During the 2024 bandh, about 30 SC/ST communities in Rajasthan opposed it because they supported sub-classification.",
+  "plain": "Give the poorest sub-castes a better deal, and many of them will not join the protest.",
+  "modelled": "The most-deprived tier's material loss falls by half a unit, and its symbolic threat falls from 0.8 to 0.3 times its group's.",
+  "why": "Participation in the most-deprived tier changes by __DEPRIVED_CHANGE__ and in the better-off tier by only __BETTER_OFF_CHANGE__, and the better-off tier's cascade still runs through mixed neighbourhoods."
+ },
+ "consensus_commission": {
+  "what": "A statutory commission works from caste-census data before any bill is drafted. Opposition parties sit on it, and the final design is negotiated across parties.",
+  "theory": "It draws on procedural legitimacy and Pierson's blame-sharing. Parties that co-own a reform do not supply the organization and bandh calls that turn grievance into turnout.",
+  "plain": "If the major parties agree on the design, fewer people read the reform as an attack.",
+  "modelled": "Opposition-party amplifier falls from 1.5 to 1.0; symbolic threat cut by 20%.",
+  "why": "Most of the effect comes from the assumed cut in symbolic threat, not from withdrawing party machinery; in 2018 protest was large without party backing. Whether it beats grandfathering depends on how much a commission would change what the reform means to people."
+ },
+ "compensation": {
+  "what": "Families that lose eligibility receive scholarships, hostel places and transitional grants.",
+  "theory": "Pierson's compensation strategy: buy off the concentrated losers.",
+  "plain": "Pay the people who lose the quota.",
+  "modelled": "The losses of above-line SC, ST and non-creamy OBC families are halved.",
+  "why": "It reaches a small minority, not the below-line majority whose seats the merged pool takes, and money does nothing about symbolic threat."
+ },
+ "credible_guarantees": {
+  "what": "The law states what stays untouched: SC/ST reserved seats in legislatures, the Atrocities Act, and a scheduled review clause.",
+  "theory": "Symbolic threat depends on what people fear comes next. Credible guarantees cap that fear.",
+  "plain": "Say clearly, in law, what is not changing.",
+  "modelled": "Symbolic threat cut by 15% for every group.",
+  "why": "A 15% cut in symbolic threat produces a much larger cut in turnout, because the cascade multiplies any reduction."
+ },
+ "internet_shutdown": {
+  "what": "Mobile internet is suspended in areas with protests, as Indian states have often done.",
+  "theory": "Rydzak finds shutdowns in India are associated with more violent collective action, because they break the coordination that peaceful protest depends on.",
+  "plain": "Cutting the internet makes organizing harder, but what does happen becomes more chaotic and violent.",
+  "modelled": "Neighbourhood and national influence fall 40%, bandh mobilization 20%; violent deaths rise 2.5 times.",
+  "why": "Weaker coordination trims the peak. The rise in deaths is mostly the assumption itself: shutdowns are modelled as making protest more violent, following Rydzak's evidence for India."
+ },
+ "heavy_policing": {
+  "what": "Large deployments, preventive detentions and forceful dispersal on bandh days.",
+  "theory": "Force raises the cost of turning out. It can also create martyrs and a sense of injustice that broaden support.",
+  "plain": "Force can shrink a crowd on the day; deaths may bring more people out afterwards.",
+  "modelled": "Turning out on bandh days costs more; police-attributed deaths rise so that total deaths triple; each death raises symbolic threat half as much again.",
+  "why": "Policing lowers the peak a little and costs many lives. In the stylized model martyrs keep more people on the street between bandhs, so more people protest in total; in the grounded model the government concedes within days and that does not happen. Whether force backfires on turnout depends on how people react to deaths, which no episode identifies."
+ },
+ "managed_transition": {
+  "what": "The full income-only end state, reached through grandfathering, seat expansion, a consensus commission, compensation and guarantees.",
+  "theory": "Each lever pushes people further below threshold. Because turnout responds non-linearly, levers combined do better than their separate effects suggest.",
+  "plain": "Do the same reform, but slowly, with more seats, every party on board, and clear promises.",
+  "modelled": "L2 + L1 + L5 + L6 + L7 applied together (the seat-allocation rule first).",
+  "why": "Each component pushes people further below their thresholds, and because turnout responds non-linearly the package does better than any single part."
+ },
+ "hybrid_package": {
+  "what": "The hybrid design with sub-classification, grandfathering, a consensus commission, compensation and guarantees.",
+  "theory": "Every driver is addressed at once: symbolic threat, material loss, organization and fear of what comes next.",
+  "plain": "Keep caste categories with an income filter, favour the poorest sub-castes, phase it in, and get every party on board.",
+  "modelled": "L3 + L4 + L1 + L5 + L6 + L7 applied together.",
+  "why": "Every driver is reduced at once, so too few people cross their thresholds to start a cascade."
+ }
 }

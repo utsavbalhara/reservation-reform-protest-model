@@ -141,14 +141,14 @@ pre{font:400 .8rem/1.55 var(--mono);background:var(--surface);border:1px solid v
 <section class="glance" aria-labelledby="glance-title">
   <h2 id="glance-title">At a glance</h2>
   <p><strong>Question.</strong> If India replaced caste-based reservation with a single ₹8 lakh income test, how many people would protest, and which policy designs would keep that number small?</p>
-  <p><strong>Method.</strong> A synthetic India of 120,000 agents, each standing for about 12,000 people. Grievance combines loss-averse material loss with symbolic threat to caste recognition. Protest spreads through neighbourhood and national threshold cascades, amplified by party mobilization on bandh days. Thirteen scenarios were run 50 times each with paired uncertainty draws, in two mobilization regimes.</p>
+  <p><strong>Method.</strong> A seat-allocation model built on the rule India uses and on JEE (Advanced) rank lists for 2021–2025 estimates who gains and loses IIT seats. A synthetic India of 120,000 agents across 640 districts turns those losses, and the threat to caste recognition, into protest through neighbourhood and national threshold cascades. The protest model is checked against news-event data from four real episodes. Thirteen scenarios were run 50 times each on paired worlds.</p>
   <ul class="findings" id="findings"></ul>
-  <p class="note">Magnitudes depend on assumed parameters; the ranking of interventions is the robust result.</p>
+  <p class="note">How many people would protest cannot be pinned down: across assumptions the data cannot settle, the baseline peak runs from __ASSUMPTION_PEAK_LOW__ to __ASSUMPTION_PEAK_HIGH__. The ranking of interventions varies far less than the headcount.</p>
 </section>
 
 <section aria-labelledby="watch-title">
   <h2 id="watch-title">Watch the simulation</h2>
-  <p>Both videos are drawn frame by frame from live model runs. Each square is a neighbourhood of about 12 lakh people, coloured by the share on the street that day. Both use the run closest to the 50-run median.</p>
+  <p>Both videos are drawn frame by frame from live runs of the stylized model (national population, fixed bandh days). Each square is a neighbourhood of about 12 lakh people, coloured by the share on the street that day. Both use the run closest to the 50-run median.</p>
   <div class="videos">
     <figure>
       <video controls muted loop playsinline preload="metadata" src="__ASSET_PREFIX__videos/baseline_campaign.mp4"></video>
@@ -156,31 +156,47 @@ pre{font:400 .8rem/1.55 var(--mono);background:var(--surface);border:1px solid v
     </figure>
     <figure>
       <video controls muted loop playsinline preload="metadata" src="__ASSET_PREFIX__videos/four_policy_paths.mp4"></video>
-      <figcaption>Four policy paths run on the same population with the same random draws. Only the policy differs. Heavy policing keeps more people on the street between bandhs and has four times the deaths; keeping caste sub-quotas barely produces a protest at all.</figcaption>
+      <figcaption>Four policy paths run on the same population with the same random draws. Only the policy differs. Heavy policing keeps more people on the street between bandhs and has about four times the deaths; keeping caste sub-quotas produces a small fraction of the protest.</figcaption>
     </figure>
   </div>
+</section>
+
+<section aria-labelledby="scope-title">
+  <h2 id="scope-title">What this project comprises</h2>
+  <p>It began as one stylized agent-based model. It is now four linked parts, each usable on its own:</p>
+  <ol>
+    <li><strong>Eligibility accounting</strong> under the real creamy-layer and EWS rules.</li>
+    <li><strong>A seat-allocation model</strong> built on India's over-and-above choice rule, fitted to JEE (Advanced) rank lists and checked against published allotments. It can evaluate any vertical-reservation design.</li>
+    <li><strong>A protest model on 640 districts</strong>, with bandhs called when turnout is credible, concession and backlash, and deaths; the original stylized model is kept alongside for comparison.</li>
+    <li><strong>Calibration and uncertainty analysis</strong>: history matching to news-event counts for four episodes, predictions frozen and published before scoring, priors on every policy effect, an 11-variant structural ensemble and global sensitivity screening.</li>
+  </ol>
+  <p class="note">It compares policy designs on the same simulated worlds and says which comparisons survive the uncertainty. It does not forecast how many people would protest, where violence would occur, or which states organizers would carry.</p>
 </section>
 
 <section aria-labelledby="question-title">
   <h2 id="question-title">The question</h2>
   <p>India reserves seats in public education and government jobs for Scheduled Castes (15%), Scheduled Tribes (7.5%), Other Backward Classes (27%) and, since 2019, Economically Weaker Sections of the general category (10%). OBC families above ₹8 lakh are already excluded, and EWS already applies only below ₹8 lakh. SC and ST quotas have no income test.</p>
-  <p>At a ₹8 lakh line, converting everything to an income test changes little on paper:</p>
+  <p>The two existing income tests are not one ₹8 lakh cut. The OBC creamy-layer test ignores salary and farm income, and the EWS test also excludes families with land or property, so converting everything to one income test changes OBC and General eligibility too:</p>
   <div class="tiles">
-    <div class="tile"><div class="big">2.8%</div><span>lose eligibility: SC and ST families above ₹8 lakh (about 4 crore people)</span></div>
-    <div class="tile"><div class="big">~80%</div><span>reserved before and after</span></div>
-    <div class="tile"><div class="big">~17%</div><span>unreserved before and after</span></div>
+    <div class="tile"><div class="big">__ELIG_LOSE__</div><span>of Indians lose eligibility: SC, ST and non-creamy OBC families above ₹8 lakh</span></div>
+    <div class="tile"><div class="big">__ELIG_GAIN__</div><span>gain it: poorer General families who fail the EWS asset tests today</span></div>
+    <div class="tile"><div class="big">__SC_BELOW_SEATS__</div><span>of IIT seats lost by below-line SC students in a merged pool, though they keep eligibility</span></div>
   </div>
-  <p>Yet reservation politics mobilizes around what a change means, not only who loses. A 2018 Supreme Court ruling on the SC/ST Atrocities Act removed nobody's quota and still triggered the largest Bharat Bandh on record. In 2024, a suggestion of a creamy layer for SC and ST triggered another.</p>
+  <figure>
+    <img src="__ASSET_PREFIX__figures/fig10_allocation_seat_changes.png" alt="Horizontal bars of the change in IIT seats by group under a merged income-only pool: large losses for SC and ST students above and below the line, gains for below-line General students." loading="lazy">
+    <figcaption>Who gains and loses IIT seats under a merged income-only pool (median, with 90% intervals over uncertainty about family incomes).</figcaption>
+  </figure>
+  <p>Reservation politics also mobilizes around what a change means. A 2018 Supreme Court ruling on the SC/ST Atrocities Act removed nobody's quota and still triggered a nationwide Bharat Bandh in which 11 to 14 people died. In 2024, a proposed creamy layer for SC and ST triggered another.</p>
 </section>
 
 <section aria-labelledby="theory-title">
   <h2 id="theory-title">Theory: why people would protest</h2>
   <div class="mechanisms">
     <article><h3>Loss aversion</h3><p>Losses weigh about 2.25 times as much as equal gains. Pierson shows that taking benefits away is harder than creating them, because losses are concentrated and visible while gains are diffuse.</p><div class="plain"><b>In plain words.</b> Losing a quota feels worse than never having had one.</div></article>
-    <article><h3>Symbolic threat</h3><p>People draw self-worth from their group and react strongly to threats to its standing. For SC and ST communities, caste-based reservation is also constitutional recognition of historical injustice.</p><div class="plain"><b>In plain words.</b> Many would protest because they read the change as erasing their community's recognition, not because they lose a seat.</div></article>
-    <article><h3>Threshold cascades</h3><p>Granovetter: each person joins once enough others have. Small changes in grievance can produce very large changes in turnout near the tipping point.</p><div class="plain"><b>In plain words.</b> Lower grievance a little and the chain reaction can stop early.</div></article>
-    <article><h3>Organization</h3><p>Resource mobilization theory: grievance is common, organized protest is not. Parties and networks supply the bandh calls and buses. Opposition parties backed both the 2018 and 2024 bandhs.</p><div class="plain"><b>In plain words.</b> Anger needs machinery. Parties that co-own a reform stop supplying it.</div></article>
-    <article><h3>Repression and backfire</h3><p>Visible force often backfires: deaths create martyrs and broaden support. Rydzak finds India's internet shutdowns are associated with more violent protest, not less.</p><div class="plain"><b>In plain words.</b> Force may shrink a crowd today but makes protest angrier, longer and deadlier.</div></article>
+    <article><h3>Symbolic threat</h3><p>People draw self-worth from their group and react strongly to threats to its standing. For SC and ST communities, caste-based reservation is also constitutional recognition of historical injustice.</p><div class="plain"><b>In plain words.</b> Many would protest because they read the change as erasing their community's recognition, whether or not they lose a seat.</div></article>
+    <article><h3>Threshold cascades</h3><p>In Granovetter's model each person joins once enough others have. Near the tipping point, small changes in grievance can produce large changes in turnout.</p><div class="plain"><b>In plain words.</b> Lower grievance a little and the chain reaction can stop early.</div></article>
+    <article><h3>Organization</h3><p>Resource mobilization theory holds that grievance is common and organized protest is not. The 2018 bandh, however, was organized with little central leadership or party backing, through local groups and WhatsApp; the 2024 bandh had opposition backing and drew a mixed response.</p><div class="plain"><b>In plain words.</b> Protest needs organizing, but in 2018 local groups did it over WhatsApp, without party backing.</div></article>
+    <article><h3>Repression and backfire</h3><p>Repression sometimes deters protest and sometimes backfires, when deaths create martyrs and broaden support. Rydzak finds India's internet shutdowns are associated with more violent protest, not less.</p><div class="plain"><b>In plain words.</b> Force may shrink a crowd today and costs lives. Whether it also makes protest bigger depends on how people react to deaths.</div></article>
   </div>
 </section>
 
@@ -191,25 +207,25 @@ pre{font:400 .8rem/1.55 var(--mono);background:var(--surface);border:1px solid v
     <figcaption>What drives one person's decision each day. Dashed arrows are feedback loops.</figcaption>
   </figure>
   <ol>
-    <li><strong>Grievance</strong> is material loss (weighted 2.25× if it is a loss) plus symbolic threat multiplied by how strongly the person identifies with their group.</li>
-    <li><strong>Social pull</strong> rises with yesterday's turnout in the neighbourhood and the group's national turnout. Both saturate: a crowd can only pull so hard.</li>
-    <li><strong>Organization</strong> adds a push on bandh-call days (days 3, 13 and 26), larger when opposition parties back the protest.</li>
+    <li><strong>Grievance</strong> is material loss from the seat-allocation model (weighted 2.25× if it is a loss) plus symbolic threat multiplied by how strongly the person identifies with their group.</li>
+    <li><strong>Social pull</strong> rises with yesterday's turnout in the neighbourhood and the group's national turnout. Both effects level off as turnout grows.</li>
+    <li><strong>Organization</strong> adds a push on bandh days. Organizations call a bandh when they expect a credible turnout, and the government may concede under pressure.</li>
     <li>The person <strong>protests</strong> with a probability that rises smoothly as grievance plus pull plus push exceeds their personal threshold.</li>
     <li>Protesting raises the threshold a little (<strong>fatigue</strong>). Deaths raise symbolic threat for the groups on the street (the <strong>martyr effect</strong>).</li>
   </ol>
   <figure>
-    <img src="__ASSET_PREFIX__figures/fig05_threshold_response_curve.png" alt="Line chart of peak-day protesters against mean threshold on a log scale; turnout halves roughly every quarter step." loading="lazy">
-    <figcaption>Calibration and validation. The mean threshold (6.6) puts the baseline peak in the middle of an independent 20 lakh – 1 crore estimate. The check: a symbolic-only shock, like 2018, still produces a bandh-scale protest.</figcaption>
+    <img src="__ASSET_PREFIX__figures/fig11_episode_calibration.png" alt="Left: observed and model protest event rates for four episodes. Right: histogram of 2018 bandh-day turnout implied by retained parameter sets, spanning several lakh to several crore." loading="lazy">
+    <figcaption>Checking the model against real protests. Parameter sets that cannot reproduce the news-event counts of all four episodes are discarded. The data pin down the relative size of the episodes much better than headcounts: the survivors imply __TURNOUT_2018__ lakh people on the 2018 bandh day. Predictions of a held-out episode's deaths and geography were weak.</figcaption>
   </figure>
 </section>
 
 <section aria-labelledby="development-title">
   <h2 id="development-title">How the model was built</h2>
-  <p>The final model is the fourth specification. The first two were badly wrong, and the way they were caught is part of the finding.</p>
+  <p>The final model is the fourth specification. The first two were badly wrong; the list shows how each failure was caught.</p>
   <ol>
     <li><strong>Unbounded contagion.</strong> Crowd influence had no ceiling, so almost every SC, ST and OBC agent protested: about 98 crore people.</li>
-    <li><strong>Narrow thresholds.</strong> Bounding contagion allowed calibration, but turnout tipped abruptly and compensation alone appeared to cut protest by 91%. A validation test exposed it: removing all material loss, like the 2018 Atrocities Act ruling, left about 10,000 protesters, while 2018 produced India's largest bandh.</li>
-    <li><strong>Reweighting.</strong> Shifting weight from material to symbolic grievance did not help. The symbolic-only shock stayed under 5% of baseline, so the problem was structural.</li>
+    <li><strong>Narrow thresholds.</strong> Bounding contagion allowed calibration, but turnout tipped abruptly and compensation alone appeared to cut protest by 91%. Removing all material loss, like the 2018 Atrocities Act ruling, left about 10,000 protesters, while the 2018 ruling produced a nationwide bandh.</li>
+    <li><strong>Reweighting.</strong> Shifting weight from material to symbolic grievance did not help. The symbolic-only shock stayed under 5% of baseline, so the problem lay in the narrow thresholds.</li>
     <li><strong>Wide thresholds.</strong> Modelling a long tail of low-threshold activists gave a smooth response. The symbolic-only shock now produces a bandh at 2018 scale.</li>
   </ol>
   <figure>
@@ -223,8 +239,9 @@ pre{font:400 .8rem/1.55 var(--mono);background:var(--surface);border:1px solid v
   <div class="panel">
     <div class="controls">
       <div class="seg" role="group" aria-label="Mobilization regime">
-        <button id="regime-central" type="button" aria-pressed="true" data-regime="central">Central regime</button>
-        <button id="regime-high" type="button" aria-pressed="false" data-regime="high-mobilization">High-mobilization regime</button>
+        <button id="regime-grounded" type="button" aria-pressed="true" data-regime="grounded">Grounded model</button>
+        <button id="regime-central" type="button" aria-pressed="false" data-regime="central">Stylized, central</button>
+        <button id="regime-high" type="button" aria-pressed="false" data-regime="high-mobilization">Stylized, high mobilization</button>
       </div>
       <div class="legend">
         <span><i class="swatch category-reference"></i>Reference</span>
@@ -234,7 +251,7 @@ pre{font:400 .8rem/1.55 var(--mono);background:var(--surface);border:1px solid v
       </div>
     </div>
     <div class="chart" id="ranking-chart" aria-label="Peak-day protesters in lakh, log scale, median with 10th to 90th percentile range"></div>
-    <p class="note">Dot: median of 50 runs. Bar: 10th–90th percentile. Dashed line: baseline median. Log scale in lakh (100 lakh = 1 crore). Deaths are the median over a 40-day campaign.</p>
+    <p class="note">Dot: median of 50 runs. Bar: 10th–90th percentile. Dashed line: baseline median. Log scale in lakh (100 lakh = 1 crore). Deaths are the median over the campaign. The grounded model uses data-based inputs; the stylized model is the original version, calibrated to an assumed 20 lakh – 1 crore peak.</p>
   </div>
 </section>
 
@@ -250,9 +267,14 @@ pre{font:400 .8rem/1.55 var(--mono);background:var(--surface);border:1px solid v
 <section aria-labelledby="figures-title">
   <h2 id="figures-title">Figures</h2>
   <div class="gallery">
-    <figure><img src="__ASSET_PREFIX__figures/fig02_daily_turnout_paths.png" alt="Daily turnout over 40 days for baseline, heavy policing, consensus commission and caste sub-quotas, log scale." loading="lazy"><figcaption>Daily turnout for four contrasting scenarios. Heavy policing flattens bandh-day spikes but keeps more people on the street between them.</figcaption></figure>
-    <figure><img src="__ASSET_PREFIX__figures/fig04_grievance_composition.png" alt="Stacked bars of average grievance by group, income position and tier, split into symbolic threat and material loss." loading="lazy"><figcaption>Where grievance comes from. Symbolic threat is the larger part for every group except SC and ST families above the line, who are under 3% of India.</figcaption></figure>
-    <figure><img src="__ASSET_PREFIX__figures/fig03_turnout_by_group.png" alt="Daily baseline turnout by social group; SC turnout dominates." loading="lazy"><figcaption>Who protests under the abrupt switch. SC turnout dominates; General-category turnout is zero because the reform favours them.</figcaption></figure>
+    <figure><img src="__ASSET_PREFIX__figures/fig12_paired_effects.png" alt="Dot and interval chart of the change in peak-day turnout for each scenario in the grounded and stylized models." loading="lazy"><figcaption>Change in peak-day turnout against the abrupt switch in the same simulated world, grounded and stylized models (median, 95% interval).</figcaption></figure>
+    <figure><img src="__ASSET_PREFIX__figures/fig13_rank_probabilities.png" alt="Bar chart of the probability that each lever is strongest; caste quotas with an income filter dominate." loading="lazy"><figcaption>How often each lever comes first when every lever's strength is drawn from a wide range.</figcaption></figure>
+    <figure><img src="__ASSET_PREFIX__figures/fig15_grounded_daily_paths.png" alt="Daily turnout for four scenarios in the grounded model, log scale." loading="lazy"><figcaption>Grounded model: daily turnout. Protest peaks early and the government usually concedes within days.</figcaption></figure>
+    <figure><img src="__ASSET_PREFIX__figures/fig02_daily_turnout_paths.png" alt="Daily turnout over 40 days for baseline, heavy policing, consensus commission and caste sub-quotas, log scale." loading="lazy"><figcaption>Stylized model: daily turnout for four contrasting scenarios. Heavy policing flattens bandh-day spikes but keeps more people on the street between them.</figcaption></figure>
+    <figure><img src="__ASSET_PREFIX__figures/fig04_grievance_composition.png" alt="Stacked bars of average grievance by group, income position and tier, split into symbolic threat and material loss." loading="lazy"><figcaption>Stylized model: where grievance comes from. Symbolic threat is the larger part for every group except SC and ST families above the line, who are under 3% of India.</figcaption></figure>
+    <figure><img src="__ASSET_PREFIX__figures/fig03_turnout_by_group.png" alt="Daily baseline turnout by social group; SC turnout dominates." loading="lazy"><figcaption>Stylized model: who protests under the abrupt switch. SC turnout dominates; General-category turnout is zero because the reform favours them.</figcaption></figure>
+    <figure><img src="__ASSET_PREFIX__figures/fig16_grievance_composition_grounded.png" alt="Stacked bars of mean grievance by eligibility segment, split into symbolic threat and material change; symbolic threat dominates for SC, ST and OBC segments." loading="lazy"><figcaption>Where grievance comes from in the grounded model. Symbolic threat is the larger part for every segment that protests; seat losses add a third to a half for below-line SC and ST families.</figcaption></figure>
+    <figure><img src="__ASSET_PREFIX__figures/fig17_state_distribution.png" alt="Bars of each state's share of protester-days under the reform, with dots for each state's share of reported events on 2 April 2018." loading="lazy"><figcaption>Where protest would concentrate: a demographic baseline. In 2018 Punjab, where the call began, had far more events than the model gives it.</figcaption></figure>
     <figure><img src="__ASSET_PREFIX__figures/fig06_suppression_backfire.png" alt="Bar chart indexing peak turnout, total participants and deaths to the baseline for internet shutdowns and heavy policing." loading="lazy"><figcaption>Suppression indexed to the baseline (= 100).</figcaption></figure>
   </div>
 </section>
@@ -271,23 +293,25 @@ pre{font:400 .8rem/1.55 var(--mono);background:var(--surface);border:1px solid v
 <section aria-labelledby="meaning-title">
   <h2 id="meaning-title">What this means</h2>
   <ol>
-    <li><strong>Design matters more than compensation.</strong> Protest against this reform is mostly about recognition. A design that keeps caste recognition while targeting by income does far better than paying the people who lose.</li>
-    <li><strong>Process is policy.</strong> If the income-only end state is the goal, a data-first commission with cross-party ownership matters more than any single material concession.</li>
-    <li><strong>Suppression is not mitigation.</strong> It lowers the peak modestly while multiplying deaths, consistent with India's record on shutdowns.</li>
-    <li><strong>Levers compound.</strong> Turnout responds non-linearly, so packages do far better than their parts.</li>
+    <li><strong>A merged income pool is not neutral.</strong> It moves most seats of below-line SC and ST students to below-line General students, and adding seats on the EWS model does not undo that.</li>
+    <li><strong>Design matters more than compensation.</strong> Keeping caste as the qualifier with an income filter inside it is the strongest option in every check; compensation and seat expansion are the weakest.</li>
+    <li><strong>If the income-only end state is the goal,</strong> phasing and a process that changes what the reform means matter most. Whether a cross-party commission or grandfathering is stronger is not settled.</li>
+    <li><strong>Suppression costs lives.</strong> It lowers the peak less than most design options; whether it also broadens protest depends on how people react to deaths.</li>
   </ol>
-  <p class="note">Limits: grievance weights, lever effects and neighbourhood structure are assumptions informed by qualitative evidence, not estimates from Indian protest data. Regional variation, counter-protests, courts, elections and media are not modelled. Treat magnitudes as order-of-magnitude and the ranking as the finding.</p>
+  <p class="note">Limits: how strongly each policy acts is a judgement, handled with wide ranges. News-event data pin down relative, not absolute, protest size. The seat model covers IIT admissions only. Held-out predictions of deaths and geography were weak: this is a tool for comparing designs, not a forecast.</p>
 </section>
 
 <section aria-labelledby="reproduce-title">
   <h2 id="reproduce-title">Reproduce it</h2>
 <pre>pip install -r requirements.txt
+python -m experiments.merged_pool_allocation --draws 300
+python -m experiments.episode_calibration --wave-size 6000 --waves 3
+python -m experiments.compare_interventions --specification grounded
 python -m experiments.compare_interventions --regime central
-python -m experiments.compare_interventions --regime high-mobilization
-python -m experiments.check_robustness
-python -m experiments.record_daily_trajectories
-python -m visualization.render_result_figures
-python -m visualization.render_campaign_videos</pre>
+python -m experiments.record_daily_trajectories --specification grounded
+python -m visualization.render_grounded_figures
+python -m visualization.build_results_page</pre>
+  <p>The paper's Reproducibility section lists every command.</p>
   <ul class="sources">
     <li>Granovetter (1978), Threshold models of collective behavior. Kahneman &amp; Tversky (1979); Tversky &amp; Kahneman (1992), prospect theory.</li>
     <li>McCarthy &amp; Zald (1977), resource mobilization. Hess &amp; Martin (2006), repression and backfire.</li>
@@ -310,8 +334,8 @@ const scenarioSections = [
 ];
 const explorerOrder = scenarioSections.flatMap(([, keys]) => keys);
 const categoryNames = {reference: "Reference", lever: "Single lever", package: "Package", suppression: "Suppression"};
-const smallestLakhOnAxis = 0.3, largestLakhOnAxis = 800;
-const axisTicks = [[1, "1 lakh"], [10, "10 lakh"], [100, "1 crore"]];
+const smallestLakhOnAxis = 0.3, largestLakhOnAxis = 3000;
+const axisTicks = [[1, "1 lakh"], [10, "10 lakh"], [100, "1 crore"], [1000, "10 crore"]];
 
 const escapeHtml = text => String(text).replace(/[&<>"]/g, character => ({"&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;"}[character]));
 const positionOnLogAxis = lakh => {
@@ -323,17 +347,21 @@ const percentChange = (value, baseline) => {
   const change = Math.round((value / baseline - 1) * 100);
   return (change > 0 ? "+" : change < 0 ? "−" : "") + Math.abs(change) + "%";
 };
+const signedPercent = change => {
+  const rounded = Math.round(change);
+  return (rounded > 0 ? "+" : rounded < 0 ? "−" : "") + Math.abs(rounded) + "%";
+};
 
 function renderFindings() {
-  const central = researchResults.regimes.central;
-  const baseline = central.baseline;
+  const grounded = researchResults.regimes.grounded;
+  const baseline = grounded.baseline;
   const findings = [
-    ["", `An abrupt switch draws about <strong>${formatLakh(baseline.median)}</strong> onto the streets on the peak day, with ${baseline.cumulative.toFixed(2)} crore protesting at some point and about ${Math.round(baseline.deaths)} deaths.`],
-    [percentChange(central.hybrid_caste_subquotas.median, baseline.median), "<strong>Keeping caste as the qualifier and adding an income filter inside each quota</strong> is the strongest single lever. Most of the anger is about losing caste recognition, not losing a seat."],
-    [percentChange(central.consensus_commission.median, baseline.median), "<strong>A data-first commission with cross-party consensus</strong> is the strongest lever that keeps the full income-only end state."],
-    [percentChange(central.managed_transition.median, baseline.median), `<strong>A managed transition</strong> (grandfathering, seat expansion, consensus, compensation, guarantees) reaches the same end state with about ${formatLakh(central.managed_transition.median)} on the peak day.`],
-    [percentChange(central.compensation.median, baseline.median), "<strong>Compensating the people who lose eligibility</strong> does little: they are under 3% of India, and money does not answer symbolic threat."],
-    [`×${(central.heavy_policing.deaths / baseline.deaths).toFixed(1)}`, `<strong>Internet shutdowns and heavy policing</strong> lower the peak by ${percentChange(central.internet_shutdown.median, baseline.median).replace("−", "")} and ${percentChange(central.heavy_policing.median, baseline.median).replace("−", "")} but multiply deaths by ${(central.internet_shutdown.deaths / baseline.deaths).toFixed(1)} and ${(central.heavy_policing.deaths / baseline.deaths).toFixed(1)}.`],
+    ["", `In the grounded model an abrupt switch draws a median of <strong>${formatLakh(baseline.median)}</strong> on the peak day, but that number is uncertain by more than tenfold. The changes below compare each option with the abrupt switch in the same simulated world.`],
+    [signedPercent(grounded.hybrid_caste_subquotas.change), "<strong>Keeping caste quotas and adding an income filter inside them</strong> is the strongest option in every check. In IIT admissions it turns the seat losses of below-line SC and ST students into gains."],
+    [signedPercent(grounded.grandfathering.change), "<strong>Grandfathering with a ten-year glide</strong> and <strong>a data-first commission with cross-party consensus</strong> are the strongest options that keep the income-only end state; which comes first is not settled."],
+    [signedPercent(grounded.managed_transition.change), "<strong>A managed transition</strong> (seat expansion, grandfathering, consensus, compensation, guarantees) reaches the same end state with far less protest."],
+    [signedPercent(grounded.seat_expansion.change), "<strong>Adding seats, as for EWS in 2019,</strong> does little: a merged pool still ranks SC and ST candidates against General candidates. <strong>Compensation</strong> is as weak."],
+    [`×${grounded.heavy_policing.deathRatio.toFixed(1)}`, `<strong>Internet shutdowns and heavy policing</strong> lower the peak by ${signedPercent(grounded.internet_shutdown.change).replace("−", "")} and ${signedPercent(grounded.heavy_policing.change).replace("−", "")} and multiply deaths by ${grounded.internet_shutdown.deathRatio.toFixed(1)} and ${grounded.heavy_policing.deathRatio.toFixed(1)}.`],
   ];
   document.getElementById("findings").innerHTML = findings.map(([number, text], index) =>
     `<li class="${index === findings.length - 1 ? "bad" : ""}"><span class="num">${number || "Base"}</span><span>${text}</span></li>`).join("");
@@ -358,11 +386,11 @@ function renderRankingChart(regime) {
 function dailyPathSvg(key) {
   const width = 600, height = 170, left = 52, right = 10, top = 12, bottom = 26;
   const days = researchResults.dailyPaths.baseline.length;
-  const logFloor = Math.log10(0.05), logCeiling = Math.log10(300);
+  const logFloor = Math.log10(0.05), logCeiling = Math.log10(1000);
   const x = day => left + day / (days - 1) * (width - left - right);
   const y = lakh => top + (1 - (Math.log10(Math.max(lakh, 0.05)) - logFloor) / (logCeiling - logFloor)) * (height - top - bottom);
   const pathFor = values => values.map((lakh, day) => `${day ? "L" : "M"}${x(day).toFixed(1)},${y(lakh).toFixed(1)}`).join("");
-  const colourVariable = {reference: "--base", lever: "--lever", package: "--deep", suppression: "--warn"}[researchResults.regimes.central[key].category];
+  const colourVariable = {reference: "--base", lever: "--lever", package: "--deep", suppression: "--warn"}[researchResults.regimes.grounded[key].category];
   const bandhMarks = researchResults.bandhDays.map(day => `<rect x="${x(day) - 5}" y="${top}" width="10" height="${height - top - bottom}" fill="var(--line)" opacity="0.6"/>`).join("");
   const gridMarks = [[0.1, "10k"], [1, "1 L"], [10, "10 L"], [100, "1 cr"]].map(([lakh, tickLabel]) =>
     `<line x1="${left}" x2="${width - right}" y1="${y(lakh)}" y2="${y(lakh)}" stroke="var(--line)"/><text x="${left - 6}" y="${y(lakh) + 4}" text-anchor="end">${tickLabel}</text>`).join("");
@@ -372,12 +400,12 @@ function dailyPathSvg(key) {
 }
 
 function renderScenarioDetail(key) {
-  const central = researchResults.regimes.central, high = researchResults.regimes["high-mobilization"];
-  const result = central[key], highResult = high[key], explanation = researchResults.explanations[key];
+  const grounded = researchResults.regimes.grounded, stylized = researchResults.regimes.central;
+  const result = grounded[key], stylizedResult = stylized[key], explanation = researchResults.explanations[key];
   const isBaseline = key === "baseline";
-  const peakChange = isBaseline ? "—" : percentChange(result.median, central.baseline.median);
-  const changeClass = isBaseline ? "" : (result.median < central.baseline.median ? "good" : "bad");
-  const deathRatio = (result.deaths / central.baseline.deaths);
+  const peakChange = isBaseline ? "—" : signedPercent(result.change);
+  const changeClass = isBaseline ? "" : (result.change < 0 ? "good" : "bad");
+  const deathRatio = isBaseline ? 1 : result.deathRatio;
   const pillColour = {reference: "var(--base)", lever: "var(--lever)", package: "var(--deep)", suppression: "var(--warn)"}[result.category];
   document.getElementById("scenario-detail").innerHTML = `
     <div><span class="pill" style="background:${pillColour}">${escapeHtml(result.code)} · ${categoryNames[result.category]}</span></div>
@@ -385,11 +413,11 @@ function renderScenarioDetail(key) {
     <div class="plain"><b>In plain words.</b> ${escapeHtml(explanation.plain)}</div>
     <div class="stats">
       <div class="stat"><span class="label">Peak day</span><span class="number">${formatLakh(result.median)}</span><span class="note">${result.p10}–${result.p90} L</span></div>
-      <div class="stat"><span class="label">vs baseline</span><span class="number ${changeClass}">${peakChange}</span><span class="note">high regime ${isBaseline ? formatLakh(highResult.median) : percentChange(highResult.median, high.baseline.median)}</span></div>
-      <div class="stat"><span class="label">Ever protest</span><span class="number">${result.cumulative.toFixed(2)} cr</span><span class="note">${isBaseline ? "" : percentChange(result.cumulative, central.baseline.cumulative) + " vs baseline"}</span></div>
-      <div class="stat"><span class="label">Deaths</span><span class="number ${deathRatio > 1.5 ? "bad" : ""}">${Math.round(result.deaths)}</span><span class="note">${isBaseline ? "median, 40 days" : "×" + deathRatio.toFixed(1) + " baseline"}</span></div>
+      <div class="stat"><span class="label">vs baseline</span><span class="number ${changeClass}">${peakChange}</span><span class="note">stylized model ${isBaseline ? formatLakh(stylizedResult.median) : signedPercent(stylizedResult.change)}</span></div>
+      <div class="stat"><span class="label">Ever protest</span><span class="number">${result.cumulative.toFixed(2)} cr</span><span class="note">${isBaseline ? "" : percentChange(result.cumulative, grounded.baseline.cumulative) + " vs baseline"}</span></div>
+      <div class="stat"><span class="label">Deaths</span><span class="number ${deathRatio > 1.5 ? "bad" : ""}">${Math.round(result.deaths)}</span><span class="note">${isBaseline ? "median" : "×" + deathRatio.toFixed(1) + " baseline (paired)"}</span></div>
     </div>
-    <div class="path">${dailyPathSvg(key)}<p class="note">Median daily turnout, 20 runs, log scale${isBaseline ? "" : "; dashed line is the baseline"}. Shaded columns are bandh calls.</p></div>
+    <div class="path">${dailyPathSvg(key)}<p class="note">Grounded model: median daily turnout, 20 runs, log scale${isBaseline ? "" : "; dashed line is the baseline"}. Bandh days vary from run to run.</p></div>
     <dl>
       <div><dt>What it is</dt><dd>${escapeHtml(explanation.what)}</dd></div>
       <div><dt>Theory</dt><dd>${escapeHtml(explanation.theory)}</dd></div>
@@ -400,9 +428,9 @@ function renderScenarioDetail(key) {
 }
 
 function renderScenarioList() {
-  const central = researchResults.regimes.central;
+  const grounded = researchResults.regimes.grounded;
   document.getElementById("scenario-list").innerHTML = explorerOrder.map(key =>
-    `<button type="button" role="tab" id="scenario-tab-${key}" data-scenario="${key}" aria-selected="false"><b>${escapeHtml(central[key].code)}</b><span>${escapeHtml(central[key].label)}</span></button>`).join("");
+    `<button type="button" role="tab" id="scenario-tab-${key}" data-scenario="${key}" aria-selected="false"><b>${escapeHtml(grounded[key].code)}</b><span>${escapeHtml(grounded[key].label)}</span></button>`).join("");
   document.querySelectorAll("#scenario-list button").forEach(button => button.addEventListener("click", () => renderScenarioDetail(button.dataset.scenario)));
 }
 
@@ -417,7 +445,7 @@ function renderRobustness() {
 
 document.querySelectorAll(".seg button").forEach(button => button.addEventListener("click", () => renderRankingChart(button.dataset.regime)));
 renderFindings();
-renderRankingChart("central");
+renderRankingChart("grounded");
 renderScenarioList();
 renderScenarioDetail("hybrid_caste_subquotas");
 renderRobustness();

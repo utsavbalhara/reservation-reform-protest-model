@@ -1,0 +1,37 @@
+{
+ "S1_symbolic_threat_alone_mobilizes": {
+  "symbolic_only_median_peak_lakh": 64.1,
+  "calibration_reproduces_2018_event_count": true,
+  "source": "intervention_comparison_grounded_central.json; episode_calibration.json"
+ },
+ "S2_mobilization_concentrates_on_bandh_days": {
+  "share_of_runs_peak_on_a_bandh_day": 0.66,
+  "share_of_runs_without_a_bandh": 0.18,
+  "share_of_runs_peak_after_first_bandh": 0.16,
+  "median_ratio_bandh_day_to_ordinary_day_turnout": 8.7,
+  "source": "this script"
+ },
+ "S3_party_backing_is_one_amplifier_among_several": {
+  "peak_ratio_backing_0_6_to_0_2_at_R_1": 1.041,
+  "peak_ratio_R_1_5_to_R_0_5_at_backing_0_6": 18.3,
+  "source": "grounded_assumptions.json"
+ },
+ "S4_groups_split_when_a_reform_creates_winners_inside_them": {
+  "baseline": {
+   "better_off_share_protesting": 0.095,
+   "most_deprived_share_protesting": 0.0637
+  },
+  "with_sub_classification": {
+   "better_off_share_protesting": 0.0763,
+   "most_deprived_share_protesting": 0.0075
+  },
+  "most_deprived_change_percent": -88.2,
+  "better_off_change_percent": -19.7,
+  "source": "grounded_channels.json"
+ },
+ "S5_deaths_and_concession": {
+  "share_of_runs_conceded": 1.0,
+  "loeo_deaths_predicted_for_peaceful_bandhs": "see loeo_scores.json",
+  "source": "intervention_comparison_grounded_central.json; loeo_scores.json"
+ }
+}

@@ -1,0 +1,80 @@
+{
+ "sc_st_bharat_bandh_2018": {
+  "calibrated_on": [
+   "sc_st_bharat_bandh_2024",
+   "upper_caste_bandh_2018",
+   "ews_quota_2019"
+  ],
+  "retained_parameter_sets": 320,
+  "deaths": {
+   "observed": [
+    11,
+    14
+   ],
+   "predicted": {
+    "median": 9.041457445151288,
+    "p05": 0.023305467997058297,
+    "p95": 1429.3178373674111
+   },
+   "observed_inside_90_percent_interval": true
+  },
+  "spatial_spearman": {
+   "model": 0.5744028097154597,
+   "baseline_population": 0.3773560180382357,
+   "baseline_sc_plus_st_population": 0.49375817682825596,
+   "states": 20
+  }
+ },
+ "sc_st_bharat_bandh_2024": {
+  "calibrated_on": [
+   "sc_st_bharat_bandh_2018",
+   "upper_caste_bandh_2018",
+   "ews_quota_2019"
+  ],
+  "retained_parameter_sets": 361,
+  "deaths": {
+   "observed": [
+    0,
+    0
+   ],
+   "predicted": {
+    "median": 24.330936361242614,
+    "p05": 0.09180735955357876,
+    "p95": 1453.763434753805
+   },
+   "observed_inside_90_percent_interval": false
+  },
+  "spatial_spearman": {
+   "model": 0.7315401348558479,
+   "baseline_population": 0.5675211361986946,
+   "baseline_sc_plus_st_population": 0.7184494166531642,
+   "states": 20
+  }
+ },
+ "upper_caste_bandh_2018": {
+  "calibrated_on": [
+   "sc_st_bharat_bandh_2018",
+   "sc_st_bharat_bandh_2024",
+   "ews_quota_2019"
+  ],
+  "retained_parameter_sets": 373,
+  "deaths": {
+   "observed": [
+    0,
+    0
+   ],
+   "predicted": {
+    "median": 18.766169254911475,
+    "p05": 0.0644841208613879,
+    "p95": 1678.7796115021067
+   },
+   "observed_inside_90_percent_interval": false
+  },
+  "spatial_spearman": {
+   "model": 0.42270267448930127,
+   "baseline_population": 0.5969748297612062,
+   "baseline_sc_plus_st_population": 0.6340540117339519,
+   "states": 20
+  }
+ }
+}

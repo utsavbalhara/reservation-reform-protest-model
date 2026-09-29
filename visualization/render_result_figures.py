@@ -141,10 +141,14 @@ def plot_turnout_by_group():
     baseline = load_json("daily_trajectories_central.json")["scenarios"]["baseline"]
     days = np.arange(len(baseline["median_daily_lakh"]))
     figure, axis = plt.subplots(figsize=(9, 4.2))
+    label_offsets = {"SC": (6, 3), "ST": (6, 8), "OBC": (6, -11), "General": (6, -12)}
     for group, colour in GROUP_COLOURS.items():
         path = np.array(baseline["median_daily_lakh_by_group"][group])
-        axis.plot(days, path, color=colour)
-        axis.annotate(group, xy=(int(np.argmax(path)), path.max()), xytext=(6, 3), textcoords="offset points", fontsize=9, color=INK, fontweight="bold")
+        axis.plot(days, path, color=colour, label=group)
+        if group == "SC":
+            axis.annotate(group, xy=(int(np.argmax(path)), path.max()), xytext=label_offsets[group], textcoords="offset points",
+                          fontsize=9, color=INK, fontweight="bold")
+    axis.legend(loc="upper left", ncol=4, bbox_to_anchor=(0, 0.98))
     axis.set_xlim(0, days[-1])
     axis.set_ylim(bottom=0)
     axis.set_xlabel("Day of campaign")
