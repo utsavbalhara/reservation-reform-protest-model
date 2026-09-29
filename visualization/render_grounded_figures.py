@@ -162,7 +162,7 @@ def plot_morris():
         axis.set_title(title)
         axis.set_xlabel("Morris $\\mu^*$")
         axis.grid(axis="y", visible=False)
-    axes[0].set_yticks(range(len(order)), [MORRIS_LABELS[name].replace("$", "") for name in order])
+    axes[0].set_yticks(range(len(order)), [MORRIS_LABELS[name].replace("\\bar\\theta", "\\bar{\\theta}") for name in order])
     axes[0].invert_yaxis()
     save_figure(figure, "fig14_morris_screening")
 
