@@ -1,0 +1,88 @@
+{
+ "run_count": 30,
+ "hybrid_sensitivity": [
+  {
+   "test": "Hybrid retains 40% of symbolic threat",
+   "symbolic_threat_retained": 0.4,
+   "median_peak_lakh": 2.7,
+   "peak_lakh_10th_percentile": 1.7,
+   "peak_lakh_90th_percentile": 3.9,
+   "median_cumulative_crore": 0.1,
+   "median_deaths": 0.0
+  },
+  {
+   "test": "Hybrid retains 60% of symbolic threat",
+   "symbolic_threat_retained": 0.6,
+   "median_peak_lakh": 4.6,
+   "peak_lakh_10th_percentile": 2.9,
+   "peak_lakh_90th_percentile": 7.7,
+   "median_cumulative_crore": 0.18,
+   "median_deaths": 2.0
+  },
+  {
+   "test": "Hybrid retains 80% of symbolic threat",
+   "symbolic_threat_retained": 0.8,
+   "median_peak_lakh": 9.2,
+   "peak_lakh_10th_percentile": 5.3,
+   "peak_lakh_90th_percentile": 16.3,
+   "median_cumulative_crore": 0.34,
+   "median_deaths": 4.0
+  }
+ ],
+ "managed_transition_leave_one_out": [
+  {
+   "test": "Managed transition, all five parts",
+   "left_out": null,
+   "median_peak_lakh": 2.2,
+   "peak_lakh_10th_percentile": 1.3,
+   "peak_lakh_90th_percentile": 3.4,
+   "median_cumulative_crore": 0.12,
+   "median_deaths": 1.0
+  },
+  {
+   "test": "Managed transition without grandfather_current_cohorts_with_ten_year_glide",
+   "left_out": "grandfather_current_cohorts_with_ten_year_glide",
+   "median_peak_lakh": 2.9,
+   "peak_lakh_10th_percentile": 1.6,
+   "peak_lakh_90th_percentile": 4.0,
+   "median_cumulative_crore": 0.16,
+   "median_deaths": 1.5
+  },
+  {
+   "test": "Managed transition without expand_seats_so_no_group_loses",
+   "left_out": "expand_seats_so_no_group_loses",
+   "median_peak_lakh": 2.6,
+   "peak_lakh_10th_percentile": 1.7,
+   "peak_lakh_90th_percentile": 4.0,
+   "median_cumulative_crore": 0.16,
+   "median_deaths": 2.0
+  },
+  {
+   "test": "Managed transition without build_consensus_through_data_first_commission",
+   "left_out": "build_consensus_through_data_first_commission",
+   "median_peak_lakh": 6.6,
+   "peak_lakh_10th_percentile": 3.5,
+   "peak_lakh_90th_percentile": 10.4,
+   "median_cumulative_crore": 0.27,
+   "median_deaths": 3.0
+  },
+  {
+   "test": "Managed transition without compensate_above_line_losers",
+   "left_out": "compensate_above_line_losers",
+   "median_peak_lakh": 2.4,
+   "peak_lakh_10th_percentile": 1.3,
+   "peak_lakh_90th_percentile": 3.4,
+   "median_cumulative_crore": 0.12,
+   "median_deaths": 1.0
+  },
+  {
+   "test": "Managed transition without guarantee_untouched_protections",
+   "left_out": "guarantee_untouched_protections",
+   "median_peak_lakh": 3.6,
+   "peak_lakh_10th_percentile": 1.8,
+   "peak_lakh_90th_percentile": 5.0,
+   "median_cumulative_crore": 0.18,
+   "median_deaths": 2.0
+  }
+ ]
+}

@@ -1,0 +1,207 @@
+{
+ "calibration_target_peak_lakh": [
+  20,
+  100
+ ],
+ "validation_target_symbolic_only_lakh": [
+  10,
+  30
+ ],
+ "response_curve": [
+  {
+   "mean_participation_threshold": 5.0,
+   "baseline": {
+    "median_peak_lakh": 1291.7,
+    "median_cumulative_crore": 23.77,
+    "median_deaths": 548.0
+   },
+   "symbolic_only_validation": {
+    "median_peak_lakh": 815.5,
+    "median_cumulative_crore": 15.47,
+    "median_deaths": 280.5
+   }
+  },
+  {
+   "mean_participation_threshold": 5.25,
+   "baseline": {
+    "median_peak_lakh": 937.6,
+    "median_cumulative_crore": 17.29,
+    "median_deaths": 383.0
+   },
+   "symbolic_only_validation": {
+    "median_peak_lakh": 577.4,
+    "median_cumulative_crore": 10.62,
+    "median_deaths": 193.0
+   }
+  },
+  {
+   "mean_participation_threshold": 5.5,
+   "baseline": {
+    "median_peak_lakh": 678.5,
+    "median_cumulative_crore": 12.41,
+    "median_deaths": 240.5
+   },
+   "symbolic_only_validation": {
+    "median_peak_lakh": 314.9,
+    "median_cumulative_crore": 6.93,
+    "median_deaths": 116.0
+   }
+  },
+  {
+   "mean_participation_threshold": 5.75,
+   "baseline": {
+    "median_peak_lakh": 470.1,
+    "median_cumulative_crore": 8.73,
+    "median_deaths": 159.0
+   },
+   "symbolic_only_validation": {
+    "median_peak_lakh": 189.7,
+    "median_cumulative_crore": 4.01,
+    "median_deaths": 62.0
+   }
+  },
+  {
+   "mean_participation_threshold": 6.0,
+   "baseline": {
+    "median_peak_lakh": 264.8,
+    "median_cumulative_crore": 5.66,
+    "median_deaths": 101.5
+   },
+   "symbolic_only_validation": {
+    "median_peak_lakh": 70.5,
+    "median_cumulative_crore": 2.04,
+    "median_deaths": 28.5
+   }
+  },
+  {
+   "mean_participation_threshold": 6.25,
+   "baseline": {
+    "median_peak_lakh": 165.3,
+    "median_cumulative_crore": 3.27,
+    "median_deaths": 54.5
+   },
+   "symbolic_only_validation": {
+    "median_peak_lakh": 36.2,
+    "median_cumulative_crore": 1.1,
+    "median_deaths": 14.5
+   }
+  },
+  {
+   "mean_participation_threshold": 6.5,
+   "baseline": {
+    "median_peak_lakh": 67.6,
+    "median_cumulative_crore": 1.76,
+    "median_deaths": 28.0
+   },
+   "symbolic_only_validation": {
+    "median_peak_lakh": 14.4,
+    "median_cumulative_crore": 0.53,
+    "median_deaths": 5.0
+   }
+  },
+  {
+   "mean_participation_threshold": 6.75,
+   "baseline": {
+    "median_peak_lakh": 28.8,
+    "median_cumulative_crore": 0.94,
+    "median_deaths": 13.0
+   },
+   "symbolic_only_validation": {
+    "median_peak_lakh": 9.1,
+    "median_cumulative_crore": 0.32,
+    "median_deaths": 3.5
+   }
+  },
+  {
+   "mean_participation_threshold": 7.0,
+   "baseline": {
+    "median_peak_lakh": 13.9,
+    "median_cumulative_crore": 0.47,
+    "median_deaths": 5.0
+   },
+   "symbolic_only_validation": {
+    "median_peak_lakh": 5.5,
+    "median_cumulative_crore": 0.19,
+    "median_deaths": 1.5
+   }
+  },
+  {
+   "mean_participation_threshold": 7.25,
+   "baseline": {
+    "median_peak_lakh": 8.4,
+    "median_cumulative_crore": 0.27,
+    "median_deaths": 2.5
+   },
+   "symbolic_only_validation": {
+    "median_peak_lakh": 3.3,
+    "median_cumulative_crore": 0.11,
+    "median_deaths": 0.5
+   }
+  },
+  {
+   "mean_participation_threshold": 7.5,
+   "baseline": {
+    "median_peak_lakh": 5.0,
+    "median_cumulative_crore": 0.17,
+    "median_deaths": 1.5
+   },
+   "symbolic_only_validation": {
+    "median_peak_lakh": 2.3,
+    "median_cumulative_crore": 0.07,
+    "median_deaths": 0.0
+   }
+  },
+  {
+   "mean_participation_threshold": 7.75,
+   "baseline": {
+    "median_peak_lakh": 3.1,
+    "median_cumulative_crore": 0.1,
+    "median_deaths": 0.5
+   },
+   "symbolic_only_validation": {
+    "median_peak_lakh": 1.3,
+    "median_cumulative_crore": 0.04,
+    "median_deaths": 0.0
+   }
+  },
+  {
+   "mean_participation_threshold": 8.0,
+   "baseline": {
+    "median_peak_lakh": 1.9,
+    "median_cumulative_crore": 0.06,
+    "median_deaths": 0.0
+   },
+   "symbolic_only_validation": {
+    "median_peak_lakh": 0.8,
+    "median_cumulative_crore": 0.03,
+    "median_deaths": 0.0
+   }
+  },
+  {
+   "mean_participation_threshold": 8.25,
+   "baseline": {
+    "median_peak_lakh": 1.0,
+    "median_cumulative_crore": 0.04,
+    "median_deaths": 0.5
+   },
+   "symbolic_only_validation": {
+    "median_peak_lakh": 0.4,
+    "median_cumulative_crore": 0.01,
+    "median_deaths": 0.0
+   }
+  },
+  {
+   "mean_participation_threshold": 8.5,
+   "baseline": {
+    "median_peak_lakh": 0.8,
+    "median_cumulative_crore": 0.02,
+    "median_deaths": 0.5
+   },
+   "symbolic_only_validation": {
+    "median_peak_lakh": 0.4,
+    "median_cumulative_crore": 0.01,
+    "median_deaths": 0.0
+   }
+  }
+ ]
+}
