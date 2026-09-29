@@ -143,7 +143,7 @@ pre{font:400 .8rem/1.55 var(--mono);background:var(--surface);border:1px solid v
   <p><strong>Question.</strong> If India replaced caste-based reservation with a single ₹8 lakh income test, how many people would protest, and which policy designs would keep that number small?</p>
   <p><strong>Method.</strong> A seat-allocation model built on the rule India uses and on JEE (Advanced) rank lists for 2021–2025 estimates who gains and loses IIT seats. A synthetic India of 120,000 agents across 640 districts turns those losses, and the threat to caste recognition, into protest through neighbourhood and national threshold cascades. The protest model is checked against news-event data from four real episodes. Thirteen scenarios were run 50 times each on paired worlds.</p>
   <ul class="findings" id="findings"></ul>
-  <p class="note">How many people would protest cannot be pinned down: across assumptions the data cannot settle, the baseline peak runs from __ASSUMPTION_PEAK_LOW__ to __ASSUMPTION_PEAK_HIGH__. The ranking of interventions is far more stable than the headcount.</p>
+  <p class="note">How many people would protest cannot be pinned down: across assumptions the data cannot settle, the baseline peak runs from __ASSUMPTION_PEAK_LOW__ to __ASSUMPTION_PEAK_HIGH__. The ranking of interventions varies far less than the headcount.</p>
 </section>
 
 <section aria-labelledby="watch-title">
@@ -156,7 +156,7 @@ pre{font:400 .8rem/1.55 var(--mono);background:var(--surface);border:1px solid v
     </figure>
     <figure>
       <video controls muted loop playsinline preload="metadata" src="__ASSET_PREFIX__videos/four_policy_paths.mp4"></video>
-      <figcaption>Four policy paths run on the same population with the same random draws. Only the policy differs. Heavy policing keeps more people on the street between bandhs and has four times the deaths; keeping caste sub-quotas barely produces a protest at all.</figcaption>
+      <figcaption>Four policy paths run on the same population with the same random draws. Only the policy differs. Heavy policing keeps more people on the street between bandhs and has about four times the deaths; keeping caste sub-quotas produces a small fraction of the protest.</figcaption>
     </figure>
   </div>
 </section>
@@ -176,7 +176,7 @@ pre{font:400 .8rem/1.55 var(--mono);background:var(--surface);border:1px solid v
 <section aria-labelledby="question-title">
   <h2 id="question-title">The question</h2>
   <p>India reserves seats in public education and government jobs for Scheduled Castes (15%), Scheduled Tribes (7.5%), Other Backward Classes (27%) and, since 2019, Economically Weaker Sections of the general category (10%). OBC families above ₹8 lakh are already excluded, and EWS already applies only below ₹8 lakh. SC and ST quotas have no income test.</p>
-  <p>Converting everything to one income test changes more than it seems. The OBC creamy-layer test ignores salary and farm income, and the EWS test also excludes families with land or property, so the two existing income tests are not a simple ₹8 lakh cut:</p>
+  <p>The two existing income tests are not one ₹8 lakh cut. The OBC creamy-layer test ignores salary and farm income, and the EWS test also excludes families with land or property, so converting everything to one income test changes OBC and General eligibility too:</p>
   <div class="tiles">
     <div class="tile"><div class="big">__ELIG_LOSE__</div><span>of Indians lose eligibility: SC, ST and non-creamy OBC families above ₹8 lakh</span></div>
     <div class="tile"><div class="big">__ELIG_GAIN__</div><span>gain it: poorer General families who fail the EWS asset tests today</span></div>
@@ -186,17 +186,17 @@ pre{font:400 .8rem/1.55 var(--mono);background:var(--surface);border:1px solid v
     <img src="__ASSET_PREFIX__figures/fig10_allocation_seat_changes.png" alt="Horizontal bars of the change in IIT seats by group under a merged income-only pool: large losses for SC and ST students above and below the line, gains for below-line General students." loading="lazy">
     <figcaption>Who gains and loses IIT seats under a merged income-only pool (median, with 90% intervals over uncertainty about family incomes).</figcaption>
   </figure>
-  <p>And reservation politics mobilizes around what a change means, not only who loses. A 2018 Supreme Court ruling on the SC/ST Atrocities Act removed nobody's quota and still triggered the largest Bharat Bandh on record. In 2024, a suggestion of a creamy layer for SC and ST triggered another.</p>
+  <p>Reservation politics also mobilizes around what a change means. A 2018 Supreme Court ruling on the SC/ST Atrocities Act removed nobody's quota and still triggered a nationwide Bharat Bandh in which 11 to 14 people died. In 2024, a proposed creamy layer for SC and ST triggered another.</p>
 </section>
 
 <section aria-labelledby="theory-title">
   <h2 id="theory-title">Theory: why people would protest</h2>
   <div class="mechanisms">
     <article><h3>Loss aversion</h3><p>Losses weigh about 2.25 times as much as equal gains. Pierson shows that taking benefits away is harder than creating them, because losses are concentrated and visible while gains are diffuse.</p><div class="plain"><b>In plain words.</b> Losing a quota feels worse than never having had one.</div></article>
-    <article><h3>Symbolic threat</h3><p>People draw self-worth from their group and react strongly to threats to its standing. For SC and ST communities, caste-based reservation is also constitutional recognition of historical injustice.</p><div class="plain"><b>In plain words.</b> Many would protest because they read the change as erasing their community's recognition, not because they lose a seat.</div></article>
-    <article><h3>Threshold cascades</h3><p>Granovetter: each person joins once enough others have. Small changes in grievance can produce very large changes in turnout near the tipping point.</p><div class="plain"><b>In plain words.</b> Lower grievance a little and the chain reaction can stop early.</div></article>
-    <article><h3>Organization</h3><p>Resource mobilization theory: grievance is common, organized protest is not. But the 2018 bandh was organized with little central leadership or party backing, through local groups and WhatsApp; the 2024 bandh had opposition backing and drew a mixed response.</p><div class="plain"><b>In plain words.</b> Anger needs some machinery, but in 2018 the machinery was a phone in every pocket.</div></article>
-    <article><h3>Repression and backfire</h3><p>Visible force often backfires: deaths create martyrs and broaden support. Rydzak finds India's internet shutdowns are associated with more violent protest, not less.</p><div class="plain"><b>In plain words.</b> Force may shrink a crowd today and costs lives. Whether it also makes protest bigger depends on how people react to deaths.</div></article>
+    <article><h3>Symbolic threat</h3><p>People draw self-worth from their group and react strongly to threats to its standing. For SC and ST communities, caste-based reservation is also constitutional recognition of historical injustice.</p><div class="plain"><b>In plain words.</b> Many would protest because they read the change as erasing their community's recognition, whether or not they lose a seat.</div></article>
+    <article><h3>Threshold cascades</h3><p>In Granovetter's model each person joins once enough others have. Near the tipping point, small changes in grievance can produce large changes in turnout.</p><div class="plain"><b>In plain words.</b> Lower grievance a little and the chain reaction can stop early.</div></article>
+    <article><h3>Organization</h3><p>Resource mobilization theory holds that grievance is common and organized protest is not. The 2018 bandh, however, was organized with little central leadership or party backing, through local groups and WhatsApp; the 2024 bandh had opposition backing and drew a mixed response.</p><div class="plain"><b>In plain words.</b> Protest needs organizing, but in 2018 local groups did it over WhatsApp, without party backing.</div></article>
+    <article><h3>Repression and backfire</h3><p>Repression sometimes deters protest and sometimes backfires, when deaths create martyrs and broaden support. Rydzak finds India's internet shutdowns are associated with more violent protest, not less.</p><div class="plain"><b>In plain words.</b> Force may shrink a crowd today and costs lives. Whether it also makes protest bigger depends on how people react to deaths.</div></article>
   </div>
 </section>
 
@@ -208,7 +208,7 @@ pre{font:400 .8rem/1.55 var(--mono);background:var(--surface);border:1px solid v
   </figure>
   <ol>
     <li><strong>Grievance</strong> is material loss from the seat-allocation model (weighted 2.25× if it is a loss) plus symbolic threat multiplied by how strongly the person identifies with their group.</li>
-    <li><strong>Social pull</strong> rises with yesterday's turnout in the neighbourhood and the group's national turnout. Both saturate: a crowd can only pull so hard.</li>
+    <li><strong>Social pull</strong> rises with yesterday's turnout in the neighbourhood and the group's national turnout. Both effects level off as turnout grows.</li>
     <li><strong>Organization</strong> adds a push on bandh days. Organizations call a bandh when they expect a credible turnout, and the government may concede under pressure.</li>
     <li>The person <strong>protests</strong> with a probability that rises smoothly as grievance plus pull plus push exceeds their personal threshold.</li>
     <li>Protesting raises the threshold a little (<strong>fatigue</strong>). Deaths raise symbolic threat for the groups on the street (the <strong>martyr effect</strong>).</li>
@@ -221,11 +221,11 @@ pre{font:400 .8rem/1.55 var(--mono);background:var(--surface);border:1px solid v
 
 <section aria-labelledby="development-title">
   <h2 id="development-title">How the model was built</h2>
-  <p>The final model is the fourth specification. The first two were badly wrong, and the way they were caught is part of the finding.</p>
+  <p>The final model is the fourth specification. The first two were badly wrong; the list shows how each failure was caught.</p>
   <ol>
     <li><strong>Unbounded contagion.</strong> Crowd influence had no ceiling, so almost every SC, ST and OBC agent protested: about 98 crore people.</li>
-    <li><strong>Narrow thresholds.</strong> Bounding contagion allowed calibration, but turnout tipped abruptly and compensation alone appeared to cut protest by 91%. A validation test exposed it: removing all material loss, like the 2018 Atrocities Act ruling, left about 10,000 protesters, while 2018 produced India's largest bandh.</li>
-    <li><strong>Reweighting.</strong> Shifting weight from material to symbolic grievance did not help. The symbolic-only shock stayed under 5% of baseline, so the problem was structural.</li>
+    <li><strong>Narrow thresholds.</strong> Bounding contagion allowed calibration, but turnout tipped abruptly and compensation alone appeared to cut protest by 91%. Removing all material loss, like the 2018 Atrocities Act ruling, left about 10,000 protesters, while the 2018 ruling produced a nationwide bandh.</li>
+    <li><strong>Reweighting.</strong> Shifting weight from material to symbolic grievance did not help. The symbolic-only shock stayed under 5% of baseline, so the problem lay in the narrow thresholds.</li>
     <li><strong>Wide thresholds.</strong> Modelling a long tail of low-threshold activists gave a smooth response. The symbolic-only shock now produces a bandh at 2018 scale.</li>
   </ol>
   <figure>
@@ -270,10 +270,10 @@ pre{font:400 .8rem/1.55 var(--mono);background:var(--surface);border:1px solid v
     <figure><img src="__ASSET_PREFIX__figures/fig12_paired_effects.png" alt="Dot and interval chart of the change in peak-day turnout for each scenario in the grounded and stylized models." loading="lazy"><figcaption>Change in peak-day turnout against the abrupt switch in the same simulated world, grounded and stylized models (median, 95% interval).</figcaption></figure>
     <figure><img src="__ASSET_PREFIX__figures/fig13_rank_probabilities.png" alt="Bar chart of the probability that each lever is strongest; caste quotas with an income filter dominate." loading="lazy"><figcaption>How often each lever comes first when every lever's strength is drawn from a wide range.</figcaption></figure>
     <figure><img src="__ASSET_PREFIX__figures/fig15_grounded_daily_paths.png" alt="Daily turnout for four scenarios in the grounded model, log scale." loading="lazy"><figcaption>Grounded model: daily turnout. Protest peaks early and the government usually concedes within days.</figcaption></figure>
-    <figure><img src="__ASSET_PREFIX__figures/fig02_daily_turnout_paths.png" alt="Daily turnout over 40 days for baseline, heavy policing, consensus commission and caste sub-quotas, log scale." loading="lazy"><figcaption>Daily turnout for four contrasting scenarios. Heavy policing flattens bandh-day spikes but keeps more people on the street between them.</figcaption></figure>
-    <figure><img src="__ASSET_PREFIX__figures/fig04_grievance_composition.png" alt="Stacked bars of average grievance by group, income position and tier, split into symbolic threat and material loss." loading="lazy"><figcaption>Where grievance comes from. Symbolic threat is the larger part for every group except SC and ST families above the line, who are under 3% of India.</figcaption></figure>
-    <figure><img src="__ASSET_PREFIX__figures/fig03_turnout_by_group.png" alt="Daily baseline turnout by social group; SC turnout dominates." loading="lazy"><figcaption>Who protests under the abrupt switch. SC turnout dominates; General-category turnout is zero because the reform favours them.</figcaption></figure>
-    <figure><img src="__ASSET_PREFIX__figures/fig16_grievance_composition_grounded.png" alt="Stacked bars of mean grievance by eligibility segment, split into symbolic threat and material change; symbolic threat dominates for SC, ST and OBC segments." loading="lazy"><figcaption>Where grievance comes from in the grounded model. Symbolic threat is the larger part everywhere, but seat losses add a third to a half for below-line SC and ST families.</figcaption></figure>
+    <figure><img src="__ASSET_PREFIX__figures/fig02_daily_turnout_paths.png" alt="Daily turnout over 40 days for baseline, heavy policing, consensus commission and caste sub-quotas, log scale." loading="lazy"><figcaption>Stylized model: daily turnout for four contrasting scenarios. Heavy policing flattens bandh-day spikes but keeps more people on the street between them.</figcaption></figure>
+    <figure><img src="__ASSET_PREFIX__figures/fig04_grievance_composition.png" alt="Stacked bars of average grievance by group, income position and tier, split into symbolic threat and material loss." loading="lazy"><figcaption>Stylized model: where grievance comes from. Symbolic threat is the larger part for every group except SC and ST families above the line, who are under 3% of India.</figcaption></figure>
+    <figure><img src="__ASSET_PREFIX__figures/fig03_turnout_by_group.png" alt="Daily baseline turnout by social group; SC turnout dominates." loading="lazy"><figcaption>Stylized model: who protests under the abrupt switch. SC turnout dominates; General-category turnout is zero because the reform favours them.</figcaption></figure>
+    <figure><img src="__ASSET_PREFIX__figures/fig16_grievance_composition_grounded.png" alt="Stacked bars of mean grievance by eligibility segment, split into symbolic threat and material change; symbolic threat dominates for SC, ST and OBC segments." loading="lazy"><figcaption>Where grievance comes from in the grounded model. Symbolic threat is the larger part for every segment that protests; seat losses add a third to a half for below-line SC and ST families.</figcaption></figure>
     <figure><img src="__ASSET_PREFIX__figures/fig17_state_distribution.png" alt="Bars of each state's share of protester-days under the reform, with dots for each state's share of reported events on 2 April 2018." loading="lazy"><figcaption>Where protest would concentrate: a demographic baseline. In 2018 Punjab, where the call began, had far more events than the model gives it.</figcaption></figure>
     <figure><img src="__ASSET_PREFIX__figures/fig06_suppression_backfire.png" alt="Bar chart indexing peak turnout, total participants and deaths to the baseline for internet shutdowns and heavy policing." loading="lazy"><figcaption>Suppression indexed to the baseline (= 100).</figcaption></figure>
   </div>
@@ -296,7 +296,7 @@ pre{font:400 .8rem/1.55 var(--mono);background:var(--surface);border:1px solid v
     <li><strong>A merged income pool is not neutral.</strong> It moves most seats of below-line SC and ST students to below-line General students, and adding seats on the EWS model does not undo that.</li>
     <li><strong>Design matters more than compensation.</strong> Keeping caste as the qualifier with an income filter inside it is the strongest option in every check; compensation and seat expansion are the weakest.</li>
     <li><strong>If the income-only end state is the goal,</strong> phasing and a process that changes what the reform means matter most. Whether a cross-party commission or grandfathering is stronger is not settled.</li>
-    <li><strong>Suppression costs lives.</strong> It lowers the peak somewhat; whether it also broadens protest depends on how people react to deaths.</li>
+    <li><strong>Suppression costs lives.</strong> It lowers the peak less than most design options; whether it also broadens protest depends on how people react to deaths.</li>
   </ol>
   <p class="note">Limits: how strongly each policy acts is a judgement, handled with wide ranges. News-event data pin down relative, not absolute, protest size. The seat model covers IIT admissions only. Held-out predictions of deaths and geography were weak: this is a tool for comparing designs, not a forecast.</p>
 </section>

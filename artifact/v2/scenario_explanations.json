@@ -11,19 +11,19 @@
   "theory": "If identity-based mobilization is real, a symbolic shock alone should still produce a national bandh.",
   "plain": "Before trusting the model on anything else, we checked that it could reproduce something like the 2018 bandh.",
   "modelled": "Every material change set to zero; everything else as in the baseline.",
-  "why": "Symbolic threat alone still produces a very large protest, as in 2018. Material loss matters more here than in the stylized model, because the allocation model shows that below-line SC and ST students lose most of their seats, not a small share."
+  "why": "Symbolic threat alone still produces a large protest, as in 2018. Material loss matters more here than in the stylized model, because the allocation model shows that below-line SC and ST students lose most of their seats, not a small share."
  },
  "grandfathering": {
   "what": "Students and job applicants already in the pipeline keep their current category rights, and the income test phases in over ten years.",
-  "theory": "Loss aversion applies to losses felt now. Grandfathering is Pierson's classic blame-avoidance tool: it turns an immediate, concentrated loss into a deferred, discounted one.",
+  "theory": "Loss aversion applies to losses felt now. Grandfathering is one of the blame-avoidance tools Pierson describes: it turns an immediate, concentrated loss into a deferred, discounted one.",
   "plain": "Nobody counting on a quota today loses it, and the change arrives slowly enough to plan around.",
   "modelled": "Every material loss cut to 30% of its value; symbolic threat cut by 5%.",
   "why": "It removes most of the material grievance, which is large in the grounded model. It does nothing about recognition. Across the uncertainty about how strongly each policy acts, it is more often the stronger of the two end-state-preserving levers than the commission."
  },
  "seat_expansion": {
-  "what": "Seats and posts expand so that no group's absolute number falls, as India did in 2019 by adding about 2.14 lakh seats to introduce EWS without cutting other quotas.",
-  "theory": "Merging reserved pools means more competition for below-line SC, ST and OBC candidates. Expanding capacity removes that loss for the large below-line majority.",
-  "plain": "If the pie grows, nobody's slice has to shrink.",
+  "what": "Seats and posts expand by a quarter, as India did in 2019 by adding 2.14 lakh seats to introduce EWS without cutting other quotas.",
+  "theory": "Merging reserved pools means more competition for below-line SC, ST and OBC candidates. The hope is that expanding capacity removes that loss for the below-line majority.",
+  "plain": "Adding seats might mean that nobody loses theirs.",
   "modelled": "The allocation model is rerun with a quarter more seats, the scale used to introduce EWS in 2019.",
   "why": "The EWS precedent does not transfer. EWS added a category without merging any; here, even with more seats, the merged pool still ranks SC and ST candidates against General candidates, so below-line SC students still lose most of their seats."
  },
@@ -32,21 +32,21 @@
   "theory": "It keeps caste recognition, which carries most of the symbolic threat, while still targeting benefits by income. Pools don't merge, so below-line candidates lose nothing.",
   "plain": "Keep the caste categories, but stop the richest families inside them from using the quota.",
   "modelled": "Symbolic threat for SC, ST and OBC reduced to 40%; the allocation model is rerun with SC and ST quotas closed to above-line families, whose seats go to below-line SC and ST students.",
-  "why": "It removes most of both drivers at once: the symbolic threat, and the seat losses of the below-line majority, which become gains. It is the strongest lever in every check. The cautions: in 2024 a mere suggestion of an SC/ST creamy layer triggered a bandh, so the real symbolic relief may be smaller; and this design keeps caste as a criterion, so it gives up the original premise."
+  "why": "It removes most of both drivers at once: the symbolic threat, and the seat losses of the below-line majority, which become gains. It is the strongest lever in every check. In 2024 a proposed SC/ST creamy layer triggered a bandh, so the symbolic relief may be smaller than assumed. This design also keeps caste as a criterion, so it is an alternative to the reform rather than a version of it."
  },
  "sub_classification": {
   "what": "Within SC and ST, a larger share of benefits goes to the most-deprived sub-castes, as the Supreme Court permitted in 2024.",
-  "theory": "Coalitions split when a reform creates real winners inside the protesting group. During the 2024 bandh, about 30 SC/ST communities in Rajasthan opposed it because they supported sub-classification.",
+  "theory": "Coalitions split when a reform creates winners inside the protesting group. During the 2024 bandh, about 30 SC/ST communities in Rajasthan opposed it because they supported sub-classification.",
   "plain": "Give the poorest sub-castes a better deal, and many of them will not join the protest.",
   "modelled": "The most-deprived tier's material loss falls by half a unit, and its symbolic threat falls from 0.8 to 0.3 times its group's.",
-  "why": "The most-deprived tier largely drops out, but the better-off tier keeps protesting, and its cascade still runs through mixed neighbourhoods."
+  "why": "Participation in the most-deprived tier changes by __DEPRIVED_CHANGE__ and in the better-off tier by only __BETTER_OFF_CHANGE__, and the better-off tier's cascade still runs through mixed neighbourhoods."
  },
  "consensus_commission": {
   "what": "A statutory commission works from caste-census data before any bill is drafted. Opposition parties sit on it, and the final design is negotiated across parties.",
-  "theory": "Procedural legitimacy plus Pierson's blame-sharing. Parties that co-own a reform do not supply the organization and bandh calls that turn grievance into turnout.",
-  "plain": "If every major party signs off, nobody has a reason to bus people into the streets against it.",
+  "theory": "It draws on procedural legitimacy and Pierson's blame-sharing. Parties that co-own a reform do not supply the organization and bandh calls that turn grievance into turnout.",
+  "plain": "If the major parties agree on the design, fewer people read the reform as an attack.",
   "modelled": "Opposition-party amplifier falls from 1.5 to 1.0; symbolic threat cut by 20%.",
-  "why": "Most of the effect comes from the assumed cut in symbolic threat, not from withdrawing party machinery; in 2018 protest was large without party backing. Whether it beats grandfathering depends on how much a commission would really change what the reform means to people."
+  "why": "Most of the effect comes from the assumed cut in symbolic threat, not from withdrawing party machinery; in 2018 protest was large without party backing. Whether it beats grandfathering depends on how much a commission would change what the reform means to people."
  },
  "compensation": {
   "what": "Families that lose eligibility receive scholarships, hostel places and transitional grants.",
@@ -71,23 +71,23 @@
  },
  "heavy_policing": {
   "what": "Large deployments, preventive detentions and forceful dispersal on bandh days.",
-  "theory": "Force raises the cost of turning out but creates martyrs and perceived injustice, which broaden support.",
-  "plain": "Force can shrink a crowd on the day, but every death recruits more protesters for the days after.",
+  "theory": "Force raises the cost of turning out. It can also create martyrs and a sense of injustice that broaden support.",
+  "plain": "Force can shrink a crowd on the day; deaths may bring more people out afterwards.",
   "modelled": "Turning out on bandh days costs more; police-attributed deaths rise so that total deaths triple; each death raises symbolic threat half as much again.",
-  "why": "Policing lowers the peak somewhat and costs many lives. In the stylized model martyrs keep more people on the street between bandhs, so more people protest in total; in the grounded model the government concedes within days and that does not happen. Whether force backfires on turnout depends on how people react to deaths, which no episode identifies."
+  "why": "Policing lowers the peak a little and costs many lives. In the stylized model martyrs keep more people on the street between bandhs, so more people protest in total; in the grounded model the government concedes within days and that does not happen. Whether force backfires on turnout depends on how people react to deaths, which no episode identifies."
  },
  "managed_transition": {
   "what": "The full income-only end state, reached through grandfathering, seat expansion, a consensus commission, compensation and guarantees.",
   "theory": "Each lever pushes people further below threshold. Because turnout responds non-linearly, levers combined do better than their separate effects suggest.",
   "plain": "Do the same reform, but slowly, with more seats, every party on board, and clear promises.",
   "modelled": "L2 + L1 + L5 + L6 + L7 applied together (the seat-allocation rule first).",
-  "why": "Each component pushes people further below their thresholds, and because turnout responds non-linearly the package does far better than its parts."
+  "why": "Each component pushes people further below their thresholds, and because turnout responds non-linearly the package does better than any single part."
  },
  "hybrid_package": {
   "what": "The hybrid design with sub-classification, grandfathering, a consensus commission, compensation and guarantees.",
   "theory": "Every driver is addressed at once: symbolic threat, material loss, organization and fear of what comes next.",
   "plain": "Keep caste categories with an income filter, favour the poorest sub-castes, phase it in, and get every party on board.",
   "modelled": "L3 + L4 + L1 + L5 + L6 + L7 applied together.",
-  "why": "Almost nothing is left to drive a cascade."
+  "why": "Every driver is reduced at once, so too few people cross their thresholds to start a cascade."
  }
 }

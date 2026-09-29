@@ -12,13 +12,11 @@ Utsav Balhara · B.Tech, Netaji Subhas University of Technology (NSUT), New Delh
 
 India reserves seats in public education and government jobs for Scheduled Castes, Scheduled Tribes, Other Backward Classes and Economically Weaker Sections. This project asks what would happen if the whole system were replaced by a single income test at ₹8 lakh, and which policy designs would keep the resulting protest small.
 
-The analysis has three parts:
-
-1. **Who changes status.** Under the actual creamy-layer rules (which ignore salary and farm income) and the EWS asset tests, about **6.8%** of Indians lose eligibility and **3.1%** gain it. An earlier version of this project, which treated both income tests as a simple ₹8 lakh cut, reported 2.9%.
+1. **Who changes status.** Under the actual creamy-layer rules (which ignore salary and farm income) and the EWS asset tests, **6.8%** of Indians lose eligibility and **3.1%** gain it. An earlier version of this project treated both income tests as one gross-income cut at ₹8 lakh and counted only SC and ST families above the line (2.8%).
 2. **Who gains and loses seats.** A seat-allocation model, built on India's over-and-above choice rule (Sönmez and Yenmez 2022; Aygün and Turhan 2023) and the JEE (Advanced) rank lists for 2021–2025, finds that a merged income-only pool would cost below-line SC candidates **72%** and below-line ST candidates **85%** of their IIT seats, although they keep eligibility. The seats go to below-line General candidates.
 3. **Who protests.** A synthetic India of 120,000 agents across 640 Census districts turns those losses, and the symbolic threat to caste recognition, into protest through threshold cascades, bandh calls, concession and a martyr effect. The model is history-matched to news-event counts (GDELT) for four episodes: the SC/ST Bharat Bandhs of April 2018 and August 2024, the upper-caste bandh of September 2018, and the EWS amendment of January 2019.
 
-**What the data can and cannot tell us.** The event data pin down the relative size of past protests much better than their headcounts: the 281 surviving parameter sets imply between 7 lakh and 5.4 crore people on the 2018 bandh day. Held-out predictions of deaths and of which states protest were weak. The level of protest the reform would provoke therefore depends on assumptions the data cannot settle (from 29 lakh to 6.8 crore at peak across them). The **ranking of designs** is much more stable.
+**What the data can and cannot tell us.** The event data pin down the relative size of past protests much better than their headcounts: the 281 surviving parameter sets imply between 7 lakh and 5.4 crore people on the 2018 bandh day. Held-out predictions of deaths and of which states protest were weak. The level of protest the reform would provoke therefore depends on assumptions the data cannot settle (from 29 lakh to 6.8 crore at peak across them). The **ranking of designs** varies much less.
 
 **Findings** (grounded model; change in peak-day turnout against the abrupt switch in the same simulated world)
 
@@ -29,7 +27,7 @@ The analysis has three parts:
 
 ## What this project comprises
 
-It began as one stylized agent-based model. It is now a linked analysis with four parts, each usable on its own:
+It began as one stylized agent-based model. It is now a linked analysis whose parts can each be used on their own:
 
 | Component | What it does | Where |
 |---|---|---|
@@ -39,7 +37,7 @@ It began as one stylized agent-based model. It is now a linked analysis with fou
 | Calibration and validation | History matching to GDELT event counts for four episodes; leave-one-episode-out predictions frozen and published before scoring; spatial tests; an ACLED cross-check pipeline | `data_pipelines/`, `experiments/episode_calibration.py` |
 | Uncertainty analysis | Paired bootstrap effects, channel decompositions, priors on intervention effects, the unidentified assumptions, an 11-variant structural ensemble, Morris screening in both specifications | `experiments/` |
 
-What it can and cannot do: it compares policy designs on the same simulated worlds and says which comparisons survive the uncertainty; it does not forecast how many people would protest, where violence would occur, or which states organizers would carry.
+The project compares policy designs on the same simulated worlds and reports which comparisons survive the uncertainty. It does not forecast how many people would protest, where violence would occur, or which states organizers would carry.
 
 ## Results
 
@@ -76,13 +74,13 @@ Grounded model, 50 paired Monte Carlo runs per scenario. Change is the median ov
 
 **Who and where.** SC agents make up 63% of protester-days and ST agents 26%. By state: Uttar Pradesh (15%), Bihar, West Bengal, Madhya Pradesh and Maharashtra. This is a demographic baseline; in 2018, Punjab, where the call began, had far more events than its population share.
 
-**Hypotheses.** Grandfathering, caste quotas with an income filter, sub-classification, a commission and statutory guarantees all reduce protest, the income filter by far the most. Seat expansion and compensation are weak. Shutdowns and policing lower the peak somewhat and raise deaths.
+**Hypotheses.** Grandfathering, caste quotas with an income filter, sub-classification, a commission and statutory guarantees all reduce protest, the income filter by far the most. Seat expansion and compensation are weak. Shutdowns and policing lower the peak by 26% and 13% and raise deaths.
 
 A point-by-point response to the review is in [`docs/response_to_review.md`](docs/response_to_review.md).
 
 ## What changed in this revision
 
-A reviewer's critique asked for data where the first version had assumptions, and for statistics that separate inputs from findings. The main changes:
+A reviewer asked for data where the first version had assumptions, and for statistics that separate inputs from findings.
 
 | First version | This version |
 |---|---|
@@ -96,7 +94,7 @@ A reviewer's critique asked for data where the first version had assumptions, an
 | One value per intervention effect | Priors on every effect; rank probabilities; channel decomposition |
 | One-at-a-time sensitivity | Morris screening, an 11-variant structural ensemble, and tests of the unidentified assumptions |
 
-Three findings of the first version did not survive: the eligibility change is not small; seat expansion on the EWS model does not remove the loss; and heavy policing raising total participation depends on an assumed response to deaths. The top and bottom of the lever ranking did survive.
+The first version found that the eligibility change is small, that seat expansion on the EWS model removes the below-line loss, and that heavy policing raises total participation. The first two are wrong, and the third depends on an assumed response to deaths. The top and bottom of the lever ranking held.
 
 ## How the model was built (and what went wrong first)
 
@@ -106,7 +104,7 @@ The stylized model is the fourth specification. The paper documents each earlier
 |---|---|---|---|
 | 1 | Linear, unbounded contagion; narrow thresholds | About 98 crore people on the street at every threshold tried | Implausible scale; contagion had no ceiling |
 | 2 | Saturating contagion | Turnout tipped abruptly; grandfathering −99%, compensation −91% | A symbolic-only shock (like 2018) produced about 10,000 protesters |
-| 3 | Reweighted symbolic vs material grievance | Symbolic-only shock stayed under 5% of baseline | The failure was structural |
+| 3 | Reweighted symbolic vs material grievance | Symbolic-only shock stayed under 5% of baseline | No weighting fixed it; the thresholds were too narrow |
 | 4 | Wide threshold distribution | Smooth response; symbolic-only shock at 2018 scale | Stylized model |
 
 ## Figures
@@ -147,7 +145,7 @@ docs/                      literature and novelty search log; point-by-point res
 
 ## Limitations
 
-How strongly a commission, a guarantee or an income filter reduces the sense of threat is a judgement, handled with wide priors. The episodes identify relative, not absolute, protest size, so the reform's headcount is uncertain by more than tenfold. The material grievance weight is not identified. The seat model covers IIT admissions only. The GDELT relevance labels were coded from article URL text by a single coder and have not been double-coded. ACLED, a hand-coded event dataset, would give an independent check; the pipeline is built (`data_pipelines/acled_episode_events.py`, `experiments/acled_cross_check.py`) and awaits the data. Jati-level heterogeneity, state politics, courts, elections and media are not modelled. Treat the headcounts as illustrations and the comparisons between designs as the finding.
+How strongly a commission, a guarantee or an income filter reduces the sense of threat is a judgement, handled with wide priors. The episodes identify relative, not absolute, protest size, so the reform's headcount is uncertain by more than tenfold. The material grievance weight is not identified. The seat model covers IIT admissions only. The GDELT relevance labels were coded from article URL text by a single coder and have not been double-coded. ACLED, a hand-coded event dataset, would give an independent check; the pipeline is built (`data_pipelines/acled_episode_events.py`, `experiments/acled_cross_check.py`) and awaits the data. Jati-level heterogeneity, state politics, courts, elections and media are not modelled. The headcounts are illustrations; the comparisons between designs are the finding.
 
 ## Citation
 

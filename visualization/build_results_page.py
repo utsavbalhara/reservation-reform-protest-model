@@ -45,7 +45,8 @@ def macro_values() -> dict:
     clean = lambda value: value.replace("\\%", "%").replace("$-$", "−").replace("~", " ").replace("--", "–")
     return {"__ELIG_LOSE__": clean(values["EligibilityLose"]), "__ELIG_GAIN__": clean(values["EligibilityGain"]),
             "__SC_BELOW_SEATS__": clean(values["AllocChangeSCBelow"]), "__TURNOUT_2018__": clean(values["CalibTurnoutTwentyEighteenInterval"]),
-            "__ASSUMPTION_PEAK_LOW__": clean(values["AssumptionPeakLow"]), "__ASSUMPTION_PEAK_HIGH__": clean(values["AssumptionPeakHigh"])}
+            "__ASSUMPTION_PEAK_LOW__": clean(values["AssumptionPeakLow"]), "__ASSUMPTION_PEAK_HIGH__": clean(values["AssumptionPeakHigh"]),
+            "__DEPRIVED_CHANGE__": clean(values["FactDeprivedChange"]), "__BETTER_OFF_CHANGE__": clean(values["FactBetterOffChange"])}
 
 
 def page_data() -> dict:
@@ -66,8 +67,16 @@ def page_data() -> dict:
     }
 
 
-def build_page(asset_prefix: str, output_path: Path):
+STANDALONE_HEAD = ('<!doctype html>\n<html lang="en">\n<meta charset="utf-8">\n'
+                   '<meta name="viewport" content="width=device-width, initial-scale=1">\n')
+
+
+def build_page(asset_prefix: str, output_path: Path, standalone: bool):
+    """standalone adds the document head that the repository and GitHub Pages copy needs; the publishing service
+    wraps the page itself, so the publish copy stays a fragment."""
     template = (PAGE_FOLDER / "page_template.html").read_text()
+    if standalone:
+        template = STANDALONE_HEAD + template
     page = template.replace("__RESULTS_DATA__", json.dumps(page_data(), ensure_ascii=False, separators=(",", ":")))
     page = page.replace("__ASSET_PREFIX__", asset_prefix)
     for placeholder, value in macro_values().items():
@@ -81,9 +90,9 @@ def main():
     parser = argparse.ArgumentParser(description="Build the v2 results page from the result files.")
     parser.add_argument("--publish-copy", type=Path, help="Also write a copy whose assets sit next to it, for publishing.")
     arguments = parser.parse_args()
-    build_page(REPOSITORY_ASSET_PREFIX, PAGE_FOLDER / "index.html")
+    build_page(REPOSITORY_ASSET_PREFIX, PAGE_FOLDER / "index.html", standalone=True)
     if arguments.publish_copy:
-        build_page("", arguments.publish_copy)
+        build_page("", arguments.publish_copy, standalone=False)
 
 
 if __name__ == "__main__":

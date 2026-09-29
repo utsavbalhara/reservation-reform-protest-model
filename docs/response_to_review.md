@@ -59,7 +59,7 @@ Replaced. The model is no longer calibrated to a headcount. It is history-matche
 
 Two published crowd estimates (Maratha 2017, Patidar 2015) anchor the observation model. The 2018 bandh is coded as locally organized, following Scroll's reporting.
 
-The results are reported honestly. Event data identify relative shock sizes far better than turnout: the implied 2018 turnout is 7–539 lakh (90%). The frozen leave-one-episode-out predictions of deaths and geography are weak. The paper draws the consequence that the reform's protest level is not identified, and presents paired comparisons between designs as the object of the analysis.
+Event data identify relative shock sizes far better than turnout: the implied 2018 turnout is 7–539 lakh (90%). The frozen leave-one-episode-out predictions of deaths and geography are weak. The paper draws the consequence that the reform's protest level is not identified, and presents paired comparisons between designs as the object of the analysis.
 
 **7. The dynamics were too stylized (exogenous bandhs, no geography, single-group neighbourhoods).**
 Done (Sections 6, 12.2). The grounded specification has:
@@ -72,7 +72,7 @@ Done (Sections 6, 12.2). The grounded specification has:
 Each alternative can be switched on its own. The structural ensemble reruns the comparison under eleven variants, each recalibrated, and L3 comes first and compensation last in all of them.
 
 **8. Statistics should be paired, with bootstrap intervals.**
-Done throughout. Every change is the median over runs of the ratio to the baseline in the same world, with a 95% percentile-bootstrap interval and the share of runs above the baseline (Section 6.6). One earlier claim turns out to have been an artifact of comparing medians: shutdowns raising cumulative participation by 9%. It is gone.
+Done throughout. Every change is the median over runs of the ratio to the baseline in the same world, with a 95% percentile-bootstrap interval and the share of runs above the baseline (Section 6.6). One earlier claim was an artifact of comparing medians: shutdowns raising cumulative participation by 9%. It is gone.
 
 ## Minor points
 
