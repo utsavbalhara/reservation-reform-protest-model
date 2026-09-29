@@ -1,0 +1,689 @@
+{
+ "agents": 600000,
+ "lose_segments": [
+  "SC_above",
+  "ST_above",
+  "OBC_above_ncl"
+ ],
+ "gain_segments": [
+  "General_below_asset_excluded"
+ ],
+ "populations": {
+  "stylized_national_shares": {
+   "grid": [
+    {
+     "obc_creamy_share_of_above_line": 0.3,
+     "ews_asset_exclusion_share": 0.0,
+     "segment_shares": {
+      "SC_above": 0.01986,
+      "SC_below": 0.14622,
+      "ST_above": 0.00855,
+      "ST_below": 0.07736,
+      "OBC_creamy": 0.02154,
+      "OBC_above_ncl": 0.04991,
+      "OBC_below": 0.34872,
+      "General_above": 0.09865,
+      "General_below_ews": 0.22919,
+      "General_below_asset_excluded": 0.0
+     },
+     "share_losing_eligibility": 0.07832,
+     "share_gaining_eligibility": 0.0,
+     "share_sc_st_above_line": 0.02841
+    },
+    {
+     "obc_creamy_share_of_above_line": 0.3,
+     "ews_asset_exclusion_share": 0.05,
+     "segment_shares": {
+      "SC_above": 0.01986,
+      "SC_below": 0.14622,
+      "ST_above": 0.00855,
+      "ST_below": 0.07736,
+      "OBC_creamy": 0.02154,
+      "OBC_above_ncl": 0.04991,
+      "OBC_below": 0.34872,
+      "General_above": 0.09865,
+      "General_below_ews": 0.21768,
+      "General_below_asset_excluded": 0.01151
+     },
+     "share_losing_eligibility": 0.07832,
+     "share_gaining_eligibility": 0.01151,
+     "share_sc_st_above_line": 0.02841
+    },
+    {
+     "obc_creamy_share_of_above_line": 0.3,
+     "ews_asset_exclusion_share": 0.15,
+     "segment_shares": {
+      "SC_above": 0.01986,
+      "SC_below": 0.14622,
+      "ST_above": 0.00855,
+      "ST_below": 0.07736,
+      "OBC_creamy": 0.02154,
+      "OBC_above_ncl": 0.04991,
+      "OBC_below": 0.34872,
+      "General_above": 0.09865,
+      "General_below_ews": 0.19474,
+      "General_below_asset_excluded": 0.03444
+     },
+     "share_losing_eligibility": 0.07832,
+     "share_gaining_eligibility": 0.03444,
+     "share_sc_st_above_line": 0.02841
+    },
+    {
+     "obc_creamy_share_of_above_line": 0.3,
+     "ews_asset_exclusion_share": 0.25,
+     "segment_shares": {
+      "SC_above": 0.01986,
+      "SC_below": 0.14622,
+      "ST_above": 0.00855,
+      "ST_below": 0.07736,
+      "OBC_creamy": 0.02154,
+      "OBC_above_ncl": 0.04991,
+      "OBC_below": 0.34872,
+      "General_above": 0.09865,
+      "General_below_ews": 0.17166,
+      "General_below_asset_excluded": 0.05752
+     },
+     "share_losing_eligibility": 0.07832,
+     "share_gaining_eligibility": 0.05752,
+     "share_sc_st_above_line": 0.02841
+    },
+    {
+     "obc_creamy_share_of_above_line": 0.5,
+     "ews_asset_exclusion_share": 0.0,
+     "segment_shares": {
+      "SC_above": 0.01986,
+      "SC_below": 0.14622,
+      "ST_above": 0.00855,
+      "ST_below": 0.07736,
+      "OBC_creamy": 0.03581,
+      "OBC_above_ncl": 0.03565,
+      "OBC_below": 0.34872,
+      "General_above": 0.09865,
+      "General_below_ews": 0.22919,
+      "General_below_asset_excluded": 0.0
+     },
+     "share_losing_eligibility": 0.06406,
+     "share_gaining_eligibility": 0.0,
+     "share_sc_st_above_line": 0.02841
+    },
+    {
+     "obc_creamy_share_of_above_line": 0.5,
+     "ews_asset_exclusion_share": 0.05,
+     "segment_shares": {
+      "SC_above": 0.01986,
+      "SC_below": 0.14622,
+      "ST_above": 0.00855,
+      "ST_below": 0.07736,
+      "OBC_creamy": 0.03581,
+      "OBC_above_ncl": 0.03565,
+      "OBC_below": 0.34872,
+      "General_above": 0.09865,
+      "General_below_ews": 0.21768,
+      "General_below_asset_excluded": 0.01151
+     },
+     "share_losing_eligibility": 0.06406,
+     "share_gaining_eligibility": 0.01151,
+     "share_sc_st_above_line": 0.02841
+    },
+    {
+     "obc_creamy_share_of_above_line": 0.5,
+     "ews_asset_exclusion_share": 0.15,
+     "segment_shares": {
+      "SC_above": 0.01986,
+      "SC_below": 0.14622,
+      "ST_above": 0.00855,
+      "ST_below": 0.07736,
+      "OBC_creamy": 0.03581,
+      "OBC_above_ncl": 0.03565,
+      "OBC_below": 0.34872,
+      "General_above": 0.09865,
+      "General_below_ews": 0.19474,
+      "General_below_asset_excluded": 0.03444
+     },
+     "share_losing_eligibility": 0.06406,
+     "share_gaining_eligibility": 0.03444,
+     "share_sc_st_above_line": 0.02841
+    },
+    {
+     "obc_creamy_share_of_above_line": 0.5,
+     "ews_asset_exclusion_share": 0.25,
+     "segment_shares": {
+      "SC_above": 0.01986,
+      "SC_below": 0.14622,
+      "ST_above": 0.00855,
+      "ST_below": 0.07736,
+      "OBC_creamy": 0.03581,
+      "OBC_above_ncl": 0.03565,
+      "OBC_below": 0.34872,
+      "General_above": 0.09865,
+      "General_below_ews": 0.17166,
+      "General_below_asset_excluded": 0.05752
+     },
+     "share_losing_eligibility": 0.06406,
+     "share_gaining_eligibility": 0.05752,
+     "share_sc_st_above_line": 0.02841
+    },
+    {
+     "obc_creamy_share_of_above_line": 0.7,
+     "ews_asset_exclusion_share": 0.0,
+     "segment_shares": {
+      "SC_above": 0.01986,
+      "SC_below": 0.14622,
+      "ST_above": 0.00855,
+      "ST_below": 0.07736,
+      "OBC_creamy": 0.04997,
+      "OBC_above_ncl": 0.02148,
+      "OBC_below": 0.34872,
+      "General_above": 0.09865,
+      "General_below_ews": 0.22919,
+      "General_below_asset_excluded": 0.0
+     },
+     "share_losing_eligibility": 0.04989,
+     "share_gaining_eligibility": 0.0,
+     "share_sc_st_above_line": 0.02841
+    },
+    {
+     "obc_creamy_share_of_above_line": 0.7,
+     "ews_asset_exclusion_share": 0.05,
+     "segment_shares": {
+      "SC_above": 0.01986,
+      "SC_below": 0.14622,
+      "ST_above": 0.00855,
+      "ST_below": 0.07736,
+      "OBC_creamy": 0.04997,
+      "OBC_above_ncl": 0.02148,
+      "OBC_below": 0.34872,
+      "General_above": 0.09865,
+      "General_below_ews": 0.21768,
+      "General_below_asset_excluded": 0.01151
+     },
+     "share_losing_eligibility": 0.04989,
+     "share_gaining_eligibility": 0.01151,
+     "share_sc_st_above_line": 0.02841
+    },
+    {
+     "obc_creamy_share_of_above_line": 0.7,
+     "ews_asset_exclusion_share": 0.15,
+     "segment_shares": {
+      "SC_above": 0.01986,
+      "SC_below": 0.14622,
+      "ST_above": 0.00855,
+      "ST_below": 0.07736,
+      "OBC_creamy": 0.04997,
+      "OBC_above_ncl": 0.02148,
+      "OBC_below": 0.34872,
+      "General_above": 0.09865,
+      "General_below_ews": 0.19474,
+      "General_below_asset_excluded": 0.03444
+     },
+     "share_losing_eligibility": 0.04989,
+     "share_gaining_eligibility": 0.03444,
+     "share_sc_st_above_line": 0.02841
+    },
+    {
+     "obc_creamy_share_of_above_line": 0.7,
+     "ews_asset_exclusion_share": 0.25,
+     "segment_shares": {
+      "SC_above": 0.01986,
+      "SC_below": 0.14622,
+      "ST_above": 0.00855,
+      "ST_below": 0.07736,
+      "OBC_creamy": 0.04997,
+      "OBC_above_ncl": 0.02148,
+      "OBC_below": 0.34872,
+      "General_above": 0.09865,
+      "General_below_ews": 0.17166,
+      "General_below_asset_excluded": 0.05752
+     },
+     "share_losing_eligibility": 0.04989,
+     "share_gaining_eligibility": 0.05752,
+     "share_sc_st_above_line": 0.02841
+    },
+    {
+     "obc_creamy_share_of_above_line": 1.0,
+     "ews_asset_exclusion_share": 0.0,
+     "segment_shares": {
+      "SC_above": 0.01986,
+      "SC_below": 0.14622,
+      "ST_above": 0.00855,
+      "ST_below": 0.07736,
+      "OBC_creamy": 0.07145,
+      "OBC_above_ncl": 0.0,
+      "OBC_below": 0.34872,
+      "General_above": 0.09865,
+      "General_below_ews": 0.22919,
+      "General_below_asset_excluded": 0.0
+     },
+     "share_losing_eligibility": 0.02841,
+     "share_gaining_eligibility": 0.0,
+     "share_sc_st_above_line": 0.02841
+    },
+    {
+     "obc_creamy_share_of_above_line": 1.0,
+     "ews_asset_exclusion_share": 0.05,
+     "segment_shares": {
+      "SC_above": 0.01986,
+      "SC_below": 0.14622,
+      "ST_above": 0.00855,
+      "ST_below": 0.07736,
+      "OBC_creamy": 0.07145,
+      "OBC_above_ncl": 0.0,
+      "OBC_below": 0.34872,
+      "General_above": 0.09865,
+      "General_below_ews": 0.21766,
+      "General_below_asset_excluded": 0.01152
+     },
+     "share_losing_eligibility": 0.02841,
+     "share_gaining_eligibility": 0.01152,
+     "share_sc_st_above_line": 0.02841
+    },
+    {
+     "obc_creamy_share_of_above_line": 1.0,
+     "ews_asset_exclusion_share": 0.15,
+     "segment_shares": {
+      "SC_above": 0.01986,
+      "SC_below": 0.14622,
+      "ST_above": 0.00855,
+      "ST_below": 0.07736,
+      "OBC_creamy": 0.07145,
+      "OBC_above_ncl": 0.0,
+      "OBC_below": 0.34872,
+      "General_above": 0.09865,
+      "General_below_ews": 0.1947,
+      "General_below_asset_excluded": 0.03449
+     },
+     "share_losing_eligibility": 0.02841,
+     "share_gaining_eligibility": 0.03449,
+     "share_sc_st_above_line": 0.02841
+    },
+    {
+     "obc_creamy_share_of_above_line": 1.0,
+     "ews_asset_exclusion_share": 0.25,
+     "segment_shares": {
+      "SC_above": 0.01986,
+      "SC_below": 0.14622,
+      "ST_above": 0.00855,
+      "ST_below": 0.07736,
+      "OBC_creamy": 0.07145,
+      "OBC_above_ncl": 0.0,
+      "OBC_below": 0.34872,
+      "General_above": 0.09865,
+      "General_below_ews": 0.17169,
+      "General_below_asset_excluded": 0.0575
+     },
+     "share_losing_eligibility": 0.02841,
+     "share_gaining_eligibility": 0.0575,
+     "share_sc_st_above_line": 0.02841
+    }
+   ],
+   "central": {
+    "obc_creamy_share_of_above_line": 0.5,
+    "ews_asset_exclusion_share": 0.15,
+    "segment_shares": {
+     "SC_above": 0.01986,
+     "SC_below": 0.14622,
+     "ST_above": 0.00855,
+     "ST_below": 0.07736,
+     "OBC_creamy": 0.03581,
+     "OBC_above_ncl": 0.03565,
+     "OBC_below": 0.34872,
+     "General_above": 0.09865,
+     "General_below_ews": 0.19474,
+     "General_below_asset_excluded": 0.03444
+    },
+    "share_losing_eligibility": 0.06406,
+    "share_gaining_eligibility": 0.03444,
+    "share_sc_st_above_line": 0.02841
+   },
+   "range_over_priors": {
+    "share_losing_eligibility": [
+     0.04989,
+     0.07832
+    ],
+    "share_gaining_eligibility": [
+     0.01151,
+     0.05752
+    ]
+   },
+   "original_accounting": 0.02841
+  },
+  "district_census_nfhs_shares": {
+   "grid": [
+    {
+     "obc_creamy_share_of_above_line": 0.3,
+     "ews_asset_exclusion_share": 0.0,
+     "segment_shares": {
+      "SC_above": 0.02005,
+      "SC_below": 0.14636,
+      "ST_above": 0.00884,
+      "ST_below": 0.0774,
+      "OBC_creamy": 0.02355,
+      "OBC_above_ncl": 0.05407,
+      "OBC_below": 0.37952,
+      "General_above": 0.08703,
+      "General_below_ews": 0.20318,
+      "General_below_asset_excluded": 0.0
+     },
+     "share_losing_eligibility": 0.08296,
+     "share_gaining_eligibility": 0.0,
+     "share_sc_st_above_line": 0.02889
+    },
+    {
+     "obc_creamy_share_of_above_line": 0.3,
+     "ews_asset_exclusion_share": 0.05,
+     "segment_shares": {
+      "SC_above": 0.02005,
+      "SC_below": 0.14636,
+      "ST_above": 0.00884,
+      "ST_below": 0.0774,
+      "OBC_creamy": 0.02355,
+      "OBC_above_ncl": 0.05407,
+      "OBC_below": 0.37952,
+      "General_above": 0.08703,
+      "General_below_ews": 0.19287,
+      "General_below_asset_excluded": 0.0103
+     },
+     "share_losing_eligibility": 0.08296,
+     "share_gaining_eligibility": 0.0103,
+     "share_sc_st_above_line": 0.02889
+    },
+    {
+     "obc_creamy_share_of_above_line": 0.3,
+     "ews_asset_exclusion_share": 0.15,
+     "segment_shares": {
+      "SC_above": 0.02005,
+      "SC_below": 0.14636,
+      "ST_above": 0.00884,
+      "ST_below": 0.0774,
+      "OBC_creamy": 0.02355,
+      "OBC_above_ncl": 0.05407,
+      "OBC_below": 0.37952,
+      "General_above": 0.08703,
+      "General_below_ews": 0.17244,
+      "General_below_asset_excluded": 0.03074
+     },
+     "share_losing_eligibility": 0.08296,
+     "share_gaining_eligibility": 0.03074,
+     "share_sc_st_above_line": 0.02889
+    },
+    {
+     "obc_creamy_share_of_above_line": 0.3,
+     "ews_asset_exclusion_share": 0.25,
+     "segment_shares": {
+      "SC_above": 0.02005,
+      "SC_below": 0.14636,
+      "ST_above": 0.00884,
+      "ST_below": 0.0774,
+      "OBC_creamy": 0.02355,
+      "OBC_above_ncl": 0.05407,
+      "OBC_below": 0.37952,
+      "General_above": 0.08703,
+      "General_below_ews": 0.15205,
+      "General_below_asset_excluded": 0.05113
+     },
+     "share_losing_eligibility": 0.08296,
+     "share_gaining_eligibility": 0.05113,
+     "share_sc_st_above_line": 0.02889
+    },
+    {
+     "obc_creamy_share_of_above_line": 0.5,
+     "ews_asset_exclusion_share": 0.0,
+     "segment_shares": {
+      "SC_above": 0.02005,
+      "SC_below": 0.14636,
+      "ST_above": 0.00884,
+      "ST_below": 0.0774,
+      "OBC_creamy": 0.03892,
+      "OBC_above_ncl": 0.0387,
+      "OBC_below": 0.37952,
+      "General_above": 0.08703,
+      "General_below_ews": 0.20318,
+      "General_below_asset_excluded": 0.0
+     },
+     "share_losing_eligibility": 0.06759,
+     "share_gaining_eligibility": 0.0,
+     "share_sc_st_above_line": 0.02889
+    },
+    {
+     "obc_creamy_share_of_above_line": 0.5,
+     "ews_asset_exclusion_share": 0.05,
+     "segment_shares": {
+      "SC_above": 0.02005,
+      "SC_below": 0.14636,
+      "ST_above": 0.00884,
+      "ST_below": 0.0774,
+      "OBC_creamy": 0.03892,
+      "OBC_above_ncl": 0.0387,
+      "OBC_below": 0.37952,
+      "General_above": 0.08703,
+      "General_below_ews": 0.19287,
+      "General_below_asset_excluded": 0.0103
+     },
+     "share_losing_eligibility": 0.06759,
+     "share_gaining_eligibility": 0.0103,
+     "share_sc_st_above_line": 0.02889
+    },
+    {
+     "obc_creamy_share_of_above_line": 0.5,
+     "ews_asset_exclusion_share": 0.15,
+     "segment_shares": {
+      "SC_above": 0.02005,
+      "SC_below": 0.14636,
+      "ST_above": 0.00884,
+      "ST_below": 0.0774,
+      "OBC_creamy": 0.03892,
+      "OBC_above_ncl": 0.0387,
+      "OBC_below": 0.37952,
+      "General_above": 0.08703,
+      "General_below_ews": 0.17244,
+      "General_below_asset_excluded": 0.03074
+     },
+     "share_losing_eligibility": 0.06759,
+     "share_gaining_eligibility": 0.03074,
+     "share_sc_st_above_line": 0.02889
+    },
+    {
+     "obc_creamy_share_of_above_line": 0.5,
+     "ews_asset_exclusion_share": 0.25,
+     "segment_shares": {
+      "SC_above": 0.02005,
+      "SC_below": 0.14636,
+      "ST_above": 0.00884,
+      "ST_below": 0.0774,
+      "OBC_creamy": 0.03892,
+      "OBC_above_ncl": 0.0387,
+      "OBC_below": 0.37952,
+      "General_above": 0.08703,
+      "General_below_ews": 0.15205,
+      "General_below_asset_excluded": 0.05113
+     },
+     "share_losing_eligibility": 0.06759,
+     "share_gaining_eligibility": 0.05113,
+     "share_sc_st_above_line": 0.02889
+    },
+    {
+     "obc_creamy_share_of_above_line": 0.7,
+     "ews_asset_exclusion_share": 0.0,
+     "segment_shares": {
+      "SC_above": 0.02005,
+      "SC_below": 0.14636,
+      "ST_above": 0.00884,
+      "ST_below": 0.0774,
+      "OBC_creamy": 0.0545,
+      "OBC_above_ncl": 0.02312,
+      "OBC_below": 0.37952,
+      "General_above": 0.08703,
+      "General_below_ews": 0.20318,
+      "General_below_asset_excluded": 0.0
+     },
+     "share_losing_eligibility": 0.052,
+     "share_gaining_eligibility": 0.0,
+     "share_sc_st_above_line": 0.02889
+    },
+    {
+     "obc_creamy_share_of_above_line": 0.7,
+     "ews_asset_exclusion_share": 0.05,
+     "segment_shares": {
+      "SC_above": 0.02005,
+      "SC_below": 0.14636,
+      "ST_above": 0.00884,
+      "ST_below": 0.0774,
+      "OBC_creamy": 0.0545,
+      "OBC_above_ncl": 0.02312,
+      "OBC_below": 0.37952,
+      "General_above": 0.08703,
+      "General_below_ews": 0.19287,
+      "General_below_asset_excluded": 0.0103
+     },
+     "share_losing_eligibility": 0.052,
+     "share_gaining_eligibility": 0.0103,
+     "share_sc_st_above_line": 0.02889
+    },
+    {
+     "obc_creamy_share_of_above_line": 0.7,
+     "ews_asset_exclusion_share": 0.15,
+     "segment_shares": {
+      "SC_above": 0.02005,
+      "SC_below": 0.14636,
+      "ST_above": 0.00884,
+      "ST_below": 0.0774,
+      "OBC_creamy": 0.0545,
+      "OBC_above_ncl": 0.02312,
+      "OBC_below": 0.37952,
+      "General_above": 0.08703,
+      "General_below_ews": 0.17244,
+      "General_below_asset_excluded": 0.03074
+     },
+     "share_losing_eligibility": 0.052,
+     "share_gaining_eligibility": 0.03074,
+     "share_sc_st_above_line": 0.02889
+    },
+    {
+     "obc_creamy_share_of_above_line": 0.7,
+     "ews_asset_exclusion_share": 0.25,
+     "segment_shares": {
+      "SC_above": 0.02005,
+      "SC_below": 0.14636,
+      "ST_above": 0.00884,
+      "ST_below": 0.0774,
+      "OBC_creamy": 0.0545,
+      "OBC_above_ncl": 0.02312,
+      "OBC_below": 0.37952,
+      "General_above": 0.08703,
+      "General_below_ews": 0.15205,
+      "General_below_asset_excluded": 0.05113
+     },
+     "share_losing_eligibility": 0.052,
+     "share_gaining_eligibility": 0.05113,
+     "share_sc_st_above_line": 0.02889
+    },
+    {
+     "obc_creamy_share_of_above_line": 1.0,
+     "ews_asset_exclusion_share": 0.0,
+     "segment_shares": {
+      "SC_above": 0.02005,
+      "SC_below": 0.14636,
+      "ST_above": 0.00884,
+      "ST_below": 0.0774,
+      "OBC_creamy": 0.07762,
+      "OBC_above_ncl": 0.0,
+      "OBC_below": 0.37952,
+      "General_above": 0.08703,
+      "General_below_ews": 0.20318,
+      "General_below_asset_excluded": 0.0
+     },
+     "share_losing_eligibility": 0.02889,
+     "share_gaining_eligibility": 0.0,
+     "share_sc_st_above_line": 0.02889
+    },
+    {
+     "obc_creamy_share_of_above_line": 1.0,
+     "ews_asset_exclusion_share": 0.05,
+     "segment_shares": {
+      "SC_above": 0.02005,
+      "SC_below": 0.14636,
+      "ST_above": 0.00884,
+      "ST_below": 0.0774,
+      "OBC_creamy": 0.07762,
+      "OBC_above_ncl": 0.0,
+      "OBC_below": 0.37952,
+      "General_above": 0.08703,
+      "General_below_ews": 0.19313,
+      "General_below_asset_excluded": 0.01005
+     },
+     "share_losing_eligibility": 0.02889,
+     "share_gaining_eligibility": 0.01005,
+     "share_sc_st_above_line": 0.02889
+    },
+    {
+     "obc_creamy_share_of_above_line": 1.0,
+     "ews_asset_exclusion_share": 0.15,
+     "segment_shares": {
+      "SC_above": 0.02005,
+      "SC_below": 0.14636,
+      "ST_above": 0.00884,
+      "ST_below": 0.0774,
+      "OBC_creamy": 0.07762,
+      "OBC_above_ncl": 0.0,
+      "OBC_below": 0.37952,
+      "General_above": 0.08703,
+      "General_below_ews": 0.17283,
+      "General_below_asset_excluded": 0.03035
+     },
+     "share_losing_eligibility": 0.02889,
+     "share_gaining_eligibility": 0.03035,
+     "share_sc_st_above_line": 0.02889
+    },
+    {
+     "obc_creamy_share_of_above_line": 1.0,
+     "ews_asset_exclusion_share": 0.25,
+     "segment_shares": {
+      "SC_above": 0.02005,
+      "SC_below": 0.14636,
+      "ST_above": 0.00884,
+      "ST_below": 0.0774,
+      "OBC_creamy": 0.07762,
+      "OBC_above_ncl": 0.0,
+      "OBC_below": 0.37952,
+      "General_above": 0.08703,
+      "General_below_ews": 0.15242,
+      "General_below_asset_excluded": 0.05076
+     },
+     "share_losing_eligibility": 0.02889,
+     "share_gaining_eligibility": 0.05076,
+     "share_sc_st_above_line": 0.02889
+    }
+   ],
+   "central": {
+    "obc_creamy_share_of_above_line": 0.5,
+    "ews_asset_exclusion_share": 0.15,
+    "segment_shares": {
+     "SC_above": 0.02005,
+     "SC_below": 0.14636,
+     "ST_above": 0.00884,
+     "ST_below": 0.0774,
+     "OBC_creamy": 0.03892,
+     "OBC_above_ncl": 0.0387,
+     "OBC_below": 0.37952,
+     "General_above": 0.08703,
+     "General_below_ews": 0.17244,
+     "General_below_asset_excluded": 0.03074
+    },
+    "share_losing_eligibility": 0.06759,
+    "share_gaining_eligibility": 0.03074,
+    "share_sc_st_above_line": 0.02889
+   },
+   "range_over_priors": {
+    "share_losing_eligibility": [
+     0.052,
+     0.08296
+    ],
+    "share_gaining_eligibility": [
+     0.0103,
+     0.05113
+    ]
+   },
+   "original_accounting": 0.02889
+  }
+ }
+}

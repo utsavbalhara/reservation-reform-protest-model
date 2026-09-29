@@ -1,0 +1,153 @@
+{
+ "history": [
+  {
+   "wave": 1,
+   "samples": 12,
+   "kept": 0,
+   "bounds_used": {
+    "mean_participation_threshold": [
+     5.0,
+     8.5
+    ],
+    "participation_threshold_spread": [
+     0.8,
+     2.2
+    ],
+    "same_group_neighbourhood_share": [
+     0.5,
+     1.0
+    ],
+    "magnitude_sc_st_bharat_bandh_2018": [
+     0.1,
+     2.5
+    ],
+    "magnitude_sc_st_bharat_bandh_2024": [
+     0.02,
+     2.5
+    ],
+    "magnitude_upper_caste_bandh_2018": [
+     0.02,
+     2.5
+    ],
+    "magnitude_ews_quota_2019": [
+     0.0,
+     1.5
+    ],
+    "deprived_tier_share_2024": [
+     0.1,
+     0.9
+    ],
+    "log10_bandh_deaths_per_crore": [
+     0.3,
+     3.0
+    ],
+    "death_dispersion": [
+     0.5,
+     5.0
+    ],
+    "observation_exponent": [
+     0.3,
+     1.0
+    ],
+    "log10_observation_scale": [
+     -4.0,
+     1.0
+    ],
+    "delhi_media_factor": [
+     1.0,
+     6.0
+    ],
+    "log10_maratha_2017_crowd": [
+     5.0,
+     6.301029995663981
+    ],
+    "log10_patidar_2015_crowd": [
+     5.477121254719663,
+     6.301029995663981
+    ]
+   }
+  }
+ ],
+ "cutoff": 3.0,
+ "priors": {
+  "mean_participation_threshold": [
+   5.0,
+   8.5
+  ],
+  "participation_threshold_spread": [
+   0.8,
+   2.2
+  ],
+  "same_group_neighbourhood_share": [
+   0.5,
+   1.0
+  ],
+  "magnitude_sc_st_bharat_bandh_2018": [
+   0.1,
+   2.5
+  ],
+  "magnitude_sc_st_bharat_bandh_2024": [
+   0.02,
+   2.5
+  ],
+  "magnitude_upper_caste_bandh_2018": [
+   0.02,
+   2.5
+  ],
+  "magnitude_ews_quota_2019": [
+   0.0,
+   1.5
+  ],
+  "deprived_tier_share_2024": [
+   0.1,
+   0.9
+  ],
+  "log10_bandh_deaths_per_crore": [
+   0.3,
+   3.0
+  ],
+  "death_dispersion": [
+   0.5,
+   5.0
+  ],
+  "observation_exponent": [
+   0.3,
+   1.0
+  ],
+  "log10_observation_scale": [
+   -4.0,
+   1.0
+  ],
+  "delhi_media_factor": [
+   1.0,
+   6.0
+  ],
+  "log10_maratha_2017_crowd": [
+   5.0,
+   6.301029995663981
+  ],
+  "log10_patidar_2015_crowd": [
+   5.477121254719663,
+   6.301029995663981
+  ]
+ },
+ "model_discrepancy_log": 0.5,
+ "kept": 0,
+ "leave_one_episode_out": {
+  "sc_st_bharat_bandh_2018": {
+   "frozen_file": "results/frozen_predictions/loeo_sc_st_bharat_bandh_2018.json",
+   "sha256": "9b98201c71f52387da71325233934b305e356d5b749685c79d932e0bbdbf4531",
+   "retained": 0
+  },
+  "sc_st_bharat_bandh_2024": {
+   "frozen_file": "results/frozen_predictions/loeo_sc_st_bharat_bandh_2024.json",
+   "sha256": "c1dc773c1f143a3d0b31077674a220ba871cfe6fe0fb38c52c70c24fea3e3b53",
+   "retained": 0
+  },
+  "upper_caste_bandh_2018": {
+   "frozen_file": "results/frozen_predictions/loeo_upper_caste_bandh_2018.json",
+   "sha256": "a5d34195871ad38625b539c15254dbc21881ad0dac727de2d33ebc10677cf43a",
+   "retained": 0
+  }
+ }
+}
