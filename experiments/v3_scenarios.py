@@ -89,7 +89,7 @@ def main():
             "bandh_turnout_lakh": interval([r[key]["bandh_turnout"] / 1e5 for r in runs]),
             "week_deaths": interval([r[key]["week_deaths"] for r in runs]),
             "share_by_identity_group": dict(zip(IDENTITY_GROUP_NAMES, share_identity.round(4).tolist())),
-            "district_share_median": np.median([r[key]["district_share"] for r in runs], axis=0).round(6).tolist(),
+            "district_share_mean": np.mean([r[key]["district_share"] for r in runs], axis=0).round(7).tolist(),
         }
         print(f"{key:38} events x2018 {np.median(rel_events):6.2f} [{np.percentile(rel_events, 5):.2f}, {np.percentile(rel_events, 95):.2f}]  "
               f"P(>2018) {np.mean(np.array(rel_events) > 1):.2f}", flush=True)

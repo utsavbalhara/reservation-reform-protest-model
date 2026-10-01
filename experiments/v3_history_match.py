@@ -11,9 +11,15 @@ Targets, for each episode (data/derived/episode_targets_v3.json):
            end ten times the largest press figure ("hundreds of thousands"). This is an assumption, stated as one.
 Deaths are compared on the log scale, (expected + 1) against (observed + 1), so that a model predicting hundreds of
 deaths for a bandh in which a dozen died is ruled out whatever the dispersion.
-A parameter set is implausible if any target's standardized distance exceeds 3. Waves sample within the range of the
-previous wave's survivors (widened by 10%); when fewer than 30 survive, the next wave samples within the range of the 50
-least implausible sets instead (refocusing), so that the search can reach a small non-implausible region.
+With 34 implausibility measures, a single cutoff on the largest one rejects almost every set by chance alone (each
+target fails for 10 to 30 per cent of otherwise good sets), so I use the rule recommended for many outputs (Vernon,
+Goldstein and Bower 2010): a set is kept if its second-largest implausibility is below 3 and its largest below 4.
+Wave 1 samples the priors. Each later wave resamples the current guide sets (the kept sets, or the 200 least implausible
+if fewer than 100 are kept) and perturbs them with a Gaussian of half their spread in each parameter, reflected at the
+prior bounds. All waves are pooled: every simulated set that passes is kept. The crowd ranges and the 2018 turnout bound
+are plausibility constraints rather than noisy measurements, so a final filter keeps only sets that meet them exactly;
+without it, the rule above lets the turnout bound be the one target allowed to miss, and the median 2018 turnout
+lands above it. The kept sets are an ensemble of plausible parameter sets, not a posterior distribution.
 
 Two matches run on the same simulations: the main match uses every target; the "no-spatial" match drops the spatial
 targets, and its survivors predict where protest happened, which is then compared with population and SC+ST baselines.
@@ -45,8 +51,11 @@ DEATH_LOG_DISCREPANCY = 0.5
 TURNOUT_2018_BOUNDS = (1e5, 1e7)
 CROWD_LOG_SCALE = 0.35
 CUTOFF = 3.0
-MIN_SURVIVORS = 30
-REFOCUS_COUNT = 50
+CUTOFF_LARGEST = 4.0
+MIN_GUIDE = 100
+REFOCUS_COUNT = 200
+JITTER = 0.5
+HARD_TARGETS = ("bound", "crowd")
 NO_SPATIAL_EPISODES = {"ews_quota_2019", "kapu_2016"}
 
 PRIORS = {
@@ -172,37 +181,49 @@ def sample_priors(rng, count, bounds):
     return [{name: float(rng.uniform(*bounds[name])) for name in NAMES} for _ in range(count)]
 
 
-def bounds_of(kept, widen=0.1):
-    bounds = {}
-    for name in NAMES:
-        values = np.array([r["sample"][name] for r in kept])
-        margin = widen * (values.max() - values.min())
-        bounds[name] = (max(PRIORS[name][0], values.min() - margin), min(PRIORS[name][1], values.max() + margin))
-    return bounds
+def plausibility(scores: dict) -> float:
+    """Below CUTOFF exactly when the second-largest score is below CUTOFF and the largest below CUTOFF_LARGEST."""
+    ordered = sorted(scores.values(), reverse=True)
+    return max(ordered[1], ordered[0] - (CUTOFF_LARGEST - CUTOFF))
+
+
+def jittered(rng, guide, count):
+    values = np.array([[r["sample"][name] for name in NAMES] for r in guide])
+    low = np.array([PRIORS[name][0] for name in NAMES])
+    high = np.array([PRIORS[name][1] for name in NAMES])
+    spread = np.maximum(values.std(axis=0), 0.02 * (high - low)) * JITTER
+    draws = values[rng.integers(len(values), size=count)] + rng.normal(size=(count, len(NAMES))) * spread
+    draws = np.where(draws < low, 2 * low - draws, draws)
+    draws = np.where(draws > high, 2 * high - draws, draws)
+    draws = np.clip(draws, low, high)
+    return [{name: float(v) for name, v in zip(NAMES, row)} for row in draws]
 
 
 def history_match(targets, wave_size, waves, seed, use_spatial, first_wave, label):
     rng = np.random.default_rng(seed)
-    bounds, history, kept = dict(PRIORS), [], []
+    history, pool = [], []
     for wave in range(waves):
-        results = first_wave if wave == 0 else run_wave(sample_priors(rng, wave_size, bounds), f"{label}_wave{wave + 1}")
+        results = first_wave if wave == 0 else run_wave(jittered(rng, guide, wave_size), f"{label}_jitter{wave + 1}")
         judged = []
         for r in results:
             scores = implausibilities(r, targets, use_spatial)
-            judged.append({**r, "implausibility": scores, "max_implausibility": max(scores.values())})
-        kept = [r for r in judged if r["max_implausibility"] < CUTOFF]
+            judged.append({**r, "implausibility": scores, "plausibility": plausibility(scores)})
+        pool.extend(judged)
+        kept_now = sum(r["plausibility"] < CUTOFF for r in judged)
+        kept = [r for r in pool if r["plausibility"] < CUTOFF]
         worst = {}
         for r in judged:
             name = max(r["implausibility"], key=r["implausibility"].get)
             worst[name.split(":")[0]] = worst.get(name.split(":")[0], 0) + 1
-        refocused = len(kept) < MIN_SURVIVORS
-        history.append({"wave": wave + 1, "samples": len(results), "kept": len(kept), "binding_target_counts": worst,
-                        "next_wave_refocused_on_least_implausible": refocused})
-        print(f"[{label}] wave {wave + 1}: kept {len(kept)} of {len(results)}; binding targets {worst}"
-              + ("; refocusing" if refocused else ""), flush=True)
-        guide = sorted(judged, key=lambda r: r["max_implausibility"])[:REFOCUS_COUNT] if refocused else kept
-        bounds = bounds_of(guide)
+        guide = kept if len(kept) >= MIN_GUIDE else sorted(pool, key=lambda r: r["plausibility"])[:REFOCUS_COUNT]
+        history.append({"wave": wave + 1, "samples": len(results), "kept_this_wave": int(kept_now), "kept_pooled": len(kept),
+                        "largest_score_by_target_type": worst})
+        print(f"[{label}] wave {wave + 1}: kept {kept_now} of {len(results)} (pooled {len(kept)}); largest scores {worst}", flush=True)
     return kept, history
+
+
+def meets_hard_constraints(kept):
+    return [r for r in kept if all(value == 0.0 for name, value in r["implausibility"].items() if name.split(":")[0] in HARD_TARGETS)]
 
 
 def interval(values):
@@ -243,8 +264,10 @@ def main():
     first = run_wave(sample_priors(np.random.default_rng(20261001), arguments.wave_size, PRIORS), "shared_wave1")
     kept, history = history_match(targets, arguments.wave_size, arguments.waves, 20261002, True, first, "main")
     kept_free, history_free = history_match(targets, arguments.wave_size, max(arguments.waves - 1, 1), 20261003, False, first, "nospatial")
+    kept_before_hard, kept_free_before_hard = len(kept), len(kept_free)
+    kept, kept_free = meets_hard_constraints(kept), meets_hard_constraints(kept_free)
     samples = [r["sample"] for r in kept]
-    output = {"cutoff": CUTOFF, "priors": {k: list(v) for k, v in PRIORS.items()}, "history": history, "kept": len(kept),
+    output = {"kept_before_hard_constraints": kept_before_hard, "kept_no_spatial_before_hard_constraints": kept_free_before_hard,"cutoff_second_largest": CUTOFF, "cutoff_largest": CUTOFF_LARGEST, "priors": {k: list(v) for k, v in PRIORS.items()}, "history": history, "kept": len(kept),
               "history_no_spatial": history_free, "kept_no_spatial": len(kept_free)}
     if kept:
         output["posterior"] = {name: interval([s[name] for s in samples]) for name in NAMES}

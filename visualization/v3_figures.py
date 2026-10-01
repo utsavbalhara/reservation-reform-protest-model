@@ -50,7 +50,7 @@ def episode_fit(calibration, targets):
     axis.invert_yaxis()
     axis.set_xlabel("Protest events reported on core days, per 1,000 GDELT events in India")
     axis.set_title("Fit to ten reservation episodes")
-    axis.legend(loc="lower right")
+    axis.legend(loc="upper center", bbox_to_anchor=(0.4, -0.13), ncol=2, fontsize=8)
     axis.grid(axis="y", visible=False)
     save_figure(figure, "v3_episode_fit")
 
@@ -69,7 +69,7 @@ def profiles(calibration, targets):
         axis.set_xlabel("Core day", fontsize=8)
     axes[0].set_ylabel("Share of core-day events")
     axes[0].legend(loc="upper left", fontsize=7.5)
-    figure.suptitle("Day-to-day profile of multi-day agitations", fontsize=10, x=0.02, ha="left")
+    figure.suptitle("Day-to-day profile of multi-day agitations", fontsize=10, x=0.02, y=1.06, ha="left", fontweight="bold")
     save_figure(figure, "v3_profiles")
 
 
@@ -114,7 +114,7 @@ def draw_map(axis, values, polygons, owner, norm, title):
 
 def map_2018(scenarios):
     polygons, owner = district_polygons()
-    values = np.maximum(np.array(scenarios["replay_2018|none"]["district_share_median"]), 1e-6)
+    values = np.maximum(np.array(scenarios["replay_2018|none"]["district_share_mean"]), 1e-6)
     locations = pd.read_csv(REPOSITORY_ROOT / "data" / "derived" / "gdelt_episode_locations.csv")
     core = locations[(locations.episode == "sc_st_bharat_bandh_2018") & (locations.date == "2018-04-02")]
     figure, axis = plt.subplots(figsize=(5.2, 5.6))
@@ -129,7 +129,7 @@ def map_2018(scenarios):
 
 
 def scenario_chart(scenarios):
-    figure, axis = plt.subplots(figsize=(7.2, 3.9))
+    figure, axis = plt.subplots(figsize=(7.2, 4.3))
     offsets = {"none": -0.27, "phased": -0.09, "negotiated": 0.09, "all_three": 0.27}
     rows = list(REFORM_ORDER)
     for row, reform in enumerate(rows):
@@ -142,7 +142,7 @@ def scenario_chart(scenarios):
             axis.plot([value["p05"], value["p95"]], [row + offset] * 2, color=colour, linewidth=1.2, alpha=0.8)
             axis.plot(value["median"], row + offset, "o", color=colour, markersize=5.5, markeredgecolor="white", markeredgewidth=0.8)
         top = scenarios[f"{reform}|none"]["events_vs_2018"]["median"]
-        axis.text(axis.get_xlim()[1] if False else top, row - 0.42, f"{top:.2f}x", fontsize=7.5, color=SECONDARY_INK, ha="center")
+        axis.text(top, row - 0.42, f"{top:.2f}x", fontsize=7.5, color=SECONDARY_INK, ha="center")
     ews = scenarios["replay_ews_2019|none"]["events_vs_2018"]
     axis.axvline(1.0, color=INK, linewidth=1, linestyle="--")
     axis.text(1.0, len(rows) - 0.4, " 2018 bandh", fontsize=8, color=INK, va="center")
@@ -156,7 +156,7 @@ def scenario_chart(scenarios):
     axis.set_ylim(len(rows) - 0.5, -1.1)
     axis.set_xlabel("Reported protest on the bandh day, relative to 2 April 2018 (median, 90% range)")
     axis.set_title("How each reform compares with the 2018 bandh")
-    axis.legend(loc="lower right", fontsize=7.5)
+    axis.legend(loc="upper center", bbox_to_anchor=(0.4, -0.16), ncol=4, fontsize=7.5)
     axis.grid(axis="y", visible=False)
     save_figure(figure, "v3_scenarios")
 
@@ -164,15 +164,18 @@ def scenario_chart(scenarios):
 def scenario_maps(scenarios):
     polygons, owner = district_polygons()
     keys = ("sc_st_creamy_layer|none", "income_only|none", "abolition|none")
-    values = [np.maximum(np.array(scenarios[k]["district_share_median"]), 1e-6) for k in keys]
+    values = [np.maximum(np.array(scenarios[k]["district_share_mean"]), 1e-6) for k in keys]
     high = max(v.max() for v in values)
     norm = LogNorm(vmin=high / 1000, vmax=high)
-    figure, axes = plt.subplots(1, 3, figsize=(7.4, 3.2))
-    for axis, key, value in zip(axes, keys, values):
-        collection = draw_map(axis, value, polygons, owner, norm, scenarios[key]["label"])
-    colorbar = figure.colorbar(collection, ax=axes, shrink=0.7, pad=0.01)
+    titles = ("SC/ST creamy layer", "Income-only test", "Abolish all reservation")
+    figure, axes = plt.subplots(1, 3, figsize=(9.0, 3.9), gridspec_kw={"wspace": 0.02})
+    for axis, key, value, title in zip(axes, keys, values, titles):
+        collection = draw_map(axis, value, polygons, owner, norm, "")
+        median = scenarios[key]["events_vs_2018"]["median"]
+        axis.set_title(f"{title}\n{median:.2f}x the 2018 bandh", fontsize=9)
+    colorbar = figure.colorbar(collection, ax=axes, shrink=0.75, pad=0.01)
     colorbar.set_label("Share on the street, mean day", fontsize=8)
-    figure.suptitle("Where each reform would be contested (same colour scale)", fontsize=10, x=0.02, ha="left")
+    figure.suptitle("Where each reform would be contested (same colour scale)", fontsize=10, x=0.02, ha="left", fontweight="bold")
     save_figure(figure, "v3_scenario_maps")
 
 

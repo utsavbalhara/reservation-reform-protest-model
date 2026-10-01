@@ -36,7 +36,7 @@ The derived data in `data/derived/` are committed, so the analyses run without d
 | Command | What it does | Time | Output |
 |---|---|---|---|
 | `python -m experiments.eligibility_accounting` | Who changes eligibility under the real creamy-layer and EWS rules | ~10 s | `results/eligibility_accounting.json` |
-| `python -m experiments.merged_pool_allocation --draws 300` | IIT seats by group under today's quotas, a merged pool, and the two allocation-rule levers | ~60 min | `results/merged_pool_allocation.json` |
+| `python -m experiments.merged_pool_allocation --draws 300` | IIT seats by group under today's quotas, a merged pool, the allocation-rule levers, and abolition of all reservation | ~60 min | `results/merged_pool_allocation.json` |
 | `python -m experiments.episode_calibration --wave-size 6000 --waves 3 --checkpoint-dir <dir>` | History matching to four episodes, and frozen leave-one-episode-out predictions | ~80 min | `results/episode_calibration.json`, `results/episode_calibration_nroy_samples.json`, `results/frozen_predictions/` |
 | `python -m experiments.score_frozen_predictions` | Checks the hashes and scores the frozen predictions | seconds | `results/loeo_scores.json` |
 | `python -m experiments.compare_interventions --specification grounded` | All 13 scenarios in the grounded model, 50 paired runs | ~3 min | `results/intervention_comparison_grounded_central.json` |
@@ -63,6 +63,18 @@ The derived data in `data/derived/` are committed, so the analyses run without d
 `--checkpoint-dir` makes the calibration resumable: each finished wave is saved, and a rerun reloads it. The grounded specification needs `results/merged_pool_allocation.json` and `results/episode_calibration_nroy_samples.json`; without them only the stylized specification is available.
 
 Most experiment scripts accept `--runs` and `--agents`. Fewer runs or agents are faster but noisier. Runs are spread across processes (set `PROTEST_WORKERS` to limit them) and give identical results to serial runs.
+
+## Protest model, version 3
+
+Version 3 (`protest_v3/`, described in `protest_v3/README.md`) is calibrated to ten episodes and reports reforms relative to the 2 April 2018 bandh. It needs `results/merged_pool_allocation.json` for the seat panel.
+
+| Command | What it does | Time | Output |
+|---|---|---|---|
+| `python -m data_pipelines.district_covariates` | Downloads the Census 2011 district tables and the DataMeet district map; computes urban share, literacy and phone ownership | ~1 min | `data/derived/census2011_district_covariates.csv`, `district_boundaries_2011.json` |
+| `python -m data_pipelines.episode_targets_v3` | Builds the ten-episode targets (level, day profile, states, deaths, crowd ranges) | ~10 s | `data/derived/episode_targets_v3.json` |
+| `python -m experiments.v3_history_match --wave-size 8000 --waves 5 --checkpoint-dir <dir>` | History matching to the ten episodes, plus a match without the spatial targets for an out-of-sample spatial test | ~110 min | `results/v3_calibration.json`, `results/v3_nroy_samples.json` |
+| `python -m experiments.v3_scenarios --runs 300` | Five reform designs, each as proposed, phased, negotiated, and with all three; plus the 2018 and EWS replays | ~4 min | `results/v3_scenarios.json` |
+| `python -m visualization.v3_figures` | Episode fit, day profiles, identification, the 2018 map, scenario chart and maps, seats, who takes part | ~1 min | `figures/v3_*` |
 
 ## Build figures, macros, documents and page
 
