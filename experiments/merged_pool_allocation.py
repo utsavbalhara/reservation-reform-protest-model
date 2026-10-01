@@ -45,7 +45,7 @@ def evaluate_draw(arguments):
             outcome["cases"][f"{order}|{pool_share}"] = {key: result[key] for key in ("status_quo", "reform", "candidates")}
     # The two levers that are themselves allocation rules (L2 seat expansion, L3 caste quotas with an income filter).
     regimes = allocate_regimes(fit, overlay, seats, "reserved_first")
-    for regime in ("merged_pool_expanded", "caste_income_filter"):
+    for regime in ("merged_pool_expanded", "caste_income_filter", "abolition"):
         outcome["cases"][f"lever|{regime}"] = {"status_quo": regimes["status_quo"], "reform": regimes[regime], "candidates": regimes["candidates"]}
     return outcome
 
@@ -102,7 +102,7 @@ def main():
     print(f"kept {len(kept)} of {len(jobs)} draws", flush=True)
 
     summary = {}
-    case_keys = [f"{order}|{pool_share}" for order in ORDERS for pool_share in POOL_SHARES] + ["lever|merged_pool_expanded", "lever|caste_income_filter"]
+    case_keys = [f"{order}|{pool_share}" for order in ORDERS for pool_share in POOL_SHARES] + ["lever|merged_pool_expanded", "lever|caste_income_filter", "lever|abolition"]
     for key in case_keys:
         rows = {segment: {"status_quo": [], "reform": [], "percent_change": [], "change_per_1000_candidates": [], "relative_material_change": []}
                 for segment in SEGMENTS}

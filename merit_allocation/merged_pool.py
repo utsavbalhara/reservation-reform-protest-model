@@ -113,7 +113,8 @@ def allocate_regimes(fit: LatentMeritFit, overlay: IncomeOverlay, seats: float, 
       merged_pool:            one income-based pool of 59.5% (the reform);
       merged_pool_expanded:   the same with total seats expanded by a quarter (lever L2, 2019 EWS precedent);
       caste_income_filter:    caste categories kept, but SC and ST seats open only to below-line families (lever L3);
-                              OBC-NCL and EWS keep their current income rules."""
+                              OBC-NCL and EWS keep their current income rules;
+      abolition:              no reservation; every seat on the open merit list."""
     rule = over_and_above if order == "open_first" else reserved_first
     z, category, above = mass_points(fit, overlay)
     weights = np.ones_like(z)
@@ -133,6 +134,9 @@ def allocate_regimes(fit: LatentMeritFit, overlay: IncomeOverlay, seats: float, 
     proportional = open_part + reserve_part["GEN-EWS"] + reserve_part["OBC-NCL"]
     below_only = reserve_part["SC"] + reserve_part["ST"]
     regimes["caste_income_filter"] = _segment_split(category, above, proportional, below_only)
+    # Abolition: no reservation of any kind; every seat goes to the open merit list.
+    open_all, _ = rule(weights, {"none": np.zeros_like(weights)}, seats, {"none": 0.0})
+    regimes["abolition"] = _segment_split(category, above, open_all)
     regimes["candidates"] = _segment_split(category, above, weights)
     return regimes
 

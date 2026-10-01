@@ -1,0 +1,553 @@
+{
+ "sc_st_bharat_bandh_2018": {
+  "label": "Bharat Bandh against dilution of the SC/ST Atrocities Act",
+  "core_days": [
+   "2018-04-02"
+  ],
+  "action_day_offsets": [
+   0
+  ],
+  "daily_core_events": [
+   308
+  ],
+  "daily_india_events": [
+   9480
+  ],
+  "core_events_per_1000": {
+   "median": 31.278,
+   "p05": 27.697,
+   "p95": 32.401
+  },
+  "corrected_core_events": {
+   "median": 296.5,
+   "p05": 262.6,
+   "p95": 307.2
+  },
+  "india_events_core_days": 9480,
+  "precision_core_median": 0.963,
+  "core_events_by_state": {
+   "Uttar Pradesh": 51,
+   "Punjab": 34,
+   "Bihar": 30,
+   "Madhya Pradesh": 28,
+   "Delhi": 26,
+   "Rajasthan": 21,
+   "Haryana": 21,
+   "Maharashtra": 18,
+   "Gujarat": 15,
+   "India (country-level)": 15,
+   "Andhra Pradesh": 8,
+   "Chhattisgarh": 8,
+   "Karnataka": 8,
+   "Jharkhand": 8,
+   "Odisha": 7,
+   "Uttarakhand": 6,
+   "West Bengal": 2,
+   "IN00": 1,
+   "Dadra and Nagar Haveli": 1
+  },
+  "deaths": {
+   "low": 11,
+   "high": 14,
+   "days": 1,
+   "sources": [
+    "Wikipedia, 2018 Atrocities Act protests: at least 14 (9 Madhya Pradesh, 3 Uttar Pradesh, 2 Rajasthan)",
+    "Al Jazeera opinion, 8 April 2018: at least 11",
+    "Al Jazeera news, 2 April 2018 (same day): at least 4 in Madhya Pradesh"
+   ]
+  },
+  "party_backing": 0.2,
+  "crowd_anchor": null
+ },
+ "upper_caste_bandh_2018": {
+  "label": "Bharat Bandh by upper-caste and some OBC groups against the SC/ST Act amendment",
+  "core_days": [
+   "2018-09-06"
+  ],
+  "action_day_offsets": [
+   0
+  ],
+  "daily_core_events": [
+   77
+  ],
+  "daily_india_events": [
+   8847
+  ],
+  "core_events_per_1000": {
+   "median": 7.509,
+   "p05": 6.132,
+   "p95": 8.316
+  },
+  "corrected_core_events": {
+   "median": 66.4,
+   "p05": 54.2,
+   "p95": 73.6
+  },
+  "india_events_core_days": 8847,
+  "precision_core_median": 0.863,
+  "core_events_by_state": {
+   "Madhya Pradesh": 27,
+   "Bihar": 17,
+   "Uttar Pradesh": 16,
+   "Delhi": 4,
+   "India (country-level)": 4,
+   "Rajasthan": 3,
+   "IN00": 3,
+   "Jharkhand": 2,
+   "Maharashtra": 1
+  },
+  "deaths": {
+   "low": 0,
+   "high": 0,
+   "days": 1,
+   "sources": [
+    "Scroll (scroll.in/latest/893364): bandh largely observed peacefully; no deaths reported"
+   ]
+  },
+  "party_backing": 0.1,
+  "crowd_anchor": null
+ },
+ "sc_st_bharat_bandh_2024": {
+  "label": "Bharat Bandh against SC/ST sub-classification and a suggested creamy layer",
+  "core_days": [
+   "2024-08-21"
+  ],
+  "action_day_offsets": [
+   0
+  ],
+  "daily_core_events": [
+   90
+  ],
+  "daily_india_events": [
+   7550
+  ],
+  "core_events_per_1000": {
+   "median": 10.191,
+   "p05": 8.217,
+   "p95": 11.36
+  },
+  "corrected_core_events": {
+   "median": 76.9,
+   "p05": 62.0,
+   "p95": 85.8
+  },
+  "india_events_core_days": 7550,
+  "precision_core_median": 0.855,
+  "core_events_by_state": {
+   "Bihar": 26,
+   "Maharashtra": 13,
+   "Uttar Pradesh": 11,
+   "Rajasthan": 7,
+   "Odisha": 6,
+   "India (country-level)": 5,
+   "Chhattisgarh": 4,
+   "West Bengal": 4,
+   "Gujarat": 3,
+   "IN00": 3,
+   "Haryana": 2,
+   "Punjab": 2,
+   "Jharkhand": 1,
+   "Delhi": 1,
+   "Madhya Pradesh": 1,
+   "Tamil Nadu": 1
+  },
+  "deaths": {
+   "low": 0,
+   "high": 0,
+   "days": 1,
+   "sources": [
+    "The Tribune, 21 August 2024: baton charges and detentions in Bihar and Gujarat; no deaths reported"
+   ]
+  },
+  "party_backing": 0.6,
+  "crowd_anchor": null
+ },
+ "ews_quota_2019": {
+  "label": "10% EWS quota enacted (103rd Amendment)",
+  "core_days": [
+   "2019-01-08",
+   "2019-01-09"
+  ],
+  "action_day_offsets": [
+   0,
+   1
+  ],
+  "daily_core_events": [
+   151,
+   96
+  ],
+  "daily_india_events": [
+   7484,
+   6776
+  ],
+  "core_events_per_1000": {
+   "median": 1.586,
+   "p05": 0.35,
+   "p95": 4.219
+  },
+  "corrected_core_events": {
+   "median": 22.6,
+   "p05": 5.0,
+   "p95": 60.2
+  },
+  "india_events_core_days": 14260,
+  "precision_core_median": 0.092,
+  "core_events_by_state": {
+   "West Bengal": 43,
+   "Karnataka": 31,
+   "Delhi": 27,
+   "Maharashtra": 25,
+   "Assam": 23,
+   "India (country-level)": 19,
+   "Kerala": 11,
+   "Tamil Nadu": 10,
+   "Odisha": 9,
+   "Tripura": 8,
+   "Uttar Pradesh": 7,
+   "Gujarat": 6,
+   "Haryana": 5,
+   "Jammu and Kashmir": 5,
+   "Madhya Pradesh": 4,
+   "Andhra Pradesh": 4,
+   "Rajasthan": 4,
+   "Uttarakhand": 2,
+   "Chhattisgarh": 2,
+   "Bihar": 1,
+   "Mizoram": 1
+  },
+  "deaths": {
+   "low": 0,
+   "high": 0,
+   "days": 0,
+   "sources": [
+    "No protest deaths reported"
+   ]
+  },
+  "party_backing": 0.0,
+  "crowd_anchor": null
+ },
+ "patidar_2015": {
+  "label": "Patidar agitation for OBC status (Gujarat)",
+  "core_days": [
+   "2015-08-25",
+   "2015-08-26",
+   "2015-08-27"
+  ],
+  "action_day_offsets": [
+   0,
+   1,
+   2
+  ],
+  "daily_core_events": [
+   25,
+   30,
+   22
+  ],
+  "daily_india_events": [
+   8466,
+   9202,
+   9136
+  ],
+  "core_events_per_1000": {
+   "median": 2.478,
+   "p05": 2.024,
+   "p95": 2.745
+  },
+  "corrected_core_events": {
+   "median": 66.4,
+   "p05": 54.2,
+   "p95": 73.6
+  },
+  "india_events_core_days": 26804,
+  "precision_core_median": 0.863,
+  "core_events_by_state": {
+   "Gujarat": 57,
+   "Haryana": 4,
+   "Delhi": 4,
+   "Maharashtra": 4,
+   "Jammu and Kashmir": 2,
+   "Rajasthan": 2,
+   "Madhya Pradesh": 2,
+   "Bihar": 1,
+   "Uttar Pradesh": 1
+  },
+  "deaths": {
+   "low": 10,
+   "high": 11,
+   "days": 3,
+   "sources": [
+    "Wikipedia, Patidar reservation agitation: ten died in the violence, plus one in police custody"
+   ]
+  },
+  "party_backing": 0.1,
+  "crowd_anchor": {
+   "state": "Gujarat",
+   "day_index": 0,
+   "low": 300000.0,
+   "high": 2000000.0
+  }
+ },
+ "jat_2016": {
+  "label": "Jat agitation for OBC status (Haryana)",
+  "core_days": [
+   "2016-02-19",
+   "2016-02-20",
+   "2016-02-21",
+   "2016-02-22"
+  ],
+  "action_day_offsets": [
+   0,
+   1,
+   2,
+   3
+  ],
+  "daily_core_events": [
+   40,
+   32,
+   76,
+   56
+  ],
+  "daily_india_events": [
+   9964,
+   7917,
+   7688,
+   9906
+  ],
+  "core_events_per_1000": {
+   "median": 5.536,
+   "p05": 4.902,
+   "p95": 5.735
+  },
+  "corrected_core_events": {
+   "median": 196.4,
+   "p05": 173.9,
+   "p95": 203.4
+  },
+  "india_events_core_days": 35475,
+  "precision_core_median": 0.963,
+  "core_events_by_state": {
+   "Haryana": 126,
+   "Delhi": 55,
+   "Uttar Pradesh": 8,
+   "Gujarat": 5,
+   "Rajasthan": 3,
+   "Karnataka": 2,
+   "Madhya Pradesh": 1,
+   "Punjab": 1,
+   "Maharashtra": 1,
+   "Tamil Nadu": 1,
+   "Uttarakhand": 1
+  },
+  "deaths": {
+   "low": 30,
+   "high": 31,
+   "days": 10,
+   "sources": [
+    "Wikipedia, Jat reservation agitation; Prakash Singh Committee period 7-22 February 2016"
+   ]
+  },
+  "party_backing": 0.2,
+  "crowd_anchor": null
+ },
+ "kapu_2016": {
+  "label": "Kapu Garjana rally for OBC status (Tuni, Andhra Pradesh)",
+  "core_days": [
+   "2016-01-31"
+  ],
+  "action_day_offsets": [
+   0
+  ],
+  "daily_core_events": [
+   9
+  ],
+  "daily_india_events": [
+   5298
+  ],
+  "core_events_per_1000": {
+   "median": 1.508,
+   "p05": 1.03,
+   "p95": 1.685
+  },
+  "corrected_core_events": {
+   "median": 8.0,
+   "p05": 5.5,
+   "p95": 8.9
+  },
+  "india_events_core_days": 5298,
+  "precision_core_median": 0.888,
+  "core_events_by_state": {
+   "Andhra Pradesh": 6,
+   "Delhi": 2,
+   "Tamil Nadu": 1
+  },
+  "deaths": {
+   "low": 0,
+   "high": 0,
+   "days": 1,
+   "sources": [
+    "The News Minute / South First: coaches of the Ratnachal Express set on fire; no casualties"
+   ]
+  },
+  "party_backing": 0.1,
+  "crowd_anchor": null
+ },
+ "maratha_march_mumbai_2017": {
+  "label": "Maratha Kranti Morcha silent march, Mumbai",
+  "core_days": [
+   "2017-08-09"
+  ],
+  "action_day_offsets": [
+   0
+  ],
+  "daily_core_events": [
+   56
+  ],
+  "daily_india_events": [
+   8477
+  ],
+  "core_events_per_1000": {
+   "median": 6.36,
+   "p05": 5.632,
+   "p95": 6.588
+  },
+  "corrected_core_events": {
+   "median": 53.9,
+   "p05": 47.7,
+   "p95": 55.8
+  },
+  "india_events_core_days": 8477,
+  "precision_core_median": 0.963,
+  "core_events_by_state": {
+   "Maharashtra": 45,
+   "Rajasthan": 8,
+   "Bihar": 2,
+   "Delhi": 1
+  },
+  "deaths": {
+   "low": 0,
+   "high": 0,
+   "days": 1,
+   "sources": [
+    "Silent march; no deaths reported"
+   ]
+  },
+  "party_backing": 0.5,
+  "crowd_anchor": {
+   "state": "Maharashtra",
+   "day_index": 0,
+   "low": 100000.0,
+   "high": 2000000.0
+  }
+ },
+ "maratha_quota_2018": {
+  "label": "Maratha quota agitation, violent phase (Maharashtra)",
+  "core_days": [
+   "2018-07-24",
+   "2018-07-25",
+   "2018-08-09"
+  ],
+  "action_day_offsets": [
+   0,
+   1,
+   16
+  ],
+  "daily_core_events": [
+   84,
+   83,
+   47
+  ],
+  "daily_india_events": [
+   7881,
+   7507,
+   7769
+  ],
+  "core_events_per_1000": {
+   "median": 8.897,
+   "p05": 7.878,
+   "p95": 9.216
+  },
+  "corrected_core_events": {
+   "median": 206.0,
+   "p05": 182.4,
+   "p95": 213.4
+  },
+  "india_events_core_days": 23157,
+  "precision_core_median": 0.963,
+  "core_events_by_state": {
+   "Maharashtra": 177,
+   "Rajasthan": 12,
+   "IN00": 10,
+   "Andhra Pradesh": 10,
+   "Delhi": 3,
+   "Chhattisgarh": 2
+  },
+  "deaths": null,
+  "party_backing": 0.4,
+  "crowd_anchor": null
+ },
+ "gujjar_2019": {
+  "label": "Gujjar rail blockade for a 5% quota (Rajasthan)",
+  "core_days": [
+   "2019-02-08",
+   "2019-02-09",
+   "2019-02-10",
+   "2019-02-11",
+   "2019-02-12",
+   "2019-02-13"
+  ],
+  "action_day_offsets": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "daily_core_events": [
+   8,
+   7,
+   15,
+   13,
+   5,
+   6
+  ],
+  "daily_india_events": [
+   7311,
+   6182,
+   5695,
+   7661,
+   8417,
+   8337
+  ],
+  "core_events_per_1000": {
+   "median": 1.068,
+   "p05": 0.872,
+   "p95": 1.183
+  },
+  "corrected_core_events": {
+   "median": 46.6,
+   "p05": 38.0,
+   "p95": 51.6
+  },
+  "india_events_core_days": 43603,
+  "precision_core_median": 0.863,
+  "core_events_by_state": {
+   "Rajasthan": 42,
+   "Maharashtra": 4,
+   "Uttar Pradesh": 3,
+   "Delhi": 2,
+   "Jammu and Kashmir": 2,
+   "Haryana": 1
+  },
+  "deaths": {
+   "low": 0,
+   "high": 0,
+   "days": 6,
+   "sources": [
+    "Gulf News / Business Standard: clashes near Dholpur, no casualties reported; Rajasthan passed a 5% quota bill on 13 February 2019"
+   ]
+  },
+  "party_backing": 0.1,
+  "crowd_anchor": null
+ }
+}
