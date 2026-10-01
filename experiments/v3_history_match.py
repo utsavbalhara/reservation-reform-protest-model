@@ -6,9 +6,14 @@ Targets, for each episode (data/derived/episode_targets_v3.json):
   spatial  the distribution of core-day events across states with at least three events (shape only);
   deaths   reported protest deaths on core days, where they are protest deaths;
   crowd    published crowd sizes for the Maratha march (2017) and the Patidar rally (2015), as a range for the model's
-           turnout in that state on that day.
+           turnout in that state on that day;
+  bound    a plausibility bound on turnout on 2 April 2018: between 1 lakh and 1 crore people on the street, the upper
+           end ten times the largest press figure ("hundreds of thousands"). This is an assumption, stated as one.
+Deaths are compared on the log scale, (expected + 1) against (observed + 1), so that a model predicting hundreds of
+deaths for a bandh in which a dozen died is ruled out whatever the dispersion.
 A parameter set is implausible if any target's standardized distance exceeds 3. Waves sample within the range of the
-previous wave's survivors (widened by 10%).
+previous wave's survivors (widened by 10%); when fewer than 30 survive, the next wave samples within the range of the 50
+least implausible sets instead (refocusing), so that the search can reach a small non-implausible region.
 
 Two matches run on the same simulations: the main match uses every target; the "no-spatial" match drops the spatial
 targets, and its survivors predict where protest happened, which is then compared with population and SC+ST baselines.
@@ -36,9 +41,12 @@ LEVEL_DISCREPANCY = 0.5
 SIMULATION_LOG_SD = 0.05
 PROFILE_DISCREPANCY = 0.08
 SPATIAL_DISCREPANCY = 0.8
-DEATH_DISCREPANCY = 2.0
+DEATH_LOG_DISCREPANCY = 0.5
+TURNOUT_2018_BOUNDS = (1e5, 1e7)
 CROWD_LOG_SCALE = 0.35
 CUTOFF = 3.0
+MIN_SURVIVORS = 30
+REFOCUS_COUNT = 50
 NO_SPATIAL_EPISODES = {"ews_quota_2019", "kapu_2016"}
 
 PRIORS = {
@@ -130,14 +138,17 @@ def implausibilities(result: dict, targets: dict, use_spatial: bool = True) -> d
                 scores[f"spatial:{key}"] = float(np.sqrt(np.mean(np.square(z))))
         deaths = target["deaths"]
         if deaths is not None:
-            mean = output["expected_deaths_core"]
-            variance = mean + mean ** 2 / sample["death_dispersion"] + DEATH_DISCREPANCY ** 2 + ((deaths["high"] - deaths["low"]) / 2) ** 2
-            scores[f"deaths:{key}"] = abs(mean - 0.5 * (deaths["low"] + deaths["high"])) / np.sqrt(variance)
+            observed = 0.5 * (deaths["low"] + deaths["high"])
+            sd = np.sqrt(DEATH_LOG_DISCREPANCY ** 2 + 1.0 / (observed + 1.0))
+            scores[f"deaths:{key}"] = abs(np.log(output["expected_deaths_core"] + 1.0) - np.log(observed + 1.0)) / sd
         anchor = target["crowd_anchor"]
         if anchor:
             turnout = max(output["anchor_turnout"], 1.0)
             outside = max(np.log(anchor["low"] / turnout), np.log(turnout / anchor["high"]), 0.0)
             scores[f"crowd:{key}"] = outside / CROWD_LOG_SCALE
+    turnout = max(outputs["sc_st_bharat_bandh_2018"]["turnout_core"][0], 1.0)
+    low, high = TURNOUT_2018_BOUNDS
+    scores["bound:turnout_2018"] = max(np.log(low / turnout), np.log(turnout / high), 0.0) / CROWD_LOG_SCALE
     return scores
 
 
@@ -184,11 +195,13 @@ def history_match(targets, wave_size, waves, seed, use_spatial, first_wave, labe
         for r in judged:
             name = max(r["implausibility"], key=r["implausibility"].get)
             worst[name.split(":")[0]] = worst.get(name.split(":")[0], 0) + 1
-        history.append({"wave": wave + 1, "samples": len(results), "kept": len(kept), "binding_target_counts": worst})
-        print(f"[{label}] wave {wave + 1}: kept {len(kept)} of {len(results)}; binding targets {worst}", flush=True)
-        if len(kept) < 10:
-            break
-        bounds = bounds_of(kept)
+        refocused = len(kept) < MIN_SURVIVORS
+        history.append({"wave": wave + 1, "samples": len(results), "kept": len(kept), "binding_target_counts": worst,
+                        "next_wave_refocused_on_least_implausible": refocused})
+        print(f"[{label}] wave {wave + 1}: kept {len(kept)} of {len(results)}; binding targets {worst}"
+              + ("; refocusing" if refocused else ""), flush=True)
+        guide = sorted(judged, key=lambda r: r["max_implausibility"])[:REFOCUS_COUNT] if refocused else kept
+        bounds = bounds_of(guide)
     return kept, history
 
 
@@ -229,7 +242,7 @@ def main():
     targets = load_targets()
     first = run_wave(sample_priors(np.random.default_rng(20261001), arguments.wave_size, PRIORS), "shared_wave1")
     kept, history = history_match(targets, arguments.wave_size, arguments.waves, 20261002, True, first, "main")
-    kept_free, history_free = history_match(targets, arguments.wave_size, arguments.waves, 20261003, False, first, "nospatial")
+    kept_free, history_free = history_match(targets, arguments.wave_size, max(arguments.waves - 1, 1), 20261003, False, first, "nospatial")
     samples = [r["sample"] for r in kept]
     output = {"cutoff": CUTOFF, "priors": {k: list(v) for k, v in PRIORS.items()}, "history": history, "kept": len(kept),
               "history_no_spatial": history_free, "kept_no_spatial": len(kept_free)}
