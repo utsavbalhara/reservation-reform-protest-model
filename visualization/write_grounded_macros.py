@@ -584,12 +584,40 @@ def ensemble_grounded(macros, rows):
     rows["ensemble_grounded_rows.tex"] = table
 
 
+def allocation_who_loses(macros, rows):
+    """Who loses and who gains IIT seats, from the stored allocation draws (experiments/allocation_who_loses.py)."""
+    data = load("allocation_who_loses.json")
+    if data is None:
+        return
+    def seats(values):
+        return f"{values[1]:,.0f}".replace(",", "{,}")
+    share = data["share_of_sc_st_seat_loss_below_line"]
+    macros += [macro("WhoLosesBelowShare", percent(share[1], 0)), macro("WhoLosesBelowShareInterval", f"{share[0] * 100:.0f}--{share[2] * 100:.0f}\\%"),
+               macro("WhoLosesBelowSeats", seats(data["seats_lost_by_sc_st_below_line"])),
+               macro("WhoLosesAboveSeats", seats(data["seats_lost_by_sc_st_above_line"])),
+               macro("WhoLosesBelowExceedsShare", percent(data["share_of_draws_below_line_loss_exceeds_above_line_loss"], 1)),
+               macro("WhoLosesSeatsMoved", seats(data["seats_moved"])),
+               macro("WhoLosesSCBelowHalfShare", percent(data["share_of_draws_sc_below_loses_half_or_more"], 0))]
+    received = data["share_of_moved_seats_received"]
+    for segment, name in (("GEN_below", "GENBelow"), ("GEN-EWS", "EWS"), ("OBC-NCL_below", "OBCBelow")):
+        if segment in received:
+            macros.append(macro(f"WhoGains{name}", percent(received[segment][1], 0)))
+    drivers = data["spearman_with_sc_below_percent_change"]
+    macros.append(macro("WhoLosesMaxDriver", f"{max(abs(v) for v in drivers.values()):.2f}"))
+    by_year = data["sc_below_percent_change_by_year"]
+    macros.append(macro("WhoLosesSCBelowYearRange", f"$-${min(-v[1] for v in by_year.values()):.0f}\\% to $-${max(-v[1] for v in by_year.values()):.0f}\\%"))
+    means = data["latent_means_by_year"]
+    for category, name in (("SC", "SC"), ("ST", "ST"), ("OBC-NCL", "OBC"), ("GEN-EWS", "EWS")):
+        values = [m[category] for m in means.values()]
+        macros.append(macro(f"LatentMean{name}Range", f"$-${-max(values):.2f} to $-${-min(values):.2f}"))
+
+
 def main():
     GENERATED_FOLDER.mkdir(parents=True, exist_ok=True)
     macros, rows = [], {}
     for section in (eligibility, allocation, episodes, calibration, mapping_uncertainty, decomposition, break_even,
                     global_sensitivity, structural_ensemble, grounded_extras, grounded_assumptions, grounded_channels, stylized_facts,
-                    income_filter_threat, plausibility, concession, calibration_sensitivity, ensemble_grounded):
+                    income_filter_threat, plausibility, concession, calibration_sensitivity, ensemble_grounded, allocation_who_loses):
         section(macros, rows)
     (GENERATED_FOLDER / "grounded_macros.tex").write_text("\n".join(macros) + "\n")
     for name, lines in rows.items():
