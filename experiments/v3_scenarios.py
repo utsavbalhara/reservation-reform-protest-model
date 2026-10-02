@@ -20,7 +20,7 @@ from pathlib import Path
 import numpy as np
 
 import experiments.v3_history_match as hm
-from protest_v3.model import Shock, expected_events, reporting_intensity, simulate
+from protest_v3.model import Shock, expected_events, reporting_intensity, reporting_volume_share, simulate
 from protest_v3.population import IDENTITY_GROUP_NAMES, build_population
 from protest_v3.scenarios import ALLOCATION_CASE, LABELS, MODIFIER_SETS, REFORMS, draw
 
@@ -42,7 +42,8 @@ def run_one(arguments):
                       deprived_tier_material_gain=scenario.deprived_tier_material_gain)
         outcome = simulate(population, base.copy(party_amplifier=scenario.amplifier), shock, DAYS, ACTION_DAYS, np.random.default_rng(50_000 + run))
         events = expected_events(outcome.daily_by_state, reporting_intensity(population.state_names), sample["log10_observation_scale"],
-                                 sample["observation_exponent"], sample["reporting_power"]).sum(axis=1)
+                                 sample["observation_exponent"], sample["reporting_power"], sample["offsite_share"],
+                                 reporting_volume_share(population.state_names)).sum(axis=1)
         bandh = outcome.daily_by_identity[ACTION_DAYS[0]]
         out[f"{reform}|{modifier}"] = {
             "bandh_events": float(events[ACTION_DAYS[0]]), "bandh_turnout": float(outcome.daily[ACTION_DAYS[0]]),

@@ -36,7 +36,7 @@ import numpy as np
 from scipy.stats import spearmanr
 
 from protest_v3.episodes import EPISODE_KEYS, episode_threat, load_targets, party_amplifier, schedule
-from protest_v3.model import V3Parameters, Shock, expected_events, reporting_intensity, simulate
+from protest_v3.model import V3Parameters, Shock, expected_events, reporting_intensity, reporting_volume_share, simulate
 from protest_v3.population import IDENTITY_GROUP_COUNT, build_population
 
 RESULTS = Path(__file__).resolve().parent.parent / "results"
@@ -65,7 +65,7 @@ PRIORS = {
     "log10_death_rate": (0.3, 3.0), "death_dispersion": (0.5, 5.0),
     "death_concentration_power": (0.0, 1.5), "martyr_effect_per_death": (0.0, 0.05),
     "initial_awareness": (0.05, 1.0), "awareness_diffusion": (0.0, 3.0),
-    "log10_observation_scale": (-4.0, 1.0), "observation_exponent": (0.3, 1.2), "reporting_power": (0.0, 1.5),
+    "log10_observation_scale": (-4.0, 1.0), "observation_exponent": (0.3, 1.2), "reporting_power": (0.0, 1.5), "offsite_share": (0.0, 0.6),
     "deprived_tier_share_2024": (0.1, 0.9),
     **{f"magnitude_{key}": ((0.0, 1.5) if key == "ews_quota_2019" else (0.02, 4.0)) for key in EPISODE_KEYS},
 }
@@ -104,7 +104,8 @@ def simulate_set(sample: dict) -> dict:
         outcome = simulate(population, parameters, shock, plan.days, plan.action_days, np.random.default_rng(SEED))
         core = list(plan.core_day_indices)
         events = expected_events(outcome.daily_by_state[core], reporting_intensity(population.state_names),
-                                 sample["log10_observation_scale"], sample["observation_exponent"], sample["reporting_power"])
+                                 sample["log10_observation_scale"], sample["observation_exponent"], sample["reporting_power"],
+                                 sample["offsite_share"], reporting_volume_share(population.state_names))
         daily = outcome.daily
         record = {"events_by_day": events.sum(axis=1).tolist(), "events_by_state": events.sum(axis=0).tolist(),
                   "expected_deaths_core": float(outcome.daily_expected_deaths[core].sum()),

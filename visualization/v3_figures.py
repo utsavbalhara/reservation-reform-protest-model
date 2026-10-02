@@ -23,7 +23,7 @@ PARAMETER_LABELS = {"mean_threshold": "Mean threshold", "threshold_spread": "Thr
                     "fatigue": "Fatigue", "neighbourhood_influence": "Neighbourhood influence", "national_influence": "National influence",
                     "community_capacity": "Community organization", "kappa_urban": "Urban effect", "kappa_literacy": "Literacy effect",
                     "kappa_phone": "Phone-ownership effect", "log10_death_rate": "Death rate", "death_dispersion": "Death dispersion",
-                    "log10_observation_scale": "Reporting scale", "observation_exponent": "Reporting exponent", "reporting_power": "Reporting-intensity power",
+                    "log10_observation_scale": "Reporting scale", "observation_exponent": "Reporting exponent", "reporting_power": "Reporting-intensity power", "offsite_share": "Off-site reports",
                     "death_concentration_power": "Deaths: concentration power", "martyr_effect_per_death": "Martyr effect",
                     "initial_awareness": "Initial awareness", "awareness_diffusion": "Awareness diffusion"}
 MODIFIER_STYLE = {"none": ("As proposed", BLUE), "phased": ("Phased", ORANGE), "negotiated": ("Negotiated", AQUA), "all_three": ("Phased + negotiated + guaranteed", YELLOW)}

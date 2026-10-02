@@ -45,6 +45,19 @@ def _intensity_table() -> dict:
     return dict(zip(table.state, table.all_events_intensity))
 
 
+@lru_cache
+def _volume_table() -> dict:
+    table = pd.read_csv(INTENSITY_PATH)
+    return dict(zip(table.state, table.all_events))
+
+
+def reporting_volume_share(state_names) -> np.ndarray:
+    """Each state's share of all GDELT events located in India (any topic)."""
+    table = _volume_table()
+    volume = np.array([table.get(name, 0.0) for name in state_names], float)
+    return volume / volume.sum()
+
+
 def reporting_intensity(state_names) -> np.ndarray:
     """GDELT events per head in each state relative to India (any topic); 1 where a state has no figure."""
     table = _intensity_table()
@@ -218,9 +231,16 @@ def simulate(population: V3Population, parameters: V3Parameters, shock: Shock, d
 
 
 def expected_events(daily_by_state: np.ndarray, reporting_intensity: np.ndarray, scale_log10: float, exponent: float,
-                    reporting_power: float) -> np.ndarray:
-    """Observation model: expected news-reported events on each day and state,
-    alpha * intensity_s^delta * (protesters_s / 1 lakh)^gamma, where intensity_s is how heavily GDELT reports state s
-    per head on any topic (data/derived/gdelt_state_reporting_intensity.csv). Returns a days x states array."""
+                    reporting_power: float, offsite_share: float = 0.0, volume_share: np.ndarray = None) -> np.ndarray:
+    """Observation model: expected news-reported events on each day and state.
+
+    On-site reports in state s are alpha * intensity_s^delta * (protesters_s / 1 lakh)^gamma, where intensity_s is how
+    heavily GDELT reports state s per head on any topic (data/derived/gdelt_state_reporting_intensity.csv). A share
+    epsilon of each day's reports is located elsewhere, spread over states in proportion to their share of all GDELT
+    events in India: solidarity protests, reactions, and stories geocoded to where they were filed (mostly Delhi).
+    Returns a days x states array."""
     weights = (np.maximum(daily_by_state, 0.0) / 1e5) ** exponent
-    return 10 ** scale_log10 * weights * np.asarray(reporting_intensity, float) ** reporting_power
+    onsite = 10 ** scale_log10 * weights * np.asarray(reporting_intensity, float) ** reporting_power
+    if offsite_share <= 0:
+        return onsite
+    return (1 - offsite_share) * onsite + offsite_share * onsite.sum(axis=1, keepdims=True) * np.asarray(volume_share, float)[None, :]

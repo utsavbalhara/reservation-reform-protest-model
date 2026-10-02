@@ -2,7 +2,7 @@ import numpy as np
 import pytest
 
 from protest_v3.episodes import EPISODE_KEYS, episode_threat, load_targets, schedule
-from protest_v3.model import Shock, V3Parameters, expected_events, local_mobilization, reporting_intensity, simulate
+from protest_v3.model import Shock, V3Parameters, expected_events, local_mobilization, reporting_intensity, reporting_volume_share, simulate
 from protest_v3.population import COMMUNITIES, COMMUNITY_NAMES, IDENTITY_GROUP_COUNT, build_population
 
 AGENTS = 30_000
@@ -106,3 +106,16 @@ def test_every_episode_has_a_schedule_matching_its_core_days():
         plan = schedule(targets[key])
         assert len(plan.action_days) == len(targets[key]["daily_core_events"])
         assert plan.days == plan.action_days[-1] + 1
+
+
+def test_offsite_reports_keep_the_total_and_follow_reporting_volume(population):
+    states = population.state_names
+    intensity, volume = reporting_intensity(states), reporting_volume_share(states)
+    assert volume.sum() == pytest.approx(1.0)
+    turnout = np.zeros((2, len(states)))
+    turnout[:, states.index("Haryana")] = [5e5, 1e6]
+    onsite = expected_events(turnout, intensity, 0.0, 0.8, 1.0)
+    mixed = expected_events(turnout, intensity, 0.0, 0.8, 1.0, 0.3, volume)
+    assert np.allclose(mixed.sum(axis=1), onsite.sum(axis=1))
+    delhi = states.index("Delhi")
+    assert mixed[1, delhi] == pytest.approx(0.3 * onsite[1].sum() * volume[delhi])

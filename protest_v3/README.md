@@ -11,9 +11,23 @@ Version 3 rebuilds the protest model around what the data can support. The groun
 | Dynamics after the first day | Not fitted | Fitted on agitations of up to six consecutive days |
 | Who can mobilize | SC, ST, OBC, General | The same, plus state communities that mobilized for reservation (Jats, Patidars, Kapus, Marathas, Gujjars) |
 | Geography | District demography only | Also district urbanization, literacy and household phone ownership (Census 2011), with effects estimated from where events happened |
+| Who can protest | Anyone whose threshold is crossed | Only people with a stake (a threat to their group or a material loss) who have heard of the protest |
+| Build-up over days | None | Awareness spreads from those who heard the call to those who see protest nearby or in their group |
+| Deaths | Proportional to protester-days | Also rise with how concentrated protest is in a state; the martyr effect is estimated |
+| Media coverage | One extra factor for Delhi | Each state's reporting intensity, measured from GDELT events of every kind per head |
 | Concession | Built in, assumed | Optional, off by default; no episode identifies it |
 | Main output | Headcounts (crore) | Protest relative to the 2 April 2018 bandh, on the same parameter set |
 | Scenarios | Levers on one reform | Five reform designs, including abolition of all reservation, each tied to its nearest episode, with phasing, negotiation and guarantees as modifiers |
+
+## How a day works
+
+Each person in the synthetic population (120,000 agents standing for India's 121 crore, placed in Census 2011 districts) decides each day whether to protest:
+
+1. **Stake.** Only people whose group is threatened by the reform, or who lose materially, can take part. The first calibration did not have this rule, and it put 20 to 40 lakh unaffected people on the street in every episode. That floor squeezed every episode toward the same size and spread protest by population.
+2. **Awareness.** On the announcement day a share of the stakeholders hears the call. The rest can hear of it later, by seeing protest in their neighbourhood or among their own group. This is how an agitation can grow over several days instead of peaking on day one.
+3. **Decision.** An aware stakeholder protests if grievance (threat and material loss), social pull (turnout nearby and in the group) and organizational push (stronger with party backing, and on called action days) outweigh a personal threshold. Each day of protest raises the threshold (fatigue).
+4. **Deaths.** Deaths are drawn from the protester-days, weighted toward states where a large share of people are on the street, and each death raises the threat felt by the groups protesting (the martyr effect).
+5. **News.** Expected news events in a state are a fitted function of its turnout, multiplied by how heavily GDELT reports that state on any topic. This lets the model say how many events GDELT would record, which is what the calibration targets are.
 
 ## Files
 
