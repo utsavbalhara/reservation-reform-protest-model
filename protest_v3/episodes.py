@@ -18,6 +18,9 @@ import numpy as np
 from .population import COMMUNITIES, COMMUNITY_NAMES, IDENTITY_GROUP_COUNT
 
 TARGETS_PATH = Path(__file__).resolve().parent.parent / "data" / "derived" / "episode_targets_v3.json"
+ALIGNMENT_PATH = Path(__file__).resolve().parent.parent / "data" / "derived" / "state_government_alignment.csv"
+# Rajasthan, Madhya Pradesh and Chhattisgarh changed to Congress governments in December 2018, before the EWS amendment.
+LEFT_NDA_BEFORE_JANUARY_2019 = ("Rajasthan", "Madhya Pradesh", "Chhattisgarh")
 REFERENCE_AMPLIFIER = 1.5        # party amplifier at the backing coded for 2024 (0.6)
 REFERENCE_BACKING = 0.6
 
@@ -47,6 +50,24 @@ def episode_threat(key: str, magnitude: float) -> np.ndarray:
     vector = np.zeros(IDENTITY_GROUP_COUNT)
     vector[4 + COMMUNITY_NAMES.index(COMMUNITY_OF_EPISODE[key])] = magnitude
     return vector
+
+
+def aligned_states(column: str, drop=()) -> tuple:
+    """States whose government belonged to the Union's ruling coalition (NDA) on a date."""
+    import pandas as pd
+    table = pd.read_csv(ALIGNMENT_PATH)
+    return tuple(sorted(set(table.loc[table[column] == 1, "state"]) - set(drop)))
+
+
+def episode_aligned_states(key: str) -> tuple:
+    """National episodes target the Union government's policy; community agitations target their own state's."""
+    if key in ("sc_st_bharat_bandh_2018", "upper_caste_bandh_2018"):
+        return aligned_states("nda_aligned_2018_04_02")
+    if key == "sc_st_bharat_bandh_2024":
+        return aligned_states("nda_aligned_2024_08_21")
+    if key == "ews_quota_2019":
+        return aligned_states("nda_aligned_2018_04_02", drop=LEFT_NDA_BEFORE_JANUARY_2019)
+    return ()
 
 
 def party_amplifier(backing: float) -> float:

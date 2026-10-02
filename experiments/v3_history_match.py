@@ -3,7 +3,9 @@
 Targets, for each episode (data/derived/episode_targets_v3.json):
   level    precision-corrected news-reported events on core days, per 1,000 GDELT events in India (log scale);
   profile  the share of core-day events falling on each core day (multi-day episodes);
-  spatial  the distribution of core-day events across states with at least three events (shape only);
+  spatial  the distribution of core-day events across states (shape only), scored over every state where either the
+           observed count or the model's count, scaled to the observed total, is at least three, so that the model is
+           penalized for protest where none was reported as well as for missing protest where it was;
   deaths   reported protest deaths on core days, where they are protest deaths;
   crowd    published crowd sizes for the Maratha march (2017) and the Patidar rally (2015), as a range for the model's
            turnout in that state on that day;
@@ -35,7 +37,7 @@ from pathlib import Path
 import numpy as np
 from scipy.stats import spearmanr
 
-from protest_v3.episodes import EPISODE_KEYS, episode_threat, load_targets, party_amplifier, schedule
+from protest_v3.episodes import EPISODE_KEYS, episode_aligned_states, episode_threat, load_targets, party_amplifier, schedule
 from protest_v3.model import V3Parameters, Shock, expected_events, reporting_intensity, reporting_volume_share, simulate
 from protest_v3.population import IDENTITY_GROUP_COUNT, build_population
 
@@ -46,7 +48,7 @@ MIXING_GRID = np.round(np.arange(0.5, 1.0001, 0.1), 2)
 LEVEL_DISCREPANCY = 0.5
 SIMULATION_LOG_SD = 0.05
 PROFILE_DISCREPANCY = 0.08
-SPATIAL_DISCREPANCY = 0.8
+SPATIAL_DISCREPANCY = 0.6
 DEATH_LOG_DISCREPANCY = 0.5
 TURNOUT_2018_BOUNDS = (1e5, 1e7)
 CROWD_LOG_SCALE = 0.35
@@ -61,6 +63,7 @@ NO_SPATIAL_EPISODES = {"ews_quota_2019", "kapu_2016"}
 PRIORS = {
     "mean_threshold": (5.0, 9.0), "threshold_spread": (0.8, 2.2), "mixing": (0.5, 1.0), "fatigue": (0.0, 0.3),
     "neighbourhood_influence": (0.4, 1.4), "national_influence": (0.2, 1.0), "community_capacity": (0.2, 1.0),
+    "incumbent_state_factor": (1.0, 5.0),
     "kappa_urban": (-0.5, 1.0), "kappa_literacy": (-0.5, 0.5), "kappa_phone": (-0.5, 1.0),
     "log10_death_rate": (0.3, 3.0), "death_dispersion": (0.5, 5.0),
     "death_concentration_power": (0.0, 1.5), "martyr_effect_per_death": (0.0, 0.05),
@@ -80,7 +83,8 @@ def parameters_from(sample: dict) -> V3Parameters:
                               action_day_death_rate=10 ** sample["log10_death_rate"], death_dispersion=sample["death_dispersion"],
                               death_concentration_power=sample["death_concentration_power"],
                               martyr_effect_per_death=sample["martyr_effect_per_death"],
-                              initial_awareness=sample["initial_awareness"], awareness_diffusion=sample["awareness_diffusion"])
+                              initial_awareness=sample["initial_awareness"], awareness_diffusion=sample["awareness_diffusion"],
+                              incumbent_state_factor=sample["incumbent_state_factor"])
     parameters.capacity[4:] = sample["community_capacity"]
     return parameters
 
@@ -100,7 +104,8 @@ def simulate_set(sample: dict) -> dict:
         plan = schedule(target)
         parameters = base.copy(party_amplifier=party_amplifier(target["party_backing"]))
         deprived = sample["deprived_tier_share_2024"] if key == "sc_st_bharat_bandh_2024" else 0.8
-        shock = Shock(threat=episode_threat(key, sample[f"magnitude_{key}"]), deprived_tier_share=deprived)
+        shock = Shock(threat=episode_threat(key, sample[f"magnitude_{key}"]), deprived_tier_share=deprived,
+                      aligned_states=episode_aligned_states(key))
         outcome = simulate(population, parameters, shock, plan.days, plan.action_days, np.random.default_rng(SEED))
         core = list(plan.core_day_indices)
         events = expected_events(outcome.daily_by_state[core], reporting_intensity(population.state_names),
@@ -146,13 +151,14 @@ def implausibilities(result: dict, targets: dict, use_spatial: bool = True) -> d
             scores[f"profile:{key}"] = float(np.max(np.abs(observed_share - model_share) / sd))
         if use_spatial and key not in NO_SPATIAL_EPISODES:
             observed = model_state_names(target["core_events_by_state"])
-            chosen = [state for state, value in observed.items() if value >= 3 and state in states]
-            if len(chosen) >= 2:
-                model = np.array(output["events_by_state"], float)
-                total_observed = sum(observed.values())
-                scaled = model / max(model.sum(), 1e-12) * total_observed
-                z = [(np.log(observed[s] + 0.5) - np.log(scaled[states.index(s)] + 0.5)) / np.sqrt(1 / (observed[s] + 0.5) + SPATIAL_DISCREPANCY ** 2)
-                     for s in chosen]
+            model = np.array(output["events_by_state"], float)
+            total_observed = sum(value for state, value in observed.items() if state in states)
+            scaled = model / max(model.sum(), 1e-12) * total_observed
+            counts = np.array([observed.get(state, 0) for state in states], float)
+            chosen = (counts >= 3) | (scaled >= 3)
+            if chosen.sum() >= 2:
+                expected = np.maximum(counts, scaled)[chosen]
+                z = (np.log(counts[chosen] + 0.5) - np.log(scaled[chosen] + 0.5)) / np.sqrt(1 / (expected + 0.5) + SPATIAL_DISCREPANCY ** 2)
                 scores[f"spatial:{key}"] = float(np.sqrt(np.mean(np.square(z))))
         deaths = target["deaths"]
         if deaths is not None:

@@ -119,3 +119,15 @@ def test_offsite_reports_keep_the_total_and_follow_reporting_volume(population):
     assert np.allclose(mixed.sum(axis=1), onsite.sum(axis=1))
     delhi = states.index("Delhi")
     assert mixed[1, delhi] == pytest.approx(0.3 * onsite[1].sum() * volume[delhi])
+
+
+def test_incumbent_state_factor_raises_protest_only_in_aligned_states(population):
+    from protest_v3.episodes import episode_aligned_states
+    aligned = episode_aligned_states("sc_st_bharat_bandh_2018")
+    assert "Uttar Pradesh" in aligned and "Kerala" not in aligned
+    shock = Shock(episode_threat("sc_st_bharat_bandh_2018", 1.2), aligned_states=aligned)
+    plain = simulate(population, V3Parameters(incumbent_state_factor=1.0), shock, 2, (1,), np.random.default_rng(7))
+    strong = simulate(population, V3Parameters(incumbent_state_factor=4.0), shock, 2, (1,), np.random.default_rng(7))
+    up, kerala = population.state_names.index("Uttar Pradesh"), population.state_names.index("Kerala")
+    assert strong.daily_by_state[1, up] > plain.daily_by_state[1, up]
+    assert strong.daily_by_state[1, kerala] == pytest.approx(plain.daily_by_state[1, kerala], rel=0.35)

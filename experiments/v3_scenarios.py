@@ -20,12 +20,16 @@ from pathlib import Path
 import numpy as np
 
 import experiments.v3_history_match as hm
+from protest_v3.episodes import aligned_states, episode_aligned_states
 from protest_v3.model import Shock, expected_events, reporting_intensity, reporting_volume_share, simulate
 from protest_v3.population import IDENTITY_GROUP_NAMES, build_population
 from protest_v3.scenarios import ALLOCATION_CASE, LABELS, MODIFIER_SETS, REFORMS, draw
 
 RESULTS = Path(__file__).resolve().parent.parent / "results"
 DAYS, ACTION_DAYS = 8, (1,)
+CURRENT_ALIGNMENT = aligned_states("nda_aligned_2024_08_21")
+ALIGNED = {"replay_2018": episode_aligned_states("sc_st_bharat_bandh_2018"), "replay_ews_2019": episode_aligned_states("ews_quota_2019"),
+           **{reform: CURRENT_ALIGNMENT for reform in REFORMS}}
 SCENARIOS = [("replay_2018", "none"), ("replay_ews_2019", "none")] + [(r, m) for r in REFORMS for m in MODIFIER_SETS]
 
 
@@ -39,7 +43,7 @@ def run_one(arguments):
         rng = np.random.default_rng([90_000, run, SCENARIOS.index((reform, modifier))])
         scenario = draw(reform, MODIFIER_SETS[modifier], sample, rng)
         shock = Shock(threat=scenario.threat, deprived_tier_share=scenario.deprived_tier_share, material_by_segment=scenario.material_by_segment,
-                      deprived_tier_material_gain=scenario.deprived_tier_material_gain)
+                      deprived_tier_material_gain=scenario.deprived_tier_material_gain, aligned_states=ALIGNED[reform])
         outcome = simulate(population, base.copy(party_amplifier=scenario.amplifier), shock, DAYS, ACTION_DAYS, np.random.default_rng(50_000 + run))
         events = expected_events(outcome.daily_by_state, reporting_intensity(population.state_names), sample["log10_observation_scale"],
                                  sample["observation_exponent"], sample["reporting_power"], sample["offsite_share"],

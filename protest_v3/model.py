@@ -4,7 +4,7 @@ Each agent decides each day whether to take part. Net motivation is
     grievance  = w_m * L(material change of the agent's eligibility segment)
                + w_s * identity strength * (recognition threat felt + martyr effect, if threatened)
     social pull = beta_n * tanh(neighbourhood turnout / n*) + beta_v * tanh(identity-group turnout / v*)
-    organization = amplifier * capacity(identity group) * mobilization(day) * local(district)
+    organization = amplifier * capacity(identity group) * mobilization(day) * local(district) * alignment(state)
 minus the agent's threshold, which rises by the fatigue increment each day the agent protests. The agent protests with
 probability logistic(net / tau), but only if it has a stake (it feels a recognition threat or faces a material loss) and
 has heard of the protest. Without the stake rule, the low tail of the threshold distribution and the organizational
@@ -22,6 +22,13 @@ the covariates move protest between districts without changing its national leve
 Deaths are negative binomial. Their mean is the death rate times protester-days, weighted in each state by
 (share of the state on the street / 1%)^eta: violence comes with concentrated agitation more than with a thin,
 countrywide bandh. Each death adds to the threat felt by the groups on the street (the martyr effect). Concession is an option, off by default: no episode identifies it.
+
+alignment(state) is the incumbent-state factor in states whose government belongs to the coalition the protest is
+aimed at, and 1 elsewhere. In all three national bandhs, protest per head was three to four times higher in states
+governed by the Union's ruling coalition (NDA) than elsewhere: opposition parties organize against a national policy
+where the state government is the policy's ally (data/derived/state_government_alignment.csv). The factor's size is
+estimated. I chose this covariate after seeing those state patterns, so the in-sample spatial fit overstates how
+much it would help on a new episode.
 
 The simulator returns daily turnout by state and identity group, protester-days by district and deaths, which the
 observation model turns into expected news-event counts.
@@ -83,6 +90,7 @@ class V3Parameters:
     national_influence: float = 0.6
     national_saturation: float = 0.02
     party_amplifier: float = 1.0
+    incumbent_state_factor: float = 1.0
     capacity: np.ndarray = field(default_factory=_default_capacity)
     mobilization_action_day: float = 1.0
     mobilization_other_day: float = 0.15
@@ -113,6 +121,7 @@ class Shock:
     better_off_tier_factor: float = 1.0
     material_by_segment: dict = None                    # segment name -> change (positive = loss); None = none
     deprived_tier_material_gain: float = 0.0
+    aligned_states: tuple = ()                          # states governed by the coalition the protest targets
 
 
 @dataclass
@@ -169,6 +178,9 @@ def simulate(population: V3Population, parameters: V3Parameters, shock: Shock, d
     aware = stake & (agent_rng.random(n) < parameters.initial_awareness)
     threshold = parameters.mean_threshold + parameters.threshold_spread * base.threshold_standard_score
     push = parameters.party_amplifier * parameters.capacity[identity] * local_mobilization(population, parameters)
+    if shock.aligned_states:
+        aligned = np.isin(np.array(population.state_names), list(shock.aligned_states))
+        push = push * np.where(aligned[population.agent_state], parameters.incumbent_state_factor, 1.0)
     hood = base.neighbourhood
     hood_size = np.maximum(np.bincount(hood, minlength=base.neighbourhood_count), 1)
     identity_size = np.maximum(np.bincount(identity, minlength=IDENTITY_GROUP_COUNT), 1)
