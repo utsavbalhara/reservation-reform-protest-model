@@ -141,33 +141,33 @@
     },
     "sub_classification": {
      "peak": {
-      "median_paired_ratio": 0.6193,
-      "change_percent": -38.1,
+      "median_paired_ratio": 1.3187,
+      "change_percent": 31.9,
       "change_percent_ci95": [
-       -41.6,
-       -34.2
+       22.6,
+       48.6
       ],
-      "share_of_runs_higher_than_baseline": 0.0,
+      "share_of_runs_higher_than_baseline": 0.97,
       "paired_runs": 100
      },
      "cumulative": {
-      "median_paired_ratio": 0.6383,
-      "change_percent": -36.2,
+      "median_paired_ratio": 1.1761,
+      "change_percent": 17.6,
       "change_percent_ci95": [
-       -38.5,
-       -34.4
+       13.2,
+       20.8
       ],
-      "share_of_runs_higher_than_baseline": 0.0,
+      "share_of_runs_higher_than_baseline": 0.98,
       "paired_runs": 100
      },
      "deaths": {
-      "median_paired_ratio": 0.6667,
-      "change_percent": -33.3,
+      "median_paired_ratio": 1.46,
+      "change_percent": 46.0,
       "change_percent_ci95": [
-       -39.4,
-       -25.9
+       30.8,
+       58.1
       ],
-      "share_of_runs_higher_than_baseline": 0.0,
+      "share_of_runs_higher_than_baseline": 0.848,
       "paired_runs": 99
      }
     },
@@ -306,8 +306,8 @@
     "grandfathering",
     "credible_guarantees",
     "seat_expansion",
-    "sub_classification",
-    "compensation"
+    "compensation",
+    "sub_classification"
    ]
   },
   "split_streams": {
@@ -451,33 +451,33 @@
     },
     "sub_classification": {
      "peak": {
-      "median_paired_ratio": 0.6021,
-      "change_percent": -39.8,
+      "median_paired_ratio": 1.3272,
+      "change_percent": 32.7,
       "change_percent_ci95": [
-       -43.4,
-       -35.6
+       25.2,
+       42.3
       ],
-      "share_of_runs_higher_than_baseline": 0.0,
+      "share_of_runs_higher_than_baseline": 0.97,
       "paired_runs": 100
      },
      "cumulative": {
-      "median_paired_ratio": 0.6466,
-      "change_percent": -35.3,
+      "median_paired_ratio": 1.1621,
+      "change_percent": 16.2,
       "change_percent_ci95": [
-       -38.2,
-       -33.4
+       13.7,
+       18.6
       ],
-      "share_of_runs_higher_than_baseline": 0.0,
+      "share_of_runs_higher_than_baseline": 0.99,
       "paired_runs": 100
      },
      "deaths": {
-      "median_paired_ratio": 0.6667,
-      "change_percent": -33.3,
+      "median_paired_ratio": 1.45,
+      "change_percent": 45.0,
       "change_percent_ci95": [
-       -38.5,
-       -29.4
+       39.0,
+       53.8
       ],
-      "share_of_runs_higher_than_baseline": 0.0,
+      "share_of_runs_higher_than_baseline": 0.889,
       "paired_runs": 99
      }
     },
@@ -616,8 +616,8 @@
     "grandfathering",
     "credible_guarantees",
     "seat_expansion",
-    "sub_classification",
-    "compensation"
+    "compensation",
+    "sub_classification"
    ]
   },
   "logistic_thresholds": {
@@ -761,33 +761,33 @@
     },
     "sub_classification": {
      "peak": {
-      "median_paired_ratio": 0.7184,
-      "change_percent": -28.2,
+      "median_paired_ratio": 1.1393,
+      "change_percent": 13.9,
       "change_percent_ci95": [
-       -31.9,
-       -25.2
+       11.7,
+       16.9
       ],
-      "share_of_runs_higher_than_baseline": 0.0,
+      "share_of_runs_higher_than_baseline": 0.96,
       "paired_runs": 100
      },
      "cumulative": {
-      "median_paired_ratio": 0.7342,
-      "change_percent": -26.6,
+      "median_paired_ratio": 1.0878,
+      "change_percent": 8.8,
       "change_percent_ci95": [
-       -27.8,
-       -24.9
+       6.6,
+       10.8
       ],
-      "share_of_runs_higher_than_baseline": 0.0,
+      "share_of_runs_higher_than_baseline": 0.93,
       "paired_runs": 100
      },
      "deaths": {
-      "median_paired_ratio": 0.8127,
-      "change_percent": -18.7,
+      "median_paired_ratio": 1.1,
+      "change_percent": 10.0,
       "change_percent_ci95": [
-       -25.0,
-       -12.1
+       0.0,
+       20.0
       ],
-      "share_of_runs_higher_than_baseline": 0.0,
+      "share_of_runs_higher_than_baseline": 0.58,
       "paired_runs": 100
      }
     },
@@ -926,8 +926,8 @@
     "grandfathering",
     "seat_expansion",
     "credible_guarantees",
-    "sub_classification",
-    "compensation"
+    "compensation",
+    "sub_classification"
    ]
   },
   "activist_core": {
@@ -1071,33 +1071,33 @@
     },
     "sub_classification": {
      "peak": {
-      "median_paired_ratio": 0.621,
-      "change_percent": -37.9,
+      "median_paired_ratio": 1.0687,
+      "change_percent": 6.9,
       "change_percent_ci95": [
-       -41.5,
-       -35.5
+       5.0,
+       10.0
       ],
-      "share_of_runs_higher_than_baseline": 0.0,
+      "share_of_runs_higher_than_baseline": 0.7,
       "paired_runs": 100
      },
      "cumulative": {
-      "median_paired_ratio": 0.6781,
-      "change_percent": -32.2,
+      "median_paired_ratio": 1.014,
+      "change_percent": 1.4,
       "change_percent_ci95": [
-       -34.5,
-       -31.2
+       -0.0,
+       2.9
       ],
-      "share_of_runs_higher_than_baseline": 0.0,
+      "share_of_runs_higher_than_baseline": 0.59,
       "paired_runs": 100
      },
      "deaths": {
-      "median_paired_ratio": 0.686,
-      "change_percent": -31.4,
+      "median_paired_ratio": 1.0,
+      "change_percent": 0.0,
       "change_percent_ci95": [
-       -39.8,
-       -27.3
+       0.0,
+       17.2
       ],
-      "share_of_runs_higher_than_baseline": 0.0,
+      "share_of_runs_higher_than_baseline": 0.47,
       "paired_runs": 100
      }
     },
@@ -1236,8 +1236,8 @@
     "grandfathering",
     "seat_expansion",
     "credible_guarantees",
-    "sub_classification",
-    "compensation"
+    "compensation",
+    "sub_classification"
    ]
   },
   "endogenous_bandhs": {
@@ -1381,33 +1381,33 @@
     },
     "sub_classification": {
      "peak": {
-      "median_paired_ratio": 0.6496,
-      "change_percent": -35.0,
+      "median_paired_ratio": 1.2968,
+      "change_percent": 29.7,
       "change_percent_ci95": [
-       -38.8,
-       -31.9
+       25.3,
+       37.2
       ],
-      "share_of_runs_higher_than_baseline": 0.0,
+      "share_of_runs_higher_than_baseline": 0.91,
       "paired_runs": 100
      },
      "cumulative": {
-      "median_paired_ratio": 0.6472,
-      "change_percent": -35.3,
+      "median_paired_ratio": 1.1412,
+      "change_percent": 14.1,
       "change_percent_ci95": [
-       -36.8,
-       -32.7
+       11.8,
+       18.2
       ],
-      "share_of_runs_higher_than_baseline": 0.0,
+      "share_of_runs_higher_than_baseline": 0.98,
       "paired_runs": 100
      },
      "deaths": {
-      "median_paired_ratio": 0.6667,
-      "change_percent": -33.3,
+      "median_paired_ratio": 1.4468,
+      "change_percent": 44.7,
       "change_percent_ci95": [
-       -39.1,
-       -27.3
+       30.5,
+       57.1
       ],
-      "share_of_runs_higher_than_baseline": 0.0,
+      "share_of_runs_higher_than_baseline": 0.763,
       "paired_runs": 97
      }
     },
@@ -1546,8 +1546,8 @@
     "grandfathering",
     "credible_guarantees",
     "seat_expansion",
-    "sub_classification",
-    "compensation"
+    "compensation",
+    "sub_classification"
    ]
   },
   "concession_and_backlash": {
@@ -1692,33 +1692,33 @@
     },
     "sub_classification": {
      "peak": {
-      "median_paired_ratio": 0.706,
-      "change_percent": -29.4,
+      "median_paired_ratio": 1.3419,
+      "change_percent": 34.2,
       "change_percent_ci95": [
-       -35.5,
-       -27.7
+       26.0,
+       43.7
       ],
-      "share_of_runs_higher_than_baseline": 0.08,
+      "share_of_runs_higher_than_baseline": 0.85,
       "paired_runs": 100
      },
      "cumulative": {
-      "median_paired_ratio": 0.716,
-      "change_percent": -28.4,
+      "median_paired_ratio": 1.2,
+      "change_percent": 20.0,
       "change_percent_ci95": [
-       -31.9,
-       -27.0
+       14.3,
+       25.1
       ],
-      "share_of_runs_higher_than_baseline": 0.11,
+      "share_of_runs_higher_than_baseline": 0.78,
       "paired_runs": 100
      },
      "deaths": {
-      "median_paired_ratio": 0.8333,
-      "change_percent": -16.7,
+      "median_paired_ratio": 1.3333,
+      "change_percent": 33.3,
       "change_percent_ci95": [
-       -26.6,
-       -6.2
+       16.0,
+       49.1
       ],
-      "share_of_runs_higher_than_baseline": 0.131,
+      "share_of_runs_higher_than_baseline": 0.646,
       "paired_runs": 99
      }
     },
@@ -1857,8 +1857,8 @@
     "grandfathering",
     "credible_guarantees",
     "seat_expansion",
-    "sub_classification",
-    "compensation"
+    "compensation",
+    "sub_classification"
    ]
   },
   "overdispersed_split_deaths": {
@@ -2003,33 +2003,33 @@
     },
     "sub_classification": {
      "peak": {
-      "median_paired_ratio": 0.6429,
-      "change_percent": -35.7,
+      "median_paired_ratio": 1.3451,
+      "change_percent": 34.5,
       "change_percent_ci95": [
-       -40.4,
-       -29.9
+       27.4,
+       42.7
       ],
-      "share_of_runs_higher_than_baseline": 0.0,
+      "share_of_runs_higher_than_baseline": 0.94,
       "paired_runs": 100
      },
      "cumulative": {
-      "median_paired_ratio": 0.6533,
-      "change_percent": -34.7,
+      "median_paired_ratio": 1.2142,
+      "change_percent": 21.4,
       "change_percent_ci95": [
-       -35.8,
-       -32.0
+       14.7,
+       25.2
       ],
-      "share_of_runs_higher_than_baseline": 0.0,
+      "share_of_runs_higher_than_baseline": 0.95,
       "paired_runs": 100
      },
      "deaths": {
-      "median_paired_ratio": 0.6848,
-      "change_percent": -31.5,
+      "median_paired_ratio": 1.5455,
+      "change_percent": 54.5,
       "change_percent_ci95": [
-       -44.3,
-       -25.0
+       33.3,
+       72.5
       ],
-      "share_of_runs_higher_than_baseline": 0.04,
+      "share_of_runs_higher_than_baseline": 0.798,
       "paired_runs": 99
      }
     },
@@ -2168,8 +2168,8 @@
     "grandfathering",
     "credible_guarantees",
     "seat_expansion",
-    "sub_classification",
-    "compensation"
+    "compensation",
+    "sub_classification"
    ]
   },
   "deaths_deter": {
@@ -2313,33 +2313,33 @@
     },
     "sub_classification": {
      "peak": {
-      "median_paired_ratio": 0.7373,
-      "change_percent": -26.3,
+      "median_paired_ratio": 1.2725,
+      "change_percent": 27.2,
       "change_percent_ci95": [
-       -27.3,
-       -24.6
+       25.0,
+       30.1
       ],
-      "share_of_runs_higher_than_baseline": 0.0,
+      "share_of_runs_higher_than_baseline": 1.0,
       "paired_runs": 100
      },
      "cumulative": {
-      "median_paired_ratio": 0.7741,
-      "change_percent": -22.6,
+      "median_paired_ratio": 1.0903,
+      "change_percent": 9.0,
       "change_percent_ci95": [
-       -23.1,
-       -21.4
+       7.2,
+       10.9
       ],
-      "share_of_runs_higher_than_baseline": 0.0,
+      "share_of_runs_higher_than_baseline": 0.88,
       "paired_runs": 100
      },
      "deaths": {
-      "median_paired_ratio": 0.8235,
-      "change_percent": -17.6,
+      "median_paired_ratio": 1.1603,
+      "change_percent": 16.0,
       "change_percent_ci95": [
-       -22.2,
-       -6.6
+       2.3,
+       25.0
       ],
-      "share_of_runs_higher_than_baseline": 0.01,
+      "share_of_runs_higher_than_baseline": 0.6,
       "paired_runs": 100
      }
     },
@@ -2478,8 +2478,8 @@
     "grandfathering",
     "seat_expansion",
     "credible_guarantees",
-    "sub_classification",
-    "compensation"
+    "compensation",
+    "sub_classification"
    ]
   },
   "mixed_neighbourhoods": {
@@ -2623,33 +2623,33 @@
     },
     "sub_classification": {
      "peak": {
-      "median_paired_ratio": 0.6287,
-      "change_percent": -37.1,
+      "median_paired_ratio": 1.2921,
+      "change_percent": 29.2,
       "change_percent_ci95": [
-       -41.7,
-       -34.6
+       22.3,
+       41.6
       ],
-      "share_of_runs_higher_than_baseline": 0.0,
+      "share_of_runs_higher_than_baseline": 0.97,
       "paired_runs": 100
      },
      "cumulative": {
-      "median_paired_ratio": 0.6413,
-      "change_percent": -35.9,
+      "median_paired_ratio": 1.1551,
+      "change_percent": 15.5,
       "change_percent_ci95": [
-       -37.7,
-       -33.4
+       12.9,
+       18.9
       ],
-      "share_of_runs_higher_than_baseline": 0.0,
+      "share_of_runs_higher_than_baseline": 0.98,
       "paired_runs": 100
      },
      "deaths": {
-      "median_paired_ratio": 0.6522,
-      "change_percent": -34.8,
+      "median_paired_ratio": 1.44,
+      "change_percent": 44.0,
       "change_percent_ci95": [
-       -41.7,
-       -27.3
+       33.7,
+       57.1
       ],
-      "share_of_runs_higher_than_baseline": 0.0,
+      "share_of_runs_higher_than_baseline": 0.848,
       "paired_runs": 99
      }
     },
@@ -2788,8 +2788,8 @@
     "grandfathering",
     "credible_guarantees",
     "seat_expansion",
-    "sub_classification",
-    "compensation"
+    "compensation",
+    "sub_classification"
    ]
   },
   "legal_eligibility": {
@@ -2947,33 +2947,33 @@
     },
     "sub_classification": {
      "peak": {
-      "median_paired_ratio": 0.631,
-      "change_percent": -36.9,
+      "median_paired_ratio": 1.306,
+      "change_percent": 30.6,
       "change_percent_ci95": [
-       -39.5,
-       -33.7
+       24.4,
+       47.2
       ],
-      "share_of_runs_higher_than_baseline": 0.0,
+      "share_of_runs_higher_than_baseline": 0.97,
       "paired_runs": 100
      },
      "cumulative": {
-      "median_paired_ratio": 0.6591,
-      "change_percent": -34.1,
+      "median_paired_ratio": 1.164,
+      "change_percent": 16.4,
       "change_percent_ci95": [
-       -36.4,
-       -32.4
+       12.6,
+       21.5
       ],
-      "share_of_runs_higher_than_baseline": 0.0,
+      "share_of_runs_higher_than_baseline": 0.98,
       "paired_runs": 100
      },
      "deaths": {
-      "median_paired_ratio": 0.686,
-      "change_percent": -31.4,
+      "median_paired_ratio": 1.4545,
+      "change_percent": 45.5,
       "change_percent_ci95": [
-       -37.9,
-       -25.0
+       36.7,
+       57.1
       ],
-      "share_of_runs_higher_than_baseline": 0.0,
+      "share_of_runs_higher_than_baseline": 0.778,
       "paired_runs": 99
      }
     },
@@ -3112,8 +3112,8 @@
     "grandfathering",
     "credible_guarantees",
     "seat_expansion",
-    "sub_classification",
-    "compensation"
+    "compensation",
+    "sub_classification"
    ]
   },
   "all_combined": {
@@ -3279,33 +3279,33 @@
     },
     "sub_classification": {
      "peak": {
-      "median_paired_ratio": 0.7057,
-      "change_percent": -29.4,
+      "median_paired_ratio": 1.0622,
+      "change_percent": 6.2,
       "change_percent_ci95": [
-       -30.9,
-       -27.5
+       3.8,
+       8.6
       ],
-      "share_of_runs_higher_than_baseline": 0.06,
+      "share_of_runs_higher_than_baseline": 0.81,
       "paired_runs": 100
      },
      "cumulative": {
-      "median_paired_ratio": 0.7436,
-      "change_percent": -25.6,
+      "median_paired_ratio": 1.0077,
+      "change_percent": 0.8,
       "change_percent_ci95": [
-       -27.1,
-       -24.2
+       -1.7,
+       2.8
       ],
-      "share_of_runs_higher_than_baseline": 0.12,
+      "share_of_runs_higher_than_baseline": 0.53,
       "paired_runs": 100
      },
      "deaths": {
-      "median_paired_ratio": 0.8,
-      "change_percent": -20.0,
+      "median_paired_ratio": 1.0931,
+      "change_percent": 9.3,
       "change_percent_ci95": [
-       -28.7,
-       -11.1
+       0.0,
+       18.1
       ],
-      "share_of_runs_higher_than_baseline": 0.16,
+      "share_of_runs_higher_than_baseline": 0.55,
       "paired_runs": 100
      }
     },
@@ -3444,8 +3444,8 @@
     "grandfathering",
     "seat_expansion",
     "credible_guarantees",
-    "sub_classification",
-    "compensation"
+    "compensation",
+    "sub_classification"
    ]
   }
  },
@@ -3463,17 +3463,17 @@
   "all_combined": "hybrid_caste_subquotas"
  },
  "weakest_lever_by_variant": {
-  "reference": "compensation",
-  "split_streams": "compensation",
-  "logistic_thresholds": "compensation",
-  "activist_core": "compensation",
-  "endogenous_bandhs": "compensation",
-  "concession_and_backlash": "compensation",
-  "overdispersed_split_deaths": "compensation",
-  "deaths_deter": "compensation",
-  "mixed_neighbourhoods": "compensation",
-  "legal_eligibility": "compensation",
-  "all_combined": "compensation"
+  "reference": "sub_classification",
+  "split_streams": "sub_classification",
+  "logistic_thresholds": "sub_classification",
+  "activist_core": "sub_classification",
+  "endogenous_bandhs": "sub_classification",
+  "concession_and_backlash": "sub_classification",
+  "overdispersed_split_deaths": "sub_classification",
+  "deaths_deter": "sub_classification",
+  "mixed_neighbourhoods": "sub_classification",
+  "legal_eligibility": "sub_classification",
+  "all_combined": "sub_classification"
  },
  "share_of_variants_where_strongest": {
   "grandfathering": 0.0,

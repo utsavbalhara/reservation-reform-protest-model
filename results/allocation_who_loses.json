@@ -1,0 +1,113 @@
+{
+ "draws": 1500,
+ "seats_lost_by_sc_st_below_line": [
+  1793.8007,
+  2206.5165,
+  2599.1408
+ ],
+ "seats_lost_by_sc_st_above_line": [
+  568.7466,
+  924.0167,
+  1396.1257
+ ],
+ "share_of_sc_st_seat_loss_below_line": [
+  0.5651,
+  0.7059,
+  0.8163
+ ],
+ "share_of_draws_below_line_loss_exceeds_above_line_loss": 0.999,
+ "share_of_moved_seats_received": {
+  "OBC-NCL_below": [
+   0.0934,
+   0.1916,
+   0.2811
+  ],
+  "GEN-EWS": [
+   0.2162,
+   0.267,
+   0.3512
+  ],
+  "GEN_below": [
+   0.3835,
+   0.5402,
+   0.6707
+  ]
+ },
+ "seats_moved": [
+  3910.561,
+  4494.5548,
+  5193.0893
+ ],
+ "share_of_draws_sc_below_loses_half_or_more": 1.0,
+ "spearman_with_sc_below_percent_change": {
+  "above_share_GEN": 0.295,
+  "above_share_OBC-NCL": -0.035,
+  "above_share_SC": 0.341,
+  "above_share_ST": -0.136,
+  "merit_gradient": -0.055
+ },
+ "sc_below_percent_change_by_year": {
+  "2021": [
+   -75.8423,
+   -73.4383,
+   -71.0385
+  ],
+  "2022": [
+   -71.8492,
+   -69.3647,
+   -67.2321
+  ],
+  "2023": [
+   -72.4644,
+   -69.0235,
+   -66.9436
+  ],
+  "2024": [
+   -74.8576,
+   -72.6358,
+   -70.7306
+  ],
+  "2025": [
+   -76.2121,
+   -73.748,
+   -71.6197
+  ]
+ },
+ "latent_means_by_year": {
+  "2021": {
+   "GEN": 0.0,
+   "GEN-EWS": -0.6771,
+   "OBC-NCL": -0.9451,
+   "SC": -1.9279,
+   "ST": -2.2474
+  },
+  "2022": {
+   "GEN": 0.0,
+   "GEN-EWS": -0.6855,
+   "OBC-NCL": -0.8754,
+   "SC": -1.6396,
+   "ST": -1.7459
+  },
+  "2023": {
+   "GEN": 0.0,
+   "GEN-EWS": -0.7247,
+   "OBC-NCL": -1.0028,
+   "SC": -1.7551,
+   "ST": -2.3371
+  },
+  "2024": {
+   "GEN": 0.0,
+   "GEN-EWS": -0.7672,
+   "OBC-NCL": -1.0413,
+   "SC": -2.0641,
+   "ST": -2.301
+  },
+  "2025": {
+   "GEN": 0.0,
+   "GEN-EWS": -0.8014,
+   "OBC-NCL": -0.9812,
+   "SC": -2.0294,
+   "ST": -2.2915
+  }
+ }
+}

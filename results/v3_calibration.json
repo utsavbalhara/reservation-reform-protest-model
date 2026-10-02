@@ -1,0 +1,759 @@
+{
+ "kept_before_hard_constraints": 7792,
+ "kept_no_spatial_before_hard_constraints": 5760,
+ "cutoff_second_largest": 3.0,
+ "cutoff_largest": 4.0,
+ "priors": {
+  "mean_threshold": [
+   5.0,
+   9.0
+  ],
+  "threshold_spread": [
+   0.8,
+   2.2
+  ],
+  "mixing": [
+   0.5,
+   1.0
+  ],
+  "fatigue": [
+   0.0,
+   0.3
+  ],
+  "neighbourhood_influence": [
+   0.4,
+   1.4
+  ],
+  "national_influence": [
+   0.2,
+   1.0
+  ],
+  "community_capacity": [
+   0.2,
+   1.0
+  ],
+  "incumbent_state_factor": [
+   1.0,
+   5.0
+  ],
+  "kappa_urban": [
+   -0.5,
+   1.0
+  ],
+  "kappa_literacy": [
+   -0.5,
+   0.5
+  ],
+  "kappa_phone": [
+   -0.5,
+   1.0
+  ],
+  "log10_death_rate": [
+   0.3,
+   3.0
+  ],
+  "death_dispersion": [
+   0.5,
+   5.0
+  ],
+  "death_concentration_power": [
+   0.0,
+   1.5
+  ],
+  "martyr_effect_per_death": [
+   0.0,
+   0.05
+  ],
+  "initial_awareness": [
+   0.05,
+   1.0
+  ],
+  "awareness_diffusion": [
+   0.0,
+   3.0
+  ],
+  "log10_observation_scale": [
+   -4.0,
+   1.0
+  ],
+  "observation_exponent": [
+   0.3,
+   1.2
+  ],
+  "offsite_share": [
+   0.0,
+   0.6
+  ],
+  "deprived_tier_share_2024": [
+   0.1,
+   0.9
+  ],
+  "magnitude_sc_st_bharat_bandh_2018": [
+   0.02,
+   4.0
+  ],
+  "magnitude_upper_caste_bandh_2018": [
+   0.02,
+   4.0
+  ],
+  "magnitude_sc_st_bharat_bandh_2024": [
+   0.02,
+   4.0
+  ],
+  "magnitude_ews_quota_2019": [
+   0.0,
+   1.5
+  ],
+  "magnitude_patidar_2015": [
+   0.02,
+   4.0
+  ],
+  "magnitude_jat_2016": [
+   0.02,
+   4.0
+  ],
+  "magnitude_kapu_2016": [
+   0.02,
+   4.0
+  ],
+  "magnitude_maratha_march_mumbai_2017": [
+   0.02,
+   4.0
+  ],
+  "magnitude_maratha_quota_2018": [
+   0.02,
+   4.0
+  ],
+  "magnitude_gujjar_2019": [
+   0.02,
+   4.0
+  ]
+ },
+ "history": [
+  {
+   "wave": 1,
+   "samples": 8000,
+   "kept_this_wave": 1,
+   "kept_pooled": 1,
+   "largest_score_by_target_type": {
+    "level": 6732,
+    "deaths": 937,
+    "crowd": 186,
+    "bound": 115,
+    "spatial": 1,
+    "profile": 29
+   }
+  },
+  {
+   "wave": 2,
+   "samples": 8000,
+   "kept_this_wave": 18,
+   "kept_pooled": 19,
+   "largest_score_by_target_type": {
+    "level": 3762,
+    "bound": 733,
+    "crowd": 1352,
+    "deaths": 1992,
+    "spatial": 23,
+    "profile": 138
+   }
+  },
+  {
+   "wave": 3,
+   "samples": 8000,
+   "kept_this_wave": 217,
+   "kept_pooled": 236,
+   "largest_score_by_target_type": {
+    "deaths": 2019,
+    "bound": 681,
+    "level": 3853,
+    "crowd": 884,
+    "profile": 234,
+    "spatial": 329
+   }
+  },
+  {
+   "wave": 4,
+   "samples": 8000,
+   "kept_this_wave": 2094,
+   "kept_pooled": 2330,
+   "largest_score_by_target_type": {
+    "spatial": 1225,
+    "level": 3152,
+    "bound": 664,
+    "crowd": 808,
+    "deaths": 1953,
+    "profile": 198
+   }
+  },
+  {
+   "wave": 5,
+   "samples": 8000,
+   "kept_this_wave": 2678,
+   "kept_pooled": 5008,
+   "largest_score_by_target_type": {
+    "level": 3092,
+    "bound": 634,
+    "deaths": 1994,
+    "spatial": 1391,
+    "profile": 162,
+    "crowd": 727
+   }
+  },
+  {
+   "wave": 6,
+   "samples": 8000,
+   "kept_this_wave": 2784,
+   "kept_pooled": 7792,
+   "largest_score_by_target_type": {
+    "deaths": 1914,
+    "level": 3031,
+    "spatial": 1475,
+    "crowd": 749,
+    "profile": 174,
+    "bound": 657
+   }
+  }
+ ],
+ "kept": 951,
+ "history_no_spatial": [
+  {
+   "wave": 1,
+   "samples": 8000,
+   "kept_this_wave": 1,
+   "kept_pooled": 1,
+   "largest_score_by_target_type": {
+    "level": 6733,
+    "deaths": 937,
+    "crowd": 186,
+    "bound": 115,
+    "profile": 29
+   }
+  },
+  {
+   "wave": 2,
+   "samples": 8000,
+   "kept_this_wave": 20,
+   "kept_pooled": 21,
+   "largest_score_by_target_type": {
+    "deaths": 2024,
+    "level": 3741,
+    "crowd": 1383,
+    "bound": 715,
+    "profile": 137
+   }
+  },
+  {
+   "wave": 3,
+   "samples": 8000,
+   "kept_this_wave": 427,
+   "kept_pooled": 448,
+   "largest_score_by_target_type": {
+    "crowd": 911,
+    "deaths": 2152,
+    "level": 4064,
+    "bound": 668,
+    "profile": 205
+   }
+  },
+  {
+   "wave": 4,
+   "samples": 8000,
+   "kept_this_wave": 2442,
+   "kept_pooled": 2890,
+   "largest_score_by_target_type": {
+    "level": 4196,
+    "deaths": 2152,
+    "profile": 236,
+    "crowd": 666,
+    "bound": 750
+   }
+  },
+  {
+   "wave": 5,
+   "samples": 8000,
+   "kept_this_wave": 2870,
+   "kept_pooled": 5760,
+   "largest_score_by_target_type": {
+    "deaths": 2220,
+    "level": 4112,
+    "crowd": 706,
+    "profile": 233,
+    "bound": 729
+   }
+  }
+ ],
+ "kept_no_spatial": 741,
+ "posterior": {
+  "mean_threshold": {
+   "median": 7.7931355140362815,
+   "p05": 6.431332120587893,
+   "p95": 8.789389847155405
+  },
+  "threshold_spread": {
+   "median": 2.0286142849635485,
+   "p05": 1.5911150677923087,
+   "p95": 2.185379598194615
+  },
+  "mixing": {
+   "median": 0.8041280350249758,
+   "p05": 0.6051673963123911,
+   "p95": 0.9480005731997081
+  },
+  "fatigue": {
+   "median": 0.20986913032757454,
+   "p05": 0.06370130157143554,
+   "p95": 0.2925787272312671
+  },
+  "neighbourhood_influence": {
+   "median": 1.0389698200383422,
+   "p05": 0.6284863169400485,
+   "p95": 1.355546023251427
+  },
+  "national_influence": {
+   "median": 0.4623293516388657,
+   "p05": 0.24075506656072326,
+   "p95": 0.7494112961648236
+  },
+  "community_capacity": {
+   "median": 0.8325651683531702,
+   "p05": 0.5336533868654296,
+   "p95": 0.9819418267112112
+  },
+  "incumbent_state_factor": {
+   "median": 3.0914436501572142,
+   "p05": 1.6220070213894624,
+   "p95": 4.530352044218592
+  },
+  "kappa_urban": {
+   "median": 0.4934340330599714,
+   "p05": -0.40850928986293056,
+   "p95": 0.9318151835001401
+  },
+  "kappa_literacy": {
+   "median": -0.12993746022487873,
+   "p05": -0.46260599354519305,
+   "p95": 0.3421298222518845
+  },
+  "kappa_phone": {
+   "median": 0.2750246421583942,
+   "p05": -0.3125152746789306,
+   "p95": 0.7712660874700149
+  },
+  "log10_death_rate": {
+   "median": 0.9518948815845605,
+   "p05": 0.5120061757860844,
+   "p95": 1.4225332602642113
+  },
+  "death_dispersion": {
+   "median": 2.366104469584855,
+   "p05": 0.6544198425365415,
+   "p95": 4.684026234844083
+  },
+  "death_concentration_power": {
+   "median": 0.22543780729857582,
+   "p05": 0.01962648664980088,
+   "p95": 0.6908390234051545
+  },
+  "martyr_effect_per_death": {
+   "median": 0.008007238768013854,
+   "p05": 0.0005847886605837548,
+   "p95": 0.030440615455370988
+  },
+  "initial_awareness": {
+   "median": 0.20317506798509496,
+   "p05": 0.06260424419725344,
+   "p95": 0.7895034170038537
+  },
+  "awareness_diffusion": {
+   "median": 0.9860038998383079,
+   "p05": 0.08639289178859,
+   "p95": 2.42640226442038
+  },
+  "log10_observation_scale": {
+   "median": 0.677526139539164,
+   "p05": 0.38727984763018686,
+   "p95": 0.9546427650415661
+  },
+  "observation_exponent": {
+   "median": 0.5539605656135598,
+   "p05": 0.3437008943980763,
+   "p95": 0.7890614748868623
+  },
+  "offsite_share": {
+   "median": 0.33789262794964386,
+   "p05": 0.11408202498649703,
+   "p95": 0.5193951606774831
+  },
+  "deprived_tier_share_2024": {
+   "median": 0.5616338582611349,
+   "p05": 0.19252592412193548,
+   "p95": 0.8483873287233812
+  },
+  "magnitude_sc_st_bharat_bandh_2018": {
+   "median": 1.7583231454546169,
+   "p05": 0.682512004436328,
+   "p95": 2.3818533663848145
+  },
+  "magnitude_upper_caste_bandh_2018": {
+   "median": 1.0482099923120476,
+   "p05": 0.18614610243552474,
+   "p95": 2.0871232372168755
+  },
+  "magnitude_sc_st_bharat_bandh_2024": {
+   "median": 1.1950138180205054,
+   "p05": 0.15922612438545625,
+   "p95": 2.1430997767564244
+  },
+  "magnitude_ews_quota_2019": {
+   "median": 0.8762022580699096,
+   "p05": 0.22793768171983206,
+   "p95": 1.4266474055423766
+  },
+  "magnitude_patidar_2015": {
+   "median": 2.9354799484635405,
+   "p05": 2.1570925475881824,
+   "p95": 3.697538880266408
+  },
+  "magnitude_jat_2016": {
+   "median": 3.435788041992539,
+   "p05": 2.426113261746397,
+   "p95": 3.930473175165317
+  },
+  "magnitude_kapu_2016": {
+   "median": 2.677936657813878,
+   "p05": 1.4200597632734184,
+   "p95": 3.6314094254635707
+  },
+  "magnitude_maratha_march_mumbai_2017": {
+   "median": 1.5567459610129462,
+   "p05": 0.48354669376126497,
+   "p95": 2.3464436472043566
+  },
+  "magnitude_maratha_quota_2018": {
+   "median": 2.632952976641457,
+   "p05": 1.3713063692695728,
+   "p95": 3.8368684182883928
+  },
+  "magnitude_gujjar_2019": {
+   "median": 3.1808939690996345,
+   "p05": 1.825901815696204,
+   "p95": 3.924334323883991
+  }
+ },
+ "identification": {
+  "mean_threshold": 0.5895144316418781,
+  "threshold_spread": 0.4244746645730758,
+  "mixing": 0.6856663537746339,
+  "fatigue": 0.7629247521994386,
+  "neighbourhood_influence": 0.7270597063113785,
+  "national_influence": 0.6358202870051255,
+  "community_capacity": 0.5603605498072269,
+  "incumbent_state_factor": 0.7270862557072824,
+  "kappa_urban": 0.8935496489087139,
+  "kappa_literacy": 0.8047358157970775,
+  "kappa_phone": 0.722520908099297,
+  "log10_death_rate": 0.33723225351041736,
+  "death_dispersion": 0.8954680871794536,
+  "death_concentration_power": 0.4474750245035691,
+  "martyr_effect_per_death": 0.5971165358957446,
+  "initial_awareness": 0.7651570240069477,
+  "awareness_diffusion": 0.7800031242105967,
+  "log10_observation_scale": 0.11347258348227585,
+  "observation_exponent": 0.4948450894319845,
+  "offsite_share": 0.6755218928183103,
+  "deprived_tier_share_2024": 0.8198267557518071,
+  "magnitude_sc_st_bharat_bandh_2018": 0.42697019144434334,
+  "magnitude_upper_caste_bandh_2018": 0.4776324459249625,
+  "magnitude_sc_st_bharat_bandh_2024": 0.49846071667612263,
+  "magnitude_ews_quota_2019": 0.7991398158816964,
+  "magnitude_patidar_2015": 0.38704681725583556,
+  "magnitude_jat_2016": 0.37797987774344727,
+  "magnitude_kapu_2016": 0.555615493012601,
+  "magnitude_maratha_march_mumbai_2017": 0.46806456116660594,
+  "magnitude_maratha_quota_2018": 0.6194879520147789,
+  "magnitude_gujjar_2019": 0.5272443487909013
+ },
+ "turnout_2018_bandh": {
+  "median": 5085666.666666667,
+  "p05": 1484333.333333333,
+  "p95": 9423083.333333334
+ },
+ "model_events_per_1000": {
+  "sc_st_bharat_bandh_2018": {
+   "median": 14.18977887703528,
+   "p05": 7.4522836940569395,
+   "p95": 28.862954274513633
+  },
+  "upper_caste_bandh_2018": {
+   "median": 9.898292677507841,
+   "p05": 3.9593551837001395,
+   "p95": 23.25796632132831
+  },
+  "sc_st_bharat_bandh_2024": {
+   "median": 13.574305310938449,
+   "p05": 3.899054346432168,
+   "p95": 39.01601822239679
+  },
+  "ews_quota_2019": {
+   "median": 11.089199360279315,
+   "p05": 2.157859705124798,
+   "p95": 23.17965103084071
+  },
+  "patidar_2015": {
+   "median": 2.705987697669308,
+   "p05": 1.3542165385900091,
+   "p95": 5.4088674876661
+  },
+  "jat_2016": {
+   "median": 2.9852786185303097,
+   "p05": 1.5828071746748544,
+   "p95": 5.7539541938461225
+  },
+  "kapu_2016": {
+   "median": 2.2919837844547235,
+   "p05": 0.47949803686363346,
+   "p95": 6.386189877141291
+  },
+  "maratha_march_mumbai_2017": {
+   "median": 1.8928213591333964,
+   "p05": 1.0488596052592356,
+   "p95": 3.7509589859741643
+  },
+  "maratha_quota_2018": {
+   "median": 6.262599398172543,
+   "p05": 2.597618606635656,
+   "p95": 18.69047958386321
+  },
+  "gujjar_2019": {
+   "median": 2.590553937458995,
+   "p05": 0.783582532110247,
+   "p95": 4.833315711453871
+  }
+ },
+ "model_profiles": {
+  "sc_st_bharat_bandh_2018": [
+   1.0
+  ],
+  "upper_caste_bandh_2018": [
+   1.0
+  ],
+  "sc_st_bharat_bandh_2024": [
+   1.0
+  ],
+  "ews_quota_2019": [
+   0.4141314496963411,
+   0.5858685503036589
+  ],
+  "patidar_2015": [
+   0.2530875265795351,
+   0.36183606460739803,
+   0.3828450250119708
+  ],
+  "jat_2016": [
+   0.20050462823479914,
+   0.2559340509676504,
+   0.26984281085082673,
+   0.27170822423548024
+  ],
+  "kapu_2016": [
+   1.0
+  ],
+  "maratha_march_mumbai_2017": [
+   1.0
+  ],
+  "maratha_quota_2018": [
+   0.2554461411568894,
+   0.3898383222282611,
+   0.35098131585171577
+  ],
+  "gujjar_2019": [
+   0.12469527485165104,
+   0.1671178218539758,
+   0.17606252739150727,
+   0.17639838319713896,
+   0.18019147269736563,
+   0.17455927449893993
+  ]
+ },
+ "model_deaths": {
+  "sc_st_bharat_bandh_2018": {
+   "median": 3.3157513357308974,
+   "p05": 1.0744131853816015,
+   "p95": 12.495544144272163
+  },
+  "upper_caste_bandh_2018": {
+   "median": 3.96143307203158,
+   "p05": 0.3207666518416026,
+   "p95": 17.601418491627573
+  },
+  "sc_st_bharat_bandh_2024": {
+   "median": 2.427715517919418,
+   "p05": 0.23313025886819533,
+   "p95": 18.31821073019416
+  },
+  "ews_quota_2019": {
+   "median": 4.511644606733142,
+   "p05": 0.23792578174669485,
+   "p95": 20.19196649820157
+  },
+  "patidar_2015": {
+   "median": 6.843338662258006,
+   "p05": 1.9643849203383241,
+   "p95": 20.463323137299813
+  },
+  "jat_2016": {
+   "median": 13.21495451247526,
+   "p05": 5.432073831300066,
+   "p95": 53.19169976019353
+  },
+  "kapu_2016": {
+   "median": 0.5180772657710556,
+   "p05": 0.012001378681685328,
+   "p95": 5.950300655316058
+  },
+  "maratha_march_mumbai_2017": {
+   "median": 0.7873610539101319,
+   "p05": 0.14169179637015397,
+   "p95": 3.3965602168936906
+  },
+  "maratha_quota_2018": {
+   "median": 32.53353359000006,
+   "p05": 4.547407955334153,
+   "p95": 222.65467840344397
+  },
+  "gujjar_2019": {
+   "median": 8.088632803239774,
+   "p05": 0.34592943410550003,
+   "p95": 25.20298938140028
+  }
+ },
+ "spatial_in_sample": {
+  "sc_st_bharat_bandh_2018": {
+   "states": 20,
+   "model": {
+    "median": 0.5234293153433592,
+    "p05": 0.34159849213541904,
+    "p95": 0.704118940916103
+   },
+   "baseline_population": 0.3773560180382357,
+   "baseline_sc_plus_st": 0.49375817682825596,
+   "baseline_population_times_intensity": 0.10270778716766495,
+   "baseline_sc_plus_st_times_intensity": 0.1909604042895104
+  },
+  "sc_st_bharat_bandh_2024": {
+   "states": 20,
+   "model": {
+    "median": 0.45355488361062574,
+    "p05": 0.18712026607365373,
+    "p95": 0.6741719874382051
+   },
+   "baseline_population": 0.5675211361986946,
+   "baseline_sc_plus_st": 0.7184494166531642,
+   "baseline_population_times_intensity": 0.17633967461262018,
+   "baseline_sc_plus_st_times_intensity": 0.23486288540108796
+  },
+  "upper_caste_bandh_2018": {
+   "states": 20,
+   "model": {
+    "median": 0.24657656011875906,
+    "p05": 0.044495018367294865,
+    "p95": 0.5408925670274283
+   },
+   "baseline_population": 0.5969748297612062,
+   "baseline_sc_plus_st": 0.6340540117339519,
+   "baseline_population_times_intensity": 0.16963725752531172,
+   "baseline_sc_plus_st_times_intensity": 0.17890705301849813
+  }
+ },
+ "magnitude_ratio_to_2018": {
+  "sc_st_bharat_bandh_2018": {
+   "median": 1.0,
+   "p05": 1.0,
+   "p95": 1.0
+  },
+  "upper_caste_bandh_2018": {
+   "median": 0.6337424372993632,
+   "p05": 0.11221443179296492,
+   "p95": 1.456780280715393
+  },
+  "sc_st_bharat_bandh_2024": {
+   "median": 0.697093880174603,
+   "p05": 0.10115221184735226,
+   "p95": 1.816812017465257
+  },
+  "ews_quota_2019": {
+   "median": 0.5119129133801633,
+   "p05": 0.1457123908565276,
+   "p95": 1.2885009081544303
+  },
+  "patidar_2015": {
+   "median": 1.680530576988585,
+   "p05": 1.1851535030227809,
+   "p95": 3.646791154167861
+  },
+  "jat_2016": {
+   "median": 1.9354786358551066,
+   "p05": 1.3033083850092877,
+   "p95": 4.725555928206649
+  },
+  "kapu_2016": {
+   "median": 1.5246370700291143,
+   "p05": 0.7578829980254869,
+   "p95": 3.931085813039891
+  },
+  "maratha_march_mumbai_2017": {
+   "median": 0.8939187252128448,
+   "p05": 0.29197322975576967,
+   "p95": 2.151076342935604
+  },
+  "maratha_quota_2018": {
+   "median": 1.4719515257417861,
+   "p05": 0.7988756036689038,
+   "p95": 3.8816121759697584
+  },
+  "gujjar_2019": {
+   "median": 1.8110656875561866,
+   "p05": 0.9854577228885539,
+   "p95": 3.797524776406277
+  }
+ },
+ "spatial_out_of_sample": {
+  "sc_st_bharat_bandh_2018": {
+   "states": 20,
+   "model": {
+    "median": 0.5066917500271472,
+    "p05": 0.251063479743181,
+    "p95": 0.6755890000361962
+   },
+   "baseline_population": 0.3773560180382357,
+   "baseline_sc_plus_st": 0.49375817682825596,
+   "baseline_population_times_intensity": 0.10270778716766495,
+   "baseline_sc_plus_st_times_intensity": 0.1909604042895104
+  },
+  "sc_st_bharat_bandh_2024": {
+   "states": 20,
+   "model": {
+    "median": 0.37116036315844075,
+    "p05": 0.13475739326291933,
+    "p95": 0.6522257833925296
+   },
+   "baseline_population": 0.5675211361986946,
+   "baseline_sc_plus_st": 0.7184494166531642,
+   "baseline_population_times_intensity": 0.17633967461262018,
+   "baseline_sc_plus_st_times_intensity": 0.23486288540108796
+  },
+  "upper_caste_bandh_2018": {
+   "states": 20,
+   "model": {
+    "median": 0.17612611437054218,
+    "p05": 0.03893314107138301,
+    "p95": 0.46719769285659607
+   },
+   "baseline_population": 0.5969748297612062,
+   "baseline_sc_plus_st": 0.6340540117339519,
+   "baseline_population_times_intensity": 0.16963725752531172,
+   "baseline_sc_plus_st_times_intensity": 0.17890705301849813
+  }
+ }
+}

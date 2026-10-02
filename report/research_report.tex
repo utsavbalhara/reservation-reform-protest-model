@@ -84,10 +84,11 @@
 \textbf{Method.} Three pieces fit together. A seat-allocation model, built on the rule India actually uses and on five years of JEE (Advanced) rank lists, estimates who gains and loses IIT seats. A synthetic India of 120{,}000 agents across 640 districts turns those losses, and the threat to caste recognition, into protest. The protest model is checked against news-event data from four real episodes, including the 2018 Bharat Bandh.\par\smallskip
 \textbf{Findings.}
 \begin{itemize}[leftmargin=12pt]
-\item Under the real creamy-layer and EWS rules, \EligibilityLose{} of Indians lose eligibility, and below-line SC students, who keep eligibility, lose \AllocChangeSCBelow{} of their IIT seats to below-line General students.
+\item Under the real creamy-layer and EWS rules, \EligibilityLose{} of Indians lose eligibility (\EligibilityLoseJoint{} allowing for uncertainty about incomes), and below-line SC students, who keep eligibility, lose \AllocChangeSCBelow{} of their IIT seats to below-line General students.
 \item How many people would protest cannot be pinned down: the answer moves by more than tenfold with assumptions the data cannot settle. The ranking of policy designs varies much less than the headcount.
-\item Keeping caste quotas and adding an income filter inside them changes peak turnout by \PeakChangeGroundedHybridCasteSubquotas{} and is the strongest option in every check.
-\item Compensating the families who lose eligibility (\PeakChangeGroundedCompensation) and adding seats, as was done for EWS in 2019 (\PeakChangeGroundedSeatExpansion), are the weakest options.
+\item Keeping caste quotas and adding an income filter inside them changes peak turnout by \PeakChangeGroundedHybridCasteSubquotas{} and is the strongest single option in \MapGroundedStrongestLThree{} of draws when every option's strength is uncertain. How much threat it leaves is taken from the 2024 bandh, which protested a similar change.
+\item In the model, the government reverses an abrupt switch within days in every run. Even with the strongest single option it still concedes in \ConcessionReferenceShareLThree{} of runs; only packages of options do much better.
+\item Sub-classification (\PeakChangeGroundedSubClassification), compensating the families who lose eligibility (\PeakChangeGroundedCompensation) and adding seats, as was done for EWS in 2019 (\PeakChangeGroundedSeatExpansion), are the weakest options.
 \item Among options that keep the income-only end state, a cross-party commission (\PeakChangeGroundedConsensusCommission) and grandfathering (\PeakChangeGroundedGrandfathering) come next; which is stronger is not settled.
 \item Internet shutdowns and heavy policing lower the peak (\PeakChangeGroundedInternetShutdown{} and \PeakChangeGroundedHeavyPolicing) and multiply deaths by \DeathRatioGroundedInternetShutdown{} and \DeathRatioGroundedHeavyPolicing.
 \end{itemize}
@@ -171,7 +172,7 @@ For every agent, every day:
 \end{enumerate}
 
 \subsection{Checking the model against real protests}
-Protest turnout in India is rarely counted, and the estimates that exist differ by a factor of a hundred (for 2018, from ``thousands'' to ``hundreds of thousands''). Instead of a headcount, the model is checked against how many protest events the news reported, from the GDELT database, for four episodes: the SC/ST Bharat Bandhs of April 2018 and August 2024, the upper-caste bandh of September 2018, and the EWS amendment of January 2019, which drew little protest. Parameter sets that cannot reproduce all four are discarded; \CalibKept{} survive after \CalibWaves{} rounds of \CalibWaveSize{} sets each.
+Protest turnout in India is rarely counted, and the estimates that exist differ by a factor of a hundred (for 2018, from ``thousands'' to ``hundreds of thousands''). Instead of a headcount, the model is checked against how many protest events the news reported, from the GDELT database, for four episodes: the SC/ST Bharat Bandhs of April 2018 and August 2024, the upper-caste bandh of September 2018, and the EWS amendment of January 2019, which drew little protest. Parameter sets that cannot reproduce all four are discarded; \CalibKept{} survive after \CalibWaves{} rounds of \CalibWaveSize{} sets each. The news counts pin down the relative size of past shocks, but they say little about how people behave: the surviving sets cover most of the range tried for every behavioural parameter.
 
 Results of the check:
 \begin{itemize}
@@ -291,22 +292,22 @@ The EWS precedent does not transfer. EWS added a new category without merging an
 SC, ST and OBC quotas stay, but within each only families below the income line are eligible. In effect this extends the OBC creamy layer to SC and ST. Brazil's 2012 Quota Law combines criteria in a similar way.
 \begin{plainwords}Keep the caste categories, but stop the richest families inside them from using the quota.\end{plainwords}
 \subsubsection{How it is modelled}
-Symbolic threat for SC, ST and OBC falls to 40\% of its value. The allocation model is rerun with SC and ST quotas closed to above-line families: their seats go to below-line SC and ST students, who gain (\AllocFilterSCBelow{} for SC, \AllocFilterSTBelow{} for ST).
+For SC and ST, symbolic threat falls to the share implied by the 2024 bandh, which protested a creamy layer inside SC and ST quotas: a median of \LThreeRetainedMedian{} of the reform's threat, varying from run to run with the calibration. For OBC it falls to 40\%. The allocation model is rerun with SC and ST quotas closed to above-line families: their seats go to below-line SC and ST students, who gain (\AllocFilterSCBelow{} for SC, \AllocFilterSTBelow{} for ST).
 \subsubsection{Outcome}
 \outcomeline{\PeakGroundedHybridCasteSubquotas}{\PeakRangeGroundedHybridCasteSubquotas}{\PeakChangeGroundedHybridCasteSubquotas}{\CumulativeGroundedHybridCasteSubquotas}{\DeathsGroundedHybridCasteSubquotas}{\PeakCentralHybridCasteSubquotas{} (\PeakChangeCentralHybridCasteSubquotas).}
 \subsubsection{Why}
-It removes most of both drivers at once: the symbolic threat, and the seat losses of the below-line majority, which become gains. It is the strongest option in every check. The 2024 bandh was triggered by a proposed SC/ST creamy layer, so the symbolic relief may be smaller than assumed. This design also keeps caste as a criterion, so it is an alternative to the reform rather than a version of it.
+It removes most of both drivers at once: the symbolic threat, and the seat losses of the below-line majority, which become gains. It is the strongest single option in most checks. Its symbolic relief comes from the 2024 bandh, so it is smaller and more uncertain than an assumed value would be. This design also keeps caste as a criterion, so it is an alternative to the reform rather than a version of it.
 
 \subsection{L4: sub-classify to favour the most-deprived}
 \subsubsection{What it is}
 Within SC and ST, a larger share of benefits goes to the most-deprived sub-castes, as permitted by the Supreme Court in 2024.
 \begin{plainwords}Give the poorest sub-castes a better deal, and many of them will not join the protest.\end{plainwords}
 \subsubsection{How it is modelled}
-The most-deprived tier's material loss falls by half a unit, and its symbolic threat falls from 0.8 to 0.3 times its group's.
+The most-deprived tier's material loss falls by half a unit, and its symbolic threat falls from 0.8 to 0.3 times its group's. The better-off tier's symbolic threat rises by a fifth: in 2024, better-off SC groups protested sub-classification.
 \subsubsection{Outcome}
 \outcomeline{\PeakGroundedSubClassification}{\PeakRangeGroundedSubClassification}{\PeakChangeGroundedSubClassification}{\CumulativeGroundedSubClassification}{\DeathsGroundedSubClassification}{\PeakCentralSubClassification{} (\PeakChangeCentralSubClassification).}
 \subsubsection{Why}
-Participation in the most-deprived tier changes by \FactDeprivedChange, and in the better-off tier by only \FactBetterOffChange.
+Participation in the most-deprived tier changes by \FactDeprivedChange, but the better-off tier reacts (\FactBetterOffChange), so the peak barely moves.
 
 \subsection{L5: data-first commission with cross-party consensus}
 \subsubsection{What it is}
@@ -375,12 +376,17 @@ L3 with sub-classification (L4), grandfathering (L1), the commission (L5), compe
 \subsubsection{Outcome}
 \outcomeline{\PeakGroundedHybridPackage}{\PeakRangeGroundedHybridPackage}{\PeakChangeGroundedHybridPackage}{\CumulativeGroundedHybridPackage}{\DeathsGroundedHybridPackage}{\PeakCentralHybridPackage{} (\PeakChangeCentralHybridPackage).}
 
+\section{Can the reform survive?}
+In the model the government concedes when protest is large, and it concedes against an abrupt switch in \ConcessionReferenceBaselineShare{} of runs, after a median of \ConcessionReferenceBaselineDay{} days. This rule is an assumption; no past episode fits anything after the first bandh day. With the strongest single option (L3) the government still concedes in \ConcessionReferenceShareLThree{} of runs; with the managed transition in \ConcessionReferenceShareCOne; with the hybrid package in \ConcessionReferenceShareCTwo. If governments concede more slowly, the shares fall to \ConcessionSlowShareLThree, \ConcessionSlowShareCOne{} and \ConcessionSlowShareCTwo.
+\begin{plainwords}In the model, an income-only reform only lasts if it comes as a phased, negotiated package, and even then only if the government is slow to concede.\end{plainwords}
+
 \section{How sure are these results?}
 \label{sec:robustness}
 \begin{itemize}
 \item \textbf{How strongly each policy works is uncertain.} When every policy's strength is drawn at random from a wide range, keeping caste quotas with an income filter still comes first with probability \MapGroundedStrongestLThree. The commission beats grandfathering with probability \MapGroundedLFiveBeatsLOne{}, so grandfathering is more often the stronger of the two.
-\item \textbf{The model's structure is uncertain.} Across \EnsembleVariants{} alternative structures (different threshold shapes, organizations that call bandhs only when turnout is credible, a government that can concede, mixed neighbourhoods, deaths that deter instead of mobilize), L3 comes first in \EnsembleLThreeStrongest{} and compensation last in \EnsembleLSixWeakest.
-\item \textbf{Every parameter moved at once.} A Morris screen across fifteen parameters finds L3 ahead of the commission in \MorrisLThreeBeatsLFive{} of design points in the stylized model and \MorrisGroundedLThreeBeatsLFive{} in the grounded one.
+\item \textbf{The model's structure is uncertain.} Across \GEnsembleVariants{} alternative structures of the data-grounded model (different threshold shapes, fixed bandh days, no or slow concession, different death models, assumed instead of estimated seat losses), L3 comes first in \GEnsembleLThreeStrongest.
+\item \textbf{Every parameter moved at once.} A Morris screen across fifteen parameters finds L3 ahead of the commission in \MorrisGroundedLThreeBeatsLFive{} of design points in the grounded model.
+\item \textbf{Implausibly large crowds.} In \PlausibleShareBaselineAboveFiveCrore{} of runs the abrupt switch puts more than 5 crore people on the street in a day. Setting those aside, L3 still comes first in \PlausibleLThreeFirstBelowFiveCrore{} of the rest.
 \item \textbf{What the data cannot settle.} Across the reform's shock size and party backing, the baseline peak moves from \AssumptionPeakLow{} to \AssumptionPeakHigh{}, but L3 comes first in all \AssumptionCells{} combinations.
 \end{itemize}
 
@@ -388,6 +394,7 @@ L3 with sub-classification (L4), grandfathering (L1), the commission (L5), compe
 \begin{enumerate}
 \item \textbf{A merged income pool is not neutral.} It moves most seats of below-line SC and ST students to below-line General students, and adding seats on the EWS model does not undo that.
 \item \textbf{Design matters more than compensation.} A design that keeps caste as the qualifier while filtering by income does far better than paying the people who lose.
+\item \textbf{Lowering the peak is not enough.} In the model no single option makes it unlikely that the government backs down; only packages do.
 \item \textbf{If the income-only end state is the goal,} phasing and a process that changes what the reform means matter most, and they compound.
 \item \textbf{Suppression costs lives.} It lowers the peak less than most design options; whether it also broadens protest is uncertain.
 \end{enumerate}
@@ -395,8 +402,10 @@ L3 with sub-classification (L4), grandfathering (L1), the commission (L5), compe
 \subsection{Limitations}
 \begin{itemize}
 \item How strongly a commission, a guarantee or an income filter reduces the sense of threat is a judgement, handled with wide ranges.
-\item News-event data pin down the relative size of past protests, not their headcounts. The reform's protest level is therefore uncertain by more than tenfold.
-\item The seat model covers IIT admissions only. Government jobs and other institutions may differ.
+\item News-event data pin down the relative size of past protests, not their headcounts, and they barely constrain how people behave in the model. The reform's protest level is therefore uncertain by more than tenfold.
+\item When and whether the government concedes is an assumption, not an estimate.
+\item The relevance of the news events was judged by a language model from the article links and has not yet been checked by hand.
+\item The seat model covers IIT admissions only, the most selective institutions, and applies their losses to every family. Government jobs and other institutions may differ; scaling the losses down to a quarter leaves the ranking at the top unchanged.
 \item Jati-level differences, state politics, courts, elections and media are not modelled.
 \item Out-of-sample predictions of deaths and of which states protest were weak.
 \end{itemize}

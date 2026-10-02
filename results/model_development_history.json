@@ -76,49 +76,77 @@
     "peak_lakh_10th_percentile": 7.1,
     "peak_lakh_90th_percentile": 457.6,
     "median_cumulative_crore": 0.78,
-    "median_deaths": 10.0
+    "median_deaths": 10.0,
+    "median_bandhs_called": 3.0,
+    "share_of_runs_conceded": 0.0,
+    "median_concession_day": null,
+    "median_campaign_days": 27.0
    },
    "symbolic_only_validation": {
     "median_peak_lakh": 0.1,
     "peak_lakh_10th_percentile": 0.0,
     "peak_lakh_90th_percentile": 0.4,
     "median_cumulative_crore": 0.0,
-    "median_deaths": 0.0
+    "median_deaths": 0.0,
+    "median_bandhs_called": 3.0,
+    "share_of_runs_conceded": 0.0,
+    "median_concession_day": null,
+    "median_campaign_days": 26.0
    },
    "grandfathering": {
     "median_peak_lakh": 0.4,
     "peak_lakh_10th_percentile": 0.1,
     "peak_lakh_90th_percentile": 0.9,
     "median_cumulative_crore": 0.01,
-    "median_deaths": 0.0
+    "median_deaths": 0.0,
+    "median_bandhs_called": 3.0,
+    "share_of_runs_conceded": 0.0,
+    "median_concession_day": null,
+    "median_campaign_days": 33.5
    },
    "hybrid_caste_subquotas": {
     "median_peak_lakh": 2.3,
     "peak_lakh_10th_percentile": 0.7,
     "peak_lakh_90th_percentile": 25.0,
     "median_cumulative_crore": 0.06,
-    "median_deaths": 0.0
+    "median_deaths": 0.0,
+    "median_bandhs_called": 3.0,
+    "share_of_runs_conceded": 0.0,
+    "median_concession_day": null,
+    "median_campaign_days": 29.5
    },
    "consensus_commission": {
     "median_peak_lakh": 3.9,
     "peak_lakh_10th_percentile": 1.2,
     "peak_lakh_90th_percentile": 148.1,
     "median_cumulative_crore": 0.15,
-    "median_deaths": 1.0
+    "median_deaths": 1.0,
+    "median_bandhs_called": 3.0,
+    "share_of_runs_conceded": 0.0,
+    "median_concession_day": null,
+    "median_campaign_days": 37.0
    },
    "compensation": {
     "median_peak_lakh": 2.6,
     "peak_lakh_10th_percentile": 1.1,
     "peak_lakh_90th_percentile": 9.1,
     "median_cumulative_crore": 0.08,
-    "median_deaths": 0.0
+    "median_deaths": 0.0,
+    "median_bandhs_called": 3.0,
+    "share_of_runs_conceded": 0.0,
+    "median_concession_day": null,
+    "median_campaign_days": 27.5
    },
    "managed_transition": {
     "median_peak_lakh": 0.0,
     "peak_lakh_10th_percentile": 0.0,
     "peak_lakh_90th_percentile": 0.1,
     "median_cumulative_crore": 0.0,
-    "median_deaths": 0.0
+    "median_deaths": 0.0,
+    "median_bandhs_called": 3.0,
+    "share_of_runs_conceded": 0.0,
+    "median_concession_day": null,
+    "median_campaign_days": 0.0
    }
   }
  },
@@ -165,49 +193,77 @@
     "peak_lakh_10th_percentile": 14.9,
     "peak_lakh_90th_percentile": 118.9,
     "median_cumulative_crore": 1.29,
-    "median_deaths": 18.5
+    "median_deaths": 18.5,
+    "median_bandhs_called": 3.0,
+    "share_of_runs_conceded": 0.0,
+    "median_concession_day": null,
+    "median_campaign_days": 38.0
    },
    "symbolic_only_validation": {
     "median_peak_lakh": 13.3,
     "peak_lakh_10th_percentile": 6.0,
     "peak_lakh_90th_percentile": 37.6,
     "median_cumulative_crore": 0.47,
-    "median_deaths": 5.5
+    "median_deaths": 5.5,
+    "median_bandhs_called": 3.0,
+    "share_of_runs_conceded": 0.0,
+    "median_concession_day": null,
+    "median_campaign_days": 40.0
    },
    "grandfathering": {
     "median_peak_lakh": 15.6,
     "peak_lakh_10th_percentile": 6.6,
     "peak_lakh_90th_percentile": 41.5,
     "median_cumulative_crore": 0.5,
-    "median_deaths": 5.5
+    "median_deaths": 5.5,
+    "median_bandhs_called": 3.0,
+    "share_of_runs_conceded": 0.0,
+    "median_concession_day": null,
+    "median_campaign_days": 40.0
    },
    "hybrid_caste_subquotas": {
     "median_peak_lakh": 2.9,
     "peak_lakh_10th_percentile": 1.7,
     "peak_lakh_90th_percentile": 4.3,
     "median_cumulative_crore": 0.1,
-    "median_deaths": 1.0
+    "median_deaths": 1.0,
+    "median_bandhs_called": 3.0,
+    "share_of_runs_conceded": 0.0,
+    "median_concession_day": null,
+    "median_campaign_days": 39.0
    },
    "consensus_commission": {
     "median_peak_lakh": 8.3,
     "peak_lakh_10th_percentile": 4.1,
     "peak_lakh_90th_percentile": 24.2,
     "median_cumulative_crore": 0.41,
-    "median_deaths": 4.5
+    "median_deaths": 4.5,
+    "median_bandhs_called": 3.0,
+    "share_of_runs_conceded": 0.0,
+    "median_concession_day": null,
+    "median_campaign_days": 40.0
    },
    "compensation": {
     "median_peak_lakh": 34.9,
     "peak_lakh_10th_percentile": 13.1,
     "peak_lakh_90th_percentile": 93.9,
     "median_cumulative_crore": 1.08,
-    "median_deaths": 16.5
+    "median_deaths": 16.5,
+    "median_bandhs_called": 3.0,
+    "share_of_runs_conceded": 0.0,
+    "median_concession_day": null,
+    "median_campaign_days": 39.5
    },
    "managed_transition": {
     "median_peak_lakh": 2.2,
     "peak_lakh_10th_percentile": 1.4,
     "peak_lakh_90th_percentile": 3.4,
     "median_cumulative_crore": 0.12,
-    "median_deaths": 1.0
+    "median_deaths": 1.0,
+    "median_bandhs_called": 3.0,
+    "share_of_runs_conceded": 0.0,
+    "median_concession_day": null,
+    "median_campaign_days": 40.0
    }
   }
  }

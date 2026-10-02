@@ -1,0 +1,641 @@
+state_code,district_code,district,state,urban_share,literacy_rate,phone_share
+1,1,Kupwara,Jammu & Kashmir,0.1203,0.6451,0.2510
+1,2,Badgam,Jammu & Kashmir,0.1299,0.5608,0.5460
+1,3,Leh(Ladakh),Jammu & Kashmir,0.3421,0.7720,0.6540
+1,4,Kargil,Jammu & Kashmir,0.1160,0.7134,0.4400
+1,5,Punch,Jammu & Kashmir,0.0810,0.6674,0.1800
+1,6,Rajouri,Jammu & Kashmir,0.0814,0.6817,0.2760
+1,7,Kathua,Jammu & Kashmir,0.1455,0.7309,0.5680
+1,8,Baramula,Jammu & Kashmir,0.1810,0.6463,0.5150
+1,9,Bandipore,Jammu & Kashmir,0.1666,0.5628,0.4470
+1,10,Srinagar,Jammu & Kashmir,0.9860,0.6941,0.9130
+1,11,Ganderbal,Jammu & Kashmir,0.1581,0.5804,0.4710
+1,12,Pulwama,Jammu & Kashmir,0.1436,0.6348,0.5660
+1,13,Shupiyan,Jammu & Kashmir,0.0615,0.6076,0.4740
+1,14,Anantnag,Jammu & Kashmir,0.2623,0.6269,0.4700
+1,15,Kulgam,Jammu & Kashmir,0.1899,0.5923,0.3730
+1,16,Doda,Jammu & Kashmir,0.0797,0.6468,0.2450
+1,17,Ramban,Jammu & Kashmir,0.0416,0.5427,0.1500
+1,18,Kishtwar,Jammu & Kashmir,0.0644,0.5620,0.2080
+1,19,Udhampur,Jammu & Kashmir,0.1950,0.6849,0.3990
+1,20,Reasi,Jammu & Kashmir,0.0858,0.5815,0.2490
+1,21,Jammu,Jammu & Kashmir,0.5000,0.8345,0.7960
+1,22,Samba,Jammu & Kashmir,0.1681,0.8141,0.7580
+2,23,Chamba,Himachal Pradesh,0.0696,0.7217,0.6100
+2,24,Kangra,Himachal Pradesh,0.0571,0.8567,0.8100
+2,25,Lahul & Spiti,Himachal Pradesh,0.0000,0.7681,0.7380
+2,26,Kullu,Himachal Pradesh,0.0945,0.7940,0.7000
+2,27,Mandi,Himachal Pradesh,0.0627,0.8153,0.7150
+2,28,Hamirpur,Himachal Pradesh,0.0691,0.8815,0.8220
+2,29,Una,Himachal Pradesh,0.0862,0.8653,0.8100
+2,30,Bilaspur,Himachal Pradesh,0.0658,0.8459,0.7630
+2,31,Solan,Himachal Pradesh,0.1760,0.8368,0.7680
+2,32,Sirmaur,Himachal Pradesh,0.1079,0.7880,0.6070
+2,33,Shimla,Himachal Pradesh,0.2474,0.8364,0.7270
+2,34,Kinnaur,Himachal Pradesh,0.0000,0.8000,0.6620
+3,35,Gurdaspur,Punjab,0.2869,0.7995,0.8480
+3,36,Kapurthala,Punjab,0.3465,0.7907,0.8770
+3,37,Jalandhar,Punjab,0.5293,0.8248,0.8840
+3,38,Hoshiarpur,Punjab,0.2111,0.8459,0.8670
+3,39,Shahid Bhagat Singh Nagar,Punjab,0.2048,0.7978,0.8490
+3,40,Fatehgarh Sahib,Punjab,0.3091,0.7935,0.8470
+3,41,Ludhiana,Punjab,0.5916,0.8220,0.8450
+3,42,Moga,Punjab,0.2282,0.7068,0.7980
+3,43,Firozpur,Punjab,0.2723,0.6892,0.7420
+3,44,Muktsar,Punjab,0.2796,0.6581,0.7550
+3,45,Faridkot,Punjab,0.3515,0.6955,0.7870
+3,46,Bathinda,Punjab,0.3595,0.6828,0.7670
+3,47,Mansa,Punjab,0.2125,0.6183,0.6950
+3,48,Patiala,Punjab,0.4026,0.7528,0.8530
+3,49,Amritsar,Punjab,0.5358,0.7627,0.8610
+3,50,Tarn Taran,Punjab,0.1266,0.6781,0.8070
+3,51,Rupnagar,Punjab,0.2597,0.8219,0.8430
+3,52,Sahibzada Ajit Singh Nagar,Punjab,0.5476,0.8380,0.8670
+3,53,Sangrur,Punjab,0.3117,0.6799,0.7800
+3,54,Barnala,Punjab,0.3202,0.6782,0.7700
+4,55,Chandigarh,Chandigarh,0.9725,0.8605,0.8250
+5,56,Uttarkashi,Uttarakhand,0.0736,0.7581,0.4420
+5,57,Chamoli,Uttarakhand,0.1517,0.8265,0.5430
+5,58,Rudraprayag,Uttarakhand,0.0410,0.8130,0.5540
+5,59,Tehri Garhwal,Uttarakhand,0.1133,0.7636,0.5120
+5,60,Dehradun,Uttarakhand,0.5552,0.8425,0.8070
+5,61,Garhwal,Uttarakhand,0.1640,0.8202,0.6160
+5,62,Pithoragarh,Uttarakhand,0.1440,0.8225,0.5290
+5,63,Bageshwar,Uttarakhand,0.0349,0.8001,0.4480
+5,64,Almora,Uttarakhand,0.1001,0.8047,0.5040
+5,65,Champawat,Uttarakhand,0.1477,0.7983,0.4310
+5,66,Nainital,Uttarakhand,0.3894,0.8388,0.6730
+5,67,Udham Singh Nagar,Uttarakhand,0.3558,0.7310,0.6410
+5,68,Hardwar,Uttarakhand,0.3666,0.7343,0.6390
+6,69,Panchkula,Haryana,0.5581,0.8188,0.8020
+6,70,Ambala,Haryana,0.4438,0.8175,0.8270
+6,71,Yamunanagar,Haryana,0.3894,0.7799,0.7390
+6,72,Kurukshetra,Haryana,0.2895,0.7631,0.7990
+6,73,Kaithal,Haryana,0.2197,0.6915,0.7000
+6,74,Karnal,Haryana,0.3021,0.7473,0.7580
+6,75,Panipat,Haryana,0.4605,0.7594,0.7370
+6,76,Sonipat,Haryana,0.3127,0.7912,0.7130
+6,77,Jind,Haryana,0.2290,0.7144,0.6570
+6,78,Fatehabad,Haryana,0.1906,0.6792,0.6080
+6,79,Sirsa,Haryana,0.2465,0.6882,0.6260
+6,80,Hisar,Haryana,0.3174,0.7289,0.6230
+6,81,Bhiwani,Haryana,0.1966,0.7521,0.5710
+6,82,Rohtak,Haryana,0.4204,0.8022,0.7400
+6,83,Jhajjar,Haryana,0.2539,0.8065,0.6980
+6,84,Mahendragarh,Haryana,0.1441,0.7772,0.5220
+6,85,Rewari,Haryana,0.2593,0.8099,0.6430
+6,86,Gurgaon,Haryana,0.6882,0.8470,0.7740
+6,87,Mewat,Haryana,0.1139,0.5408,0.1740
+6,88,Faridabad,Haryana,0.7951,0.8170,0.7920
+6,89,Palwal,Haryana,0.2269,0.6932,0.5560
+7,90,North West,Delhi,0.9415,0.8445,0.8640
+7,91,North,Delhi,0.9800,0.8685,0.8910
+7,92,North East,Delhi,0.9904,0.8309,0.8850
+7,93,East,Delhi,0.9979,0.8931,0.9030
+7,94,New Delhi,Delhi,1.0000,0.8834,0.8690
+7,95,Central,Delhi,1.0000,0.8514,0.8980
+7,96,West,Delhi,0.9975,0.8698,0.8940
+7,97,South West,Delhi,0.9373,0.8828,0.8700
+7,98,South,Delhi,0.9955,0.8657,0.8700
+8,99,Ganganagar,Rajasthan,0.2719,0.6964,0.4860
+8,100,Hanumangarh,Rajasthan,0.1975,0.6713,0.4270
+8,101,Bikaner,Rajasthan,0.3386,0.6513,0.3680
+8,102,Churu,Rajasthan,0.2825,0.6675,0.3780
+8,103,Jhunjhunun,Rajasthan,0.2289,0.7413,0.4940
+8,104,Alwar,Rajasthan,0.1781,0.7072,0.4120
+8,105,Bharatpur,Rajasthan,0.1943,0.7011,0.3780
+8,106,Dhaulpur,Rajasthan,0.2051,0.6908,0.2540
+8,107,Karauli,Rajasthan,0.1496,0.6622,0.1890
+8,108,Sawai Madhopur,Rajasthan,0.1995,0.6539,0.2440
+8,109,Dausa,Rajasthan,0.1235,0.6816,0.2820
+8,110,Jaipur,Rajasthan,0.5240,0.7551,0.6670
+8,111,Sikar,Rajasthan,0.2368,0.7191,0.4910
+8,112,Nagaur,Rajasthan,0.1926,0.6280,0.3160
+8,113,Jodhpur,Rajasthan,0.3430,0.6594,0.3930
+8,114,Jaisalmer,Rajasthan,0.1329,0.5722,0.1710
+8,115,Barmer,Rajasthan,0.0698,0.5653,0.1180
+8,116,Jalor,Rajasthan,0.0830,0.5486,0.1650
+8,117,Sirohi,Rajasthan,0.2013,0.5525,0.3220
+8,118,Pali,Rajasthan,0.2258,0.6239,0.3610
+8,119,Ajmer,Rajasthan,0.4008,0.6933,0.5180
+8,120,Tonk,Rajasthan,0.2235,0.6158,0.3120
+8,121,Bundi,Rajasthan,0.2005,0.6152,0.3580
+8,122,Bhilwara,Rajasthan,0.2128,0.6137,0.3550
+8,123,Rajsamand,Rajasthan,0.1589,0.6314,0.3270
+8,124,Dungarpur,Rajasthan,0.0639,0.5946,0.1640
+8,125,Banswara,Rajasthan,0.0710,0.5633,0.1330
+8,126,Chittaurgarh,Rajasthan,0.1847,0.6171,0.3670
+8,127,Kota,Rajasthan,0.6031,0.7656,0.6230
+8,128,Baran,Rajasthan,0.2079,0.6666,0.3680
+8,129,Jhalawar,Rajasthan,0.1625,0.6150,0.3410
+8,130,Udaipur,Rajasthan,0.1983,0.6182,0.2920
+8,131,Pratapgarh,Rajasthan,0.0827,0.5597,0.2090
+9,132,Saharanpur,Uttar Pradesh,0.3077,0.7049,0.5000
+9,133,Muzaffarnagar,Uttar Pradesh,0.2875,0.6912,0.4870
+9,134,Bijnor,Uttar Pradesh,0.2513,0.6848,0.4140
+9,135,Moradabad,Uttar Pradesh,0.3298,0.5677,0.3610
+9,136,Rampur,Uttar Pradesh,0.2520,0.5334,0.3410
+9,137,Jyotiba Phule Nagar,Uttar Pradesh,0.2493,0.6384,0.3250
+9,138,Meerut,Uttar Pradesh,0.5108,0.7284,0.6230
+9,139,Baghpat,Uttar Pradesh,0.2111,0.7201,0.5390
+9,140,Ghaziabad,Uttar Pradesh,0.6755,0.7807,0.7140
+9,141,Gautam Buddha Nagar,Uttar Pradesh,0.5912,0.8012,0.7360
+9,142,Bulandshahr,Uttar Pradesh,0.2479,0.6888,0.4360
+9,143,Aligarh,Uttar Pradesh,0.3313,0.6752,0.4330
+9,144,Mahamaya Nagar,Uttar Pradesh,0.2126,0.7159,0.4680
+9,145,Mathura,Uttar Pradesh,0.2968,0.7036,0.5390
+9,146,Agra,Uttar Pradesh,0.4581,0.7158,0.6450
+9,147,Firozabad,Uttar Pradesh,0.3335,0.7192,0.4110
+9,148,Mainpuri,Uttar Pradesh,0.1544,0.7599,0.2470
+9,149,Budaun,Uttar Pradesh,0.1751,0.5129,0.2140
+9,150,Bareilly,Uttar Pradesh,0.3526,0.5849,0.4030
+9,151,Pilibhit,Uttar Pradesh,0.1730,0.6147,0.2960
+9,152,Shahjahanpur,Uttar Pradesh,0.1976,0.5954,0.2620
+9,153,Kheri,Uttar Pradesh,0.1146,0.6056,0.1990
+9,154,Sitapur,Uttar Pradesh,0.1184,0.6112,0.1550
+9,155,Hardoi,Uttar Pradesh,0.1324,0.6457,0.1880
+9,156,Unnao,Uttar Pradesh,0.1710,0.6637,0.2370
+9,157,Lucknow,Uttar Pradesh,0.6621,0.7729,0.6160
+9,158,Rae Bareli,Uttar Pradesh,0.0904,0.6725,0.2120
+9,159,Farrukhabad,Uttar Pradesh,0.2208,0.6904,0.2830
+9,160,Kannauj,Uttar Pradesh,0.1695,0.7270,0.2300
+9,161,Etawah,Uttar Pradesh,0.2316,0.7841,0.3070
+9,162,Auraiya,Uttar Pradesh,0.1698,0.7895,0.2420
+9,163,Kanpur Dehat,Uttar Pradesh,0.0966,0.7578,0.1990
+9,164,Kanpur Nagar,Uttar Pradesh,0.6583,0.7965,0.5720
+9,165,Jalaun,Uttar Pradesh,0.2479,0.7375,0.3150
+9,166,Jhansi,Uttar Pradesh,0.4170,0.7505,0.4580
+9,167,Lalitpur,Uttar Pradesh,0.1436,0.6352,0.2460
+9,168,Hamirpur,Uttar Pradesh,0.1900,0.6877,0.2320
+9,169,Mahoba,Uttar Pradesh,0.2116,0.6527,0.2170
+9,170,Banda,Uttar Pradesh,0.1532,0.6667,0.1620
+9,171,Chitrakoot,Uttar Pradesh,0.0971,0.6505,0.1610
+9,172,Fatehpur,Uttar Pradesh,0.1223,0.6743,0.2070
+9,173,Pratapgarh,Uttar Pradesh,0.0546,0.7009,0.2530
+9,174,Kaushambi,Uttar Pradesh,0.0778,0.6128,0.1920
+9,175,Allahabad,Uttar Pradesh,0.2474,0.7232,0.3960
+9,176,Bara Banki,Uttar Pradesh,0.1015,0.6175,0.2050
+9,177,Faizabad,Uttar Pradesh,0.1377,0.6873,0.2380
+9,178,Ambedkar Nagar,Uttar Pradesh,0.1171,0.7223,0.1690
+9,179,Sultanpur,Uttar Pradesh,0.0526,0.6927,0.2160
+9,180,Bahraich,Uttar Pradesh,0.0814,0.4936,0.1200
+9,181,Shrawasti,Uttar Pradesh,0.0346,0.4674,0.0860
+9,182,Balrampur,Uttar Pradesh,0.0774,0.4951,0.1070
+9,183,Gonda,Uttar Pradesh,0.0655,0.5871,0.1460
+9,184,Siddharthnagar,Uttar Pradesh,0.0628,0.5925,0.1510
+9,185,Basti,Uttar Pradesh,0.0560,0.6722,0.2020
+9,186,Sant Kabir Nagar,Uttar Pradesh,0.0749,0.6672,0.1910
+9,187,Mahrajganj,Uttar Pradesh,0.0502,0.6276,0.2010
+9,188,Gorakhpur,Uttar Pradesh,0.1883,0.7083,0.3670
+9,189,Kushinagar,Uttar Pradesh,0.0472,0.6525,0.1840
+9,190,Deoria,Uttar Pradesh,0.1022,0.7113,0.2590
+9,191,Azamgarh,Uttar Pradesh,0.0853,0.7093,0.2420
+9,192,Mau,Uttar Pradesh,0.2263,0.7309,0.2560
+9,193,Ballia,Uttar Pradesh,0.0939,0.7094,0.2390
+9,194,Jaunpur,Uttar Pradesh,0.0771,0.7155,0.3180
+9,195,Ghazipur,Uttar Pradesh,0.0758,0.7178,0.2650
+9,196,Chandauli,Uttar Pradesh,0.1242,0.7148,0.3730
+9,197,Varanasi,Uttar Pradesh,0.4344,0.7560,0.5720
+9,198,Sant Ravidas Nagar (Bhadohi),Uttar Pradesh,0.1453,0.6897,0.3310
+9,199,Mirzapur,Uttar Pradesh,0.1392,0.6848,0.3480
+9,200,Sonbhadra,Uttar Pradesh,0.1688,0.6403,0.2470
+9,201,Etah,Uttar Pradesh,0.1511,0.7081,0.2720
+9,202,Kanshiram Nagar,Uttar Pradesh,0.2006,0.6102,0.2280
+10,203,Pashchim Champaran,Bihar,0.0999,0.5570,0.0980
+10,204,Purba Champaran,Bihar,0.0787,0.5579,0.0980
+10,205,Sheohar,Bihar,0.0428,0.5378,0.0790
+10,206,Sitamarhi,Bihar,0.0556,0.5205,0.0830
+10,207,Madhubani,Bihar,0.0360,0.5862,0.0820
+10,208,Supaul,Bihar,0.0474,0.5767,0.0600
+10,209,Araria,Bihar,0.0600,0.5353,0.0720
+10,210,Kishanganj,Bihar,0.0953,0.5546,0.0860
+10,211,Purnia,Bihar,0.1051,0.5108,0.0990
+10,212,Katihar,Bihar,0.0892,0.5224,0.0970
+10,213,Madhepura,Bihar,0.0442,0.5225,0.0580
+10,214,Saharsa,Bihar,0.0824,0.5320,0.0830
+10,215,Darbhanga,Bihar,0.0974,0.5656,0.0990
+10,216,Muzaffarpur,Bihar,0.0986,0.6343,0.1810
+10,217,Gopalganj,Bihar,0.0635,0.6547,0.1460
+10,218,Siwan,Bihar,0.0549,0.6945,0.1360
+10,219,Saran,Bihar,0.0894,0.6596,0.2000
+10,220,Vaishali,Bihar,0.0667,0.6660,0.1600
+10,221,Samastipur,Bihar,0.0347,0.6186,0.0990
+10,222,Begusarai,Bihar,0.1918,0.6387,0.1290
+10,223,Khagaria,Bihar,0.0523,0.5792,0.0950
+10,224,Bhagalpur,Bihar,0.1983,0.6314,0.2080
+10,225,Banka,Bihar,0.0350,0.5817,0.0860
+10,226,Munger,Bihar,0.2779,0.7046,0.2650
+10,227,Lakhisarai,Bihar,0.1429,0.6242,0.1890
+10,228,Sheikhpura,Bihar,0.1713,0.6386,0.1570
+10,229,Nalanda,Bihar,0.1591,0.6443,0.1790
+10,230,Patna,Bihar,0.4307,0.7068,0.4730
+10,231,Bhojpur,Bihar,0.1429,0.7047,0.2110
+10,232,Buxar,Bihar,0.0964,0.7014,0.1840
+10,233,Kaimur (Bhabua),Bihar,0.0403,0.6934,0.1990
+10,234,Rohtas,Bihar,0.1445,0.7337,0.2330
+10,235,Aurangabad,Bihar,0.0932,0.7032,0.1180
+10,236,Gaya,Bihar,0.1324,0.6367,0.1560
+10,237,Nawada,Bihar,0.0971,0.5976,0.0980
+10,238,Jamui,Bihar,0.0826,0.5979,0.0880
+10,239,Jehanabad,Bihar,0.1201,0.6680,0.1770
+10,240,Arwal,Bihar,0.0740,0.6743,0.0970
+11,241,North  District,Sikkim,0.1062,0.7801,0.4710
+11,242,West District,Sikkim,0.0385,0.7739,0.3890
+11,243,South District,Sikkim,0.1444,0.8142,0.4860
+11,244,East District,Sikkim,0.4319,0.8385,0.6610
+12,245,Tawang,Arunachal Pradesh,0.2241,0.5900,0.5090
+12,246,West Kameng,Arunachal Pradesh,0.1898,0.6707,0.5260
+12,247,East Kameng,Arunachal Pradesh,0.2332,0.6002,0.2170
+12,248,Papum Pare,Arunachal Pradesh,0.5491,0.7995,0.6930
+12,249,Upper Subansiri,Arunachal Pradesh,0.1606,0.6380,0.2300
+12,250,West Siang,Arunachal Pradesh,0.2224,0.6646,0.4690
+12,251,East Siang,Arunachal Pradesh,0.2785,0.7254,0.4900
+12,252,Upper Siang,Arunachal Pradesh,0.1852,0.5999,0.3930
+12,253,Changlang,Arunachal Pradesh,0.1297,0.5980,0.3280
+12,254,Tirap,Arunachal Pradesh,0.1858,0.5219,0.3140
+12,255,Lower Subansiri,Arunachal Pradesh,0.1542,0.7435,0.4810
+12,256,Kurung Kumey,Arunachal Pradesh,0.0255,0.4875,0.0830
+12,257,Dibang Valley,Arunachal Pradesh,0.2979,0.6410,0.3660
+12,258,Lower Dibang Valley,Arunachal Pradesh,0.2106,0.6913,0.3990
+12,259,Lohit,Arunachal Pradesh,0.2225,0.6818,0.4150
+12,260,Anjaw,Arunachal Pradesh,0.0464,0.5646,0.2760
+13,261,Mon,Nagaland,0.1376,0.5699,0.1370
+13,262,Mokokchung,Nagaland,0.2863,0.9162,0.4770
+13,263,Zunheboto,Nagaland,0.1961,0.8526,0.3280
+13,264,Wokha,Nagaland,0.2104,0.8769,0.3280
+13,265,Dimapur,Nagaland,0.5223,0.8479,0.6580
+13,266,Phek,Nagaland,0.1504,0.7805,0.2520
+13,267,Tuensang,Nagaland,0.1871,0.7308,0.1970
+13,268,Longleng,Nagaland,0.1508,0.7217,0.1480
+13,269,Kiphire,Nagaland,0.2228,0.6954,0.1280
+13,270,Kohima,Nagaland,0.4518,0.8523,0.5580
+13,271,Peren,Nagaland,0.1448,0.7795,0.2320
+14,272,Senapati,Manipur,0.0156,0.6360,0.2210
+14,273,Tamenglong,Manipur,0.1377,0.7005,0.2140
+14,274,Churachandpur,Manipur,0.0670,0.8278,0.3510
+14,275,Bishnupur,Manipur,0.3686,0.7585,0.5150
+14,276,Thoubal,Manipur,0.3585,0.7447,0.4090
+14,277,Imphal West,Manipur,0.6233,0.8608,0.7000
+14,278,Imphal East,Manipur,0.4017,0.8195,0.6130
+14,279,Ukhrul,Manipur,0.1478,0.8135,0.2060
+14,280,Chandel,Manipur,0.1168,0.7111,0.2860
+15,281,Mamit,Mizoram,0.1725,0.8493,0.3640
+15,282,Kolasib,Mizoram,0.5584,0.9350,0.4850
+15,283,Aizawl,Mizoram,0.7863,0.9789,0.7230
+15,284,Champhai,Mizoram,0.3859,0.9591,0.5240
+15,285,Serchhip,Mizoram,0.4931,0.9791,0.5600
+15,286,Lunglei,Mizoram,0.4259,0.8886,0.4870
+15,287,Lawngtlai,Mizoram,0.1767,0.6588,0.2910
+15,288,Saiha,Mizoram,0.4438,0.9001,0.4400
+16,289,West Tripura,Tripura,0.3927,0.8869,0.5730
+16,290,South Tripura,Tripura,0.1404,0.8466,0.3810
+16,291,Dhalai,Tripura,0.1071,0.8572,0.2980
+16,292,North Tripura,Tripura,0.1733,0.8750,0.2900
+17,293,West Garo Hills,Meghalaya,0.1164,0.6758,0.2880
+17,294,East Garo Hills,Meghalaya,0.1390,0.7395,0.2640
+17,295,South Garo Hills,Meghalaya,0.0923,0.7172,0.2780
+17,296,West Khasi Hills,Meghalaya,0.1124,0.7787,0.1970
+17,297,Ribhoi,Meghalaya,0.0976,0.7567,0.3170
+17,298,East Khasi Hills,Meghalaya,0.4437,0.8415,0.4970
+17,299,Jaintia Hills,Meghalaya,0.0720,0.6164,0.2680
+18,300,Kokrajhar,Assam,0.0619,0.6522,0.1790
+18,301,Dhubri,Assam,0.1045,0.5834,0.1070
+18,302,Goalpara,Assam,0.1369,0.6737,0.2160
+18,303,Barpeta,Assam,0.0870,0.6381,0.1630
+18,304,Morigaon,Assam,0.0766,0.6803,0.1750
+18,305,Nagaon,Assam,0.1309,0.7237,0.2270
+18,306,Sonitpur,Assam,0.0904,0.6734,0.2760
+18,307,Lakhimpur,Assam,0.0876,0.7720,0.2250
+18,308,Dhemaji,Assam,0.0704,0.7270,0.1990
+18,309,Tinsukia,Assam,0.1994,0.6966,0.4160
+18,310,Dibrugarh,Assam,0.1838,0.7605,0.4460
+18,311,Sivasagar,Assam,0.0956,0.8041,0.3960
+18,312,Jorhat,Assam,0.2019,0.8215,0.3970
+18,313,Golaghat,Assam,0.0916,0.7743,0.3150
+18,314,Karbi Anglong,Assam,0.1181,0.6925,0.3200
+18,315,Dima Hasao,Assam,0.2919,0.7754,0.3310
+18,316,Cachar,Assam,0.1817,0.7934,0.2710
+18,317,Karimganj,Assam,0.0893,0.7822,0.1560
+18,318,Hailakandi,Assam,0.0730,0.7433,0.1390
+18,319,Bongaigaon,Assam,0.1486,0.6974,0.2420
+18,320,Chirang,Assam,0.0733,0.6355,0.1700
+18,321,Kamrup,Assam,0.0938,0.7555,0.2980
+18,322,Kamrup Metropolitan,Assam,0.8270,0.8871,0.7320
+18,323,Nalbari,Assam,0.1072,0.7863,0.2960
+18,324,Baksa,Assam,0.0129,0.6925,0.1890
+18,325,Darrang,Assam,0.0598,0.6308,0.1630
+18,326,Udalguri,Assam,0.0452,0.6541,0.2680
+19,327,Darjiling,West Bengal,0.3942,0.7956,0.5830
+19,328,Jalpaiguri,West Bengal,0.2738,0.7325,0.3120
+19,329,Koch Bihar,West Bengal,0.1027,0.7478,0.1650
+19,330,Uttar Dinajpur,West Bengal,0.1205,0.5907,0.1760
+19,331,Dakshin Dinajpur,West Bengal,0.1410,0.7282,0.2620
+19,332,Maldah,West Bengal,0.1358,0.6173,0.1700
+19,333,Murshidabad,West Bengal,0.1972,0.6659,0.1900
+19,334,Birbhum,West Bengal,0.1283,0.7068,0.2360
+19,335,Barddhaman,West Bengal,0.3989,0.7621,0.4380
+19,336,Nadia,West Bengal,0.2784,0.7497,0.3120
+19,337,North Twenty Four Parganas,West Bengal,0.5727,0.8406,0.5040
+19,338,Hugli,West Bengal,0.3857,0.8180,0.4950
+19,339,Bankura,West Bengal,0.0833,0.7026,0.2350
+19,340,Puruliya,West Bengal,0.1274,0.6448,0.1840
+19,341,Haora,West Bengal,0.6338,0.8331,0.5240
+19,342,Kolkata,West Bengal,1.0000,0.8631,0.8460
+19,343,South Twenty Four Parganas,West Bengal,0.2558,0.7751,0.3210
+19,344,Paschim Medinipur,West Bengal,0.1222,0.7800,0.2420
+19,345,Purba Medinipur,West Bengal,0.1163,0.8702,0.2050
+20,346,Garhwa,Jharkhand,0.0527,0.6033,0.0860
+20,347,Chatra,Jharkhand,0.0604,0.6018,0.0970
+20,348,Kodarma,Jharkhand,0.1972,0.6684,0.2480
+20,349,Giridih,Jharkhand,0.0851,0.6314,0.1630
+20,350,Deoghar,Jharkhand,0.1732,0.6485,0.2490
+20,351,Godda,Jharkhand,0.0490,0.5640,0.1030
+20,352,Sahibganj,Jharkhand,0.1388,0.5204,0.1100
+20,353,Pakur,Jharkhand,0.0750,0.4882,0.0910
+20,354,Dhanbad,Jharkhand,0.5813,0.7452,0.5820
+20,355,Bokaro,Jharkhand,0.4770,0.7201,0.4590
+20,356,Lohardaga,Jharkhand,0.1243,0.6761,0.1370
+20,357,Purbi Singhbhum,Jharkhand,0.5556,0.7549,0.4860
+20,358,Palamu,Jharkhand,0.1165,0.6363,0.1430
+20,359,Latehar,Jharkhand,0.0713,0.5951,0.0810
+20,360,Hazaribagh,Jharkhand,0.1587,0.6975,0.2800
+20,361,Ramgarh,Jharkhand,0.4413,0.7317,0.4940
+20,362,Dumka,Jharkhand,0.0682,0.6102,0.1190
+20,363,Jamtara,Jharkhand,0.0958,0.6459,0.2080
+20,364,Ranchi,Jharkhand,0.4314,0.7606,0.4440
+20,365,Khunti,Jharkhand,0.0846,0.6386,0.1100
+20,366,Gumla,Jharkhand,0.0635,0.6573,0.0990
+20,367,Simdega,Jharkhand,0.0716,0.6799,0.0650
+20,368,Pashchimi Singhbhum,Jharkhand,0.1451,0.5863,0.1350
+20,369,Saraikela-Kharsawan,Jharkhand,0.2429,0.6770,0.2770
+21,370,Bargarh,Odisha,0.1013,0.7462,0.2840
+21,371,Jharsuguda,Odisha,0.3989,0.7886,0.4300
+21,372,Sambalpur,Odisha,0.2959,0.7622,0.3660
+21,373,Debagarh,Odisha,0.0716,0.7257,0.1390
+21,374,Sundargarh,Odisha,0.3526,0.7334,0.3480
+21,375,Kendujhar,Odisha,0.1405,0.6824,0.1840
+21,376,Mayurbhanj,Odisha,0.0766,0.6317,0.1420
+21,377,Baleshwar,Odisha,0.1092,0.7979,0.3050
+21,378,Bhadrak,Odisha,0.1234,0.8278,0.2800
+21,379,Kendrapara,Odisha,0.0580,0.8515,0.2940
+21,380,Jagatsinghapur,Odisha,0.1020,0.8659,0.3290
+21,381,Cuttack,Odisha,0.2805,0.8550,0.4180
+21,382,Jajapur,Odisha,0.0739,0.8013,0.2610
+21,383,Dhenkanal,Odisha,0.0985,0.7876,0.2380
+21,384,Anugul,Odisha,0.1621,0.7753,0.2620
+21,385,Nayagarh,Odisha,0.0828,0.8042,0.2180
+21,386,Khordha,Odisha,0.4816,0.8688,0.5180
+21,387,Puri,Odisha,0.1560,0.8467,0.3200
+21,388,Ganjam,Odisha,0.2176,0.7109,0.3400
+21,389,Gajapati,Odisha,0.1223,0.5349,0.1840
+21,390,Kandhamal,Odisha,0.0986,0.6413,0.1130
+21,391,Baudh,Odisha,0.0463,0.7161,0.1230
+21,392,Subarnapur,Odisha,0.0818,0.7442,0.2040
+21,393,Balangir,Odisha,0.1197,0.6472,0.1930
+21,394,Nuapada,Odisha,0.0558,0.5735,0.1370
+21,395,Kalahandi,Odisha,0.0774,0.5922,0.1450
+21,396,Rayagada,Odisha,0.1518,0.4976,0.1900
+21,397,Nabarangapur,Odisha,0.0718,0.4643,0.0860
+21,398,Koraput,Odisha,0.1639,0.4921,0.1770
+21,399,Malkangiri,Odisha,0.0808,0.4854,0.1190
+22,400,Koriya,Chhattisgarh,0.3116,0.7064,0.2550
+22,401,Surguja,Chhattisgarh,0.1029,0.6001,0.1430
+22,402,Jashpur,Chhattisgarh,0.0892,0.6792,0.1080
+22,403,Raigarh,Chhattisgarh,0.1649,0.7326,0.2730
+22,404,Korba,Chhattisgarh,0.3699,0.7237,0.3460
+22,405,Janjgir - Champa,Chhattisgarh,0.1390,0.7307,0.3360
+22,406,Bilaspur,Chhattisgarh,0.2552,0.7078,0.3140
+22,407,Kabeerdham,Chhattisgarh,0.1063,0.6085,0.2060
+22,408,Rajnandgaon,Chhattisgarh,0.1773,0.7596,0.3370
+22,409,Durg,Chhattisgarh,0.3842,0.7906,0.4950
+22,410,Raipur,Chhattisgarh,0.3650,0.7556,0.4390
+22,411,Mahasamund,Chhattisgarh,0.1163,0.7102,0.2650
+22,412,Dhamtari,Chhattisgarh,0.1865,0.7836,0.4030
+22,413,Uttar Bastar Kanker,Chhattisgarh,0.1025,0.7029,0.2340
+22,414,Bastar,Chhattisgarh,0.1369,0.5440,0.1630
+22,415,Narayanpur,Chhattisgarh,0.1581,0.4862,0.1530
+22,416,Dakshin Bastar Dantewada,Chhattisgarh,0.1803,0.4212,0.1470
+22,417,Bijapur,Chhattisgarh,0.1160,0.4086,0.0840
+23,418,Sheopur,Madhya Pradesh,0.1561,0.5743,0.2020
+23,419,Morena,Madhya Pradesh,0.2393,0.7103,0.2460
+23,420,Bhind,Madhya Pradesh,0.2542,0.7526,0.2530
+23,421,Gwalior,Madhya Pradesh,0.6269,0.7665,0.6300
+23,422,Datia,Madhya Pradesh,0.2313,0.7263,0.3510
+23,423,Shivpuri,Madhya Pradesh,0.1712,0.6255,0.2010
+23,424,Tikamgarh,Madhya Pradesh,0.1729,0.6143,0.2100
+23,425,Chhatarpur,Madhya Pradesh,0.2264,0.6374,0.2240
+23,426,Panna,Madhya Pradesh,0.1233,0.6479,0.1320
+23,427,Sagar,Madhya Pradesh,0.2980,0.7646,0.3150
+23,428,Damoh,Madhya Pradesh,0.1982,0.6973,0.2190
+23,429,Satna,Madhya Pradesh,0.2128,0.7226,0.2450
+23,430,Rewa,Madhya Pradesh,0.1673,0.7162,0.2020
+23,431,Umaria,Madhya Pradesh,0.1715,0.6589,0.1560
+23,432,Neemuch,Madhya Pradesh,0.2969,0.7080,0.4170
+23,433,Mandsaur,Madhya Pradesh,0.2071,0.7178,0.3860
+23,434,Ratlam,Madhya Pradesh,0.2990,0.6678,0.3670
+23,435,Ujjain,Madhya Pradesh,0.3922,0.7234,0.4730
+23,436,Shajapur,Madhya Pradesh,0.1941,0.6909,0.2980
+23,437,Dewas,Madhya Pradesh,0.2889,0.6935,0.4100
+23,438,Dhar,Madhya Pradesh,0.1890,0.5900,0.2950
+23,439,Indore,Madhya Pradesh,0.7409,0.8087,0.7550
+23,440,Khargone (West Nimar),Madhya Pradesh,0.1596,0.6270,0.3050
+23,441,Barwani,Madhya Pradesh,0.1472,0.4908,0.2010
+23,442,Rajgarh,Madhya Pradesh,0.1788,0.6121,0.2250
+23,443,Vidisha,Madhya Pradesh,0.2328,0.7053,0.3250
+23,444,Bhopal,Madhya Pradesh,0.8085,0.8037,0.6970
+23,445,Sehore,Madhya Pradesh,0.1895,0.7006,0.3980
+23,446,Raisen,Madhya Pradesh,0.2279,0.7298,0.3180
+23,447,Betul,Madhya Pradesh,0.1962,0.6890,0.2890
+23,448,Harda,Madhya Pradesh,0.2092,0.7250,0.4110
+23,449,Hoshangabad,Madhya Pradesh,0.3142,0.7529,0.4450
+23,450,Katni,Madhya Pradesh,0.2040,0.7198,0.2640
+23,451,Jabalpur,Madhya Pradesh,0.5846,0.8107,0.5540
+23,452,Narsimhapur,Madhya Pradesh,0.1864,0.7569,0.2890
+23,453,Dindori,Madhya Pradesh,0.0459,0.6390,0.0810
+23,454,Mandla,Madhya Pradesh,0.1234,0.6687,0.1630
+23,455,Chhindwara,Madhya Pradesh,0.2416,0.7116,0.3160
+23,456,Seoni,Madhya Pradesh,0.1188,0.7212,0.2140
+23,457,Balaghat,Madhya Pradesh,0.1439,0.7709,0.2090
+23,458,Guna,Madhya Pradesh,0.2518,0.6323,0.3340
+23,459,Ashoknagar,Madhya Pradesh,0.1819,0.6642,0.2510
+23,460,Shahdol,Madhya Pradesh,0.2060,0.6667,0.1840
+23,461,Anuppur,Madhya Pradesh,0.2739,0.6788,0.2430
+23,462,Sidhi,Madhya Pradesh,0.0826,0.6443,0.1110
+23,463,Singrauli,Madhya Pradesh,0.1925,0.6041,0.1440
+23,464,Jhabua,Madhya Pradesh,0.0897,0.4330,0.1080
+23,465,Alirajpur,Madhya Pradesh,0.0783,0.3610,0.0850
+23,466,Khandwa (East Nimar),Madhya Pradesh,0.1980,0.6639,0.2940
+23,467,Burhanpur,Madhya Pradesh,0.3435,0.6436,0.4060
+24,468,Kachchh,Gujarat,0.3482,0.7059,0.5630
+24,469,Banas Kantha,Gujarat,0.1330,0.6532,0.2580
+24,470,Patan,Gujarat,0.2092,0.7230,0.4010
+24,471,Mahesana,Gujarat,0.2527,0.8361,0.5760
+24,472,Sabar Kantha,Gujarat,0.1498,0.7579,0.3780
+24,473,Gandhinagar,Gujarat,0.4316,0.8416,0.6220
+24,474,Ahmadabad,Gujarat,0.8404,0.8531,0.7760
+24,475,Surendranagar,Gujarat,0.2829,0.7213,0.5190
+24,476,Rajkot,Gujarat,0.5819,0.8096,0.7310
+24,477,Jamnagar,Gujarat,0.4495,0.7365,0.6380
+24,478,Porbandar,Gujarat,0.4880,0.7578,0.6480
+24,479,Junagadh,Gujarat,0.3304,0.7580,0.6060
+24,480,Amreli,Gujarat,0.2553,0.7425,0.5590
+24,481,Bhavnagar,Gujarat,0.4105,0.7552,0.5410
+24,482,Anand,Gujarat,0.3034,0.8437,0.4760
+24,483,Kheda,Gujarat,0.2277,0.8265,0.3710
+24,484,Panch Mahals,Gujarat,0.1400,0.7099,0.2030
+24,485,Dohad,Gujarat,0.0901,0.5882,0.1250
+24,486,Vadodara,Gujarat,0.4959,0.7892,0.5650
+24,487,Narmada,Gujarat,0.1048,0.7231,0.2560
+24,488,Bharuch,Gujarat,0.3385,0.8151,0.5330
+24,489,The Dangs,Gujarat,0.1081,0.7516,0.1910
+24,490,Navsari,Gujarat,0.3077,0.8388,0.5220
+24,491,Valsad,Gujarat,0.3726,0.7855,0.5200
+24,492,Surat,Gujarat,0.7974,0.8553,0.6070
+24,493,Tapi,Gujarat,0.0985,0.6826,0.2980
+25,494,Diu,Daman & Diu,0.4607,0.8346,0.7860
+25,495,Daman,Daman & Diu,0.8310,0.8807,0.5720
+26,496,Dadra & Nagar Haveli,Dadra & Nagar Haveli,0.4672,0.7624,0.4720
+27,497,Nandurbar,Maharashtra,0.1671,0.6438,0.2600
+27,498,Dhule,Maharashtra,0.2784,0.7280,0.4270
+27,499,Jalgaon,Maharashtra,0.3174,0.7820,0.4840
+27,500,Buldana,Maharashtra,0.2122,0.8340,0.4070
+27,501,Akola,Maharashtra,0.3968,0.8805,0.4520
+27,502,Washim,Maharashtra,0.1766,0.8325,0.3760
+27,503,Amravati,Maharashtra,0.3591,0.8738,0.4740
+27,504,Wardha,Maharashtra,0.3254,0.8699,0.5640
+27,505,Nagpur,Maharashtra,0.6831,0.8839,0.7320
+27,506,Bhandara,Maharashtra,0.1948,0.8376,0.4250
+27,507,Gondiya,Maharashtra,0.1708,0.8495,0.3630
+27,508,Gadchiroli,Maharashtra,0.1100,0.7436,0.2590
+27,509,Chandrapur,Maharashtra,0.3518,0.8001,0.4340
+27,510,Yavatmal,Maharashtra,0.2158,0.8282,0.3830
+27,511,Nanded,Maharashtra,0.2719,0.7545,0.3300
+27,512,Hingoli,Maharashtra,0.1518,0.7817,0.3240
+27,513,Parbhani,Maharashtra,0.3103,0.7334,0.3770
+27,514,Jalna,Maharashtra,0.1927,0.7152,0.4080
+27,515,Aurangabad,Maharashtra,0.4377,0.7902,0.5480
+27,516,Nashik,Maharashtra,0.4253,0.8231,0.5340
+27,517,Thane,Maharashtra,0.7699,0.8453,0.7160
+27,518,Mumbai Suburban,Maharashtra,1.0000,0.8991,0.8510
+27,519,Mumbai,Maharashtra,1.0000,0.8921,0.8530
+27,520,Raigarh,Maharashtra,0.3683,0.8314,0.6270
+27,521,Pune,Maharashtra,0.6099,0.8615,0.7490
+27,522,Ahmadnagar,Maharashtra,0.2009,0.7905,0.5260
+27,523,Bid,Maharashtra,0.1990,0.7699,0.3770
+27,524,Latur,Maharashtra,0.2547,0.7726,0.4020
+27,525,Osmanabad,Maharashtra,0.1696,0.7844,0.3380
+27,526,Solapur,Maharashtra,0.3240,0.7702,0.4380
+27,527,Satara,Maharashtra,0.1899,0.8287,0.5850
+27,528,Ratnagiri,Maharashtra,0.1633,0.8218,0.4160
+27,529,Sindhudurg,Maharashtra,0.1259,0.8556,0.4800
+27,530,Kolhapur,Maharashtra,0.3173,0.8151,0.6180
+27,531,Sangli,Maharashtra,0.2549,0.8148,0.5300
+28,532,Adilabad,Telangana,0.2773,0.6101,0.4700
+28,533,Nizamabad,Telangana,0.2306,0.6125,0.5220
+28,534,Karimnagar,Telangana,0.2519,0.6415,0.6010
+28,535,Medak,Telangana,0.2400,0.6142,0.5240
+28,536,Hyderabad,Telangana,1.0000,0.8325,0.8470
+28,537,Rangareddy,Telangana,0.7022,0.7587,0.7520
+28,538,Mahbubnagar,Telangana,0.1499,0.5504,0.4150
+28,539,Nalgonda,Telangana,0.1899,0.6420,0.5300
+28,540,Warangal,Telangana,0.2825,0.6511,0.5210
+28,541,Khammam,Telangana,0.2345,0.6481,0.5570
+28,542,Srikakulam,Andhra Pradesh,0.1616,0.6174,0.4310
+28,543,Vizianagaram,Andhra Pradesh,0.2094,0.5889,0.4660
+28,544,Visakhapatnam,Andhra Pradesh,0.4745,0.6691,0.5920
+28,545,East Godavari,Andhra Pradesh,0.2549,0.7099,0.5840
+28,546,West Godavari,Andhra Pradesh,0.2054,0.7463,0.6030
+28,547,Krishna,Andhra Pradesh,0.4081,0.7374,0.6470
+28,548,Guntur,Andhra Pradesh,0.3381,0.6740,0.6340
+28,549,Prakasam,Andhra Pradesh,0.1956,0.6308,0.5460
+28,550,Sri Potti Sriramulu Nellore,Andhra Pradesh,0.2894,0.6890,0.6290
+28,551,Y.S.R.,Andhra Pradesh,0.3397,0.6730,0.5830
+28,552,Kurnool,Andhra Pradesh,0.2835,0.5997,0.6190
+28,553,Anantapur,Andhra Pradesh,0.2807,0.6357,0.5820
+28,554,Chittoor,Andhra Pradesh,0.2950,0.7153,0.5980
+29,555,Belgaum,Karnataka,0.2534,0.7348,0.4860
+29,556,Bagalkot,Karnataka,0.3164,0.6882,0.4540
+29,557,Bijapur,Karnataka,0.2305,0.6715,0.4050
+29,558,Bidar,Karnataka,0.2501,0.7051,0.3710
+29,559,Raichur,Karnataka,0.2542,0.5956,0.4520
+29,560,Koppal,Karnataka,0.1681,0.6809,0.4390
+29,561,Gadag,Karnataka,0.3563,0.7512,0.4860
+29,562,Dharwad,Karnataka,0.5682,0.8000,0.6280
+29,563,Uttara Kannada,Karnataka,0.2915,0.8406,0.5250
+29,564,Haveri,Karnataka,0.2225,0.7740,0.4760
+29,565,Bellary,Karnataka,0.3752,0.6743,0.6040
+29,566,Chitradurga,Karnataka,0.1986,0.7371,0.4920
+29,567,Davanagere,Karnataka,0.3233,0.7574,0.6320
+29,568,Shimoga,Karnataka,0.3559,0.8045,0.6460
+29,569,Udupi,Karnataka,0.2837,0.8624,0.7020
+29,570,Chikmagalur,Karnataka,0.2105,0.7925,0.6240
+29,571,Tumkur,Karnataka,0.2236,0.7514,0.5060
+29,572,Bangalore,Karnataka,0.9094,0.8767,0.8590
+29,573,Mandya,Karnataka,0.1708,0.7040,0.5530
+29,574,Hassan,Karnataka,0.2121,0.7607,0.6340
+29,575,Dakshina Kannada,Karnataka,0.4767,0.8857,0.6710
+29,576,Kodagu,Karnataka,0.1461,0.8261,0.6000
+29,577,Mysore,Karnataka,0.4150,0.7279,0.6410
+29,578,Chamarajanagar,Karnataka,0.1714,0.6143,0.4600
+29,579,Gulbarga,Karnataka,0.3256,0.6485,0.4770
+29,580,Yadgir,Karnataka,0.1879,0.5183,0.3060
+29,581,Kolar,Karnataka,0.3125,0.7439,0.6340
+29,582,Chikkaballapura,Karnataka,0.2240,0.6976,0.5400
+29,583,Bangalore Rural,Karnataka,0.2712,0.7793,0.6980
+29,584,Ramanagara,Karnataka,0.2473,0.6922,0.5460
+30,585,North Goa,Goa,0.6028,0.8957,0.8170
+30,586,South Goa,Goa,0.6459,0.8759,0.8040
+31,587,Lakshadweep,Lakshadweep,0.7807,0.9185,0.6405
+32,588,Kasaragod,Kerala,0.3894,0.9009,0.6710
+32,589,Kannur,Kerala,0.6504,0.9510,0.7790
+32,590,Wayanad,Kerala,0.0386,0.8903,0.5930
+32,591,Kozhikode,Kerala,0.6715,0.9508,0.7180
+32,592,Malappuram,Kerala,0.4418,0.9357,0.6270
+32,593,Palakkad,Kerala,0.2409,0.8931,0.7120
+32,594,Thrissur,Kerala,0.6717,0.9508,0.8290
+32,595,Ernakulam,Kerala,0.6807,0.9589,0.8790
+32,596,Idukki,Kerala,0.0469,0.9199,0.7490
+32,597,Kottayam,Kerala,0.2863,0.9721,0.8470
+32,598,Alappuzha,Kerala,0.5396,0.9572,0.8060
+32,599,Pathanamthitta,Kerala,0.1099,0.9655,0.8000
+32,600,Kollam,Kerala,0.4505,0.9409,0.7930
+32,601,Thiruvananthapuram,Kerala,0.5366,0.9302,0.7950
+33,602,Thiruvallur,Tamil Nadu,0.6514,0.8403,0.9130
+33,603,Chennai,Tamil Nadu,1.0000,0.9018,0.9540
+33,604,Kancheepuram,Tamil Nadu,0.6349,0.8449,0.9100
+33,605,Vellore,Tamil Nadu,0.4324,0.7917,0.8600
+33,606,Tiruvannamalai,Tamil Nadu,0.2008,0.7421,0.8520
+33,607,Viluppuram,Tamil Nadu,0.1501,0.7188,0.8410
+33,608,Salem,Tamil Nadu,0.5095,0.7286,0.8160
+33,609,Namakkal,Tamil Nadu,0.4032,0.7463,0.8760
+33,610,Erode,Tamil Nadu,0.5143,0.7258,0.8460
+33,611,The Nilgiris,Tamil Nadu,0.5924,0.8520,0.9060
+33,612,Dindigul,Tamil Nadu,0.3741,0.7626,0.8140
+33,613,Karur,Tamil Nadu,0.4082,0.7560,0.8690
+33,614,Tiruchirappalli,Tamil Nadu,0.4915,0.8323,0.8450
+33,615,Perambalur,Tamil Nadu,0.1719,0.7432,0.8430
+33,616,Ariyalur,Tamil Nadu,0.1110,0.7134,0.8340
+33,617,Cuddalore,Tamil Nadu,0.3397,0.7804,0.8710
+33,618,Nagapattinam,Tamil Nadu,0.2256,0.8359,0.8780
+33,619,Thiruvarur,Tamil Nadu,0.2039,0.8286,0.8760
+33,620,Thanjavur,Tamil Nadu,0.3539,0.8264,0.8640
+33,621,Pudukkottai,Tamil Nadu,0.1955,0.7719,0.8310
+33,622,Sivaganga,Tamil Nadu,0.3083,0.7985,0.8890
+33,623,Madurai,Tamil Nadu,0.6078,0.8345,0.8880
+33,624,Theni,Tamil Nadu,0.5382,0.7726,0.8560
+33,625,Virudhunagar,Tamil Nadu,0.5047,0.8015,0.8470
+33,626,Ramanathapuram,Tamil Nadu,0.3034,0.8072,0.8640
+33,627,Thoothukkudi,Tamil Nadu,0.5010,0.8616,0.8780
+33,628,Tirunelveli,Tamil Nadu,0.4940,0.8250,0.8470
+33,629,Kanniyakumari,Tamil Nadu,0.8233,0.9175,0.8970
+33,630,Dharmapuri,Tamil Nadu,0.1732,0.6854,0.8160
+33,631,Krishnagiri,Tamil Nadu,0.2279,0.7146,0.8520
+33,632,Coimbatore,Tamil Nadu,0.7573,0.8398,0.8900
+33,633,Tiruppur,Tamil Nadu,0.6136,0.7868,0.8700
+34,634,Yanam,Puducherry,1.0000,0.7947,0.5560
+34,635,Puducherry,Puducherry,0.6916,0.8544,0.8400
+34,636,Mahe,Puducherry,1.0000,0.9787,0.9010
+34,637,Karaikal,Puducherry,0.4900,0.8705,0.7760
+35,638,Nicobars,Andaman & Nicobar Islands,0.0000,0.7806,0.4850
+35,639,North  & Middle Andaman,Andaman & Nicobar Islands,0.0260,0.8391,0.5600
+35,640,South Andaman,Andaman & Nicobar Islands,0.5910,0.8913,0.7780

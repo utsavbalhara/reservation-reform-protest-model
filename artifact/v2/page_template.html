@@ -144,6 +144,7 @@ pre{font:400 .8rem/1.55 var(--mono);background:var(--surface);border:1px solid v
   <p><strong>Method.</strong> A seat-allocation model built on the rule India uses and on JEE (Advanced) rank lists for 2021–2025 estimates who gains and loses IIT seats. A synthetic India of 120,000 agents across 640 districts turns those losses, and the threat to caste recognition, into protest through neighbourhood and national threshold cascades. The protest model is checked against news-event data from four real episodes. Thirteen scenarios were run 50 times each on paired worlds.</p>
   <ul class="findings" id="findings"></ul>
   <p class="note">How many people would protest cannot be pinned down: across assumptions the data cannot settle, the baseline peak runs from __ASSUMPTION_PEAK_LOW__ to __ASSUMPTION_PEAK_HIGH__. The ranking of interventions varies far less than the headcount.</p>
+  <p class="note">In the model the government backs down against an abrupt switch in __CONCEDE_BASE__ of runs, after a median of __CONCEDE_DAY__ days. With the strongest single option it still does so in __CONCEDE_L3__ of runs; with the managed transition in __CONCEDE_C1__ (__CONCEDE_SLOW_C1__ if governments concede more slowly); with the hybrid package in __CONCEDE_C2__. When governments concede is an assumption, not an estimate.</p>
 </section>
 
 <section aria-labelledby="watch-title">
@@ -178,7 +179,7 @@ pre{font:400 .8rem/1.55 var(--mono);background:var(--surface);border:1px solid v
   <p>India reserves seats in public education and government jobs for Scheduled Castes (15%), Scheduled Tribes (7.5%), Other Backward Classes (27%) and, since 2019, Economically Weaker Sections of the general category (10%). OBC families above ₹8 lakh are already excluded, and EWS already applies only below ₹8 lakh. SC and ST quotas have no income test.</p>
   <p>The two existing income tests are not one ₹8 lakh cut. The OBC creamy-layer test ignores salary and farm income, and the EWS test also excludes families with land or property, so converting everything to one income test changes OBC and General eligibility too:</p>
   <div class="tiles">
-    <div class="tile"><div class="big">__ELIG_LOSE__</div><span>of Indians lose eligibility: SC, ST and non-creamy OBC families above ₹8 lakh</span></div>
+    <div class="tile"><div class="big">__ELIG_LOSE__</div><span>of Indians lose eligibility (__ELIG_LOSE_RANGE__ allowing for uncertain incomes): SC, ST and non-creamy OBC families above ₹8 lakh</span></div>
     <div class="tile"><div class="big">__ELIG_GAIN__</div><span>gain it: poorer General families who fail the EWS asset tests today</span></div>
     <div class="tile"><div class="big">__SC_BELOW_SEATS__</div><span>of IIT seats lost by below-line SC students in a merged pool, though they keep eligibility</span></div>
   </div>
@@ -215,7 +216,7 @@ pre{font:400 .8rem/1.55 var(--mono);background:var(--surface);border:1px solid v
   </ol>
   <figure>
     <img src="__ASSET_PREFIX__figures/fig11_episode_calibration.png" alt="Left: observed and model protest event rates for four episodes. Right: histogram of 2018 bandh-day turnout implied by retained parameter sets, spanning several lakh to several crore." loading="lazy">
-    <figcaption>Checking the model against real protests. Parameter sets that cannot reproduce the news-event counts of all four episodes are discarded. The data pin down the relative size of the episodes much better than headcounts: the survivors imply __TURNOUT_2018__ lakh people on the 2018 bandh day. Predictions of a held-out episode's deaths and geography were weak.</figcaption>
+    <figcaption>Checking the model against real protests. Parameter sets that cannot reproduce the news-event counts of all four episodes are discarded. The data pin down the relative size of the episodes much better than headcounts, and they barely constrain how people behave: the survivors imply __TURNOUT_2018__ lakh people on the 2018 bandh day and cover most of the range tried for every behavioural parameter. Predictions of a held-out episode's deaths and geography were weak.</figcaption>
   </figure>
 </section>
 
@@ -294,11 +295,12 @@ pre{font:400 .8rem/1.55 var(--mono);background:var(--surface);border:1px solid v
   <h2 id="meaning-title">What this means</h2>
   <ol>
     <li><strong>A merged income pool is not neutral.</strong> It moves most seats of below-line SC and ST students to below-line General students, and adding seats on the EWS model does not undo that.</li>
-    <li><strong>Design matters more than compensation.</strong> Keeping caste as the qualifier with an income filter inside it is the strongest option in every check; compensation and seat expansion are the weakest.</li>
+    <li><strong>Design matters more than compensation.</strong> Keeping caste as the qualifier with an income filter inside it is the strongest single option in __L3_FIRST__ of draws; sub-classification, compensation and seat expansion are the weakest.</li>
+    <li><strong>Lowering the peak is not enough.</strong> In the model no single option makes it unlikely that the government backs down; only packages do, and only if governments are slow to concede.</li>
     <li><strong>If the income-only end state is the goal,</strong> phasing and a process that changes what the reform means matter most. Whether a cross-party commission or grandfathering is stronger is not settled.</li>
     <li><strong>Suppression costs lives.</strong> It lowers the peak less than most design options; whether it also broadens protest depends on how people react to deaths.</li>
   </ol>
-  <p class="note">Limits: how strongly each policy acts is a judgement, handled with wide ranges. News-event data pin down relative, not absolute, protest size. The seat model covers IIT admissions only. Held-out predictions of deaths and geography were weak: this is a tool for comparing designs, not a forecast.</p>
+  <p class="note">Limits: how strongly each policy acts is a judgement, handled with wide ranges, except for the income filter, whose effect comes from the 2024 bandh. When the government concedes is assumed. The relevance of news events was judged by a language model from article links and has not yet been checked by hand. News-event data pin down relative, not absolute, protest size. The seat model covers IIT admissions only. Held-out predictions of deaths and geography were weak: this is a tool for comparing designs, not a forecast.</p>
 </section>
 
 <section aria-labelledby="reproduce-title">

@@ -12,17 +12,18 @@ Utsav Balhara · B.Tech, Netaji Subhas University of Technology (NSUT), New Delh
 
 India reserves seats in public education and government jobs for Scheduled Castes, Scheduled Tribes, Other Backward Classes and Economically Weaker Sections. This project asks what would happen if the whole system were replaced by a single income test at ₹8 lakh, and which policy designs would keep the resulting protest small.
 
-1. **Who changes status.** Under the actual creamy-layer rules (which ignore salary and farm income) and the EWS asset tests, **6.8%** of Indians lose eligibility and **3.1%** gain it. An earlier version of this project treated both income tests as one gross-income cut at ₹8 lakh and counted only SC and ST families above the line (2.8%).
+1. **Who changes status.** Under the actual creamy-layer rules (which ignore salary and farm income) and the EWS asset tests, **6.8%** of Indians lose eligibility and **3.1%** gain it (4.7–9.2% and 1.2–5.1% when the assumed income shares also vary). An earlier version of this project treated both income tests as one gross-income cut at ₹8 lakh and counted only SC and ST families above the line (2.8%).
 2. **Who gains and loses seats.** A seat-allocation model, built on India's over-and-above choice rule (Sönmez and Yenmez 2022; Aygün and Turhan 2023) and the JEE (Advanced) rank lists for 2021–2025, finds that a merged income-only pool would cost below-line SC candidates **72%** and below-line ST candidates **85%** of their IIT seats, although they keep eligibility. The seats go to below-line General candidates.
-3. **Who protests.** A synthetic India of 120,000 agents across 640 Census districts turns those losses, and the symbolic threat to caste recognition, into protest through threshold cascades, bandh calls, concession and a martyr effect. The model is history-matched to news-event counts (GDELT) for four episodes: the SC/ST Bharat Bandhs of April 2018 and August 2024, the upper-caste bandh of September 2018, and the EWS amendment of January 2019.
+3. **Who protests, and whether the reform survives.** A synthetic India of 120,000 agents across 640 Census districts turns those losses, and the symbolic threat to caste recognition, into protest through threshold cascades, bandh calls, concession and a martyr effect. The model is history-matched to news-event counts (GDELT) for four episodes: the SC/ST Bharat Bandhs of April 2018 and August 2024, the upper-caste bandh of September 2018, and the EWS amendment of January 2019. The event counts constrain the relative size of the shocks; they barely constrain the behavioural parameters, whose retained ranges cover 83–89% of their priors.
 
 **What the data can and cannot tell us.** The event data pin down the relative size of past protests much better than their headcounts: the 281 surviving parameter sets imply between 7 lakh and 5.4 crore people on the 2018 bandh day. Held-out predictions of deaths and of which states protest were weak. The level of protest the reform would provoke therefore depends on assumptions the data cannot settle (from 29 lakh to 6.8 crore at peak across them). The **ranking of designs** varies much less.
 
 **Findings** (grounded model; change in peak-day turnout against the abrupt switch in the same simulated world)
 
-- **Keeping caste quotas and adding an income filter inside them** cuts peak turnout by **97%**. It is the strongest lever in all 11 structural variants, all 6 combinations of the unidentified assumptions, 98% of Morris design points, and 95% of draws from the priors on how strongly each lever acts. In IIT admissions it turns the seat losses of below-line SC and ST students into gains.
+- **Keeping caste quotas and adding an income filter inside them** cuts peak turnout by **92%**. How much threat it leaves is taken from the 2024 bandh, which protested a similar change (median 0.57 of the reform's threat). It is the strongest single lever in 87% of draws from the priors on how strongly each lever acts, in all 6 combinations of the unidentified assumptions and in all 11 grounded structural variants. In IIT admissions it turns the seat losses of below-line SC and ST students into gains.
+- **Concession.** Under the model's assumed concession rule, the government reverses an abrupt switch in every run, after a median of 5 days. With the income filter it still concedes in 78% of runs; with the managed transition in 74% (28% if governments concede slowly); with the hybrid package in 34%. The rule is an assumption: nothing after the first bandh day is fitted to data.
 - **Grandfathering** (−52%) and **a data-first commission with cross-party consensus** (−58%) are the strongest levers that keep the income-only end state. Which comes first is not settled: across the priors, the commission wins only 34% of the time.
-- **Adding seats on the EWS model** does little (−9%): a merged pool still ranks SC and ST candidates against General candidates. **Compensating the families who lose eligibility** is as weak (−8%).
+- **Sub-classification** does little (−12%) once the better-off tier's objection, visible in 2024, is modelled. **Adding seats on the EWS model** does little (−9%): a merged pool still ranks SC and ST candidates against General candidates. **Compensating the families who lose eligibility** is as weak (−8%).
 - **Internet shutdowns and heavy policing** lower the peak by 26% and 13% while multiplying deaths by 1.4 and 2.6. Whether they also broaden protest depends on how people react to deaths, which no episode identifies.
 
 ## What this project comprises
@@ -41,23 +42,23 @@ The project compares policy designs on the same simulated worlds and reports whi
 
 ## Results
 
-Grounded model, 50 paired Monte Carlo runs per scenario. Change is the median over runs of the ratio to the baseline in the same world, with a 95% bootstrap interval. The stylized column is the original model, calibrated to an assumed 20 lakh – 1 crore peak.
+Grounded model, 50 paired Monte Carlo runs per scenario. Change is the median over runs of the ratio to the baseline in the same world, with a 95% bootstrap interval (Monte Carlo precision, not real-world uncertainty). Conceded is the share of runs in which the government concedes. The stylized column is the original model, calibrated to an assumed 20 lakh – 1 crore peak.
 
-| Code | Scenario | Peak day | Change (95% CI) | Ever protest | Deaths | Stylized change |
-|---|---|---|---|---|---|---|
-| Base | Abrupt ₹8L income-only switch | 2.14 crore | — | 3.32 cr | 95 | — |
-| V | Symbolic threat only (check) | 64 lakh | −57% (−63 to −49) | 1.67 cr | 68 | −70% |
-| L1 | Grandfather current cohorts + 10-year glide | 84 lakh | −52% (−59 to −47) | 1.69 cr | 70 | −66% |
-| L2 | Expand seats by a quarter (EWS precedent) | 1.93 crore | −9% (−12 to −8) | 2.99 cr | 94 | −44% |
-| L3 | Keep caste quotas, add income filter | 13 lakh | −97% (−98 to −94) | 0.39 cr | 10 | −94% |
-| L4 | Sub-classify to favour most-deprived | 1.28 crore | −40% (−41 to −38) | 2.23 cr | 100 | −34% |
-| L5 | Data-first commission + cross-party consensus | 84 lakh | −58% (−61 to −53) | 1.57 cr | 58 | −80% |
-| L6 | Compensate above-line losers | 1.97 crore | −8% (−9 to −6) | 3.00 cr | 95 | −18% |
-| L7 | Guarantee untouched protections | 1.14 crore | −40% (−44 to −35) | 1.92 cr | 79 | −49% |
-| B1 | Internet shutdowns | 1.47 crore | −26% (−28 to −23) | 2.60 cr | 139 | −21% |
-| B2 | Heavy policing and mass arrests | 1.89 crore | −13% (−17 to 0) | 3.41 cr | 220 | −26% |
-| C1 | Managed transition (L2+L1+L5+L6+L7) | 19 lakh | −92% (−94 to −90) | 0.70 cr | 15 | −95% |
-| C2 | Hybrid package (L3+L4+L1+L5+L6+L7) | 1.7 lakh | −99% (−100 to −98) | 0.13 cr | 2 | −99% |
+| Code | Scenario | Peak day | Change (95% CI) | Ever protest | Deaths | Conceded | Stylized change |
+|---|---|---|---|---|---|---|---|
+| Base | Abrupt ₹8L income-only switch | 2.14 crore | — | 3.32 cr | 95 | 100% | — |
+| V | Symbolic threat only (check) | 64 lakh | −57% (−63 to −49) | 1.67 cr | 68 | | −70% |
+| L1 | Grandfather current cohorts + 10-year glide | 84 lakh | −52% (−59 to −47) | 1.69 cr | 70 | 94% | −66% |
+| L2 | Expand seats by a quarter (EWS precedent) | 1.93 crore | −9% (−12 to −8) | 2.99 cr | 94 | 100% | −44% |
+| L3 | Keep caste quotas, add income filter | 18 lakh | −92% (−95 to −87) | 0.51 cr | 20 | 78% | −94% |
+| L4 | Sub-classify to favour most-deprived | 1.89 crore | −12% (−17 to −4) | 2.68 cr | 98 | 100% | +46% |
+| L5 | Data-first commission + cross-party consensus | 84 lakh | −58% (−61 to −53) | 1.57 cr | 58 | 94% | −80% |
+| L6 | Compensate above-line losers | 1.97 crore | −8% (−9 to −6) | 3.00 cr | 95 | 100% | −18% |
+| L7 | Guarantee untouched protections | 1.14 crore | −40% (−44 to −35) | 1.92 cr | 79 | 96% | −49% |
+| B1 | Internet shutdowns | 1.47 crore | −26% (−28 to −23) | 2.60 cr | 139 | 100% | −21% |
+| B2 | Heavy policing and mass arrests | 1.89 crore | −13% (−17 to 0) | 3.41 cr | 220 | 100% | −26% |
+| C1 | Managed transition (L2+L1+L5+L6+L7) | 19 lakh | −92% (−94 to −90) | 0.70 cr | 15 | 74% | −95% |
+| C2 | Hybrid package (L3+L4+L1+L5+L6+L7) | 2.8 lakh | −99% (−99 to −97) | 0.22 cr | 4 | 34% | −99% |
 
 ![Paired effects in both specifications](figures/fig12_paired_effects.png)
 
@@ -67,14 +68,16 @@ Grounded model, 50 paired Monte Carlo runs per scenario. Change is the median ov
 - **S1:** symbolic threat alone mobilizes at bandh scale.
 - **S2:** mobilization concentrates on bandh days, which average 9 times ordinary days; the peak falls on a bandh day in 66% of runs.
 - **S3:** party backing is a minor amplifier. Raising it from the 2018 to the 2024 level changes the peak by a factor of 1.04; tripling the shock changes it 18-fold.
-- **S4:** sub-classification splits the coalition. The most-deprived tier's participation falls 88% and the better-off tier's 20%.
+- **S4:** sub-classification splits the coalition. The most-deprived tier's participation falls 87%, but the better-off tier's rises 25%.
 - **S5** only in part: deaths and concessions occur, but the model cannot say which bandhs turn violent.
 
 **Where the grievance comes from.** Symbolic threat is 78% of all grievance that pushes towards protest. Removing it cuts the peak by 99%; removing material change cuts it by 57%.
 
 **Who and where.** SC agents make up 63% of protester-days and ST agents 26%. By state: Uttar Pradesh (15%), Bihar, West Bengal, Madhya Pradesh and Maharashtra. This is a demographic baseline; in 2018, Punjab, where the call began, had far more events than its population share.
 
-**Hypotheses.** Grandfathering, caste quotas with an income filter, sub-classification, a commission and statutory guarantees all reduce protest, the income filter by far the most. Seat expansion and compensation are weak. Shutdowns and policing lower the peak by 26% and 13% and raise deaths.
+**Hypotheses.** Grandfathering, caste quotas with an income filter, a commission and statutory guarantees all reduce protest, the income filter the most. Sub-classification, seat expansion and compensation are weak. Shutdowns and policing lower the peak by 26% and 13% and raise deaths.
+
+**How much the data identify.** S1 and S3 hold partly by construction: the reform's threat is set to the 2018 magnitude, and party backing is coded per episode. The history matching was rechecked with other discrepancy and cutoff values and with ten seeds per set; the behavioural parameters remain prior-dominated.
 
 A point-by-point response to the review is in [`docs/response_to_review.md`](docs/response_to_review.md).
 
@@ -95,6 +98,8 @@ A reviewer asked for data where the first version had assumptions, and for stati
 | One-at-a-time sensitivity | Morris screening, an 11-variant structural ensemble, and tests of the unidentified assumptions |
 
 The first version found that the eligibility change is small, that seat expansion on the EWS model removes the below-line loss, and that heavy policing raises total participation. The first two are wrong, and the third depends on an assumed response to deaths. The top and bottom of the lever ranking held.
+
+A second review found that my own 2024 episode estimate contradicted the assumed effect of the income filter, that sub-classification ignored the better-off tier's objection, and that the model's concession result had not been discussed. The income filter's effect now comes from the 2024 episode, sub-classification raises the better-off tier's threat, and concession is reported as an outcome. The top of the ranking held; sub-classification dropped to the bottom.
 
 ## How the model was built (and what went wrong first)
 
@@ -145,7 +150,7 @@ docs/                      literature and novelty search log; point-by-point res
 
 ## Limitations
 
-How strongly a commission, a guarantee or an income filter reduces the sense of threat is a judgement, handled with wide priors. The episodes identify relative, not absolute, protest size, so the reform's headcount is uncertain by more than tenfold. The material grievance weight is not identified. The seat model covers IIT admissions only. The GDELT relevance labels were coded from article URL text by a single coder and have not been double-coded. ACLED, a hand-coded event dataset, would give an independent check; the pipeline is built (`data_pipelines/acled_episode_events.py`, `experiments/acled_cross_check.py`) and awaits the data. Jati-level heterogeneity, state politics, courts, elections and media are not modelled. The headcounts are illustrations; the comparisons between designs are the finding.
+How strongly a commission, a guarantee or an income filter reduces the sense of threat is a judgement, handled with wide priors. The episodes identify relative, not absolute, protest size, so the reform's headcount is uncertain by more than tenfold. The material grievance weight is not identified. The seat model covers IIT admissions only. The GDELT relevance labels were assigned by a language model from article URL text and have not yet been checked by a human coder; a coding kit for two independent human coders is in `data/coding/`. ACLED, a hand-coded event dataset, would give an independent check; the pipeline is built (`data_pipelines/acled_episode_events.py`, `experiments/acled_cross_check.py`) and awaits the data. Jati-level heterogeneity, state politics, courts, elections and media are not modelled. The headcounts are illustrations; the comparisons between designs are the finding.
 
 ## Citation
 

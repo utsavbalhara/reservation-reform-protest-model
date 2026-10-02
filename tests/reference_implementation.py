@@ -25,7 +25,12 @@ def material_change(agent, parameters):
 
 
 def symbolic_threat(agent, parameters):
-    tier_share = parameters.most_deprived_tier_share_of_symbolic_threat if agent["most_deprived"] else 1.0
+    if agent["most_deprived"]:
+        tier_share = parameters.most_deprived_tier_share_of_symbolic_threat
+    elif agent["group"] in (SC, ST):
+        tier_share = parameters.better_off_tier_symbolic_threat_factor
+    else:
+        tier_share = 1.0
     return float(parameters.symbolic_threat_by_group[agent["group"]]) * tier_share
 
 

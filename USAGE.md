@@ -27,6 +27,8 @@ The derived data in `data/derived/` are committed, so the analyses run without d
 | `python -m data_pipelines.gdelt_episode_events` | Filters protest events by episode and state | `data/derived/gdelt_episode_daily.csv`, `gdelt_episode_locations.csv` |
 | `python -m data_pipelines.episode_targets` | Corrects counts by the audited precision and builds calibration targets | `data/derived/episode_targets.json` |
 | `python -m data_pipelines.acled_episode_events` | Counts ACLED protest and riot events per episode from an ACLED export placed in `data/raw/acled/` (not committed; ACLED's terms forbid redistribution) | `data/derived/acled_episode_summary.json`, `acled_episode_daily.csv` |
+| `python -m data_pipelines.rank_list_spot_check` | Draws 20 extracted rank-list entries per year for a hand check against the reports | `data/coding/rank_list_spot_check.csv` |
+| `python -m data_pipelines.relevance_agreement --coder1 … --coder2 …` | Agreement between two human coders of the relevance sample (Krippendorff's alpha, Cohen's kappa); with `--write`, replaces the language-model labels (see `data/coding/CODING_INSTRUCTIONS.md`) | `data/derived/gdelt_relevance_audit.csv` |
 | `python -m experiments.acled_cross_check` | Compares ACLED with GDELT, scores the frozen predictions against ACLED, and tests the 2018 turnout against ACLED's reported crowd sizes | `results/acled_cross_check.json` |
 
 ## Reproduce the results
@@ -34,7 +36,7 @@ The derived data in `data/derived/` are committed, so the analyses run without d
 | Command | What it does | Time | Output |
 |---|---|---|---|
 | `python -m experiments.eligibility_accounting` | Who changes eligibility under the real creamy-layer and EWS rules | ~10 s | `results/eligibility_accounting.json` |
-| `python -m experiments.merged_pool_allocation --draws 300` | IIT seats by group under today's quotas, a merged pool, and the two allocation-rule levers | ~60 min | `results/merged_pool_allocation.json` |
+| `python -m experiments.merged_pool_allocation --draws 300` | IIT seats by group under today's quotas, a merged pool, the allocation-rule levers, and abolition of all reservation | ~60 min | `results/merged_pool_allocation.json` |
 | `python -m experiments.episode_calibration --wave-size 6000 --waves 3 --checkpoint-dir <dir>` | History matching to four episodes, and frozen leave-one-episode-out predictions | ~80 min | `results/episode_calibration.json`, `results/episode_calibration_nroy_samples.json`, `results/frozen_predictions/` |
 | `python -m experiments.score_frozen_predictions` | Checks the hashes and scores the frozen predictions | seconds | `results/loeo_scores.json` |
 | `python -m experiments.compare_interventions --specification grounded` | All 13 scenarios in the grounded model, 50 paired runs | ~3 min | `results/intervention_comparison_grounded_central.json` |
@@ -48,6 +50,9 @@ The derived data in `data/derived/` are committed, so the analyses run without d
 | `python -m experiments.global_sensitivity` | Morris screening of 15 parameters | ~15 min | `results/global_sensitivity_stylized.json` |
 | `python -m experiments.structural_ensemble` | Lever comparison under 11 structural variants, each recalibrated | ~45 min | `results/structural_ensemble.json` |
 | `python -m experiments.grounded_channels` | Grounded model taken apart: lever channels, grievance composition, who protests by group, tier and state | ~5 min | `results/grounded_channels.json` |
+| `python -m experiments.concession_outcome` | Share of runs in which the government concedes, for every scenario, under the reference rule, a slow rule and no concession | ~4 min | `results/concession_outcome.json` |
+| `python -m experiments.calibration_sensitivity --checkpoint-dir <dir>` | History matching re-judged under other discrepancy and cutoff values, and with ten seeds per retained set | ~2 min | `results/calibration_sensitivity.json` |
+| `python -m experiments.structural_ensemble --specification grounded --runs 50` | Lever comparison under 11 structural variants of the grounded model (no recalibration) | ~15 min | `results/structural_ensemble_grounded.json` |
 | `python -m experiments.stylized_facts` | Checks the grounded model against the stylized facts S1–S5 (run after the two above) | ~1 min | `results/stylized_facts.json` |
 | `python -m experiments.global_sensitivity --specification grounded` | Morris screening around the central calibrated values | ~10 min | `results/global_sensitivity_grounded.json` |
 | `python -m experiments.record_daily_trajectories --specification grounded` | Day-by-day turnout for every scenario | ~1 min | `results/daily_trajectories_grounded_central.json` |
@@ -58,6 +63,19 @@ The derived data in `data/derived/` are committed, so the analyses run without d
 `--checkpoint-dir` makes the calibration resumable: each finished wave is saved, and a rerun reloads it. The grounded specification needs `results/merged_pool_allocation.json` and `results/episode_calibration_nroy_samples.json`; without them only the stylized specification is available.
 
 Most experiment scripts accept `--runs` and `--agents`. Fewer runs or agents are faster but noisier. Runs are spread across processes (set `PROTEST_WORKERS` to limit them) and give identical results to serial runs.
+
+## Protest model, version 3
+
+Version 3 (`protest_v3/`, described in `protest_v3/README.md`) is calibrated to ten episodes and reports reforms relative to the 2 April 2018 bandh. It needs `results/merged_pool_allocation.json` for the seat panel.
+
+| Command | What it does | Time | Output |
+|---|---|---|---|
+| `python -m data_pipelines.district_covariates` | Downloads the Census 2011 district tables and the DataMeet district map; computes urban share, literacy and phone ownership | ~1 min | `data/derived/census2011_district_covariates.csv`, `district_boundaries_2011.json` |
+| `python -m data_pipelines.state_reporting_intensity` | Counts GDELT events of any kind per state over the 175 downloaded days and divides by population: how heavily each state is reported | ~8 min | `data/derived/gdelt_state_reporting_intensity.csv` |
+| `python -m data_pipelines.episode_targets_v3` | Builds the ten-episode targets (level, day profile, states, deaths, crowd ranges) | ~10 s | `data/derived/episode_targets_v3.json` |
+| `python -m experiments.v3_history_match --wave-size 8000 --waves 6 --checkpoint-dir <dir>` | History matching to the ten episodes, plus a match without the spatial targets for an out-of-sample spatial test | ~2 h | `results/v3_calibration.json`, `results/v3_nroy_samples.json` |
+| `python -m experiments.v3_scenarios --runs 300` | Five reform designs, each as proposed, phased, negotiated, and with all three; plus the 2018 and EWS replays | ~4 min | `results/v3_scenarios.json` |
+| `python -m visualization.v3_figures` | Episode fit, day profiles, identification, the 2018 map, scenario chart and maps, seats, who takes part | ~1 min | `figures/v3_*` |
 
 ## Build figures, macros, documents and page
 

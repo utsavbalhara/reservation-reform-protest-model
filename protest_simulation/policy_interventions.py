@@ -45,9 +45,28 @@ def expand_seats_so_no_group_loses(parameters: ProtestModelParameters) -> None:
         _scale_segment_losses(parameters, 0.0, BELOW_LINE_RESERVED_SEGMENTS)
 
 
-def keep_caste_subquotas_with_income_filter(parameters: ProtestModelParameters, symbolic_threat_retained: float = 0.4) -> None:
+SC_ST_THREAT_RETAINED_UNDER_INCOME_FILTER = 0.4   # stylized reference value, a judgement
+BETTER_OFF_TIER_THREAT_UNDER_SUB_CLASSIFICATION = 1.2   # a judgement; prior 1.0-1.5 in intervention_priors.py
+
+
+def income_filter_threat_retained_from_episodes(parameters: ProtestModelParameters):
+    """Share of the reform's symbolic threat that an income filter inside SC/ST quotas carries, from the 2024 episode
+    (a creamy layer and sub-classification inside SC/ST quotas): the 2024 shock over the reform's, both relative to 2018,
+    for the calibration set drawn in this world. Capped at 1: the filter is part of the reform, so it cannot threaten more.
+    None outside the grounded specification."""
+    if parameters.episode_2024_threat_relative_to_2018 is None:
+        return None
+    return min(1.0, parameters.episode_2024_threat_relative_to_2018 / parameters.reform_shock_ratio)
+
+
+def keep_caste_subquotas_with_income_filter(parameters: ProtestModelParameters, symbolic_threat_retained: float = None) -> None:
     symbolic_threat = parameters.symbolic_threat_by_group.copy()
+    from_episodes = income_filter_threat_retained_from_episodes(parameters) if symbolic_threat_retained is None else None
+    if symbolic_threat_retained is None:
+        symbolic_threat_retained = SC_ST_THREAT_RETAINED_UNDER_INCOME_FILTER
     symbolic_threat[: OBC + 1] *= symbolic_threat_retained
+    if from_episodes is not None:
+        symbolic_threat[:OBC] = parameters.symbolic_threat_by_group[:OBC] * from_episodes
     parameters.symbolic_threat_by_group = symbolic_threat
     parameters.material_loss_sc_st_below_income_line = 0.0
     parameters.material_loss_obc_below_income_line = 0.0
@@ -60,6 +79,8 @@ def keep_caste_subquotas_with_income_filter(parameters: ProtestModelParameters, 
 def sub_classify_to_favour_most_deprived(parameters: ProtestModelParameters) -> None:
     parameters.sub_classification_gain_for_most_deprived_tier = 0.5
     parameters.most_deprived_tier_share_of_symbolic_threat = 0.3
+    # The better-off tier loses relative to the deprived tier, and in 2024 it protested sub-classification.
+    parameters.better_off_tier_symbolic_threat_factor = BETTER_OFF_TIER_THREAT_UNDER_SUB_CLASSIFICATION
 
 
 def build_consensus_through_data_first_commission(parameters: ProtestModelParameters) -> None:

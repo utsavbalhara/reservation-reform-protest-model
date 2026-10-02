@@ -54,6 +54,38 @@ VARIANTS = {
 }
 
 
+# Grounded specification: it already has split streams, endogenous bandhs, concession and backlash, split deaths, mixed
+# neighbourhoods and the legal eligibility rules, so its variants switch those off or change the remaining structure. The
+# mean threshold is not recalibrated: it comes from the parameter sets that survive history matching, and no turnout
+# target exists to recalibrate against. The level of protest therefore moves with the variant; the ranking is the object.
+GROUNDED_VARIANTS = {
+    "reference": ({}, "Grounded reference structure"),
+    "logistic_thresholds": ({"threshold_distribution": "logistic"}, "Logistic (heavier-tailed) threshold distribution"),
+    "activist_core": ({"threshold_distribution": "activist_mixture"}, "3% activist core with low thresholds"),
+    "fixed_bandh_days": ({"bandh_schedule": "fixed"}, "Bandhs on fixed days 3, 13 and 26 instead of called on credible turnout"),
+    "no_concession": ({"concession_rule": False, "counter_mobilization_symbolic_threat": 0.0}, "Government never concedes; no backlash"),
+    "slow_concession": ({"concession_max_daily_hazard": 0.03, "concession_pressure_midpoint": 2.0},
+                        "Government concedes slowly (at most 3% a day; midpoint pressure 2)"),
+    "poisson_deaths": ({"death_model": "poisson"}, "Poisson deaths, all of which feed the martyr effect"),
+    "deaths_deter": ({"death_response": -0.5}, "Deaths deter rather than mobilize"),
+    "single_stream": ({"random_streams": "single"}, "One random stream for decisions, deaths and events"),
+    "no_martyr_effect": ({"death_response": 0.0}, "Deaths have no effect on turnout"),
+    "stylized_material_table": ({"material_change_by_segment": STYLIZED_LEGAL_TABLE, "lever_material_tables": None,
+                                 "reform_material_change_by_segment": None},
+                                "Assumed per-segment material changes (stylized values) instead of the allocation model"),
+}
+
+
+def sampler_with_changes(base_sampler, changes):
+    """Structural changes applied after each world is drawn, so the grounded sampler's calibrated values are kept."""
+    def sample(parameters, random_generator, mean_threshold_standard_deviation=0.0):
+        world = base_sampler(parameters, random_generator, mean_threshold_standard_deviation)
+        for field_name, value in changes.items():
+            setattr(world, field_name, dict(value) if isinstance(value, dict) else value)
+        return world
+    return sample
+
+
 def run_scenario(population, world_sampler, base, scenario, run_count):
     interventions = () if scenario == "baseline" else SCENARIO_BY_KEY[scenario].interventions
     worlds = paired_worlds(interventions, run_count, base_parameters=base, world_sampler=world_sampler)
@@ -68,8 +100,13 @@ def main():
     parser.add_argument("--runs", type=int, default=100)
     parser.add_argument("--calibration-runs", type=int, default=20)
     parser.add_argument("--agents", type=int, default=120_000)
-    parser.add_argument("--variants", nargs="*", default=list(VARIANTS))
+    parser.add_argument("--variants", nargs="*", default=None)
+    parser.add_argument("--specification", default="stylized", choices=("stylized", "grounded"))
     arguments = parser.parse_args()
+    if arguments.specification == "grounded":
+        run_grounded(arguments)
+        return
+    arguments.variants = arguments.variants or list(VARIANTS)
 
     specification = get_specification("stylized")
     results = {}
@@ -106,6 +143,36 @@ def main():
     output = {"runs_per_scenario": arguments.runs, "agents": arguments.agents, "variants": results,
               "strongest_lever_by_variant": top, "weakest_lever_by_variant": bottom,
               "share_of_variants_where_strongest": {lever: round(list(top.values()).count(lever) / len(top), 3) for lever in SINGLE_LEVERS}}
+    path.write_text(json.dumps(output, indent=1))
+    print(json.dumps({k: output[k] for k in ("strongest_lever_by_variant", "weakest_lever_by_variant")}, indent=1))
+    print(f"Saved {path}")
+
+
+def run_grounded(arguments):
+    specification = get_specification("grounded")
+    population = specification.build_population(arguments.agents)
+    names = arguments.variants or list(GROUNDED_VARIANTS)
+    results = {}
+    for name in names:
+        changes, description = GROUNDED_VARIANTS[name]
+        sampler = sampler_with_changes(specification.world_sampler, changes)
+        base = specification.base_parameters
+        baseline = run_scenario(population, sampler, base, "baseline", arguments.runs)
+        effects = {scenario: paired_effects_from_runs(run_scenario(population, sampler, base, scenario, arguments.runs), baseline)
+                   for scenario in COMPARED}
+        order = sorted(SINGLE_LEVERS, key=lambda lever: effects[lever]["peak"]["change_percent"])
+        results[name] = {"description": description, "parameter_changes": {k: v for k, v in changes.items() if not isinstance(v, dict)},
+                         "baseline_median_peak_lakh": round(float(np.median(baseline["peak_day_protesters"])) / 1e5, 1),
+                         "baseline_median_deaths": float(np.median(baseline["total_deaths"])),
+                         "paired_effects": effects, "single_lever_order_by_peak_change": order}
+        print(f"{name:>24}: peak {results[name]['baseline_median_peak_lakh']} lakh | order {' > '.join(order)} | "
+              + ", ".join(f"{s} {effects[s]['peak']['change_percent']:+.0f}%" for s in COMPARED), flush=True)
+    top = {name: value["single_lever_order_by_peak_change"][0] for name, value in results.items()}
+    bottom = {name: value["single_lever_order_by_peak_change"][-1] for name, value in results.items()}
+    output = {"specification": "grounded", "runs_per_scenario": arguments.runs, "agents": arguments.agents, "variants": results,
+              "strongest_lever_by_variant": top, "weakest_lever_by_variant": bottom,
+              "share_of_variants_where_strongest": {lever: round(list(top.values()).count(lever) / len(top), 3) for lever in SINGLE_LEVERS}}
+    path = RESULTS_FOLDER / "structural_ensemble_grounded.json"
     path.write_text(json.dumps(output, indent=1))
     print(json.dumps({k: output[k] for k in ("strongest_lever_by_variant", "weakest_lever_by_variant")}, indent=1))
     print(f"Saved {path}")
