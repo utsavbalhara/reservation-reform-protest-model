@@ -36,7 +36,7 @@ import numpy as np
 from scipy.stats import spearmanr
 
 from protest_v3.episodes import EPISODE_KEYS, episode_threat, load_targets, party_amplifier, schedule
-from protest_v3.model import V3Parameters, Shock, expected_events, simulate
+from protest_v3.model import V3Parameters, Shock, expected_events, reporting_intensity, simulate
 from protest_v3.population import IDENTITY_GROUP_COUNT, build_population
 
 RESULTS = Path(__file__).resolve().parent.parent / "results"
@@ -63,9 +63,11 @@ PRIORS = {
     "neighbourhood_influence": (0.4, 1.4), "national_influence": (0.2, 1.0), "community_capacity": (0.2, 1.0),
     "kappa_urban": (-0.5, 1.0), "kappa_literacy": (-0.5, 0.5), "kappa_phone": (-0.5, 1.0),
     "log10_death_rate": (0.3, 3.0), "death_dispersion": (0.5, 5.0),
-    "log10_observation_scale": (-4.0, 1.0), "observation_exponent": (0.3, 1.0), "delhi_media_factor": (1.0, 6.0),
+    "death_concentration_power": (0.0, 1.5), "martyr_effect_per_death": (0.0, 0.05),
+    "initial_awareness": (0.05, 1.0), "awareness_diffusion": (0.0, 3.0),
+    "log10_observation_scale": (-4.0, 1.0), "observation_exponent": (0.3, 1.2), "reporting_power": (0.0, 1.5),
     "deprived_tier_share_2024": (0.1, 0.9),
-    **{f"magnitude_{key}": ((0.0, 1.5) if key == "ews_quota_2019" else (0.02, 3.0)) for key in EPISODE_KEYS},
+    **{f"magnitude_{key}": ((0.0, 1.5) if key == "ews_quota_2019" else (0.02, 4.0)) for key in EPISODE_KEYS},
 }
 NAMES = tuple(PRIORS)
 
@@ -75,7 +77,10 @@ def parameters_from(sample: dict) -> V3Parameters:
                               fatigue=sample["fatigue"], neighbourhood_influence=sample["neighbourhood_influence"],
                               national_influence=sample["national_influence"],
                               covariate_effect=np.array([sample["kappa_urban"], sample["kappa_literacy"], sample["kappa_phone"]]),
-                              action_day_death_rate=10 ** sample["log10_death_rate"], death_dispersion=sample["death_dispersion"])
+                              action_day_death_rate=10 ** sample["log10_death_rate"], death_dispersion=sample["death_dispersion"],
+                              death_concentration_power=sample["death_concentration_power"],
+                              martyr_effect_per_death=sample["martyr_effect_per_death"],
+                              initial_awareness=sample["initial_awareness"], awareness_diffusion=sample["awareness_diffusion"])
     parameters.capacity[4:] = sample["community_capacity"]
     return parameters
 
@@ -98,13 +103,11 @@ def simulate_set(sample: dict) -> dict:
         shock = Shock(threat=episode_threat(key, sample[f"magnitude_{key}"]), deprived_tier_share=deprived)
         outcome = simulate(population, parameters, shock, plan.days, plan.action_days, np.random.default_rng(SEED))
         core = list(plan.core_day_indices)
-        events = expected_events(outcome.daily_by_state[core], population.state_names, sample["log10_observation_scale"],
-                                 sample["observation_exponent"], sample["delhi_media_factor"])
+        events = expected_events(outcome.daily_by_state[core], reporting_intensity(population.state_names),
+                                 sample["log10_observation_scale"], sample["observation_exponent"], sample["reporting_power"])
         daily = outcome.daily
-        rates = np.array([parameters.action_day_death_rate if day in plan.action_days else parameters.action_day_death_rate * parameters.other_day_death_share
-                          for day in range(plan.days)])
         record = {"events_by_day": events.sum(axis=1).tolist(), "events_by_state": events.sum(axis=0).tolist(),
-                  "expected_deaths_core": float((rates * daily / 1e7)[core].sum()),
+                  "expected_deaths_core": float(outcome.daily_expected_deaths[core].sum()),
                   "turnout_core": [float(daily[day]) for day in core],
                   "turnout_by_state_core": outcome.daily_by_state[core].sum(axis=0).tolist()}
         anchor = target["crowd_anchor"]
@@ -112,6 +115,11 @@ def simulate_set(sample: dict) -> dict:
             record["anchor_turnout"] = float(outcome.daily_by_state[core[anchor["day_index"]], population.state_names.index(anchor["state"])])
         out[key] = record
     return {"sample": sample, "outputs": out, "states": population.state_names}
+
+
+def model_state_names(counts: dict) -> dict:
+    """GDELT writes 'Jammu and Kashmir'; the Census table writes 'Jammu & Kashmir'."""
+    return {name.replace(" and ", " & "): value for name, value in counts.items()}
 
 
 def log_sd_from_interval(interval: dict) -> float:
@@ -136,7 +144,7 @@ def implausibilities(result: dict, targets: dict, use_spatial: bool = True) -> d
             sd = np.sqrt(model_share * (1 - model_share) / counts.sum() + PROFILE_DISCREPANCY ** 2)
             scores[f"profile:{key}"] = float(np.max(np.abs(observed_share - model_share) / sd))
         if use_spatial and key not in NO_SPATIAL_EPISODES:
-            observed = target["core_events_by_state"]
+            observed = model_state_names(target["core_events_by_state"])
             chosen = [state for state, value in observed.items() if value >= 3 and state in states]
             if len(chosen) >= 2:
                 model = np.array(output["events_by_state"], float)
@@ -232,21 +240,27 @@ def interval(values):
 
 
 def spatial_tests(kept, targets):
-    """Spearman correlation across large states between predicted and observed core-day events, with baselines."""
+    """Spearman correlation across the states with more than one crore people (Delhi excluded) between the model's
+    expected core-day events and the observed ones, against four baselines: population, SC+ST population, and each
+    of those times the state's GDELT reporting intensity (the model's observation model also uses intensity, so the
+    last two are the fair comparison)."""
     population = build_population(AGENTS, 0.8)
     table = population.base.district_table
     states = population.state_names
     pop = table.groupby("state").population.sum().reindex(states).to_numpy(float)
     scst = (table.sc + table.st).groupby(table.state).sum().reindex(states).to_numpy(float)
+    intensity = reporting_intensity(states)
     tests = {}
     for key in ("sc_st_bharat_bandh_2018", "sc_st_bharat_bandh_2024", "upper_caste_bandh_2018"):
-        observed_map = targets[key]["core_events_by_state"]
+        observed_map = model_state_names(targets[key]["core_events_by_state"])
         chosen = [i for i, s in enumerate(states) if s != "Delhi" and pop[i] > 1e7]
         observed = np.array([observed_map.get(states[i], 0) for i in chosen], float)
-        model = [spearmanr(np.array(r["outputs"][key]["turnout_by_state_core"])[chosen], observed).correlation for r in kept]
+        model = [spearmanr(np.array(r["outputs"][key]["events_by_state"])[chosen], observed).correlation for r in kept]
         tests[key] = {"states": len(chosen), "model": interval(model),
                       "baseline_population": float(spearmanr(pop[chosen], observed).correlation),
-                      "baseline_sc_plus_st": float(spearmanr(scst[chosen], observed).correlation)}
+                      "baseline_sc_plus_st": float(spearmanr(scst[chosen], observed).correlation),
+                      "baseline_population_times_intensity": float(spearmanr((pop * intensity)[chosen], observed).correlation),
+                      "baseline_sc_plus_st_times_intensity": float(spearmanr((scst * intensity)[chosen], observed).correlation)}
     return tests
 
 

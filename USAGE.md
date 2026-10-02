@@ -71,8 +71,9 @@ Version 3 (`protest_v3/`, described in `protest_v3/README.md`) is calibrated to 
 | Command | What it does | Time | Output |
 |---|---|---|---|
 | `python -m data_pipelines.district_covariates` | Downloads the Census 2011 district tables and the DataMeet district map; computes urban share, literacy and phone ownership | ~1 min | `data/derived/census2011_district_covariates.csv`, `district_boundaries_2011.json` |
+| `python -m data_pipelines.state_reporting_intensity` | Counts GDELT events of any kind per state over the 175 downloaded days and divides by population: how heavily each state is reported | ~8 min | `data/derived/gdelt_state_reporting_intensity.csv` |
 | `python -m data_pipelines.episode_targets_v3` | Builds the ten-episode targets (level, day profile, states, deaths, crowd ranges) | ~10 s | `data/derived/episode_targets_v3.json` |
-| `python -m experiments.v3_history_match --wave-size 8000 --waves 5 --checkpoint-dir <dir>` | History matching to the ten episodes, plus a match without the spatial targets for an out-of-sample spatial test | ~110 min | `results/v3_calibration.json`, `results/v3_nroy_samples.json` |
+| `python -m experiments.v3_history_match --wave-size 8000 --waves 6 --checkpoint-dir <dir>` | History matching to the ten episodes, plus a match without the spatial targets for an out-of-sample spatial test | ~2 h | `results/v3_calibration.json`, `results/v3_nroy_samples.json` |
 | `python -m experiments.v3_scenarios --runs 300` | Five reform designs, each as proposed, phased, negotiated, and with all three; plus the 2018 and EWS replays | ~4 min | `results/v3_scenarios.json` |
 | `python -m visualization.v3_figures` | Episode fit, day profiles, identification, the 2018 map, scenario chart and maps, seats, who takes part | ~1 min | `figures/v3_*` |
 
