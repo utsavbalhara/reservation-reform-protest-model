@@ -6,7 +6,8 @@ Each agent decides each day whether to take part. Net motivation is
     social pull = beta_n * tanh(neighbourhood turnout / n*) + beta_v * tanh(identity-group turnout / v*)
     organization = amplifier * capacity(identity group) * mobilization(day) * local(district) * alignment(state)
 minus the agent's threshold, which rises by the fatigue increment each day the agent protests. The agent protests with
-probability logistic(net / tau), but only if it has a stake (it feels a recognition threat or faces a material loss) and
+probability logistic(net / tau), but only if it has a stake (it feels a recognition threat or faces a material loss of
+at least 5 per cent of an above-line SC candidate's) and
 has heard of the protest. Without the stake rule, the low tail of the threshold distribution and the organizational
 push put tens of lakhs of unaffected people on the street in every episode (a Gujjar blockade in Rajasthan mobilized
 SC agents in Kerala), which set a floor under every episode's size and spread protest by population.
@@ -45,6 +46,10 @@ import pandas as pd
 from .population import GENERAL, IDENTITY_GROUP_COUNT, V3Population
 
 PEOPLE_PER_CRORE = 1e7
+# A material loss counts as a stake only if it is at least this fraction of the loss of an above-line SC candidate
+# under the reform (the unit of the allocation model's material table). Smaller changes, such as the 1 per cent
+# seat change for General candidates under an SC/ST creamy layer, are allocation noise, not a grievance.
+MATERIAL_STAKE_THRESHOLD = 0.05
 INTENSITY_PATH = Path(__file__).resolve().parent.parent / "data" / "derived" / "gdelt_state_reporting_intensity.csv"
 
 
@@ -180,7 +185,7 @@ def simulate(population: V3Population, parameters: V3Parameters, shock: Shock, d
     threat = agent_threat(population, shock)
     threatened = threat > 0
     material = agent_material(population, shock, parameters.loss_aversion)
-    stake = threatened | (material > 0)
+    stake = threatened | (material > parameters.loss_aversion * MATERIAL_STAKE_THRESHOLD)
     aware = stake & (agent_rng.random(n) < parameters.initial_awareness)
     threshold = parameters.mean_threshold + parameters.threshold_spread * base.threshold_standard_score
     push = parameters.party_amplifier * parameters.capacity[identity] * local_mobilization(population, parameters)
