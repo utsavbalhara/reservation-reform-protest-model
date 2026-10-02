@@ -21,9 +21,9 @@ EPISODE_LABELS = {"sc_st_bharat_bandh_2018": "SC/ST bandh, Apr 2018", "upper_cas
                   "maratha_march_mumbai_2017": "Maratha march, 2017", "maratha_quota_2018": "Maratha quota, 2018", "gujjar_2019": "Gujjar, Rajasthan 2019"}
 PARAMETER_LABELS = {"mean_threshold": "Mean threshold", "threshold_spread": "Threshold spread", "mixing": "Neighbourhood mixing",
                     "fatigue": "Fatigue", "neighbourhood_influence": "Neighbourhood influence", "national_influence": "National influence",
-                    "community_capacity": "Community organization", "kappa_urban": "Urban effect", "kappa_literacy": "Literacy effect",
+                    "community_capacity": "Community organization", "incumbent_state_factor": "Incumbent-state factor", "kappa_urban": "Urban effect", "kappa_literacy": "Literacy effect",
                     "kappa_phone": "Phone-ownership effect", "log10_death_rate": "Death rate", "death_dispersion": "Death dispersion",
-                    "log10_observation_scale": "Reporting scale", "observation_exponent": "Reporting exponent", "reporting_power": "Reporting-intensity power", "offsite_share": "Off-site reports",
+                    "log10_observation_scale": "Reporting scale", "observation_exponent": "Reporting exponent", "offsite_share": "Off-site reports",
                     "death_concentration_power": "Deaths: concentration power", "martyr_effect_per_death": "Martyr effect",
                     "initial_awareness": "Initial awareness", "awareness_diffusion": "Awareness diffusion"}
 MODIFIER_STYLE = {"none": ("As proposed", BLUE), "phased": ("Phased", ORANGE), "negotiated": ("Negotiated", AQUA), "all_three": ("Phased + negotiated + guaranteed", YELLOW)}

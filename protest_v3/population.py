@@ -50,6 +50,7 @@ class V3Population:
     covariates: np.ndarray       # agents x len(COVARIATES), standardized across districts
     district_covariates: pd.DataFrame
     mixing: float
+    is_hindu_general: np.ndarray  # General-category agents assigned Hindu by their state's NFHS-5 Hindu share
 
     @property
     def agent_count(self):
@@ -93,5 +94,18 @@ def build_population(agent_count: int = 120_000, mixing: float = 0.8) -> V3Popul
             assigned += take.size
     identity_group = np.where(community >= 0, SOCIAL_GROUP_COUNT + community, base.social_group)
     standardized, raw = district_covariates(table)
+    hindu_share = np.array([hindu_share_of_state(state) for state in states])
+    general = identity_group == GENERAL
+    is_hindu_general = general & (np.random.default_rng(POPULATION_SEED + 2).random(agent_count) < hindu_share[agent_state])
     return V3Population(base=base, identity_group=identity_group, community=community, agent_state=agent_state,
-                        state_names=states, covariates=standardized[base.district], district_covariates=raw, mixing=mixing)
+                        state_names=states, covariates=standardized[base.district], district_covariates=raw, mixing=mixing,
+                        is_hindu_general=is_hindu_general)
+
+
+def hindu_share_of_state(state: str) -> float:
+    """Share of household heads who are Hindu (NFHS-5, 2019-21). Religion is assigned independently of caste category
+    within a state, a simplification: the NFHS state tables give religion and caste separately, not jointly."""
+    from protest_simulation.geography import NFHS_NAME_FOR_STATE, NFHS_TABLE_PATH
+    table = pd.read_csv(NFHS_TABLE_PATH).set_index("state")
+    name = NFHS_NAME_FOR_STATE.get(state, state)
+    return float(table.loc[name, "hindu"]) / 100 if name in table.index else float(table.loc["India", "hindu"]) / 100

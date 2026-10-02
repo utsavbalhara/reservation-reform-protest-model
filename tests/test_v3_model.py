@@ -64,7 +64,7 @@ def test_only_agents_with_a_stake_protest(population):
 
 def test_awareness_diffusion_builds_protest_up(population):
     shock = Shock(episode_threat("jat_2016", 2.5))
-    slow = V3Parameters(initial_awareness=0.05, awareness_diffusion=1.5, fatigue=0.0)
+    slow = V3Parameters(initial_awareness=0.2, awareness_diffusion=1.5, fatigue=0.0)
     outcome = simulate(population, slow, shock, 5, (1, 2, 3, 4), np.random.default_rng(5))
     assert outcome.daily[4] > 1.5 * outcome.daily[1]
     everyone = simulate(population, V3Parameters(fatigue=0.0), shock, 5, (1, 2, 3, 4), np.random.default_rng(5))
@@ -131,3 +131,15 @@ def test_incumbent_state_factor_raises_protest_only_in_aligned_states(population
     up, kerala = population.state_names.index("Uttar Pradesh"), population.state_names.index("Kerala")
     assert strong.daily_by_state[1, up] > plain.daily_by_state[1, up]
     assert strong.daily_by_state[1, kerala] == pytest.approx(plain.daily_by_state[1, kerala], rel=0.35)
+
+
+def test_upper_caste_threat_reaches_only_hindu_general_agents(population):
+    from protest_v3.model import agent_threat
+    from protest_simulation.synthetic_population import GENERAL
+    threat = agent_threat(population, Shock(episode_threat("upper_caste_bandh_2018", 1.0)))
+    general = population.identity_group == GENERAL
+    assert np.all(threat[general & ~population.is_hindu_general] == 0)
+    assert np.all(threat[general & population.is_hindu_general] > 0)
+    kashmir = population.agent_state == population.state_names.index("Jammu & Kashmir")
+    up = population.agent_state == population.state_names.index("Uttar Pradesh")
+    assert population.is_hindu_general[general & kashmir].mean() < population.is_hindu_general[general & up].mean()

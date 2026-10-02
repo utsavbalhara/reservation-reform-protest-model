@@ -46,7 +46,7 @@ def run_one(arguments):
                       deprived_tier_material_gain=scenario.deprived_tier_material_gain, aligned_states=ALIGNED[reform])
         outcome = simulate(population, base.copy(party_amplifier=scenario.amplifier), shock, DAYS, ACTION_DAYS, np.random.default_rng(50_000 + run))
         events = expected_events(outcome.daily_by_state, reporting_intensity(population.state_names), sample["log10_observation_scale"],
-                                 sample["observation_exponent"], sample["reporting_power"], sample["offsite_share"],
+                                 sample["observation_exponent"], hm.REPORTING_POWER, sample["offsite_share"],
                                  reporting_volume_share(population.state_names)).sum(axis=1)
         bandh = outcome.daily_by_identity[ACTION_DAYS[0]]
         out[f"{reform}|{modifier}"] = {

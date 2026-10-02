@@ -23,6 +23,8 @@ Deaths are negative binomial. Their mean is the death rate times protester-days,
 (share of the state on the street / 1%)^eta: violence comes with concentrated agitation more than with a thin,
 countrywide bandh. Each death adds to the threat felt by the groups on the street (the martyr effect). Concession is an option, off by default: no episode identifies it.
 
+In the General category a positive threat reaches only Hindu members (assigned by state from NFHS-5).
+
 alignment(state) is the incumbent-state factor in states whose government belongs to the coalition the protest is
 aimed at, and 1 elsewhere. In all three national bandhs, protest per head was three to four times higher in states
 governed by the Union's ruling coalition (NDA) than elsewhere: opposition parties organize against a national policy
@@ -40,7 +42,7 @@ from pathlib import Path
 import numpy as np
 import pandas as pd
 
-from .population import IDENTITY_GROUP_COUNT, V3Population
+from .population import GENERAL, IDENTITY_GROUP_COUNT, V3Population
 
 PEOPLE_PER_CRORE = 1e7
 INTENSITY_PATH = Path(__file__).resolve().parent.parent / "data" / "derived" / "gdelt_state_reporting_intensity.csv"
@@ -146,7 +148,11 @@ class Outcome:
 def agent_threat(population: V3Population, shock: Shock) -> np.ndarray:
     base = population.base
     tier = np.where(base.is_most_deprived_tier, shock.deprived_tier_share, np.where(base.is_sc_or_st, shock.better_off_tier_factor, 1.0))
-    return np.asarray(shock.threat, float)[population.identity_group] * tier
+    threat = np.asarray(shock.threat, float)[population.identity_group] * tier
+    # An upper-caste mobilization (a positive threat to the General category) reaches Hindu members only: Muslims,
+    # Christians and Sikhs in the General category did not join the 2018 bandh against the SC/ST Act amendment.
+    general = population.identity_group == GENERAL
+    return np.where(general & (threat > 0) & ~population.is_hindu_general, 0.0, threat)
 
 
 def agent_material(population: V3Population, shock: Shock, loss_aversion: float) -> np.ndarray:

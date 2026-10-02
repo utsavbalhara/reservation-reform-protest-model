@@ -59,6 +59,10 @@ REFOCUS_COUNT = 200
 JITTER = 0.5
 HARD_TARGETS = ("bound", "crowd")
 NO_SPATIAL_EPISODES = {"ews_quota_2019", "kapu_2016"}
+# Reporting intensity (GDELT events of any kind per head) was tried as a multiplier on each state's expected events and
+# made the state ranking worse: Jammu and Kashmir, heavily reported for other reasons, had no reservation protest.
+# Its power is fixed at zero; Delhi's extra coverage comes through the off-site share instead.
+REPORTING_POWER = 0.0
 
 PRIORS = {
     "mean_threshold": (5.0, 9.0), "threshold_spread": (0.8, 2.2), "mixing": (0.5, 1.0), "fatigue": (0.0, 0.3),
@@ -68,7 +72,7 @@ PRIORS = {
     "log10_death_rate": (0.3, 3.0), "death_dispersion": (0.5, 5.0),
     "death_concentration_power": (0.0, 1.5), "martyr_effect_per_death": (0.0, 0.05),
     "initial_awareness": (0.05, 1.0), "awareness_diffusion": (0.0, 3.0),
-    "log10_observation_scale": (-4.0, 1.0), "observation_exponent": (0.3, 1.2), "reporting_power": (0.0, 1.5), "offsite_share": (0.0, 0.6),
+    "log10_observation_scale": (-4.0, 1.0), "observation_exponent": (0.3, 1.2), "offsite_share": (0.0, 0.6),
     "deprived_tier_share_2024": (0.1, 0.9),
     **{f"magnitude_{key}": ((0.0, 1.5) if key == "ews_quota_2019" else (0.02, 4.0)) for key in EPISODE_KEYS},
 }
@@ -109,7 +113,7 @@ def simulate_set(sample: dict) -> dict:
         outcome = simulate(population, parameters, shock, plan.days, plan.action_days, np.random.default_rng(SEED))
         core = list(plan.core_day_indices)
         events = expected_events(outcome.daily_by_state[core], reporting_intensity(population.state_names),
-                                 sample["log10_observation_scale"], sample["observation_exponent"], sample["reporting_power"],
+                                 sample["log10_observation_scale"], sample["observation_exponent"], REPORTING_POWER,
                                  sample["offsite_share"], reporting_volume_share(population.state_names))
         daily = outcome.daily
         record = {"events_by_day": events.sum(axis=1).tolist(), "events_by_state": events.sum(axis=0).tolist(),
